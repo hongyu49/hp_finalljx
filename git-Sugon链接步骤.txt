@@ -1,0 +1,4 @@
+1.在本地新建git目录,并进入
+2.git clone ssh://git@mobile.sugon.com/home/git/demo/share/hp.git hp.git
+3.修改相关文件后用 git add 和git commit 命令提交到本地仓库
+4.git remote -v 查看远程地址,git push origin master 即可实现本地仓库到服务器的代码提交
