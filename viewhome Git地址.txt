@@ -1,0 +1,5 @@
+mobile.sugon.com viewhome git链接地址
+
+为了保持一致 一般情况会创建viewhome文件夹
+
+git clone ssh://git@mobile.sugon.com/cygdrive/d/viewhome.git/ viewhome
