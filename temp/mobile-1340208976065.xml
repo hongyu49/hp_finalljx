@@ -1,0 +1,11 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><div class="type-home" data-role="page" id="list"><div data-role="header"><a data-rel="back" data-role="button" data-icon="home">返回</a><h1>个人消息</h1></div><div align="center" data-role="content"><script>
+							function goin(user,unid){
+								var url = "/view/digi/messagerouting/DFMessage/dfmsg_"+user+".nsf/msgByDateDownView/"+unid+"?opendocument?login";
+								$.get(url, function(result){
+									$.mobile.changePage(result, {
+										reverse: false,
+										changeHash: true
+									});
+								});
+							}
+						</script><ul data-inset="true" data-role="listview"><li><a>无内容</a></li></ul></div></div></body></html>

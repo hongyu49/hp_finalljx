@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="gb18030"?>
+<html><head><title>搜索电话</title><script language="JavaScript" type="text/javascript"><![CDATA[
+<!-- 
+function openPsn(itcode1){ return; var url = "/Produce/DigiFlowOrgSysMng.nsf/SearUserInfoForm?openform&ITCode="+itcode1; location.replace(url)}function $E(sName){ var obj = document.getElementById(sName); if(!obj) obj = document.all(sName); if(!obj) obj = document.getElementsByName(sName)[0]; return obj;}
+// -->
+]]></script><script language="JavaScript" type="text/javascript"><![CDATA[
+<!-- 
+document._domino_target = "_self";
+function _doClick(v, o, t, h) {
+  var form = document._telSearchForm;
+  if (form.onsubmit) {
+     var retVal = form.onsubmit();
+     if (typeof retVal == "boolean" && retVal == false)
+       return false;
+  }
+  var target = document._domino_target;
+  if (o.href != null) {
+    if (o.target != null)
+       target = o.target;
+  } else {
+    if (t != null)
+      target = t;
+  }
+  form.target = target;
+  form.__Click.value = v;
+  if (h != null)
+    form.action += h;
+  form.submit();
+  return false;
+}
+// -->
+]]></script><style><![CDATA[
+*{
+font-size:14px;
+font-family:"微软雅黑";
+}
+]]></style></head><body text="#000000" bgcolor="#FFFFFF" onload="if($E(" resultlist="ResultList" value="value" e="E" resultdiv="resultDiv" innerhtml="$E(&quot;ResultList&quot;).value;">
+
+
+
+
+
+
+
+
+<form method="post" action="/Produce/WeboaConfig.nsf/telSearchForm?OpenForm&amp;Seq=1&amp;svrName=CN%3Dv7demo%2FO%3Ddcms&amp;queryStr=%25u6D4B%25u8BD5&amp;dbFile=Produce%2FDigiFlowOrgPsnMng.nsf&amp;showField=UserDeptPhone" name="_telSearchForm">
+<input type="hidden" name="__Click" value="0" /><div style="display:none">
+<input name="DF_Ln_Type" value="ZH" style="display:none" />&amp;nbsp;&amp;nbsp;<b>系统捕获参数</b>
+<p><font size="2">URL参数说明:</font><br />
+<font size="2">queryStr-搜索字符串</font><br />
+<font size="2">svrName-目标数据库所在服务器</font><br />
+<font size="2">dbFile-目标数据库路径及文件名</font><br />
+<font size="2">ResultList-搜索结果，不是URL参数</font><br />
+<font size="2">showField-显示搜到的文档的字段名</font><br />
+<font size="2">userLevel－用户在组织结构库中的安全级别</font><br />
+<font size="2">exceptForm-滤除的表单(还未实现)</font><br />
+<font size="2">srchTime-搜索耗时，不是URL参数</font><br />
+<font size="2">userOrgID-传入的当前用户的归属部门ID</font><br />
+
+<input name="queryStr" value="测试" style="display:none" />
+<input name="svrName" value="CN=v7demo/O=dcms" style="display:none" />
+<input name="dbFile" value="Produce/DigiFlowOrgPsnMng.nsf" style="display:none" />
+<input name="userOrgID" value="" style="display:none" />
+<input name="userLevel" value="" style="display:none" /><br />
+
+<input name="showField" value="UserDeptPhone" style="display:none" />
+<input name="exceptForm" value="" style="display:none" />
+<input name="srchTime" value="" style="display:none" />
+<textarea name="ResultList" style="display:none" rows="7" cols="50"><table width="100%" border="1" style="border-collapse:collapse" class="table1"><tbody><tr bgcolor="#d6dff7"><td align="center" width="15%"><b>ITCode</b></td><td align="center" width="15%"><b>用户名</b></td><td align="center" width="15%"><b>员工编号</b></td><td align="center" width="25%"><b>移动电话</b></td><td align="center" width="15%"><b>办公电话</b></td></tr><tr><td align="left"><a href="javascript:openPsn(&apos;dev61&apos;);"><font color="blue">dev61</font></a></td><td align="left">测试账号</td><td align="left" /><td align="left" /><td align="left" /></tr><tr><td align="left"><a href="javascript:openPsn(&apos;dev62&apos;);"><font color="blue">dev62</font></a></td><td align="left">测试</td><td align="left" /><td align="left" /><td align="left">x</td></tr><tr><td align="left"><a href="javascript:openPsn(&apos;dev63&apos;);"><font color="blue">dev63</font></a></td><td align="left">测试账号63</td><td align="left" /><td align="left" /><td align="left" /></tr><tr><td align="left"><a href="javascript:openPsn(&apos;dev64&apos;);"><font color="blue">dev64</font></a></td><td align="left">测试账号64</td><td align="left" /><td align="left" /><td align="left">4445555</td></tr><tr><td align="left"><a href="javascript:openPsn(&apos;199125&apos;);"><font color="blue">199125</font></a></td><td align="left">测试经销商</td><td align="left" /><td align="left" /><td align="left" /></tr><tr><td align="left"><a href="javascript:openPsn(&apos;dev65&apos;);"><font color="blue">dev65</font></a></td><td align="left">HR测试</td><td align="left" /><td align="left">9999999999</td><td align="left">99</td></tr><tr><td align="left"><a href="javascript:openPsn(&apos;dev66&apos;);"><font color="blue">dev66</font></a></td><td align="left">HR测试2</td><td align="left" /><td align="left" /><td align="left">1111</td></tr><tr><td align="left"><a href="javascript:openPsn(&apos;dev67&apos;);"><font color="blue">dev67</font></a></td><td align="left">HR测试3</td><td align="left" /><td align="left" /><td align="left">010-8859312</td></tr><tr><td align="left"><a href="javascript:openPsn(&apos;dev68&apos;);"><font color="blue">dev68</font></a></td><td align="left">HR测试4</td><td align="left" /><td align="left" /><td align="left" /></tr><tr><td align="left"><a href="javascript:openPsn(&apos;wanrun1&apos;);"><font color="blue">wanrun1</font></a></td><td align="left">万润-测试用户1</td><td align="left" /><td align="left" /><td align="left" /></tr><tr><td align="left"><a href="javascript:openPsn(&apos;wanrun2&apos;);"><font color="blue">wanrun2</font></a></td><td align="left">万润-测试用户2</td><td align="left" /><td align="left" /><td align="left" /></tr><tr><td align="left"><a href="javascript:openPsn(&apos;wanrun3&apos;);"><font color="blue">wanrun3</font></a></td><td align="left">万润-测试用户3</td><td align="left" /><td align="left" /><td align="left" /></tr><tr><td align="left"><a href="javascript:openPsn(&apos;test1&apos;);"><font color="blue">test1</font></a></td><td align="left">测试一</td><td align="left" /><td align="left" /><td align="left" /></tr><tr><td align="left"><a href="javascript:openPsn(&apos;test2&apos;);"><font color="blue">test2</font></a></td><td align="left">测试二</td><td align="left" /><td align="left" /><td align="left" /></tr><tr><td align="left"><a href="javascript:openPsn(&apos;mntest1&apos;);"><font color="blue">mntest1</font></a></td><td align="left">蒙牛测试1</td><td align="left" /><td align="left" /><td align="left" /></tr><tr><td align="left"><a href="javascript:openPsn(&apos;mntest2&apos;);"><font color="blue">mntest2</font></a></td><td align="left">蒙牛测试2</td><td align="left" /><td align="left" /><td align="left" /></tr><tr><td align="left"><a href="javascript:openPsn(&apos;mntest3&apos;);"><font color="blue">mntest3</font></a></td><td align="left">蒙牛测试3</td><td align="left" /><td align="left" /><td align="left" /></tr><tr><td align="left"><a href="javascript:openPsn(&apos;mntest4&apos;);"><font color="blue">mntest4</font></a></td><td align="left">蒙牛测试4</td><td align="left" /><td align="left" /><td align="left" /></tr><tr><td align="left"><a href="javascript:openPsn(&apos;mntest5&apos;);"><font color="blue">mntest5</font></a></td><td align="left">蒙牛测试5</td><td align="left" /><td align="left" /><td align="left" /></tr><tr><td align="left"><a href="javascript:openPsn(&apos;mntest6&apos;);"><font color="blue">mntest6</font></a></td><td align="left">蒙牛测试6</td><td align="left" /><td align="left" /><td align="left" /></tr><tr><td align="left"><a href="javascript:openPsn(&apos;Test001&apos;);"><font color="blue">Test001</font></a></td><td align="left">测试001</td><td align="left" /><td align="left" /><td align="left" /></tr><tr><td align="left"><a href="javascript:openPsn(&apos;TestAdmin&apos;);"><font color="blue">TestAdmin</font></a></td><td align="left">测试管理员</td><td align="left" /><td align="left" /><td align="left" /></tr><tr><td align="left"><a href="javascript:openPsn(&apos;Test002&apos;);"><font color="blue">Test002</font></a></td><td align="left">测试002</td><td align="left" /><td align="left" /><td align="left" /></tr><tr><td align="left"><a href="javascript:openPsn(&apos;Test003&apos;);"><font color="blue">Test003</font></a></td><td align="left">测试003</td><td align="left" /><td align="left" /><td align="left" /></tr><tr><td align="left"><a href="javascript:openPsn(&apos;Test004&apos;);"><font color="blue">Test004</font></a></td><td align="left">测试004</td><td align="left" /><td align="left" /><td align="left" /></tr><tr><td align="left"><a href="javascript:openPsn(&apos;test004&apos;);"><font color="blue">test004</font></a></td><td align="left">测试用户004</td><td align="left" /><td align="left" /><td align="left" /></tr></tbody></table></textarea>
+</p></div>
+
+
+
+
+
+<table width="100%" style="border:1px solid gray" bgcolor="#f0f0f0" align="left"><tbody><tr><td colspan="2" align="center"><font color="blue"><b>搜索结果</b></font></td></tr><tr><td colspan="2"><div id="resultDiv" /></td></tr><tr><td colspan="2" align="center">
+<p>
+<input type="button" onclick="window.close();" value="关 闭" id="DF_00009" /></p></td></tr></tbody></table>
+</form>
+
+
+<data-params><isfile>false</isfile><issucceed>true</issucceed><statuscode>200</statuscode><headers><param name="Server" value="Lotus-Domino" /><param name="Date" value="Sun, 01 Jul 2012 15:00:11 GMT" /><param name="Last-Modified" value="Sun, 01 Jul 2012 15:00:09 GMT" /><param name="Expires" value="Tue, 01 Jan 1980 06:00:00 GMT" /><param name="Content-Type" value="text/html; charset=GB2312" /><param name="Content-Length" value="11358" /><param name="Cache-control" value="no-cache" /></headers><redirects /><usertoken><storeid>98425b11398345c9bff6a4fd01514bd1</storeid><userid>dev3</userid><username /><createtimemillis>1341154979770</createtimemillis></usertoken><message><protocal>http</protocal><url>http://182.50.2.171:8000/Produce/WeboaConfig.nsf/telSearchForm?openform&amp;svrName=CN=v7demo/O=dcms&amp;queryStr=%25u6D4B%25u8BD5&amp;dbFile=Produce/DigiFlowOrgPsnMng.nsf&amp;showField=UserDeptPhone</url><method>post</method><encoding>gb18030</encoding><type>remote</type><source>http://182.50.2.171:8000</source><template>digi/phonenumber/request.xsl</template><params><param key="openform" value="" /><param key="svrName" value="CN=v7demo/O=dcms" /><param key="showField" value="UserDeptPhone" /><param key="queryStr" value="%u6D4B%u8BD5" /><param key="dbFile" value="Produce/DigiFlowOrgPsnMng.nsf" /></params></message></data-params></body></html>

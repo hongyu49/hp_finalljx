@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="gb18030"?>
+<html><head><script language="JavaScript" type="text/javascript"><![CDATA[
+<!-- 
+document._domino_target = "_self";
+function _doClick(v, o, t) {
+  var returnValue = false;
+  var url="/DFMessage/dfmsg_admin.nsf/msgByDateDownView/58fc65816e591c3448257a1d001a3e5c?OpenDocument&Click=" + v;
+  if (o.href != null) {
+    o.href = url;
+    returnValue = true;
+  } else {
+    if (t == null)
+      t = document._domino_target;
+    window.open(url, t);
+  }
+  return returnValue;
+}
+// -->
+]]></script></head><body text="#000000" bgcolor="#FFFFFF">
+
+
+
+
+
+
+<form action=""><script><![CDATA[self.location="/Produce/weboaconfig.nsf/GeneralErrorForm?openform";]]></script></form>
+
+
+<data-params><isfile>false</isfile><issucceed>true</issucceed><statuscode>404</statuscode><headers><param name="Server" value="Lotus-Domino" /><param name="Date" value="Wed, 20 Jun 2012 02:01:10 GMT" /><param name="Connection" value="close" /><param name="Expires" value="Tue, 01 Jan 1980 06:00:00 GMT" /><param name="Content-Type" value="text/html; charset=US-ASCII" /><param name="Content-Length" value="719" /><param name="Cache-control" value="no-cache" /></headers><redirects /><usertoken><storeid>cccda0470ca14b9188f6864cdbea4b7e</storeid><userid>dev3</userid><username /><createtimemillis>1340157462636</createtimemillis></usertoken><message><protocal>http</protocal><url>http://182.50.2.171:8000/DFMessage/dfmsg_admin.nsf/msgByDateDownView/58FC65816E591C3448257A1D001A3E5C?opendocument?login</url><method>get</method><encoding>gb18030</encoding><type>remote</type><source>http://182.50.2.171:8000</source><template>digi/message/routing.xsl</template><params><param key="opendocument?login" value="" /></params></message></data-params></body></html>

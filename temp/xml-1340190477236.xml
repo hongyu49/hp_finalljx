@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="gb18030"?>
+<html><head><title>DigiFlow V7</title><meta name="viewport" content="user-scalable=no,width=device-width" /><script language="JavaScript" type="text/javascript"><![CDATA[
+<!-- 
+function getCookie(cookieName){ var index=-1;   if(document.cookie)    index=document.cookie.indexOf(cookieName);  if(index==-1) {   return "";  } else {       var iBegin = (document.cookie.indexOf("=", index) +1);          var iEnd =document.cookie.indexOf(";", index);          if (iEnd == -1)          {              iEnd = document.cookie.length;          }          return unescape(document.cookie.substring(iBegin,iEnd)); }}function setName(){ var userNameStr = getCookie('myusername'); if(userNameStr != ""){  document.forms[0].Username.value = userNameStr;  document.forms[0].Username.style.backgroundColor = "#b8fe21"; } if (document.forms[0].Password.value == ""){  if(document.forms[0].Username.value == ""){   document.forms[0].Username.focus();    document.forms[0].Username.select();  }  else{   document.forms[0].Password.focus();    document.forms[0].Password.select();  } } else{  document.forms[0].Username.focus();   document.forms[0].Username.select();  }}//====================- 2011年3月9日 余锐 记录重定向目标地址 增加开始 ====================-function GoPage(){ ///////////////////////////////////////////////// // 功能：记录重定向目标地址，登陆成功之后，会自动转向到目标页面。 // 参数：  // 关联： 登陆按钮点击时调用。 // 作者： 余锐 // 时间： 2011年3月9日 ///////////////////////////////////////////////// var objRt = document.all.RedirectTo; objRt.value = "/Produce/LoginLog.nsf/LoginRecord?OpenAgent&rto=" + objRt.value;}//====================- 2011年3月9日 余锐 记录重定向目标地址 增加结束 ====================-
+// -->
+]]></script><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta http-equiv="expires" content="0" /><meta content="MSHTML 6.00.2900.2668" name="GENERATOR" /><style type="text/css"><![CDATA[
+*{
+ padding-left:2px;
+ padding-right:2px;
+ margin:0;
+ font-family:"微软雅黑";
+ font-size:12px;
+}
+body{
+ background-image:url(/DF_Res/DF_Style_Source/DF_Style_Mobile/img/background.gif);
+ background-repeat:repeat-x;
+ text-align:center;
+ 
+}
+.DB{
+ background-position:right;
+ background-repeat:no-repeat;
+ background-color:transparent;
+ background-image:none;
+ margin:0 auto;
+ margin-top:50px;
+ position:absolute;
+ top:40%;
+ height:270px;
+ margin-top:-50px;
+ left:50%;
+ width:240px;
+ margin-left:-120px;
+}
+.DB_BANNER{
+ padding-top:10px;
+ height:80px;
+ text-align:center;
+ background-image:url(/DF_Res/DF_Style_Source/DF_Style_Mobile/img_login/dflogo.png);
+ background-position:center;
+ background-repeat:no-repeat;
+ background-color:transparent;
+}
+.DB_INPUT{
+ height:70px;
+ background-image:none;
+ background-color:transparent;
+ margin:10px 10px;
+}
+.DB_INPUT ul{
+ background-image:none;
+ background-color:transparent;
+ 
+}
+.DB_INPUT ul li{
+ height:25px;
+ line-height:25px;
+ background-image:none;
+ background-color:transparent;
+ list-style:none;
+ margin:10px auto;
+ text-align:center;
+}
+input{
+ background-image:none;
+}
+]]></style></head><body text="#000000" bgcolor="#FFFFFF" onload="setName();">
+
+
+
+
+
+
+<form method="post" action="/names.nsf?Login" name="_DominoForm">
+<input type="hidden" name="%%ModDate" value="0000000100000000" />
+
+&quot;DigiFlow V7&quot;
+
+
+
+<script language="JavaScript" type="text/javascript"><![CDATA[
+<!-- 
+var NN4 = (document.layers) ? true : false;
+if (NN4) document.captureEvents(Event.KEYPRESS)
+document.onkeypress = function (event) {
+  checkEnter(event)
+  return true
+}
+function setFormFocus() {
+ document.forms[0].Username.focus(); 
+ document.forms[0].Username.select();
+}
+//submit the form if the user presses the ENTER key
+function checkEnter(event)
+{  
+ var code = 0
+ 
+ if (NN4) {
+  code = event.which
+ } else {
+  code = window.event.keyCode
+ }
+  
+ if (code==13)document.forms[0].submit();
+}
+// -->
+]]></script>
+
+
+<input type="hidden" value="0871326800000070" name="%%ModDate" />
+<div class="DB">
+<div class="DB_BANNER" />
+<div class="DB_INPUT">
+<ul>
+<li style="background-image:none;"><font color="red" style="background-image:none;">用户名或密码错误!</font></li>
+<li>用户名：&amp;nbsp;
+<input name="Username" value="" size="10" maxlength="50" autocomplete="off" class="BORDER-RIGHT=1px solid;BORDER-TOP=1px solid ;BORDER-LEFT=1px solid;BORDER-BOTTOM=1px solid;background=white" style="width:125;height:20;BORDER-RIGHT=1px solid;BORDER-TOP=1px solid ;BORDER-LEFT=1px solid;BORDER-BOTTOM=1px solid;border-color=#5BBBC7" /></li>
+<li>密&amp;nbsp;&amp;nbsp;&amp;nbsp;码：&amp;nbsp;
+<input name="Password" value="" type="password" size="10" maxlength="50" autocomplete="off" style="width:125;height:20;BORDER-RIGHT=1px solid;BORDER-TOP=1px solid ;BORDER-LEFT=1px solid;BORDER-BOTTOM=1px solid;border-color=#5BBBC7" /></li>
+<li>
+<input type="image" cache="cache" src="/DF_Res/DF_Img_Source/Login//login.png" border="0" name="imageField" />&amp;nbsp;&amp;nbsp;&amp;nbsp;
+<input type="image" cache="cache" src="/DF_Res/DF_Img_Source/Login//cancel.png" border="0" name="imageField" onclick="self.close();document.all(&apos;Username&apos;).value=&apos;&apos;;document.all(&apos;Password&apos;).value=&apos;&apos;;" />&amp;nbsp;&amp;nbsp;
+</li>
+</ul>
+</div>
+</div>
+
+
+<div style="display:none"><br />
+<font size="2">
+<input name="RedirectTo" value="/Produce/Weboaconfig.nsf/Homeform?openform&amp;login" type="hidden" /></font>
+<input name="$PublicAccess" value="1" />
+<input name="ReasonType" value="2" />
+<!-- 
+<input type="submit" value="登录"> -->
+</div>
+</form>
+
+
+<data-params><isfile>false</isfile><issucceed>true</issucceed><statuscode>200</statuscode><headers><param name="Server" value="Lotus-Domino" /><param name="Date" value="Wed, 20 Jun 2012 11:08:41 GMT" /><param name="Expires" value="Tue, 01 Jan 1980 06:00:00 GMT" /><param name="Content-Type" value="text/html; charset=GB2312" /><param name="Content-Length" value="5597" /><param name="Cache-control" value="no-cache" /></headers><redirects /><usertoken><storeid>8c83570067e5449baa56565af7957085</storeid><userid> dev3</userid><username /><createtimemillis>1340190411376</createtimemillis></usertoken><message><protocal>http</protocal><url>http://182.50.2.171:8000/names.nsf?Login&amp;$PublicAccess=1&amp;%26%26ModDate=0000000100000000&amp;%26%26ModDate=0871326800000070&amp;Password=000&amp;ReasonType=0&amp;RedirectTo=/Produce/Weboaconfig.nsf/Homeform?openform%26login&amp;Username=%20dev3&amp;imageField.x=55&amp;imageField.y=13&amp;random=705838&amp;_=1340190370702</url><method>get</method><encoding>gb18030</encoding><type>remote</type><source>http://182.50.2.171:8000</source><template>digi/loginvalidate.xsl</template><params><param key="Login" value="" /><param key="$PublicAccess" value="1" /><param key="ReasonType" value="0" /><param key="RedirectTo" value="/Produce/Weboaconfig.nsf/Homeform?openform&amp;login" /><param key="imageField.x" value="55" /><param key="imageField.y" value="13" /><param key="Username" value=" dev3" /><param key="Password" value="000" /><param key="random" value="705838" /><param key="&amp;&amp;ModDate" value="0000000100000000" /><param key="_" value="1340190370702" /></params></message></data-params></body></html>

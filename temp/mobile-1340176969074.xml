@@ -1,0 +1,25 @@
+<html lang="zh_cn"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><div class="type-home" data-iscroll="enable" data-role="page"><div style="data-position:fixed;" data-role="header"><a data-rel="back" data-role="button" data-icon="home">返回</a><h1>电话查询</h1><a onclick="submit();" data-role="button" data-icon="home">搜索</a></div><div align="center" data-role="content"><script>
+							
+							function submit(){
+								var username = $("#phonenumber").val();
+								username = encodeURI(escape(username));
+								
+								$.mobile.showPageLoadingMsg();
+								
+								var url = "/view/digi/phonenumberrequest/Produce/WeboaConfig.nsf/telSearchForm?openform&svrName=CN=v7demo/O=dcms&queryStr="+username+"&dbFile=Produce/DigiFlowOrgPsnMng.nsf&showField=UserDeptPhone";
+								$.ajax({
+									type: "post", url: url,
+									success: function(response){
+										$.mobile.hidePageLoadingMsg();
+										$("#viewValue").html(response);
+										$("#viewValue ul").listview();
+										$("#viewValue ul").listview();    
+									},
+									error:function(response){
+										$.mobile.hidePageLoadingMsg();
+										alert("错误:"+response.responseText);
+									}
+								});
+							}
+							
+						</script><div align="center" style="width:100%;"><input value="" name="phonenumber" id="phonenumber" type="text"></div><div id="viewValue"><ul data-inset="true" data-role="listview"><li data-role="list-divider"></li><li>无数据</li></ul></div></div></div></body></html>

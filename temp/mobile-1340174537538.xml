@@ -1,0 +1,9 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><div class="type-home" data-role="page" id="list"><div data-role="header"><a data-rel="back" data-role="button" data-icon="home">返回</a><h1>待办事宜</h1></div><div align="center" data-role="content"><script>
+							function changepage(url){
+								$.mobile.changePage(url, {changeHash:true, type: "post"});
+							}
+						</script><ul data-inset="true" data-role="listview"><li><a data-iconpos="right" data-icon="arrow-r" onclick="changepage('/view/digi/contentmobile/Produce/DigiFlowMobileJC.nsf/showformserver?openform&amp;apptype=msg&amp;appserver=&amp;appdbpath=DFMessage/dfmsg_dev3.nsf&amp;appdocunid=BE3F1FEB0899EE3A48257A1C00561BE9')" href="javascript:void(0)"><h3>管理员提交了信息发布申请流程,请您尽快处理.</h3><p>
+					时间:<font color="#0080FF">2012-06-13 23:38:04</font>
+					状态:<font color="#0080FF">待办(已查阅)</font></p></a></li><li><a data-iconpos="right" data-icon="arrow-r" onclick="changepage('/view/digi/contentmobile/Produce/DigiFlowMobileJC.nsf/showformserver?openform&amp;apptype=msg&amp;appserver=&amp;appdbpath=DFMessage/dfmsg_dev3.nsf&amp;appdocunid=47D312A295417EFC48257A1C0048D5B2')" href="javascript:void(0)"><h3>开发者3提交了信息发布申请流程,请您尽快处理.</h3><p>
+					时间:<font color="#0080FF">2012-06-13 21:11:45</font>
+					状态:<font color="#0080FF">待办(已查阅)</font></p></a></li></ul></div></div></body></html>

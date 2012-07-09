@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="gb18030"?>
+<html><head><script language="JavaScript" type="text/javascript"><![CDATA[
+<!-- 
+document._domino_target = "_self";
+function _doClick(v, o, t, h) {
+  var form = document._UniformMsg_form;
+  if (form.onsubmit) {
+     var retVal = form.onsubmit();
+     if (typeof retVal == "boolean" && retVal == false)
+       return false;
+  }
+  var target = document._domino_target;
+  if (o.href != null) {
+    if (o.target != null)
+       target = o.target;
+  } else {
+    if (t != null)
+      target = t;
+  }
+  form.target = target;
+  form.__Click.value = v;
+  if (h != null)
+    form.action += h;
+  form.submit();
+  return false;
+}
+// -->
+]]></script></head><body text="#000000" bgcolor="#FFFFFF" onload="// ******* 2007-09-25 增加能够接收从应用传来的真实URL *******var infourl=&quot;&quot;if ( document.all(&quot;StRealURL&quot;)==null || document.all(&quot;StRealURL&quot;).value==&quot;&quot;){ if(document.all(&quot;StMsgServer&quot;).value!=&quot;&quot;){  infourl=&quot;http://&quot;+document.all(&quot;StMsgServer&quot;).value+&quot;/&quot;;  //infourl = &quot;http://demo.digiflow.cn:8000/&quot;; }else{  infourl=&quot;/&quot;; } infourl=infourl+document.all(&quot;StMsgDB&quot;).value+&quot;/0/&quot;+document.all(&quot;StMsgParentId&quot;).value+&quot;?opendocument&amp;login&quot;; infourl=infourl.replace(/\\/gi,&quot;\/&quot;);}else{ infourl=document.all(&quot;StRealURL&quot;).value}window.navigate(infourl);">
+
+
+
+
+
+
+<form method="post" action="/DFMessage/dfmsg_dev1.nsf/msgByDateDownView/8d8d49a16c3e352f48257a230059629b?EditDocument&amp;Seq=1" name="_UniformMsg_form">
+<input type="hidden" name="__Click" value="0" />
+<input type="hidden" name="%%ModDate" value="48257A230059629E" />
+<input name="Form" type="hidden" value="UniformMsg_form" />
+<input name="StMsgAdmin" type="hidden" value="[admin]" />
+<input name="StMsgReader" type="hidden" value="dev1" />
+<input name="StMsgServer" type="hidden" value="182.50.2.171:8000" />
+<input name="StDonePsn" type="hidden" value="" />
+<input name="StMsgDB" type="hidden" value="Application\DigiFlowInfoPublish.nsf" />
+<input name="StMsgDBTitle" type="hidden" value="Z.A.03 信息发布" />
+<input name="StMsgFrom" type="hidden" value="dev1" />
+<input name="StMsgCreated" type="hidden" value="06/21/2012 12:15:17 AM" />
+<input name="StMsgReceiver" type="hidden" value="dev1" />
+<input name="StMsgType" type="hidden" value="msg" />
+<input name="StMsgText" type="hidden" value="您发起的[信息发布申请流程]流转成功结束" />
+<input name="StMsgPriority" type="hidden" value="1" />
+<input name="StMsgBody" type="hidden" value="请查阅" />
+<input name="StMsgState" type="hidden" value="1" />
+<input name="StMsgLink" type="hidden" value="&lt;a href=&quot;http://182.50.2.171:8000/Application\DigiFlowInfoPublish.nsf/0/EAB4F27CEDFCB7A948257A23005692AE?opendocument&quot;&gt;打开&lt;/a&gt;" />
+<input name="StMsgFromType" type="hidden" value="" />
+<input name="StMsgParentId" type="hidden" value="EAB4F27CEDFCB7A948257A23005692AE" />
+<input name="StRealURL" type="hidden" value="" />
+<input name="StExtStr1" type="hidden" value="" />
+<input name="StExtStr2" type="hidden" value="" />
+<input name="StExtStr3" type="hidden" value="" />
+<input name="StExtStr4" type="hidden" value="" />
+<input name="StExtStr5" type="hidden" value="" />
+<input name="StExtStr6" type="hidden" value="" />
+<input name="StExtStr7" type="hidden" value="" />
+<input name="StExtStr8" type="hidden" value="" />
+<input name="StExtStr9" type="hidden" value="" />
+<input name="StExtStr10" type="hidden" value="" />
+<input name="StNodeID" type="hidden" value="" />
+<input name="StNodeName" type="hidden" value="" />
+<input name="StOptFlag" type="hidden" value="" />
+<input name="StFlagDes" type="hidden" value="" />
+<input name="StAppType" type="hidden" value="" />
+<input name="StOptType" type="hidden" value="" /></form>
+
+
+<data-params><isfile>false</isfile><issucceed>true</issucceed><statuscode>200</statuscode><headers><param name="Server" value="Lotus-Domino" /><param name="Date" value="Thu, 21 Jun 2012 08:11:28 GMT" /><param name="Connection" value="close" /><param name="Last-Modified" value="Thu, 21 Jun 2012 08:11:26 GMT" /><param name="Expires" value="Tue, 01 Jan 1980 06:00:00 GMT" /><param name="Content-Type" value="text/html; charset=GB2312" /><param name="Content-Length" value="3829" /><param name="Cache-control" value="no-cache" /></headers><redirects /><usertoken><storeid>cc741f851210490887486d6141659976</storeid><userid>dev1</userid><username /><createtimemillis>1340266240721</createtimemillis></usertoken><message><protocal>http</protocal><url>http://182.50.2.171:8000/DFMessage/dfmsg_dev1.nsf/msgByDateDownView/8D8D49A16C3E352F48257A230059629B?opendocument?login</url><method>get</method><encoding>gb18030</encoding><type>remote</type><source>http://182.50.2.171:8000</source><template>digi/message/routing.xsl</template><params><param key="opendocument?login" value="" /></params></message></data-params></body></html>

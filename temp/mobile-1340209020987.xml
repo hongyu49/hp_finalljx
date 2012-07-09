@@ -1,0 +1,25 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><div class="type-home" data-role="page" id="list"><div data-role="header"><a data-rel="back" data-role="button" data-icon="home">返回</a><h1>企业新闻</h1></div><div align="center" data-role="content"><script>
+							function changepage(url){
+								$.mobile.changePage(url, {changeHash:true, type: "post"});
+							}
+						</script><ul data-inset="true" data-role="listview"><li><a data-iconpos="right" data-icon="arrow-r" onclick="changepage('/view/digi/newscontent/Application/DigiFlowInfoPublish.nsf/InfoByDateView_2/EAB4F27CEDFCB7A948257A23005692AE?OpenDocument&amp;login');" href="javascript:void(0)"><h3>福田雷沃重工与约翰迪尔论道&ldquo;廊坊会&rdquo;</h3><p>
+						发布时间:<font color="#0080FF">2012-06-21 00:15:18</font>
+						重要程度	:<font color="#0080FF">普通</font>
+						所属栏目:<font color="#0080FF">企业新闻</font>
+						起草人:<font color="#0080FF">开发者1</font>
+						起草部门:<font color="#0080FF">化工行业</font></p></a></li><li><a data-iconpos="right" data-icon="arrow-r" onclick="changepage('/view/digi/newscontent/Application/DigiFlowInfoPublish.nsf/InfoByDateView_2/1801E4CF6A7FF8AA48257A230056A6F9?OpenDocument&amp;login');" href="javascript:void(0)"><h3>福田雷沃重工廊坊竞技展风采</h3><p>
+						发布时间:<font color="#0080FF">2012-06-21 00:15:01</font>
+						重要程度	:<font color="#0080FF">普通</font>
+						所属栏目:<font color="#0080FF">企业新闻</font>
+						起草人:<font color="#0080FF">开发者1</font>
+						起草部门:<font color="#0080FF">化工行业</font></p></a></li><li><a data-iconpos="right" data-icon="arrow-r" onclick="changepage('/view/digi/newscontent/Application/DigiFlowInfoPublish.nsf/InfoByDateView_2/6BC627CED5E29D5248257A23005662A8?OpenDocument&amp;login');" href="javascript:void(0)"><h3>山东福田重工全国第一</h3><p>
+						发布时间:<font color="#0080FF">2012-06-21 00:14:43</font>
+						重要程度	:<font color="#0080FF">普通</font>
+						所属栏目:<font color="#0080FF">企业新闻</font>
+						起草人:<font color="#0080FF">开发者1</font>
+						起草部门:<font color="#0080FF">化工行业</font></p></a></li><li><a data-iconpos="right" data-icon="arrow-r" onclick="changepage('/view/digi/newscontent/Application/DigiFlowInfoPublish.nsf/InfoByDateView_2/A4088826CFC7DECC482579C2001DAB9F?OpenDocument&amp;login');" href="javascript:void(0)"><h3>鼎捷易成ERP携手齐桀经贸 打造极致咖啡体验</h3><p>
+						发布时间:<font color="#0080FF">2012-03-15 13:24:49</font>
+						重要程度	:<font color="#0080FF">普通</font>
+						所属栏目:<font color="#0080FF">企业新闻</font>
+						起草人:<font color="#0080FF">开发者1</font>
+						起草部门:<font color="#0080FF">化工行业</font></p></a></li></ul></div></div></body></html>

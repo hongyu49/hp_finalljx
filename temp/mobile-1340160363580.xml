@@ -1,0 +1,15 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><div class="type-home" data-role="page" id="list"><div data-role="header"><a data-rel="back" data-role="button" data-icon="home">返回</a><h1>待办事宜</h1></div><div align="center" data-role="content"><script>
+							function changepage(url){
+								$.mobile.changePage(url, {changeHash:true, type: "post"});
+							}
+						</script><ul data-inset="true" data-role="listview"><li><a data-iconpos="right" data-icon="arrow-r" onclick="changepage('/view/digi/contentmobile/Produce/DigiFlowMobileJC.nsf/showformserver?openform&amp;apptype=msg&amp;appserver=&amp;appdbpath=DFMessage/dfmsg_dev1.nsf&amp;appdocunid=D22009257D491D3848257A1D00236620')" href="javascript:void(0)"><h3>管理员提交了SAP-差旅费报销审批,请您尽快处理.</h3><p>
+					时间:<font color="#0080FF">2012-06-14 14:22:05</font>
+					状态:<font color="#0080FF">待办(已查阅)</font></p></a></li><li><a data-iconpos="right" data-icon="arrow-r" onclick="changepage('/view/digi/contentmobile/Produce/DigiFlowMobileJC.nsf/showformserver?openform&amp;apptype=msg&amp;appserver=&amp;appdbpath=DFMessage/dfmsg_dev1.nsf&amp;appdocunid=65EF07CC0738C6EA48257A1C00576FD6')" href="javascript:void(0)"><h3>管理员提交了信息发布申请流程,请您尽快处理.</h3><p>
+					时间:<font color="#0080FF">2012-06-13 23:54:20</font>
+					状态:<font color="#0080FF">待办(已查阅)</font></p></a></li><li><a data-iconpos="right" data-icon="arrow-r" onclick="changepage('/view/digi/contentmobile/Produce/DigiFlowMobileJC.nsf/showformserver?openform&amp;apptype=msg&amp;appserver=&amp;appdbpath=DFMessage/dfmsg_dev1.nsf&amp;appdocunid=5AFA0C7DDE02391148257A1C004C4B86')" href="javascript:void(0)"><h3>开发者3提交了信息发布申请流程,请您尽快处理.</h3><p>
+					时间:<font color="#0080FF">2012-06-13 21:53:00</font>
+					状态:<font color="#0080FF">待办(已查阅)</font></p></a></li><li><a data-iconpos="right" data-icon="arrow-r" onclick="changepage('/view/digi/contentmobile/Produce/DigiFlowMobileJC.nsf/showformserver?openform&amp;apptype=msg&amp;appserver=&amp;appdbpath=DFMessage/dfmsg_dev1.nsf&amp;appdocunid=D50E7823DF803C7048257A1C004B98D4')" href="javascript:void(0)"><h3>开发者3提交了信息发布申请流程,请您尽快处理.</h3><p>
+					时间:<font color="#0080FF">2012-06-13 21:45:34</font>
+					状态:<font color="#0080FF">待办(已查阅)</font></p></a></li><li><a data-iconpos="right" data-icon="arrow-r" onclick="changepage('/view/digi/contentmobile/Produce/DigiFlowMobileJC.nsf/showformserver?openform&amp;apptype=msg&amp;appserver=&amp;appdbpath=DFMessage/dfmsg_dev1.nsf&amp;appdocunid=734450C61FACC0FE48257A1C002F05B6')" href="javascript:void(0)"><h3>管理员提交了信息发布申请流程,请您尽快处理.</h3><p>
+					时间:<font color="#0080FF">2012-06-13 16:33:23</font>
+					状态:<font color="#0080FF">待办(已查阅)</font></p></a></li></ul></div></div></body></html>

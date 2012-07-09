@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="gb18030"?>
+<html><head><title>搜索电话</title><script language="JavaScript" type="text/javascript"><![CDATA[
+<!-- 
+function openPsn(itcode1){ return; var url = "/Produce/DigiFlowOrgSysMng.nsf/SearUserInfoForm?openform&ITCode="+itcode1; location.replace(url)}function $E(sName){ var obj = document.getElementById(sName); if(!obj) obj = document.all(sName); if(!obj) obj = document.getElementsByName(sName)[0]; return obj;}
+// -->
+]]></script><script language="JavaScript" type="text/javascript"><![CDATA[
+<!-- 
+document._domino_target = "_self";
+function _doClick(v, o, t, h) {
+  var form = document._telSearchForm;
+  if (form.onsubmit) {
+     var retVal = form.onsubmit();
+     if (typeof retVal == "boolean" && retVal == false)
+       return false;
+  }
+  var target = document._domino_target;
+  if (o.href != null) {
+    if (o.target != null)
+       target = o.target;
+  } else {
+    if (t != null)
+      target = t;
+  }
+  form.target = target;
+  form.__Click.value = v;
+  if (h != null)
+    form.action += h;
+  form.submit();
+  return false;
+}
+// -->
+]]></script><style><![CDATA[
+*{
+font-size:14px;
+font-family:"微软雅黑";
+}
+]]></style></head><body text="#000000" bgcolor="#FFFFFF" onload="if($E(&quot;ResultList&quot;).value!=&quot;&quot;){ $E(&quot;resultDiv&quot;).innerHTML=$E(&quot;ResultList&quot;).value;}">
+
+
+
+
+
+
+
+
+<form method="post" action="/Produce/WeboaConfig.nsf/telSearchForm?OpenForm&amp;Seq=1" name="_telSearchForm">
+<input type="hidden" name="__Click" value="0" /><div style="display:none">
+<input name="DF_Ln_Type" value="ZH" style="display:none" />&amp;nbsp;&amp;nbsp;<b>系统捕获参数</b>
+<p><font size="2">URL参数说明:</font><br />
+<font size="2">queryStr-搜索字符串</font><br />
+<font size="2">svrName-目标数据库所在服务器</font><br />
+<font size="2">dbFile-目标数据库路径及文件名</font><br />
+<font size="2">ResultList-搜索结果，不是URL参数</font><br />
+<font size="2">showField-显示搜到的文档的字段名</font><br />
+<font size="2">userLevel－用户在组织结构库中的安全级别</font><br />
+<font size="2">exceptForm-滤除的表单(还未实现)</font><br />
+<font size="2">srchTime-搜索耗时，不是URL参数</font><br />
+<font size="2">userOrgID-传入的当前用户的归属部门ID</font><br />
+
+<input name="queryStr" value="" style="display:none" />
+<input name="svrName" value="" style="display:none" />
+<input name="dbFile" value="" style="display:none" />
+<input name="userOrgID" value="" style="display:none" />
+<input name="userLevel" value="" style="display:none" /><br />
+
+<input name="showField" value="" style="display:none" />
+<input name="exceptForm" value="" style="display:none" />
+<input name="srchTime" value="" style="display:none" />
+<textarea name="ResultList" style="display:none" rows="7" cols="50" />
+</p></div>
+
+
+
+
+
+<table width="100%" style="border:1px solid gray" bgcolor="#f0f0f0" align="left"><tbody><tr><td colspan="2" align="center"><font color="blue"><b>搜索结果</b></font></td></tr><tr><td colspan="2"><div id="resultDiv" /></td></tr><tr><td colspan="2" align="center">
+<p>
+<input type="button" onclick="window.close();" value="关 闭" id="DF_00009" /></p></td></tr></tbody></table>
+</form>
+
+
+<data-params><isfile>false</isfile><issucceed>true</issucceed><statuscode>200</statuscode><headers><param name="Server" value="Lotus-Domino" /><param name="Date" value="Sun, 01 Jul 2012 10:22:39 GMT" /><param name="Last-Modified" value="Sun, 01 Jul 2012 10:22:38 GMT" /><param name="Expires" value="Tue, 01 Jan 1980 06:00:00 GMT" /><param name="Content-Type" value="text/html; charset=GB2312" /><param name="Content-Length" value="3098" /><param name="Cache-control" value="no-cache" /></headers><redirects /><usertoken><storeid>cbef01bcc15741c6b44e9d294d983a49</storeid><userid>Dev3</userid><username /><createtimemillis>1341138295513</createtimemillis></usertoken><message><protocal>http</protocal><url>http://182.50.2.171:8000/Produce/WeboaConfig.nsf/telSearchForm?openform</url><method>post</method><encoding>gb18030</encoding><type>remote</type><source>http://182.50.2.171:8000</source><template>digi/phonenumber/index.xsl</template><params><param key="openform" value="" /></params></message></data-params></body></html>

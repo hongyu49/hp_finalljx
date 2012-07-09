@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="gb18030"?>
+<html><head><link rel="stylesheet" href="/DF_Res/DF_Style_Source/DF_Style_New/DF_Css/publishinfo.css" type="text/css" /><script src="/Produce/DigiFlowScriptCss.nsf/CommonJS?openjavascriptlibrary" /><script src="/Produce/DigiFlowScriptCss.nsf/CheckOutJS?openjavascriptlibrary" /><script src="/Produce/DigiFlowScriptCss.nsf/ProjectCommonJS?openjavascriptlibrary" /><script src="/jquery/js/jquery.js" /><title>鼎捷易成ERP携手齐桀经贸 打造极致咖啡体验</title><script language="JavaScript" type="text/javascript"><![CDATA[
+<!-- 
+//页签切换function switchTag(){ var markid=event.srcElement.id;  var frmobj=document.body;  switch(markid){  case "leftTD_Doc":   frmobj.document.all("docContent").style.display="";   frmobj.document.all("BasicInfo").style.display="none";   document.all("leftTD_Doc").className="SelectedTag";   document.all("leftTD_Info").className="UnselectedTag";   break;  case "leftTD_Info":   frmobj.document.all("docContent").style.display="none";   frmobj.document.all("BasicInfo").style.display="";   document.all("leftTD_Doc").className="UnselectedTag";   document.all("leftTD_Info").className="SelectedTag";   break; }}
+// -->
+]]></script><script language="JavaScript" type="text/javascript"><![CDATA[
+<!-- 
+document._domino_target = "_self";
+function _doClick(v, o, t, h) {
+  var form = document._InfoForm;
+  if (form.onsubmit) {
+     var retVal = form.onsubmit();
+     if (typeof retVal == "boolean" && retVal == false)
+       return false;
+  }
+  var target = document._domino_target;
+  if (o.href != null) {
+    if (o.target != null)
+       target = o.target;
+  } else {
+    if (t != null)
+      target = t;
+  }
+  form.target = target;
+  form.__Click.value = v;
+  if (h != null)
+    form.action += h;
+  form.submit();
+  return false;
+}
+// -->
+]]></script><script language="JavaScript" type="text/javascript"><![CDATA[
+<!-- 
+//加载操作栏信息function loadMenulist(id){     var navRoot;     var divList; if (document.all&&document.getElementById)      {  navRoot = document.getElementById(id);  divList = navRoot.getElementsByTagName("DIV");  for (i=0; i<divList.length; i++)           {   node = divList[i];      if(node.className == "DF_MenuBtn")   {       node.onmouseover = function()       {           this.className="DF_MenuBtnOver";       }       node.onmouseout = function()       {           this.className="DF_MenuBtn";       }   }  }     }}function check_submit(){  Fck_Editor_Submit();  document.forms[0].submit();}
+
+// -->
+]]></script><script language="JavaScript" type="text/javascript"><![CDATA[
+<!-- 
+/*function Fck_Editor_Submit(){ document.all.FCK_EditorValue.value = document.frames("FCKditor").GetContents();}*/function Fck_Editor_Submit(){ try{  var fckHtml = document.frames("FCKditor").GetContents();  if(fckHtml != null && fckHtml != "null" && fckHtml != "undefined") {   document.all.FCK_EditorValue.value = fckHtml;  }    var fckHtml = document.frames("FCKditor_EN").GetContents();  if(fckHtml != null && fckHtml != "null" && fckHtml != "undefined") {   document.all.FCK_EditorValue_EN.value = fckHtml;  } } catch(e) {  alert("在线编辑器出错，您本次所更改的内容无法保存！") }}
+
+// -->
+]]></script><script language="JavaScript" type="text/javascript"><![CDATA[
+<!-- 
+function DF_UpFile(){ Fck_Editor_Submit();  var filename=document.all("DF_File").value;  if(filename=="") { return false; }  document.all("DF_FileFlag").value="file";  if(document.all("BDF_Button_submit")!=null) document.all("BDF_Button_submit").click(); else document.all("btUpload").click();}function DF_DelFile(){ var sel_doc = window.document.all("%%Detach"); if ( sel_doc != "[object]") return false; var sel_len = sel_doc.length; var sel_flag = false; if (isNaN(sel_len) == false) {  for(var i=0;i<sel_len;i++)  {   if (sel_doc[i].checked)   {    sel_flag = true;   }  } } else {  if (sel_doc.checked)  {   sel_flag = true;  } } if (sel_flag == false) {  alert("请选择要删除的附件！");  return false; } document.all("DF_FileFlag").value="file";          if(document.all("BDF_Button_submit")!=null) document.all("BDF_Button_submit").click();     else document.all("btUpload").click();}function DF_CheckFile() { var filename=document.all("DF_File").value;  if(filename=="") { return false; }  try {  var ado_stream=new ActiveXObject("ADODB.Stream");     ado_stream.Type=2;     ado_stream.Open();     ado_stream.LoadFromFile(filename);//将文件信息存入流     fSize=(ado_stream.Size/1024).toFixed(0);    if(fSize>DF_File_Size) {      alert(DF_File_Prompt);      DF_ClearFile();       return false;  } } catch(e){ return true;}   return true; } function DF_ClearFile(){ document.all("DF_File").select(); try{  var WshShell = new ActiveXObject("WScript.Shell");  WshShell.SendKeys("{DEL}"); }catch(e){}}
+
+// -->
+]]></script><link rel="stylesheet" href="/DF_Res/DF_Style_Source/DF_Style_New/DF_Css/publishinfo.css" type="text/css" /><style><![CDATA[
+.SelectedTag{border:#cedbe4 solid 0px;background:url(../tag1.gif) no-repeat;cursor:default}
+.UnselectedTag{border--right:#cedbe4 solid 1px;background:url(../tag2.gif) no-repeat;cursor:hand}
+
+#FCKEditorFrm{
+height:expression(document.body.clientHeight-280);
+}
+
+#FCKEditorFrm_EN{
+height:expression(document.body.clientHeight-280);
+}
+]]></style></head><body text="#000000" bgcolor="#FFFFFF" style="overflow:auto" onload="DF_maxWindow();//document.all(" rtfinfo="RTFInfo" innerhtml="document.all(&quot;Fck_HTML_EN&quot;).value;" states="States" if="if" document.all="document.all" df_ln_type="DF_Ln_Type" value="=" en="EN" amp="amp" stengpub="StEngPub" stbody_en="StBody_EN" 孟帅添加="孟帅添加" 用于控制内容太少的话左侧标签显示问题="用于控制内容太少的话左侧标签显示问题" style.display="=&quot;&quot;&amp;&amp;document.all(&quot;StBody_EN&quot;).clientHeight">
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;50){document.all(&quot;ForHeightDiv&quot;).style.display=&quot;&quot;;}} else {  document.all(&quot;StBody&quot;).innerHTML=document.all(&quot;Fck_HTML&quot;).value; //孟帅添加，用于控制内容太少的话左侧标签显示问题 if(document.all(&quot;StBody&quot;).style.display==&quot;&quot;&amp;&amp;document.all(&quot;StBody&quot;).clientHeight&lt;50){document.all(&quot;ForHeightDiv&quot;).style.display=&quot;&quot;;}}if(document.all(&quot;EditFlag&quot;).value == &quot;YES&quot;) { document.all(&quot;FCKContentDiv_CN&quot;).style.display = &quot;&quot;; if(document.all(&quot;StEngPub&quot;).value == &quot;EN&quot;) {  document.all(&quot;FCKContentDiv_EN&quot;).style.display = &quot;&quot;; }}//多语言DF_LocalAPP_Load(true)&quot;&gt;
+
+<form method="post" action="/Application/DigiFlowInfoPublish.nsf/InfoByDateView_2/a4088826cfc7decc482579c2001dab9f?EditDocument&amp;Login&amp;Seq=1" enctype="multipart/form-data" name="_InfoForm">
+<input type="hidden" name="__Click" value="0" />
+<input type="hidden" name="%%ModDate" value="48257A1C002B51B9" /><!--表单名及共享域-->
+<div style="display:none">
+<input name="Form" value="InfoForm" />old
+<input name="DF_DbPath" value="Application/DigiFlowInfoPublish.nsf" />
+<input name="DF_DbDir" value="Application" />
+<input name="DF_DbName" value="DigiFlowInfoPublish.nsf" /><script src="/Produce/DigiFlowScriptCss.nsf/CommonJS?openjavascriptlibrary" /><script src="/Produce/DigiFlowScriptCss.nsf/CheckOutJS?openjavascriptlibrary" /><script src="/Produce/DigiFlowScriptCss.nsf/ProjectCommonJS?openjavascriptlibrary" /><script src="/jquery/js/jquery.js" /><br />
+
+<input name="allReader" value="[allReader]" /><font size="2" face="宋体">0</font><br />
+如果有图片附件记录图片附件的名称：测试.jpg<br />
+是否首页图片新闻：
+<input name="StOkPic" value="0" class="DF_Option_Style" display:none="display:none" xmlns:display="display" /><br />
+是否编辑正文：
+<input name="EditFlag" value="NO" class="DF_Option_Style" /><br />
+
+<input name="StEngPub" value="CN" /><br />
+在首页显示的缩微图附件名：
+<input name="StSmallPic" value="" />
+用户语言类型：ZH<br />
+
+<textarea name="Fck_HTML_AttaName" rows="7" cols="50">
+</textarea>
+ 加此域是为了解决保存时自动把附件名加到Fck_HTML域中的问题—BY  YiYing 20120511
+</div>
+
+<xml id="DF_LocalSourceData" src="/Application/DigiFlowInfoPublish.nsf/DF_L_InfoForm_ZH">
+
+
+
+</xml><div width="1024px" style="overflow-y:visible;padding-left:5px">
+
+<div style="background:url(../background.gif) right no-repeat;text-align:left;width:1000px;height:100px;">
+<div style="padding-left:30px;padding-top:30px;float:left"><img src="../logo.gif" /></div>
+
+<div style="padding-top:70px">
+
+<div class="DF_Header_MenuBtn" id="tblAction">
+</div>
+<div style="display:none"> 
+<input type="button" value="编辑" id="btActionEdit" onclick="return _doClick(482577C80009D7FF.9db7fa66434ed4364825764700296fc9/$Body/0.3D8, this, null)" />  
+<input type="button" value="保存" style="display:none" id="ThFlowSaveButton_1" onclick="return _doClick(482577C80009D7FF.9db7fa66434ed4364825764700296fc9/$Body/0.4A4, this, null)" /></div>
+<!--加载操作条信息-->
+<script><![CDATA[loadMenulist("tblAction");]]></script>
+<!--加载操作条信息-->
+
+</div>
+</div>
+
+
+
+
+
+<table cellpadding="0" cellspacing="0" border="0"><tbody><tr><td style="width:30px;height:100%" id="DF_TagGroup">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table cellpadding="0" cellspacing="0" style="width:100%;height:100%"><tbody><tr><td id="" style="width:30px;height:3px;border-right:#cedbe4 solid 1px;"><br /></td></tr><tr><td id="leftTD_Doc" class="SelectedTag" onclick="switchTag();" style="width:30px;height:80px;padding-left:9px;padding-top:5px;">正文内容</td></tr><tr><td id="" style="width:30px;height:3px;border-right:#cedbe4 solid 1px;" /></tr><tr><td id="leftTD_Info" class="UnselectedTag" onclick="switchTag();" style="width:30px;height:80px;padding-left:9px;padding-top:5px;">基本信息</td></tr><tr><td id="" style="width:30px;border-right:#cedbe4 solid 1px;">&amp;nbsp;</td></tr></tbody></table>
+</td><td style="border-top:#cedbe4 solid 1px;border-right:#cedbe4 solid 1px;border-bottom:#cedbe4 solid 1px;">
+<div id="docContent" style="background:#F5F8FD;width:994px;overflow-y:visible;padding-left:37px;padding-right:37px;padding-bottom:10px">
+
+<div style="border-bottom:#cedbe4 solid 2px">
+<div style="font-weight:bold;font-size:15pt;height:60px;color:#000066;padding-top:20px;text-align:center;word-break:break-all">鼎捷易成ERP携手齐桀经贸 打造极致咖啡体验</div>
+</div>
+
+<div style="text-align:left;overflow-y:visible;width:100%;">
+<div style="font-size:8pt;height:20px;padding-top:5px;text-align:center">2012-03-15&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;开发者1&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;化工行业</div>
+<br />
+<div id="FCKContentDiv_CN" style="display:">
+<div style="display:none">
+
+
+
+
+
+
+
+
+<table border="0" cellspacing="0" cellpadding="0"><tbody><tr valign="top"><td width="189" bgcolor="#C0C0C0"><b><font color="#620012">隐藏域</font></b></td><td style="padding-left:5px" width="340" bgcolor="#C0C0C0"><b><font color="#620012">说明</font></b></td></tr><tr valign="top"><td width="189">
+<input name="DF_DbPath" value="Application/DigiFlowInfoPublish.nsf" /></td><td width="340">数据库路径</td></tr><tr valign="top"><td width="189" valign="middle">
+<input name="FCK_DBPath" value="Application/FCKeditor.nsf" /></td><td width="340" valign="middle"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt="" /></td></tr><tr valign="top"><td width="189" valign="middle">
+<textarea name="Fck_HTML" id="FCK_EditorValue" rows="7" cols="50"><p style="widows: 2; text-transform: none; background-color: rgb(255,255,255); text-indent: 0px; font: 12px/20px Simsun; white-space: normal; orphans: 2; letter-spacing: normal; color: rgb(0,0,0); word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px">　　咖啡作为外来的世界三大饮料之一，现已在国内有了十分庞大的消费人群，不论对于咖啡的冲泡便利还是美味口感，人们都有了更高的要求。最有价值瑞士前40位品牌之一的优瑞全自动咖啡机追求极致咖啡体验，只需轻按按键即可得到适合个人口味的咖啡。上海齐桀经贸有限公司（以下简称齐桀经贸）是瑞士优瑞中国区总代理，1999年成立于上海，在北京、广州设立有分公司，全国各地授权经销商达200多家。</p><p style="text-align: center; widows: 2; text-transform: none; background-color: rgb(255,255,255); text-indent: 0px; font: 12px/20px Simsun; white-space: normal; orphans: 2; letter-spacing: normal; color: rgb(0,0,0); word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px"><img alt="" width="240px" src="/view/diwin/file/userfiles/image/1(210).jpg" /></p><p style="text-align: left; widows: 2; text-transform: none; background-color: rgb(255,255,255); text-indent: 0px; font: 12px/20px Simsun; white-space: normal; orphans: 2; letter-spacing: normal; color: rgb(0,0,0); word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px"><br />　　近日，齐桀经贸成功牵手鼎捷软件易成<a style="line-height: 22px; color: rgb(0,0,0); font-size: 12px; text-decoration: none" href="/view/diwin/file/">ERP</a>，通过流程管控水平的提升，更为快速优质地通过全自动咖啡机打造一杯杯香醇浓郁的咖啡，为更多的消费者带来极致的咖啡体验。齐桀经贸销售通路广泛，包括高端百货商场、各地经销商、4S体验店等，销售通路的不断拓展也对企业流程的管控制度化提出了更高的要求，一体化信息化应用需求强烈。</p><p style="text-align: left; widows: 2; text-transform: none; background-color: rgb(255,255,255); text-indent: 0px; font: 12px/20px Simsun; white-space: normal; orphans: 2; letter-spacing: normal; color: rgb(0,0,0); word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px">　　针对齐桀经贸的实际需求，鼎捷易成ERP提供了行之有效的解决方案。瑞士优瑞咖啡机单价金额较高，需进行SN码追踪管理，及时准确了解产品流向，做售后管理和分析。<a style="line-height: 22px; color: rgb(0,0,0); font-size: 12px; text-decoration: none" href="/view/diwin/file/product/proplan_21_4.html"><strong>易成</strong></a>ERP具有针对3C行业的SN码行业特色管控开关设计，并配合客户管理、售后维修管理，轻松实现产品有效追踪、客户客情有效维系。</p><p style="text-align: left; widows: 2; text-transform: none; background-color: rgb(255,255,255); text-indent: 0px; font: 12px/20px Simsun; white-space: normal; orphans: 2; letter-spacing: normal; color: rgb(0,0,0); word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px">　　在选型阶段，虽然易成ERP遭遇强劲的价格竞争，但齐桀经贸在综合考虑了公司实力、服务专业、产品成熟度等因素后，坚定的选择了与鼎捷易成ERP合作，实施极致的流程管控，共同打造极致的咖啡体验。因只有高品质的合作伙伴，才配得上优瑞全自动咖啡机的优雅形象。只有极致的信息化管控,才能更好地秉承优瑞全自动咖啡机品牌创立以来所沿袭的严谨作风。</p><p style="text-align: left; widows: 2; text-transform: none; background-color: rgb(255,255,255); text-indent: 0px; font: 12px/20px Simsun; white-space: normal; orphans: 2; letter-spacing: normal; color: rgb(0,0,0); word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px">　　未来，鼎捷易成ERP将凭借出色的产品及服务综合实力，帮助越来越多的商贸流通企业通过信息化实现数字价值，获得成功。</p></textarea>
+</td><td width="340" valign="middle"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt="" /></td></tr></tbody></table>
+</div>
+<script src="/Application/FCKeditor.nsf/global.js" />
+<div id="StBody" class="publishClass" style="display:;width:100%;height:;overflow:auto;" />
+<iframe id="FCKEditorFrm" name="FCKditor" src="/Application/FCKeditor.nsf/FckEditor?openform" width="100%" frameborder="0" style="display:none;" /></div>
+<br />
+<div id="FCKContentDiv_EN" style="display:none">
+<div style="display:none">
+
+
+
+
+
+
+
+
+<table border="0" cellspacing="0" cellpadding="0"><tbody><tr valign="top"><td width="189" bgcolor="#C0C0C0"><b><font color="#620012">隐藏域</font></b></td><td style="padding-left:5px" width="340" bgcolor="#C0C0C0"><b><font color="#620012">说明</font></b></td></tr><tr valign="top"><td width="189"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt="" /></td><td width="340"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt="" /></td></tr><tr valign="top"><td width="189" valign="middle"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt="" /></td><td width="340" valign="middle"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt="" /></td></tr><tr valign="top"><td width="189" valign="middle">
+<textarea name="b" rows="7" cols="50" />
+
+<textarea name="Fck_HTML_EN" id="FCK_EditorValue_EN" rows="7" cols="50" />
+</td><td width="340" valign="middle"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt="" /></td></tr></tbody></table>
+</div>
+
+<script src="/Application/FCKeditor.nsf/global.js" />
+<div id="StBody_EN" class="publishClass" style="display:;width:100%;height:;overflow:auto" />
+<iframe id="FCKEditorFrm_EN" name="FCKditor_EN" src="/Application/FCKeditor.nsf/FckEditor_EN?openform" width="100%" frameborder="0" style="display:none;" /></div>
+<div id="ForHeightDiv" style="height:40px;display:none" />
+</div>
+<br />
+<div style="border-top:#cedbe4 solid 2px;padding-top:10px">
+
+
+
+
+
+<table><tbody><tr><td style="width:15%"><q id="DT_008">附&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;件：</q></td><td style="width:85%">
+
+
+
+
+
+
+<table style="height:100%;width:100%;border:0"><tbody><tr style="display:none"><td style="border:0"><q id="DF_024">1、请按“浏览”选择要上载的文件</q>&amp;nbsp; 
+<input class="DF_File_Style" style="width:350px" id="DF_File" onblur="DF_CheckFile()" type="file" name="%%File.482577c80009d7ff.aa282abadfb2ab8b482576d300354d67.$Body.0.2C4" /> &amp;nbsp;<a href="#" onclick="DF_UpFile()"><img src="/DF_Res/DF_Img_Source/Img_YY/fileup.gif" style="border:0" /><q id="DF_025">上载</q></a>&amp;nbsp;&amp;nbsp;<a href="javascript:DF_ClearFile();"><img src="/DF_Res/DF_Img_Source/Img_YY/cancel.gif" style="border:0" /><q id="DF_029">清除</q></a> <br /><q id="DF_026">2、依次选择“浏览”、“上载”，可以添加多个文件；</q><br /><q id="DF_027">3、要删除文件，请选中要删除的文件后，按</q><a href="#" onclick="DF_DelFile()"><img src="/DF_Res/DF_Img_Source/Img_YY/filedel.gif" style="border:0" /><q id="DF_028">删除</q></a>。<br />&amp;nbsp;<input type="checkbox" name="%%Detach" value="测试.jpg" /><a href="A4088826CFC7DECC482579C2001DAB9F/$file/%E6%B5%8B%E8%AF%95.jpg" target="_blank"><img src="/icons/fileatt.gif" border="0" /><font color="#0000FF">测试.jpg</font></a> &amp;nbsp;<input type="checkbox" name="%%Detach" value="测试.pdf" /><a href="A4088826CFC7DECC482579C2001DAB9F/$file/%E6%B5%8B%E8%AF%95.pdf" target="_blank"><img src="/icons/fileatt.gif" border="0" /><font color="#0000FF">测试.pdf</font></a>
+</td></tr><tr style="display:block"><td style="border:0">&amp;nbsp;<a href="#" onclick="window.open(/Application/DigiFlowInfoPublish.nsf/0/A4088826CFC7DECC482579C2001DAB9F/$file/%E6%B5%8B%E8%AF%95.jpg)"><img src="/icons/fileatt.gif" border="0" /><font color="#0000FF">测试.jpg</font></a>&amp;nbsp; &amp;nbsp;<a href="#" onclick="window.open(/Application/DigiFlowInfoPublish.nsf/0/A4088826CFC7DECC482579C2001DAB9F/$file/%E6%B5%8B%E8%AF%95.pdf)"><img src="/icons/fileatt.gif" border="0" /><font color="#0000FF">测试.pdf</font></a>&amp;nbsp;</td></tr></tbody></table>
+<div style="display:none"><font face="宋体">
+<input name="DF_FileFlag" value="" /></font> 
+<input type="button" value="保存附件" id="btUpload" onclick="return _doClick(482577C80009D7FF.aa282abadfb2ab8b482576d300354d67/$Body/0.119C, this, null)" /> </div></td></tr></tbody></table>
+</div>
+</div>
+<div id="BasicInfo" style="width:970px;height:100%;overflow-y:visible;padding-left:20px;padding-right:20px;padding-bottom:20px;display:none">
+<div style="display:none">
+<input name="StPicAttachment" value="" readonly="readOnly" class="DF_Downlist_Style" /></div>
+<div class="DF_Content_Section">
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+<table class="DF_GTable_Style"><tbody><tr><td class="DF_GTable_LTD_Style" width="20%"><q id="DF_002">起 草 人：</q></td><td class="DF_GTable_RTD_Style" width="30%">开发者1<div style="display:none">
+<input name="StDraftManEn" value="dev1" class="DF_Txt_Style" style="display:none" />
+<input name="StDraftMan" value="开发者1/dev1" class="DF_Txt_Style" style="display:none" /> </div></td><td class="DF_GTable_LTD_Style" width="20%"><q id="DF_003">起草部门：</q></td><td class="DF_GTable_RTD_Style" width="30%">化工行业</td></tr><tr><td class="DF_GTable_LTD_Style"><q id="DF_004">起草日期：</q></td><td class="DF_GTable_RTD_Style"> 2012-03-15 </td><td class="DF_GTable_LTD_Style"><q id="DF_005">重要程度：</q></td><td class="DF_GTable_RTD_Style">普通</td></tr><tr><td class="DF_GTable_LTD_Style"><q id="DF_006">发布对象：</q></td><td class="DF_GTable_RTD_Style" colspan="3">所有人<span style="display:none">
+<input name="StReaderEN" value="" readonly="readonly" style="display:none" />
+<input name="StReader" value="" readonly="readonly" style="display:none" />
+<input name="MtReader" value="[thNormal]" readonly="readonly" style="display:none" /></span></td></tr><tr><td class="DF_GTable_LTD_Style"><q id="DF_007">发布日期：</q></td><td class="DF_GTable_RTD_Style"> 2012-03-15 </td><td class="DF_GTable_LTD_Style"><q id="DF_008">有效日期：</q></td><td class="DF_GTable_RTD_Style" /></tr><tr><td class="DF_GTable_LTD_Style"><q id="DF_009">所属栏目：</q></td><td class="DF_GTable_RTD_Style">
+<input name="StNodeName" value="企业新闻" style="display:" class="DF_Txt_ReadOnly_Style" readonly="readOnly" />
+<input name="StNodeName_EN" value="Enterprise News" style="display:none" class="DF_Txt_ReadOnly_Style" readonly="readOnly" /><span style="display:none">
+<input name="StNodeID" value="Dir01" readonly="readonly" /></span></td><td class="DF_GTable_LTD_Style"><q id="DF_010">信息发布管理员：</q></td><td class="DF_GTable_RTD_Style">开发一<span style="display:none">
+<input name="StInfoManagerEN" value="dev1" readonly="readonly" style="display:none" />
+<input name="StInfoManager" value="开发一/dev1" readonly="readonly" style="display:none" /></span></td></tr><tr><td class="DF_GTable_LTD_Style"><q id="DF_011">置顶天数：</q></td><td class="DF_GTable_RTD_Style" colspan="3">60</td></tr><tr style="display:none"><td class="DF_GTable_LTD_Style"><q id="DF_012">在首页显示的图片：</q></td><td class="DF_GTable_RTD_Style">无图片</td><td class="DF_GTable_LTD_Style"><q id="DF_013">图片标题：</q></td><td class="DF_GTable_RTD_Style">
+<input name="StPicShow" value="" readonly="readOnly" class="DF_Txt_ReadOnly_Style" style="border:0" /></td></tr><tr style="display:none"><td class="DF_GTable_LTD_Style"><q id="DF_014">文字说明：</q></td><td class="DF_GTable_RTD_Style" colspan="3">
+<textarea name="rtfTextShow" class="DF_Txt_ReadOnly_Style" style="width:100%;height:60px;overflow-y:visible" readonly="readOnly" rows="15" cols="80" />
+</td></tr></tbody></table>
+</div>
+</div>
+</td></tr></tbody></table><div style="text-align:center;">
+<div style="font-size:10pt;height:40px;line-height:40px;text-align:center;">&amp;copy;2009&amp;nbsp;WWW</div>
+</div>
+</div>
+
+<input name="openMode" type="hidden" value="old" />
+<input name="$V2AttachmentOptions" type="hidden" value="0" />
+<input name="MtAttachmentNamesPic" type="hidden" value="测试.jpg" />
+<input name="DF_Ln_Type" type="hidden" value="ZH" />
+<input name="StDraftManCn" type="hidden" value="开发者1" />
+<input name="StDept" type="hidden" value="化工行业" />
+<input name="StDraftDate" type="hidden" value="2012-03-15" />
+<input name="StImport" type="hidden" value="普通" />
+<input name="StReaderCN" type="hidden" value="所有人" />
+<input name="StPubDate" type="hidden" value="2012-03-15" />
+<input name="StOldDate" type="hidden" value="" />
+<input name="StInfoManagerCN" type="hidden" value="开发一" />
+<input name="StTopNews" type="hidden" value="60" /></form>
+
+
+<data-params><isfile>false</isfile><issucceed>true</issucceed><statuscode>200</statuscode><headers><param name="Server" value="Lotus-Domino" /><param name="Date" value="Thu, 21 Jun 2012 08:07:58 GMT" /><param name="Last-Modified" value="Thu, 21 Jun 2012 08:07:57 GMT" /><param name="Expires" value="Tue, 01 Jan 1980 06:00:00 GMT" /><param name="Content-Type" value="text/html; charset=GB2312" /><param name="Content-Length" value="23649" /><param name="Cache-control" value="no-cache" /></headers><redirects /><usertoken><storeid>cc9f79777057430290def51a85998111</storeid><userid>dev1</userid><username /><createtimemillis>1340265837223</createtimemillis></usertoken><message><protocal>http</protocal><url>http://182.50.2.171:8000/Application/DigiFlowInfoPublish.nsf/InfoByDateView_2/A4088826CFC7DECC482579C2001DAB9F?OpenDocument&amp;login</url><method>post</method><encoding>gb18030</encoding><type>remote</type><source>http://182.50.2.171:8000</source><template>digi/news/content.xsl</template><params><param key="OpenDocument" value="" /><param key="login" value="" /></params></message></data-params></body></html>

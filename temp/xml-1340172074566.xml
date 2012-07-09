@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="gb18030"?>
+<html><head><title>信息发布主表单</title><meta name="viewport" content="user-scalable=yes,width=device-width" /><script language="JavaScript" type="text/javascript"><![CDATA[
+<!-- 
+document._domino_target = "_self";
+function _doClick(v, o, t, h) {
+  var form = document._showformserver;
+  if (form.onsubmit) {
+     var retVal = form.onsubmit();
+     if (typeof retVal == "boolean" && retVal == false)
+       return false;
+  }
+  var target = document._domino_target;
+  if (o.href != null) {
+    if (o.target != null)
+       target = o.target;
+  } else {
+    if (t != null)
+      target = t;
+  }
+  form.target = target;
+  form.__Click.value = v;
+  if (h != null)
+    form.action += h;
+  form.submit();
+  return false;
+}
+// -->
+]]></script></head><body text="#000000" bgcolor="#FFFFFF">
+
+
+
+
+
+
+<form method="post" action="/Produce/DigiFlowMobileJC.nsf/showformserver?OpenForm&amp;Seq=1&amp;apptype=msg&amp;appserver=&amp;appdbpath=DFMessage%2Fdfmsg_dev1.nsf&amp;appdocunid=734450C61FACC0FE48257A1C002F05B6" name="_showformserver">
+<input type="hidden" name="__Click" value="0" /><div style="display:none">
+<!-- 应用数据库相关信息 -->
+应用服务器：; 应用数据库路径：Application/DigiFlowInfoPublish.nsf;Produce/DigiFlowMobileJC.nsf 应用的表单名：;应用文档的UNID:B4BF6E0D7CE39E7648257A1A004B81D9  应用类型：msg msg:消息;news:新闻公告;空：表单更新域：
+<input name="stupdfields" value="" style="width:450" />
+</div>
+<div id="basicinfo" style="display:none">
+<!-- 当前用户信息 -->
+当前用户：dev1部门编号：当前用户名：开发者1部门名称：
+员工编号：当前用户登陆时间：06/20/2012 02:01:58 PM
+<!-- 流程信息 -->
+当前环节信息：
+<input name="TFCurNodeID" value="FlowNode2" readonly="readonly" /><font size="2" face="宋体">
+<input name="$V2AttachmentOptions" value="0" /></font>当前作者信息：
+<input name="TFCurNodeAuthors" value="dev1" readonly="readonly" />当前环节名称：
+<input name="TFCurNodeName" value="部门领导审批" />
+附件显示：
+<input name="AttachFlag" value="yes" />
+<input name="AttachDocUnid" value="" />
+<input name="AttachInfo" value="" /> 加载状态：
+<input name="LoadFlag" value="" /> 审批意见：
+<textarea name="ThisFlowMindInfoLog" style="width:200px;height:200px" readonly="readonly" rows="15" cols="80"><flowmindinfo><mindinfo approver="开发者1" approveren="dev1" approvetime="2012-06-13 16:32:33" flownodename="信息发布管理员审批" flownodeid="FlowNode1" optnameinfo="">&lt;![CDATA[同意！]]&gt;</mindinfo></flowmindinfo></textarea>
+
+不允许审批的环节编号：
+<input name="noapprovenodes" value="" />
+是否加载流程：
+<input name="FlowFlag" value="yes" /> 
+<input name="applyname" value="信息发布主表单" />
+要提交到的节点ID:
+<input name="FlowGotoNodeID" value="" />
+信息发布相关内容：
+信息发布的正文RTF域：
+<div name="Fck_HTML" rows="7" cols="50"><p class="news_publish_time">新华网 2011年05月12日</p><div id="news_content"><div class="news_content"><p> 十二五规划为我国优化能源结构提出新目标--天然气在能源消费结构中的比例由4%提升到8%，预计到2015年我国天然气消费量将达2600亿立方米，比目前翻一番多。可以肯定，未来我国天然气供需增长空间巨大，行业整体将迎来井喷式发展，这对燃气类公司和能源类个股无疑是重大利好。</p><p style="text-indent: 30px; margin: 0px 3px 15px">然而，机遇总是与挑战并存。目前，我国优质城市管网铺设几近饱和，央企、民营、外企等各路资本将继续加速一、二线城市的布局争夺，并逐渐向三线城市和中小县城推进，竞争将呈白热化。是继续跑马圈地，还是顺应国家政策调整，取法不同的商业运作模式，精耕细作、做大清洁能源市场，每一个清洁能源企业都需在发展路径方面作出选择。</p><p style="text-indent: 30px; margin: 0px 3px 15px">2011年5月9日，新奥集团董事局主席王玉锁在新奥能源香港上市十周年庆典典礼上表示，新奥将在拓展和巩固现有燃气业务的同时，遵循国家对清洁能源发展的宏观目标，以用户需求为导向，重点打造清洁能源整体解决方案服务提供商角色和多方共赢的服务模式，迎接新奥下一个十年的到来。</p><p style="text-indent: 30px; margin: 0px 3px 15px">可以说，顺应国家政策调整、以用户需求为导向，建立多赢商业模式，是王玉锁对新奥成功密码的解读，也是他对我国清洁能源企业发展路径的一个准确提炼。</p><p style="text-indent: 30px; margin: 0px 3px 15px">新奥快速发展解密之一：以国家政策调整为契机，实施三次战略升级</p><p style="text-indent: 30px; margin: 0px 3px 15px">不断以国家宏观能源政策调整为契机，自2001年起，新奥能源经历并完成了三次重大战略与服务升级。1992年，邓小平南巡的一次讲话使我国天然气下游行业政策开始松动，新奥由此成为民营企业从事城市公用事业第一个吃螃蟹的企业，获得廊坊市管输燃气独家建设经营权。此后的四年，新奥能源凭借在廊坊市总结的经验，积累下一套相对成型、有效的城市天然气运营管理模式。</p><p style="text-indent: 30px; margin: 0px 3px 15px">1999年，我国公用事业改革进入新阶段，国家允许民营资本尝试市政公用事业、关于西气东输工程建设起跑令的发布，使新奥能源进入速度经营，全面布局的历史时期：破茧聊城，走出迈向全国的第一步；进入北京，从密云到昌平再到平谷；北上葫芦岛，南下蚌埠；布点石家庄，挺进山东，布局苏浙皖；长株潭一体化，跨入中原，拓展华南，新奥在全国设点布局。</p><p style="text-indent: 30px; margin: 0px 3px 15px">2001年，新奥在香港联交所成功上市，为其在全国加速拓展提供了充足的资金给养，伴随国家分别在2002年和2004年相继出台《关于加快市政公用行业市场化进程的意见》和《市政公用事业特许经营管理办法》等政策，新奥能源每年的新项目数大幅飙升，并已能胜任服务特大型城市。2006年，新奥在石家庄开展了100多万人口、30多万户的大置换工程，实现了又一次大跨越。</p><p style="text-indent: 30px; margin: 0px 3px 15px">2007年6月，我国提出要在2010年实现单位GDP能耗比2005年降低20%左右和主要污染物减排10%的目标，节能减排成为全国城市与政府的一大重任，新的市政公用事业发展服务的契机也随之来临。当国内其它燃气公司还在忙着抢片占网时，新奥却再次顺应政策的调整，冷静地完成了由能源分销商到清洁能源整体解决方案服务提供商的角色升级，引领了行业的发展。通过深挖客户需求，新奥先后与20多个城市签订了节能减排框架协议，帮助工业用户提高能效，向城市提供节能减排方案，开发系统能效管理平台。2010年，新奥燃气正式更名为新奥能源。</p><p style="text-indent: 30px; margin: 0px 3px 15px">由最初的城市燃气专业运营到能源分销再到如今的提供清洁能源整体解决方案服务，新奥能源不断打造着领先的商业模式，并在能源服务上引领行业找到了全新利润增长点。从资源服务型到资源服务与技术服务型并重，新奥能源采用一种双引擎模式为燃气企业示范着一个创新发展之路。</p><p style="text-indent: 30px; margin: 0px 3px 15px">新奥快速发展解密之二：打造清洁能源整体解决方案服务提供商，建立多赢商业模式</p><p style="text-indent: 30px; margin: 0px 3px 15px">经过三次前瞻性的战略升级，新奥能源不再是仅简单地向用户提供能源资源，而是积极致力于了包括针对区域整体清洁能源规划，针对企业、商业、公共、民用等各类用户的能效审计、方案设计、金融服务、设备集成、工程建设、运营服务直至后期能源供应组织的一揽子服务的清洁能源整体解决方案服务提供商角色定位。这个角色，既能帮助政府和企业实现节能减排目标，又能满足企业发展要求，使新奥实现了自身价值与用户价值、投资者价值、社会价值充分凝聚和最大化，以及政府、企业、社会等多方共赢。</p><p style="text-indent: 30px; margin: 0px 3px 15px">在面向新建、省级园区和大型工业企业、公共建筑等客户时，新奥依托系统能效、泛能网理念和技术，以用户单位产品能量成本最优为目标，以缩减政企能源支出账单为口号，向地方政府及不同类型工商业客户提供一揽子清洁能源整体管理解决方案；而在面对已有的旧城区和旧的工业管线时，新奥通过实施技术改造、帮助政府和企业转换用能类型，在充分满足客户对清洁能源的用能需求，做大清洁能源市场的基础上，大幅降低客户长期及总体用能成本。</p><p style="text-indent: 30px; margin: 0px 3px 15px">从2008年开始，新奥能源相继与洛阳、长沙、株洲、湘潭、开封、福建等众多城市一起致力于清洁能源与节能减排的事业服务。截至2010年底，新奥能源在长沙黄花机场、新乡和浏阳生物医药产业园的三个多联供项目取得了突破性进展，即将投入运营，并完成了湛江、汕头、东莞三个沼气项目的开发，工业窑炉、锅炉改造关键技术取得突破。到2010年末，有近21个省、市、工业园区与新奥能源完成了节能减排和清洁能源规划整体解决方案的签署。</p><p style="text-indent: 30px; margin: 0px 3px 15px">据新奥相关人士介绍，新奥能源与长沙黄花机场合作天然气热电冷多联供项目完成后，能够满足机场新建T3航站楼的供热、供冷需要，全系统节能率33%，每年可减少一次能源消耗折标煤约1527吨，减少二氧化碳排放约3807吨。新奥联手区域政府打造的上海南汇智城智能能源系统项目、常州武进低碳小镇项目、湖南神农城分布式能源系统工程项目等三联供项目也都在紧张的规划和建设当中。</p><p style="text-indent: 30px; margin: 0px 3px 15px">节能减排已成为我国十二五规划的约束性指标。在十二五的开局之年，当学者们还在讨论如何缓解减排压力时，新奥能源大服务的实践模式，或许能够帮助地方政府寻找到一种符合国家节能降耗政策、全新的区域低碳经济发展和清洁能源发展的路径。</p><p style="text-indent: 30px; margin: 0px 3px 15px">新奥快速发展解密之三：主动引领，拒绝被动跟随</p><p style="text-indent: 30px; margin: 0px 3px 15px">新奥之所以能够在传统的燃气领域走出廊坊快速布局全国市场、获得资本市场的青睐，并在光伏和微藻等新能源领域屡有创新，得益于其在技术创新、信息化管理和战略绩效管理的启动和全面升级，以及对管理人才的引进和培养的注重等。</p><p style="text-indent: 30px; margin: 0px 3px 15px">新奥拥有一支技术领先的科研团队，并建成了功能齐全、设施完备的基础实验平台、试验中心和技术试验基地。新奥坚持科技是第一生产力的理念，不断聚焦关键技术创新与开发，并坚持把可分配的大部分利润投入技术研发，累计达20多亿元，积极围绕节能减排、传统能源的清洁高效利用、可再生能源发展三大方向，进行新能源关键技术研发。</p><p style="text-indent: 30px; margin: 0px 3px 15px">新奥能源上市十年的历程表明，在快速变化的市场竞争环境中，企业的变革是一个永恒的主题。尤其是在业务快速发展后，企业从经营能力到管理模式都要上一个台阶。为此，清洁能源企业要自觉顺应国家政策调整，突破自身体制等局限性，建立一整套有利于产业茁壮成长的商业模式、管理体系和经营机制，才能在激烈的市场竞争中立于不败之地。</p></div></div>
+
+<br />
+
+<input name="TFCurNodeOneDo" value="(会签)" />
+<input name="InfoAuthor" value="" />
+<input name="InfoTitle" value="" />
+临时作者字段：
+<input name="TFTempAuthors" value="" />
+<input name="TFTempAuthorsCN" value="" />
+<input name="TFTempAuthorsEN" value="" /> 
+<input type="button" onclick="//window.open(" produce="produce" digiflowmobile.nsf="DigiFlowMobile.nsf" frmselectpsn="frmselectpsn" openform="OpenForm" amp="amp" login="login" fieldname="FieldName" df_selectpsnformobile="DF_SelectPsnForMobile" tftempauthors="TFTempAuthors" selectmode="selectMode" checkbox="checkbox" value="选择人员" /><br />
+</div>
+
+
+
+
+
+
+
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%"><tbody><tr><td class="DB_SET_TD" id="tdNext" style="cursor:hand;display:"><a href="javascript:docApprove(&apos;submit&apos;)"><img src="/DF_Res/DF_Style_Source/DF_Style_Mobile/img/NEXT.gif" border="0" />下一步</a></td><td class="DB_SET_TD" id="tdReturn" style="cursor:hand;display:"><a href="javascript:docApprove(&apos;reject&apos;)"><img src="/DF_Res/DF_Style_Source/DF_Style_Mobile/img/fanhui.gif" border="0" />退回</a></td><td class="DB_SET_TD" id="tdQuit" style="cursor:hand"><a href="javascript:quitApprove()"><img src="/DF_Res/DF_Style_Source/DF_Style_Mobile/img/close.gif" border="0" />退出</a></td><td class="DB_SET_TD" id="tdSenor" style="cursor:hand;display:"><a href="javascript:showMoreOption(&apos;moreoption&apos;);"><img src="/DF_Res/DF_Style_Source/DF_Style_Mobile/img/mor.gif" border="0" />高级</a></td></tr></tbody></table>
+<!-- 填写审批意见 -->
+
+
+
+
+
+
+
+
+
+
+
+<table id="approveinfo" width="100%" border="1"><tbody><tr><td style="background:#CCC;height:30px;" colspan="2">请填写审批意见：</td></tr><tr><td colspan="2">
+<textarea name="FlowMindInfo" onblur="if(this.value == " this.value="" onfocus="if(this.value == " 请在此填写审批意见="请在此填写审批意见" style="width:99%;height:50px;" rows="7" cols="50">请在此填写审批意见</textarea>
+</td></tr><tr><td style="background:#CCC;width:90px">消息标题：</td><td>
+<input name="msgtitle" value="" style="width:99%" /></td></tr></tbody></table>
+<!-- 文档title -->
+<h3>信息发布主表单</h3>
+
+<!-- 正文内容 -->
+<div id="applycontent"> <span><table id="tblapplycontent" width="100%" border="1"><tbody><tr><td>标题</td><td>清洁能源企业发展路径思考</td></tr><tr><td>起草人</td><td>管理员</td></tr><tr><td>起草人部门</td><td>计划课</td></tr><tr><td>起草日期</td><td>2012-06-11</td></tr></tbody></table></span> </div>
+
+<!-- 附件信息 -->
+<span>附件信息</span>
+
+
+
+
+
+
+
+
+<table id="tblattachinfo" width="100%" border="1" style="display:"><tbody><tr><td style="background:#CCC;height:30px">附件信息:</td></tr><tr><td class="DB_SP_RIGHT" id="attachinfo" style="font-size:15px"><div id="divattachinfo">无附件</div></td></tr></tbody></table>
+
+<!-- 环节信息 -->
+<div id="divnodeinfo">
+
+
+
+
+
+
+
+
+
+
+
+
+<table id="tblnodeinfo" width="100%" border="1" style="display:"><tbody><tr><td style="background:#CCC;height:30px;" colspan="2">当前环节信息:</td></tr><tr><td>环节名称:</td><td>部门领导审批</td></tr><tr><td>环节处理人:</td><td>dev1(会签)</td></tr></tbody></table>
+</div>
+
+<!-- 审批意见信息-->
+<div id="divmindinfo">
+
+
+
+
+
+
+
+<table id="tblmindinfo" width="100%" border="1" style="display:"><tbody><tr><td style="background:#CCC;height:30px;">审批意见</td></tr><tr><td> <span><table id="tblmindinfo" border="1"><tbody><tr><td>处理人</td><td>审批时间</td><td>审批环节</td><td>审批意见</td></tr><tr><td>开发者1</td><td>2012-06-13 16:32:33</td><td>信息发布管理员审批</td><td>同意！</td></tr></tbody></table></span> </td></tr></tbody></table>
+</div>
+
+
+<input name="appserver" type="hidden" value="" />
+<input name="appdbpath" type="hidden" value="Application/DigiFlowInfoPublish.nsf" />
+<input name="DF_DbPath" type="hidden" value="Produce/DigiFlowMobileJC.nsf" />
+<input name="appformname" type="hidden" value="" />
+<input name="appdocunid" type="hidden" value="B4BF6E0D7CE39E7648257A1A004B81D9" />
+<input name="apptype" type="hidden" value="msg" />
+<input name="CurUserITCode" type="hidden" value="dev1" />
+<input name="CurUserDeptID" type="hidden" value="" />
+<input name="CurUserNameCN" type="hidden" value="开发者1" />
+<input name="CurUserDeptName" type="hidden" value="" />
+<input name="CurUserNumber" type="hidden" value="" />
+<input name="CurUserLoginDate" type="hidden" value="06/20/2012 02:01:58 PM" />
+<input name="RtfApplyContent" type="hidden" value="" /><table id="tblapplycontent" width="100%" border="1"><tbody><tr><td>标题</td><td>清洁能源企业发展路径思考</td></tr><tr><td>起草人</td><td>管理员</td></tr><tr><td>起草人部门</td><td>计划课</td></tr><tr><td>起草日期</td><td>2012-06-11</td></tr></tbody></table>&quot;&gt;
+<input name="RtfMindInfo" type="hidden" value="" /><table id="tblmindinfo" border="1"><tbody><tr><td>处理人</td><td>审批时间</td><td>审批环节</td><td>审批意见</td></tr><tr><td>开发者1</td><td>2012-06-13 16:32:33</td><td>信息发布管理员审批</td><td>同意！</td></tr></tbody></table>&quot;&gt;</div></form>
+
+
+<data-params><isfile>false</isfile><issucceed>true</issucceed><statuscode>200</statuscode><headers><param name="Server" value="Lotus-Domino" /><param name="Date" value="Wed, 20 Jun 2012 06:02:00 GMT" /><param name="Last-Modified" value="Wed, 20 Jun 2012 06:01:59 GMT" /><param name="Expires" value="Tue, 01 Jan 1980 06:00:00 GMT" /><param name="Content-Type" value="text/html; charset=GB2312" /><param name="Content-Length" value="15855" /><param name="Cache-control" value="no-cache" /></headers><redirects /><usertoken><storeid>df43b8825b4443da9326b51ce1af08a0</storeid><userid>Dev1</userid><username /><createtimemillis>1340171893050</createtimemillis></usertoken><message><protocal>http</protocal><url>http://182.50.2.171:8000/Produce/DigiFlowMobileJC.nsf/showformserver?openform&amp;apptype=msg&amp;appserver=&amp;appdbpath=DFMessage/dfmsg_dev1.nsf&amp;appdocunid=734450C61FACC0FE48257A1C002F05B6</url><method>post</method><encoding>gb18030</encoding><type>remote</type><source>http://182.50.2.171:8000</source><template>digi/mobile/content.xsl</template><params><param key="openform" value="" /><param key="appdbpath" value="DFMessage/dfmsg_dev1.nsf" /><param key="apptype" value="msg" /><param key="appdocunid" value="734450C61FACC0FE48257A1C002F05B6" /><param key="appserver" value="" /></params></message></data-params></body></html>

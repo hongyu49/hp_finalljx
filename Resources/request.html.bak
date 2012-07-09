@@ -1,0 +1,44 @@
+<html>
+    <head>
+		<script src="resource://localhost/cherry.js"></script>
+    </head>
+    <body>
+        <b>abc</b>
+		<input type="button" value="digihome" onclick="godigihome()"></input>
+		<input type="button" value="webViewPop" onclick="popSence()"></input>
+        <script type="text/javascript">
+		var SERVER_BASE_URL="http://mobile.sugon.com/view/Resources";
+	cherry.bridge.registerEvent("approveButton", "touchUp", function(oper) {
+	var sceneURL = SERVER_BASE_URL+"/PureWeb.scene.xml";
+	var targetURL = SERVER_BASE_URL+"/index.html?abc=100";
+	
+	var pushScene = new cherry.bridge.NativeOperation("application", "pushScene", [sceneURL, targetURL]).dispatch();
+	cherry.bridge.flushOperations();
+});
+
+cherry.bridge.registerEvent("rejectButton", "touchUp", function(oper) {
+	var sceneURL = SERVER_BASE_URL+"/PureWeb.scene.xml";
+	var targetURL = "http://mobile.sugon.com/view/digilogin.html?tag="+(Math.ramdom())*1000;
+	alert("targetURL="+targetURL);
+	var pushScene = new cherry.bridge.NativeOperation("application", "pushScene", [sceneURL, targetURL]).dispatch();
+	cherry.bridge.flushOperations();
+});
+
+function godigihome(){
+	var sceneURL = SERVER_BASE_URL+"/digihome.xml";
+	var targetURL = "http://mobile.sugon.com/view/digihome.html";
+	var pushScene = new cherry.bridge.NativeOperation("application", "pushScene", [sceneURL,targetURL]);
+	pushScene.dispatch();
+	cherry.bridge.flushOperations();
+}
+
+function popSence(){
+	var sceneURL = SERVER_BASE_URL+"/digihome.xml";
+	var targetURL = "http://mobile.sugon.com/view/Resources/popEvent.html";
+	var pushScene = new cherry.bridge.NativeOperation("application", "pushScene", [sceneURL,targetURL]);
+	pushScene.dispatch();
+	cherry.bridge.flushOperations();
+}
+        </script>
+    </body>
+</html>

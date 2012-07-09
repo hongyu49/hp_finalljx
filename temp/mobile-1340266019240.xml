@@ -1,0 +1,96 @@
+<html lang="zh_cn"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><div data-role="page" id="notice"><div data-role="header"><a data-direction="reverse" data-rel="back" data-role="button" data-icon="home">返回</a><h1>一般费用报销</h1></div><div align="center" data-role="content"><ul data-theme="d" data-inset="true" data-role="listview"><li><hr><hr><div align="left" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">代 办 人：</font></span>管理员
+admin<br><span style="width:38%;display:inline-block;text-align:right"><font color="red">报 销 人：</font></span>
+管理员
+<br>
+</div><hr><div align="" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">联系电话：</font></span>
+12345678<br><span style="width:38%;display:inline-block;text-align:right"><font color="red">部门名称：</font></span>
+化工行业
+<br></div><hr><hr><hr><div align="left" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">成本中心号：</font></span>
+
+选择
+<br><span style="width:38%;display:inline-block;text-align:right"><font color="red">成本中心名称：</font></span>
+<br></div><hr><div align="" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">内部订单号：</font></span>
+
+选择
+<br><span style="width:38%;display:inline-block;text-align:right"><font color="red">内部订单名称：</font></span>
+<br></div><hr><div align="left" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">币　　种：</font></span>
+人民币
+RMB
+计算汇率<br></div><hr><div align="left" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">申请金额(原币)：</font></span>
+500.00<br><span style="width:38%;display:inline-block;text-align:right"><font color="red"></font></span><br></div><hr><div align="left" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">报销金额：</font></span>
+500元 <font>*</font>系统自动计算<br><span style="width:38%;display:inline-block;text-align:right"><font color="red"></font></span><br></div><hr><div align="left" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">实际报销金额：</font></span>
+500元 <font>*</font>系统自动计算<br><span style="width:38%;display:inline-block;text-align:right"><font color="red">实际报销金额(大写)：</font></span>
+伍佰元整<br></div><hr><div align="left" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">是否冲销借款：</font></span>
+1
+是是
+否否<br></div><hr><div align="left" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">借款金额：</font></span>
+ 
+提取SAP借款数据 <br><span style="width:38%;display:inline-block;text-align:right"><font color="red">借款冲销金额：</font></span>
+元<br></div><hr><div align="left" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">错误代码：</font></span>
+<br><span style="width:38%;display:inline-block;text-align:right"><font color="red">成功标识：</font></span>
+<br></div><hr><div align="left" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">支付方式：</font></span>
+1
+现金现金
+银行卡银行卡
+银行汇票银行汇票
+支票支票
+汇票汇票
+其他其他<br></div><hr><div align="left" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">银行：</font></span>
+1
+
+<br><span style="width:38%;display:inline-block;text-align:right"><font color="red">银行卡：</font></span>
+609223394929202044<br></div><hr><div align="left" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">报销事由：</font></span>
+报销测试
+<br></div><hr><hr><hr><div align="left" style="width:100%">
+
+
+
+
+
+<br></div><hr><hr><hr><div align="left" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">公司总经理：</font></span>
+开发七
+ 
+dev7
+
+选择
+清除<br><span style="width:38%;display:inline-block;text-align:right"><font color="red">公司财务审核岗：</font></span>
+开发三
+ 
+dev3
+
+选择
+清除<br></div><hr><div align="" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">公司财务会计：</font></span>
+开发四
+ 
+dev4
+
+选择
+清除<br><span style="width:38%;display:inline-block;text-align:right"><font color="red">公司财务出纳：</font></span>
+开发五
+ 
+dev5
+
+选择
+清除<br></div><hr><hr><hr><div align="left" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">请填写消息提示信息：</font></span>
+一般费用报销，请查看<br></div><hr><hr><hr><div align="left" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">凭证日期：</font></span>
+
+<br><span style="width:38%;display:inline-block;text-align:right"><font color="red">记账日期：</font></span>
+
+<br></div><hr><div align="" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">凭证类型：</font></span>
+SA<br><span style="width:38%;display:inline-block;text-align:right"><font color="red">公司代码：</font></span>
+
+<br></div><hr><div align="left" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">货币代码：</font></span>
+<br><span style="width:38%;display:inline-block;text-align:right"><font color="red">汇率：</font></span>
+<br></div><hr><div align="left" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">参考凭证号：</font></span>
+<br><span style="width:38%;display:inline-block;text-align:right"><font color="red">凭证抬头：</font></span>
+<br></div><hr><div align="left" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">客户编号：</font></span>
+999930<br><span style="width:38%;display:inline-block;text-align:right"><font color="red">用户名：</font></span>
+<br></div><hr><div align="left" style="width:100%"></div><hr><hr><hr><div align="left" style="width:100%">
+
+
+
+
+
+<br></div><hr><hr><hr><div align="left" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">成功标识：</font></span>
+<br><span style="width:38%;display:inline-block;text-align:right"><font color="red">错误代码：</font></span>
+<br></div><hr></li></ul></div></div></body></html>

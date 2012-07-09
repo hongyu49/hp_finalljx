@@ -1,0 +1,2 @@
+<html lang="zh_cn"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><div class="type-home" data-role="page"><div data-role="header"><a href="/bridge/home.html" data-role="button" data-icon="home">返回</a><h1>系统错误</h1></div><div align="center" data-role="content"><ul data-inset="true" data-role="listview"><li data-role="list-divider"></li><li href="">
+								错误原因：模版解析出错,详情见日志</li><li data-role="list-divider"></li></ul></div></div></body></html>

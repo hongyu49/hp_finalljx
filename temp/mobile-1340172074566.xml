@@ -1,0 +1,45 @@
+<html lang="zh_cn"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><div data-role="page" id="notice"><div data-role="header"><a data-direction="reverse" data-rel="back" data-role="button" data-icon="home">返回</a><h1>信息发布主表单</h1></div><div align="center" data-role="content"><script>
+							
+							function submit(value){
+								var question = window.confirm("确定提交吗?"); 
+								if(question){
+									var appserver = $("#appserver").val();
+									var appdbpath = $("#appdbpath").val();
+									var appdocunid = $("#appdocunid").val();
+									var CurUserITCode = $("#CurUserITCode").val();
+									var FlowMindInfo = $("#FlowMindInfo").val();
+									FlowMindInfo = encodeURI(escape(FlowMindInfo));
+									
+									var soap = "<SOAP-ENV:Envelope xmlns:SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/' xmlns:SOAP-ENC='http://schemas.xmlsoap.org/soap/encoding/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema'><SOAP-ENV:Body><m:bb_dd_GetDataByView xmlns:m='http://sxg.bbdd.org' SOAP-ENV:encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'><db_ServerName xsi:type='xsd:string'>"+appserver+"</db_ServerName><db_DbPath xsi:type='xsd:string'>"+appdbpath+"</db_DbPath><db_DocUID xsi:type='xsd:string'>"+appdocunid+"</db_DocUID><db_UpdInfo xsi:type='xsd:string'></db_UpdInfo><db_OptPsnID xsi:type='xsd:string'>"+CurUserITCode+"</db_OptPsnID><db_TempAuthors xsi:type='xsd:string'></db_TempAuthors><db_MsgTitle xsi:type='xsd:string'></db_MsgTitle><db_ToNodeId xsi:type='xsd:string'></db_ToNodeId><db_Mind xsi:type='xsd:string'>"+FlowMindInfo+"</db_Mind><db_OptType xsi:type='xsd:string'>"+value+"</db_OptType></m:bb_dd_GetDataByView></SOAP-ENV:Body></SOAP-ENV:Envelope>";
+
+									$.mobile.showPageLoadingMsg();
+									var url = "/view/digi/request/Produce/ProInd.nsf/THFlowBackTraceAgent?openagent&login";
+									var data = "data-xml="+soap;
+									$.ajax({
+										type: "post", url: url, data:data,
+										success: function(response){
+											$.mobile.hidePageLoadingMsg();
+											alert(response);
+											window.history.go(-2);
+										},
+										error:function(response){
+											$.mobile.hidePageLoadingMsg();
+											alert("错误:"+response.responseText);
+										}
+									});
+								}
+							}
+						
+						</script><ul data-role="listview"><li data-role="list-divider"><div align="right" data-type="horizontal" data-role="controlgroup"><button data-rel="dialog" value="submit" onclick="submit(this.value);" style="padding:0 30 0 30;" type="button">&nbsp;&nbsp;&nbsp;下一步&nbsp;&nbsp;&nbsp;</button>&nbsp;&nbsp;&nbsp;<button data-rel="dialog" value="reject" onclick="submit(this.value);" data-theme="b" type="button">&nbsp;&nbsp;&nbsp;退回&nbsp;&nbsp;&nbsp;</button></div></li></ul><br><ul data-theme="d" data-inset="true" data-role="listview"><li data-role="list-divider">基本信息</li><li><div align="" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">标题:</font></span>清洁能源企业发展路径思考<br></div><hr color="gray"><div align="left" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">起草人:</font></span>管理员<br></div><hr color="gray"><div align="" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">起草人部门:</font></span>计划课<br></div><hr color="gray"><div align="left" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">起草日期:</font></span>2012-06-11<br></div><hr color="gray"></li><li data-role="list-divider">审批意见</li><li><table border="0" width="100%" style="border:0;padding:0;margin:0;"><tr style="width:100%"><td align="left" style="width:50%"><span><strong>您的意见:</strong></span></td><td align="left" style="width:50%"><select data-native-menu="true" data-icon="gear" data-theme="a" onChange="$(&quot;#FlowMindInfo&quot;).val($(&quot;#FlowMindInfo&quot;).val()+this.value);"><option selected>常用语</option><option value="同意">同意</option><option value="不同意">不同意</option></select></td></tr><tr style="width:100%"><td align="center" style="width:100%" colspan="2"><textarea name="FlowMindInfo" id="FlowMindInfo"></textarea></td></tr><tr style="width:100%"><td align="left" style="width:100%" colspan="2"><span><strong>消息标题</strong></span></td></tr><tr style="width:100%"><td align="center" style="width:100%" colspan="2"><input name="msgtitle" id="msgtitle"></td></tr></table></li><li data-role="list-divider">正文内容</li><li>新华网 2011年05月12日 十二五规划为我国优化能源结构提出新目标--天然气在能源消费结构中的比例由4%提升到8%，预计到2015年我国天然气消费量将达2600亿立方米，比目前翻一番多。可以肯定，未来我国天然气供需增长空间巨大，行业整体将迎来井喷式发展，这对燃气类公司和能源类个股无疑是重大利好。然而，机遇总是与挑战并存。目前，我国优质城市管网铺设几近饱和，央企、民营、外企等各路资本将继续加速一、二线城市的布局争夺，并逐渐向三线城市和中小县城推进，竞争将呈白热化。是继续跑马圈地，还是顺应国家政策调整，取法不同的商业运作模式，精耕细作、做大清洁能源市场，每一个清洁能源企业都需在发展路径方面作出选择。2011年5月9日，新奥集团董事局主席王玉锁在新奥能源香港上市十周年庆典典礼上表示，新奥将在拓展和巩固现有燃气业务的同时，遵循国家对清洁能源发展的宏观目标，以用户需求为导向，重点打造清洁能源整体解决方案服务提供商角色和多方共赢的服务模式，迎接新奥下一个十年的到来。可以说，顺应国家政策调整、以用户需求为导向，建立多赢商业模式，是王玉锁对新奥成功密码的解读，也是他对我国清洁能源企业发展路径的一个准确提炼。新奥快速发展解密之一：以国家政策调整为契机，实施三次战略升级不断以国家宏观能源政策调整为契机，自2001年起，新奥能源经历并完成了三次重大战略与服务升级。1992年，邓小平南巡的一次讲话使我国天然气下游行业政策开始松动，新奥由此成为民营企业从事城市公用事业第一个吃螃蟹的企业，获得廊坊市管输燃气独家建设经营权。此后的四年，新奥能源凭借在廊坊市总结的经验，积累下一套相对成型、有效的城市天然气运营管理模式。1999年，我国公用事业改革进入新阶段，国家允许民营资本尝试市政公用事业、关于西气东输工程建设起跑令的发布，使新奥能源进入速度经营，全面布局的历史时期：破茧聊城，走出迈向全国的第一步；进入北京，从密云到昌平再到平谷；北上葫芦岛，南下蚌埠；布点石家庄，挺进山东，布局苏浙皖；长株潭一体化，跨入中原，拓展华南，新奥在全国设点布局。2001年，新奥在香港联交所成功上市，为其在全国加速拓展提供了充足的资金给养，伴随国家分别在2002年和2004年相继出台《关于加快市政公用行业市场化进程的意见》和《市政公用事业特许经营管理办法》等政策，新奥能源每年的新项目数大幅飙升，并已能胜任服务特大型城市。2006年，新奥在石家庄开展了100多万人口、30多万户的大置换工程，实现了又一次大跨越。2007年6月，我国提出要在2010年实现单位GDP能耗比2005年降低20%左右和主要污染物减排10%的目标，节能减排成为全国城市与政府的一大重任，新的市政公用事业发展服务的契机也随之来临。当国内其它燃气公司还在忙着抢片占网时，新奥却再次顺应政策的调整，冷静地完成了由能源分销商到清洁能源整体解决方案服务提供商的角色升级，引领了行业的发展。通过深挖客户需求，新奥先后与20多个城市签订了节能减排框架协议，帮助工业用户提高能效，向城市提供节能减排方案，开发系统能效管理平台。2010年，新奥燃气正式更名为新奥能源。由最初的城市燃气专业运营到能源分销再到如今的提供清洁能源整体解决方案服务，新奥能源不断打造着领先的商业模式，并在能源服务上引领行业找到了全新利润增长点。从资源服务型到资源服务与技术服务型并重，新奥能源采用一种双引擎模式为燃气企业示范着一个创新发展之路。新奥快速发展解密之二：打造清洁能源整体解决方案服务提供商，建立多赢商业模式经过三次前瞻性的战略升级，新奥能源不再是仅简单地向用户提供能源资源，而是积极致力于了包括针对区域整体清洁能源规划，针对企业、商业、公共、民用等各类用户的能效审计、方案设计、金融服务、设备集成、工程建设、运营服务直至后期能源供应组织的一揽子服务的清洁能源整体解决方案服务提供商角色定位。这个角色，既能帮助政府和企业实现节能减排目标，又能满足企业发展要求，使新奥实现了自身价值与用户价值、投资者价值、社会价值充分凝聚和最大化，以及政府、企业、社会等多方共赢。在面向新建、省级园区和大型工业企业、公共建筑等客户时，新奥依托系统能效、泛能网理念和技术，以用户单位产品能量成本最优为目标，以缩减政企能源支出账单为口号，向地方政府及不同类型工商业客户提供一揽子清洁能源整体管理解决方案；而在面对已有的旧城区和旧的工业管线时，新奥通过实施技术改造、帮助政府和企业转换用能类型，在充分满足客户对清洁能源的用能需求，做大清洁能源市场的基础上，大幅降低客户长期及总体用能成本。从2008年开始，新奥能源相继与洛阳、长沙、株洲、湘潭、开封、福建等众多城市一起致力于清洁能源与节能减排的事业服务。截至2010年底，新奥能源在长沙黄花机场、新乡和浏阳生物医药产业园的三个多联供项目取得了突破性进展，即将投入运营，并完成了湛江、汕头、东莞三个沼气项目的开发，工业窑炉、锅炉改造关键技术取得突破。到2010年末，有近21个省、市、工业园区与新奥能源完成了节能减排和清洁能源规划整体解决方案的签署。据新奥相关人士介绍，新奥能源与长沙黄花机场合作天然气热电冷多联供项目完成后，能够满足机场新建T3航站楼的供热、供冷需要，全系统节能率33%，每年可减少一次能源消耗折标煤约1527吨，减少二氧化碳排放约3807吨。新奥联手区域政府打造的上海南汇智城智能能源系统项目、常州武进低碳小镇项目、湖南神农城分布式能源系统工程项目等三联供项目也都在紧张的规划和建设当中。节能减排已成为我国十二五规划的约束性指标。在十二五的开局之年，当学者们还在讨论如何缓解减排压力时，新奥能源大服务的实践模式，或许能够帮助地方政府寻找到一种符合国家节能降耗政策、全新的区域低碳经济发展和清洁能源发展的路径。新奥快速发展解密之三：主动引领，拒绝被动跟随新奥之所以能够在传统的燃气领域走出廊坊快速布局全国市场、获得资本市场的青睐，并在光伏和微藻等新能源领域屡有创新，得益于其在技术创新、信息化管理和战略绩效管理的启动和全面升级，以及对管理人才的引进和培养的注重等。新奥拥有一支技术领先的科研团队，并建成了功能齐全、设施完备的基础实验平台、试验中心和技术试验基地。新奥坚持科技是第一生产力的理念，不断聚焦关键技术创新与开发，并坚持把可分配的大部分利润投入技术研发，累计达20多亿元，积极围绕节能减排、传统能源的清洁高效利用、可再生能源发展三大方向，进行新能源关键技术研发。新奥能源上市十年的历程表明，在快速变化的市场竞争环境中，企业的变革是一个永恒的主题。尤其是在业务快速发展后，企业从经营能力到管理模式都要上一个台阶。为此，清洁能源企业要自觉顺应国家政策调整，突破自身体制等局限性，建立一整套有利于产业茁壮成长的商业模式、管理体系和经营机制，才能在激烈的市场竞争中立于不败之地。
+
+
+
+
+
+
+临时作者字段：
+
+
+ 
+
+</li><li data-role="list-divider">当前环节信息</li><li><div align="" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">环节名称:</font></span>部门领导审批<br></div><hr color="gray"><div align="left" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">环节处理人:</font></span>dev1(会签)<br></div><hr color="gray"></li><li data-role="list-divider">审批意见</li><li><div align="left" style="width;100%">同意！</div><div align="right" style="width;100%">开发者1<br>2012-06-13 16:32:33<br>信息发布管理员审批<br></div><hr></li></ul><input value="0" name="__Click" id="__Click" type="hidden"><input value="" name="appserver" id="appserver" type="hidden"><input value="Application/DigiFlowInfoPublish.nsf" name="appdbpath" id="appdbpath" type="hidden"><input value="Produce/DigiFlowMobileJC.nsf" name="DF_DbPath" id="DF_DbPath" type="hidden"><input value="" name="appformname" id="appformname" type="hidden"><input value="B4BF6E0D7CE39E7648257A1A004B81D9" name="appdocunid" id="appdocunid" type="hidden"><input value="msg" name="apptype" id="apptype" type="hidden"><input value="dev1" name="CurUserITCode" id="CurUserITCode" type="hidden"><input value="" name="CurUserDeptID" id="CurUserDeptID" type="hidden"><input value="开发者1" name="CurUserNameCN" id="CurUserNameCN" type="hidden"><input value="" name="CurUserDeptName" id="CurUserDeptName" type="hidden"><input value="" name="CurUserNumber" id="CurUserNumber" type="hidden"><input value="06/20/2012 02:01:58 PM" name="CurUserLoginDate" id="CurUserLoginDate" type="hidden"><input value="" name="RtfApplyContent" id="RtfApplyContent" type="hidden"><input value="" name="RtfMindInfo" id="RtfMindInfo" type="hidden"></div></div></body></html>

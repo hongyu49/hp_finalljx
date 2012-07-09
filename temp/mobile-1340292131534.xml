@@ -1,0 +1,13 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><div class="type-home" data-role="page" id="list"><div data-role="header"><a data-rel="back" data-role="button" data-icon="home">返回</a><h1>个人消息</h1></div><div align="center" data-role="content"><script>
+							function goin(user,unid){
+								var url = "/view/digi/messagerouting/DFMessage/dfmsg_"+user+".nsf/msgByDateDownView/"+unid+"?opendocument?login";
+								$.get(url, function(result){
+									$.mobile.changePage(result, {
+										reverse: false,
+										changeHash: true
+									});
+								});
+							}
+						</script><ul data-inset="true" data-role="listview"><li><a data-iconpos="right" data-icon="arrow-r" onclick="goin('dev1','3FE583016CCD49CD48257A2300596299');" href="javascript:void(0);"><h3>您发起的[信息发布申请流程]流转成功结束</h3><p>
+						时间:<font color="#0080FF">2012-06-21 00:14:43</font></p></a></li><li><a data-iconpos="right" data-icon="arrow-r" onclick="goin('dev1','EB46A00C777B41F348257A1C00598D55');" href="javascript:void(0);"><h3>[通知]:ios本地化令中国同行不安</h3><p>
+						时间:<font color="#0080FF">2012-06-14 00:07:28</font></p></a></li></ul></div></div></body></html>

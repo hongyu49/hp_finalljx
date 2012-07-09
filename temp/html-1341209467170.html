@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>搜索电话</title>
+<script language="JavaScript" type="text/javascript">
+<!-- 
+function openPsn(itcode1){	return;	var url = "/Produce/DigiFlowOrgSysMng.nsf/SearUserInfoForm?openform&ITCode="+itcode1;	location.replace(url)}function $E(sName){	var obj = document.getElementById(sName);	if(!obj) obj = document.all(sName);	if(!obj) obj = document.getElementsByName(sName)[0];	return obj;}
+// -->
+</script>
+
+<script language="JavaScript" type="text/javascript">
+<!-- 
+document._domino_target = "_self";
+function _doClick(v, o, t, h) {
+  var form = document._telSearchForm;
+  if (form.onsubmit) {
+     var retVal = form.onsubmit();
+     if (typeof retVal == "boolean" && retVal == false)
+       return false;
+  }
+  var target = document._domino_target;
+  if (o.href != null) {
+    if (o.target != null)
+       target = o.target;
+  } else {
+    if (t != null)
+      target = t;
+  }
+  form.target = target;
+  form.__Click.value = v;
+  if (h != null)
+    form.action += h;
+  form.submit();
+  return false;
+}
+// -->
+</script>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" onload="if($E("ResultList").value!=""){	$E("resultDiv").innerHTML=$E("ResultList").value;}">
+
+<form method="post" action="/Produce/WeboaConfig.nsf/telSearchForm?OpenForm&amp;Seq=1&amp;svrName=CN%3Dv7demo%2FO%3Ddcms&amp;queryStr=dev&amp;dbFile=Produce%2FDigiFlowOrgPsnMng.nsf&amp;showField=UserDeptPhone" name="_telSearchForm">
+<input type="hidden" name="__Click" value="0"><div style="display:none">
+<input name="DF_Ln_Type" value="ZH" style="display:none">&nbsp;&nbsp;<b>系统捕获参数</b>
+<p><font size="2">URL参数说明:</font><br>
+<font size="2">queryStr-搜索字符串</font><br>
+<font size="2">svrName-目标数据库所在服务器</font><br>
+<font size="2">dbFile-目标数据库路径及文件名</font><br>
+<font size="2">ResultList-搜索结果，不是URL参数</font><br>
+<font size="2">showField-显示搜到的文档的字段名</font><br>
+<font size="2">userLevel－用户在组织结构库中的安全级别</font><br>
+<font size="2">exceptForm-滤除的表单(还未实现)</font><br>
+<font size="2">srchTime-搜索耗时，不是URL参数</font><br>
+<font size="2">userOrgID-传入的当前用户的归属部门ID</font><br>
+
+<input name="queryStr" value="dev" style="display:none">
+<input name="svrName" value="CN=v7demo/O=dcms" style="display:none">
+<input name="dbFile" value="Produce/DigiFlowOrgPsnMng.nsf" style="display:none">
+<input name="userOrgID" value="" style="display:none">
+<input name="userLevel" value="" style="display:none"><br>
+
+<input name="showField" value="UserDeptPhone" style="display:none">
+<input name="exceptForm" value="" style="display:none">
+<input name="srchTime" value="" style="display:none">
+<textarea name="ResultList" style="display:none" rows="7" cols="50"><table width='100%' border=1 style='border-collapse:collapse' class='table1'><tr bgcolor='#d6dff7'><td align='center' width='15%'><b>ITCode</b></td><td align='center' width='15%'><b>用户名</b></td><td align='center' width='15%'><b>员工编号</b></td><td align='center' width='25%'><b>移动电话</b></td><td align='center' width='15%'><b>办公电话</b></td></tr><tr><td align=left><a href=javascript:openPsn('dev1');><font color='blue'>dev1</font></a></td><td align=left >开发者1</td><td align=left></td><td align=left>15129368602</td><td align=left>85599392</td></tr><tr><td align=left><a href=javascript:openPsn('dev10');><font color='blue'>dev10</font></a></td><td align=left >开发者10</td><td align=left></td><td align=left>13675479650</td><td align=left>86574865</td></tr><tr><td align=left><a href=javascript:openPsn('dev2');><font color='blue'>dev2</font></a></td><td align=left >开发者2</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev20');><font color='blue'>dev20</font></a></td><td align=left >开发者20</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev21');><font color='blue'>dev21</font></a></td><td align=left >开发者21</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev22');><font color='blue'>dev22</font></a></td><td align=left >开发者22</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev23');><font color='blue'>dev23</font></a></td><td align=left >开发者23</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev24');><font color='blue'>dev24</font></a></td><td align=left >开发者24</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev25');><font color='blue'>dev25</font></a></td><td align=left >开发者25</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev26');><font color='blue'>dev26</font></a></td><td align=left >开发者26</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev27');><font color='blue'>dev27</font></a></td><td align=left >开发者27</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev28');><font color='blue'>dev28</font></a></td><td align=left >开发者28</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev29');><font color='blue'>dev29</font></a></td><td align=left >开发者29</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev3');><font color='blue'>dev3</font></a></td><td align=left >开发者3</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev30');><font color='blue'>dev30</font></a></td><td align=left >开发者30</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev31');><font color='blue'>dev31</font></a></td><td align=left >开发者31</td><td align=left>c001</td><td align=left>13500000000</td><td align=left>88888888</td></tr><tr><td align=left><a href=javascript:openPsn('dev32');><font color='blue'>dev32</font></a></td><td align=left >开发者32</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev33');><font color='blue'>dev33</font></a></td><td align=left >开发者33</td><td align=left>Code33</td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev34');><font color='blue'>dev34</font></a></td><td align=left >开发者34</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev35');><font color='blue'>dev35</font></a></td><td align=left >开发者35</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev36');><font color='blue'>dev36</font></a></td><td align=left >开发者36</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev37');><font color='blue'>dev37</font></a></td><td align=left >开发者37</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev38');><font color='blue'>dev38</font></a></td><td align=left >开发者38</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev39');><font color='blue'>dev39</font></a></td><td align=left >开发者39</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev4');><font color='blue'>dev4</font></a></td><td align=left >开发者4</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev40');><font color='blue'>dev40</font></a></td><td align=left >开发者40</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev41');><font color='blue'>dev41</font></a></td><td align=left >开发者41</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev42');><font color='blue'>dev42</font></a></td><td align=left >开发者42</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev43');><font color='blue'>dev43</font></a></td><td align=left >开发者43</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev44');><font color='blue'>dev44</font></a></td><td align=left >开发者44</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev45');><font color='blue'>dev45</font></a></td><td align=left >开发者45</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev46');><font color='blue'>dev46</font></a></td><td align=left >开发者46</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev47');><font color='blue'>dev47</font></a></td><td align=left >开发者47</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev48');><font color='blue'>dev48</font></a></td><td align=left >开发者48</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev49');><font color='blue'>dev49</font></a></td><td align=left >开发者49</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev5');><font color='blue'>dev5</font></a></td><td align=left >开发者5</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev50');><font color='blue'>dev50</font></a></td><td align=left >开发者50</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev51');><font color='blue'>dev51</font></a></td><td align=left >开发者51</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev52');><font color='blue'>dev52</font></a></td><td align=left >开发者52</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev53');><font color='blue'>dev53</font></a></td><td align=left >开发者53</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev54');><font color='blue'>dev54</font></a></td><td align=left >开发者54</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev55');><font color='blue'>dev55</font></a></td><td align=left >开发者55</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev56');><font color='blue'>dev56</font></a></td><td align=left >开发者56</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev57');><font color='blue'>dev57</font></a></td><td align=left >开发者57</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev58');><font color='blue'>dev58</font></a></td><td align=left >开发者58</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev59');><font color='blue'>dev59</font></a></td><td align=left >开发者59</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev6');><font color='blue'>dev6</font></a></td><td align=left >开发者6</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev60');><font color='blue'>dev60</font></a></td><td align=left >开发者60</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev7');><font color='blue'>dev7</font></a></td><td align=left >开发者7</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev8');><font color='blue'>dev8</font></a></td><td align=left >开发者8</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev9');><font color='blue'>dev9</font></a></td><td align=left >汪洋</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev61');><font color='blue'>dev61</font></a></td><td align=left >测试账号</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev62');><font color='blue'>dev62</font></a></td><td align=left >测试</td><td align=left></td><td align=left></td><td align=left>x</td></tr><tr><td align=left><a href=javascript:openPsn('dev63');><font color='blue'>dev63</font></a></td><td align=left >测试账号63</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('dev64');><font color='blue'>dev64</font></a></td><td align=left >测试账号64</td><td align=left></td><td align=left></td><td align=left>4445555</td></tr><tr><td align=left><a href=javascript:openPsn('dev65');><font color='blue'>dev65</font></a></td><td align=left >HR测试</td><td align=left></td><td align=left>9999999999</td><td align=left>99</td></tr><tr><td align=left><a href=javascript:openPsn('dev66');><font color='blue'>dev66</font></a></td><td align=left >HR测试2</td><td align=left></td><td align=left></td><td align=left>1111</td></tr><tr><td align=left><a href=javascript:openPsn('dev67');><font color='blue'>dev67</font></a></td><td align=left >HR测试3</td><td align=left></td><td align=left></td><td align=left>010-8859312</td></tr><tr><td align=left><a href=javascript:openPsn('dev68');><font color='blue'>dev68</font></a></td><td align=left >HR测试4</td><td align=left></td><td align=left></td><td align=left></td></tr></table></textarea>
+</div>
+<style>
+*{
+font-size:14px;
+font-family:"微软雅黑";
+}
+</style>
+<table width="100%" style="border:1px solid gray" bgcolor="#f0f0f0" align="left">
+<tr><td colspan="2" align=center><font color=blue><b>搜索结果</b></font></td></tr>
+<tr><td colspan="2"><div id="resultDiv"></div></td></tr>
+<tr><td colspan="2" align=center>
+<p>
+<input type="button" onclick="window.close();" value="关 闭" id="DF_00009"></td></tr>
+</table>
+</form>
+</body>
+</html>

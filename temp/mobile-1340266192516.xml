@@ -1,0 +1,35 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><div class="type-home" data-role="page" id="list"><div data-role="header"><a data-rel="back" data-role="button" data-icon="home">返回</a><h1>待办事宜</h1></div><div align="center" data-role="content"><script>
+							function changepage(url){
+								$.mobile.changePage(url, {changeHash:true, type: "post"});
+							}
+						</script><ul data-inset="true" data-role="listview"><li><a data-iconpos="right" data-icon="arrow-r" onclick="changepage('/view/digi/contentmobile/Produce/DigiFlowMobileJC.nsf/showformserver?openform&amp;apptype=msg&amp;appserver=&amp;appdbpath=DFMessage/dfmsg_dev1.nsf&amp;appdocunid=A77FDD1716B3EF9F48257A24000B6D39')" href="javascript:void(0)"><h3>开发者3提交了名片申请流程,请您尽快处理.</h3><p>
+					时间:<font color="#0080FF">2012-06-21 10:03:15</font>
+					状态:<font color="#0080FF">待办(已查阅)</font></p></a></li><li><a data-iconpos="right" data-icon="arrow-r" onclick="changepage('/view/digi/contentmobile/Produce/DigiFlowMobileJC.nsf/showformserver?openform&amp;apptype=msg&amp;appserver=&amp;appdbpath=DFMessage/dfmsg_dev1.nsf&amp;appdocunid=46CD9890B7BADA6148257A24000B2080')" href="javascript:void(0)"><h3>有需要您办理的文档，请查阅</h3><p>
+					时间:<font color="#0080FF">2012-06-21 10:00:21</font>
+					状态:<font color="#0080FF">待办(已查阅)</font></p></a></li><li><a data-iconpos="right" data-icon="arrow-r" onclick="changepage('/view/digi/contentmobile/Produce/DigiFlowMobileJC.nsf/showformserver?openform&amp;apptype=msg&amp;appserver=&amp;appdbpath=DFMessage/dfmsg_dev1.nsf&amp;appdocunid=D0692B465DDFDD0748257A24000AE0A5')" href="javascript:void(0)"><h3>有需要您办理的文档，请查阅</h3><p>
+					时间:<font color="#0080FF">2012-06-21 09:57:17</font>
+					状态:<font color="#0080FF">待办(已查阅)</font></p></a></li><li><a data-iconpos="right" data-icon="arrow-r" onclick="changepage('/view/digi/contentmobile/Produce/DigiFlowMobileJC.nsf/showformserver?openform&amp;apptype=msg&amp;appserver=&amp;appdbpath=DFMessage/dfmsg_dev1.nsf&amp;appdocunid=3A0EA46F98E2212A48257A24000AE09D')" href="javascript:void(0)"><h3>有需要您办理的文档，请查阅</h3><p>
+					时间:<font color="#0080FF">2012-06-21 09:56:54</font>
+					状态:<font color="#0080FF">待办(已查阅)</font></p></a></li><li><a data-iconpos="right" data-icon="arrow-r" onclick="changepage('/view/digi/contentmobile/Produce/DigiFlowMobileJC.nsf/showformserver?openform&amp;apptype=msg&amp;appserver=&amp;appdbpath=DFMessage/dfmsg_dev1.nsf&amp;appdocunid=83B45F0FD19F782848257A24000A9A3F')" href="javascript:void(0)"><h3>管理员提交了一般费用申请,请您尽快处理.</h3><p>
+					时间:<font color="#0080FF">2012-06-21 09:54:28</font>
+					状态:<font color="#0080FF">待办(未查阅)</font></p></a></li><li><a data-iconpos="right" data-icon="arrow-r" onclick="changepage('/view/digi/contentmobile/Produce/DigiFlowMobileJC.nsf/showformserver?openform&amp;apptype=msg&amp;appserver=&amp;appdbpath=DFMessage/dfmsg_dev1.nsf&amp;appdocunid=FD61AA21C35F47F348257A240009DA11')" href="javascript:void(0)"><h3>开发者3提交了名片申请流程,请您尽快处理.</h3><p>
+					时间:<font color="#0080FF">2012-06-21 09:47:11</font>
+					状态:<font color="#0080FF">待办(已查阅)</font></p></a></li><li><a data-iconpos="right" data-icon="arrow-r" onclick="changepage('/view/digi/contentmobile/Produce/DigiFlowMobileJC.nsf/showformserver?openform&amp;apptype=msg&amp;appserver=&amp;appdbpath=DFMessage/dfmsg_dev1.nsf&amp;appdocunid=A24D5026F8DE4DA748257A240009DA0A')" href="javascript:void(0)"><h3>有需要您办理的文档，请查阅</h3><p>
+					时间:<font color="#0080FF">2012-06-21 09:46:53</font>
+					状态:<font color="#0080FF">待办(未查阅)</font></p></a></li><li><a data-iconpos="right" data-icon="arrow-r" onclick="changepage('/view/digi/contentmobile/Produce/DigiFlowMobileJC.nsf/showformserver?openform&amp;apptype=msg&amp;appserver=&amp;appdbpath=DFMessage/dfmsg_dev1.nsf&amp;appdocunid=A7713CA52F64701548257A24000314D0')" href="javascript:void(0)"><h3>开发者1提交了信息发布申请流程,请您尽快处理.</h3><p>
+					时间:<font color="#0080FF">2012-06-21 08:32:15</font>
+					状态:<font color="#0080FF">待办(已查阅)</font></p></a></li><li><a data-iconpos="right" data-icon="arrow-r" onclick="changepage('/view/digi/contentmobile/Produce/DigiFlowMobileJC.nsf/showformserver?openform&amp;apptype=msg&amp;appserver=&amp;appdbpath=DFMessage/dfmsg_dev1.nsf&amp;appdocunid=6237FE3E8DD4E69848257A2400029FA3')" href="javascript:void(0)"><h3>管理员提交了信息发布申请流程,请您尽快处理.</h3><p>
+					时间:<font color="#0080FF">2012-06-21 08:24:01</font>
+					状态:<font color="#0080FF">待办(未查阅)</font></p></a></li><li><a data-iconpos="right" data-icon="arrow-r" onclick="changepage('/view/digi/contentmobile/Produce/DigiFlowMobileJC.nsf/showformserver?openform&amp;apptype=msg&amp;appserver=&amp;appdbpath=DFMessage/dfmsg_dev1.nsf&amp;appdocunid=014B235D7D123CD748257A2400029F95')" href="javascript:void(0)"><h3>开发者1提交了信息发布申请流程,请您尽快处理.</h3><p>
+					时间:<font color="#0080FF">2012-06-21 08:23:27</font>
+					状态:<font color="#0080FF">待办(未查阅)</font></p></a></li><li><a data-iconpos="right" data-icon="arrow-r" onclick="changepage('/view/digi/contentmobile/Produce/DigiFlowMobileJC.nsf/showformserver?openform&amp;apptype=msg&amp;appserver=&amp;appdbpath=DFMessage/dfmsg_dev1.nsf&amp;appdocunid=2B910DD30F894DAD48257A24000212F8')" href="javascript:void(0)"><h3>开发者3提交了信息发布申请流程,请您尽快处理.</h3><p>
+					时间:<font color="#0080FF">2012-06-21 08:18:55</font>
+					状态:<font color="#0080FF">待办(未查阅)</font></p></a></li><li><a data-iconpos="right" data-icon="arrow-r" onclick="changepage('/view/digi/contentmobile/Produce/DigiFlowMobileJC.nsf/showformserver?openform&amp;apptype=msg&amp;appserver=&amp;appdbpath=DFMessage/dfmsg_dev1.nsf&amp;appdocunid=836D7C23CF526B7848257A230078EA0F')" href="javascript:void(0)"><h3>开发者1提交了信息发布申请流程,请您尽快处理.</h3><p>
+					时间:<font color="#0080FF">2012-06-21 00:22:00</font>
+					状态:<font color="#0080FF">待办(已查阅)</font></p></a></li><li><a data-iconpos="right" data-icon="arrow-r" onclick="changepage('/view/digi/contentmobile/Produce/DigiFlowMobileJC.nsf/showformserver?openform&amp;apptype=msg&amp;appserver=&amp;appdbpath=DFMessage/dfmsg_dev1.nsf&amp;appdocunid=DA556A032C6CC8C948257A230059629C')" href="javascript:void(0)"><h3>开发者1提交了用印或携章外出审批,请您尽快处理.</h3><p>
+					时间:<font color="#0080FF">2012-06-21 00:15:54</font>
+					状态:<font color="#0080FF">待办(未查阅)</font></p></a></li><li><a data-iconpos="right" data-icon="arrow-r" onclick="changepage('/view/digi/contentmobile/Produce/DigiFlowMobileJC.nsf/showformserver?openform&amp;apptype=msg&amp;appserver=&amp;appdbpath=DFMessage/dfmsg_dev1.nsf&amp;appdocunid=C7D72F48EF3F95B848257A23005928D0')" href="javascript:void(0)"><h3>开发者1提交了名片申请流程,请您尽快处理.</h3><p>
+					时间:<font color="#0080FF">2012-06-20 23:58:19</font>
+					状态:<font color="#0080FF">待办(已查阅)</font></p></a></li><li><a data-iconpos="right" data-icon="arrow-r" onclick="changepage('/view/digi/contentmobile/Produce/DigiFlowMobileJC.nsf/showformserver?openform&amp;apptype=msg&amp;appserver=&amp;appdbpath=DFMessage/dfmsg_dev1.nsf&amp;appdocunid=8547F6288937E30C48257A23005928CB')" href="javascript:void(0)"><h3>开发者1提交了名片申请流程,请您尽快处理.</h3><p>
+					时间:<font color="#0080FF">2012-06-20 23:49:37</font>
+					状态:<font color="#0080FF">待办(未查阅)</font></p></a></li></ul></div></div></body></html>

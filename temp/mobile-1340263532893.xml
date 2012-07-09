@@ -1,0 +1,45 @@
+<html lang="zh_cn"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><div data-role="page" id="notice"><div data-role="header"><a data-direction="reverse" data-rel="back" data-role="button" data-icon="home">返回</a><h1>信息发布主表单</h1></div><div align="center" data-role="content"><script>
+							
+							function submit(value){
+								var question = window.confirm("确定提交吗?"); 
+								if(question){
+									var appserver = $("#appserver").val();
+									var appdbpath = $("#appdbpath").val();
+									var appdocunid = $("#appdocunid").val();
+									var CurUserITCode = $("#CurUserITCode").val();
+									var FlowMindInfo = $("#FlowMindInfo").val();
+									FlowMindInfo = encodeURI(escape(FlowMindInfo));
+									
+									var soap = "<SOAP-ENV:Envelope xmlns:SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/' xmlns:SOAP-ENC='http://schemas.xmlsoap.org/soap/encoding/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema'><SOAP-ENV:Body><m:bb_dd_GetDataByView xmlns:m='http://sxg.bbdd.org' SOAP-ENV:encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'><db_ServerName xsi:type='xsd:string'>"+appserver+"</db_ServerName><db_DbPath xsi:type='xsd:string'>"+appdbpath+"</db_DbPath><db_DocUID xsi:type='xsd:string'>"+appdocunid+"</db_DocUID><db_UpdInfo xsi:type='xsd:string'></db_UpdInfo><db_OptPsnID xsi:type='xsd:string'>"+CurUserITCode+"</db_OptPsnID><db_TempAuthors xsi:type='xsd:string'></db_TempAuthors><db_MsgTitle xsi:type='xsd:string'></db_MsgTitle><db_ToNodeId xsi:type='xsd:string'></db_ToNodeId><db_Mind xsi:type='xsd:string'>"+FlowMindInfo+"</db_Mind><db_OptType xsi:type='xsd:string'>"+value+"</db_OptType></m:bb_dd_GetDataByView></SOAP-ENV:Body></SOAP-ENV:Envelope>";
+
+									$.mobile.showPageLoadingMsg();
+									var url = "/view/digi/request/Produce/ProInd.nsf/THFlowBackTraceAgent?openagent&login";
+									var data = "data-xml="+soap;
+									$.ajax({
+										type: "post", url: url, data:data,
+										success: function(response){
+											$.mobile.hidePageLoadingMsg();
+											alert(response);
+											window.history.go(-2);
+										},
+										error:function(response){
+											$.mobile.hidePageLoadingMsg();
+											alert("错误:"+response.responseText);
+										}
+									});
+								}
+							}
+						
+						</script><ul data-role="listview"><li data-role="list-divider"><div align="right" data-type="horizontal" data-role="controlgroup"><button data-rel="dialog" value="submit" onclick="submit(this.value);" style="padding:0 30 0 30;" type="button">&nbsp;&nbsp;&nbsp;下一步&nbsp;&nbsp;&nbsp;</button>&nbsp;&nbsp;&nbsp;<button data-rel="dialog" value="reject" onclick="submit(this.value);" data-theme="b" type="button">&nbsp;&nbsp;&nbsp;退回&nbsp;&nbsp;&nbsp;</button></div></li></ul><br><ul data-theme="d" data-inset="true" data-role="listview"><li data-role="list-divider">基本信息</li><li><div align="" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">标题:</font></span>中央农办主任陈锡文到福田雷沃重工考察<br></div><hr color="gray"><div align="left" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">起草人:</font></span>开发者1<br></div><hr color="gray"><div align="" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">起草人部门:</font></span>化工行业<br></div><hr color="gray"><div align="left" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">起草日期:</font></span>2012-06-21<br></div><hr color="gray"></li><li data-role="list-divider">审批意见</li><li><table border="0" width="100%" style="border:0;padding:0;margin:0;"><tr style="width:100%"><td align="left" style="width:50%"><span><strong>您的意见:</strong></span></td><td align="left" style="width:50%"><select data-native-menu="true" data-icon="gear" data-theme="a" onChange="$(&quot;#FlowMindInfo&quot;).val($(&quot;#FlowMindInfo&quot;).val()+this.value);"><option selected>常用语</option><option value="同意">同意</option><option value="不同意">不同意</option></select></td></tr><tr style="width:100%"><td align="center" style="width:100%" colspan="2"><textarea name="FlowMindInfo" id="FlowMindInfo"></textarea></td></tr><tr style="width:100%"><td align="left" style="width:100%" colspan="2"><span><strong>消息标题</strong></span></td></tr><tr style="width:100%"><td align="center" style="width:100%" colspan="2"><input name="msgtitle" id="msgtitle"></td></tr></table></li><li data-role="list-divider">正文内容</li><li>中央农办主任陈锡文到福田雷沃重工考察2010-04-19 4月15日，中央财经领导小组办公室副主任、中央农村工作领导小组办公室主任陈锡文一行在山东省委常委、副省长王军民，潍坊市市委书记张新起等省市领导的陪同下到福田雷沃重工考察指导工作。福田雷沃重工总经理王桂民、党委副书记杨洪义陪同考察。 陈锡文一行参观考察了福田雷沃重工大马力拖拉机生产车间和全系列产品展示区。在生产车间，陈锡文主任看着热火朝天的生产景象，不时地点头赞许，并详细询问了目前雷沃欧豹大马力拖拉机的生产和销售情况。在产品展示区，陈锡文主任不时走近雷沃谷神小麦机、玉米机、水稻机、雷沃欧豹大中型拖拉机等样机前，仔细查看配置，认真了解性能、作业表现及适宜作业区域等情况。走到中国目前最大马力拖拉机&amp;mdash;&amp;mdash;雷沃欧豹TN3004拖拉机前，陈锡文登上拖拉机，认真询问拖拉机的底盘、发动机等零部件配置情况。走下拖拉机，陈锡文说，大马力拖拉机对我国东北、新疆等大农场非常适用，打破了国外品牌对国内市场垄断，非常有意义。陈锡文对福田雷沃重工坚持落实科学发展观，不断进行技术创新、调整产品结构，加快企业发展，对中国农业机械化和农村经济发展做出的贡献给予了充分肯定。 近几年，国家逐步增加农机购置补贴资金，今年达到145亿元，这在提高农业综合生产能力，扩大农村需求的同时，也拉动了农机工业的发展。陈锡文希望福田雷沃重工要抓住机遇，不断调整结构，提升产品的技术含量和内在质量，切实将先进适用、技术成熟、安全可靠、节能环保、服务到位的农机具投向市场，满足农民的需求。 陈锡文指出，近年来，随着农村土地规模化经营的推进，农机大户、农机专业合作社成为农机作业服务新的发展趋势，希望福田雷沃重工进一步创新服务模式，为他们提供更加专业化的服务，为加快推进我国农业机械化和建设现代农业做出新的贡献。
+
+
+
+
+
+
+临时作者字段：
+
+
+ 
+
+</li><li data-role="list-divider">当前环节信息</li><li><div align="" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">环节名称:</font></span>部门领导审批<br></div><hr color="gray"><div align="left" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">环节处理人:</font></span>dev1(会签)<br></div><hr color="gray"></li><li data-role="list-divider">审批意见</li><li><div align="left" style="width;100%">同意发布</div><div align="right" style="width;100%">开发者1<br>2012-06-21 00:21:43<br>信息发布管理员审批<br></div><hr></li></ul><input value="0" name="__Click" id="__Click" type="hidden"><input value="" name="appserver" id="appserver" type="hidden"><input value="Application/DigiFlowInfoPublish.nsf" name="appdbpath" id="appdbpath" type="hidden"><input value="Produce/DigiFlowMobileJC.nsf" name="DF_DbPath" id="DF_DbPath" type="hidden"><input value="" name="appformname" id="appformname" type="hidden"><input value="3008FAB2BEF609E548257A230059DEC5" name="appdocunid" id="appdocunid" type="hidden"><input value="msg" name="apptype" id="apptype" type="hidden"><input value="dev1" name="CurUserITCode" id="CurUserITCode" type="hidden"><input value="" name="CurUserDeptID" id="CurUserDeptID" type="hidden"><input value="开发者1" name="CurUserNameCN" id="CurUserNameCN" type="hidden"><input value="" name="CurUserDeptName" id="CurUserDeptName" type="hidden"><input value="" name="CurUserNumber" id="CurUserNumber" type="hidden"><input value="06/21/2012 03:26:08 PM" name="CurUserLoginDate" id="CurUserLoginDate" type="hidden"><input value="" name="RtfApplyContent" id="RtfApplyContent" type="hidden"><input value="" name="RtfMindInfo" id="RtfMindInfo" type="hidden"></div></div></body></html>

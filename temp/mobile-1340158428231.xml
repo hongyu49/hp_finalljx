@@ -1,0 +1,15 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><div class="type-home" data-role="page" id="list"><div data-role="header"><a data-rel="back" data-role="button" data-icon="home">返回</a><h1>个人消息</h1></div><div align="center" data-role="content"><script>
+							function goin(user,unid){
+								var url = "/view/digi/messagerouting/DFMessage/dfmsg_"+user+".nsf/msgByDateDownView/"+unid+"?opendocument?login";
+								$.get(url, function(result){
+									$.mobile.changePage(result, {
+										reverse: false,
+										changeHash: true
+									});
+								});
+							}
+						</script><ul data-inset="true" data-role="listview"><li><a data-iconpos="right" data-icon="arrow-r" onclick="goin('dev3','710439579E5122A948257A1D000A1DE7');" href="javascript:void(0);"><h3>您发起的[用印或携章外出审批]流转成功结束</h3><p>
+						时间:<font color="#0080FF">2012-06-14 09:50:27</font></p></a></li><li><a data-iconpos="right" data-icon="arrow-r" onclick="goin('dev3','99529832EB64FFC248257A1C008202AD');" href="javascript:void(0);"><h3>您发起的[信息发布申请流程]流转成功结束</h3><p>
+						时间:<font color="#0080FF">2012-06-14 07:39:55</font></p></a></li><li><a data-iconpos="right" data-icon="arrow-r" onclick="goin('dev3','C20962843C12A29E48257A1C0058EFD8');" href="javascript:void(0);"><h3>[通知]:有需要您查阅的信息</h3><p>
+						时间:<font color="#0080FF">2012-06-14 00:10:23</font></p></a></li><li><a data-iconpos="right" data-icon="arrow-r" onclick="goin('dev3','26074248D7FA81DC48257A1C004D2340');" href="javascript:void(0);"><h3>[通知]:有需要您查阅的信息，来自信息发布</h3><p>
+						时间:<font color="#0080FF">2012-06-13 22:01:20</font></p></a></li></ul></div></div></body></html>

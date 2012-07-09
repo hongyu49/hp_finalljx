@@ -1,0 +1,45 @@
+<html lang="zh_cn"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><div data-role="page" id="notice"><div data-role="header"><a data-direction="reverse" data-rel="back" data-role="button" data-icon="home">返回</a><h1>信息发布主表单</h1></div><div align="center" data-role="content"><script>
+							
+							function submit(value){
+								var question = window.confirm("确定提交吗?"); 
+								if(question){
+									var appserver = $("#appserver").val();
+									var appdbpath = $("#appdbpath").val();
+									var appdocunid = $("#appdocunid").val();
+									var CurUserITCode = $("#CurUserITCode").val();
+									var FlowMindInfo = $("#FlowMindInfo").val();
+									FlowMindInfo = encodeURI(escape(FlowMindInfo));
+									
+									var soap = "<SOAP-ENV:Envelope xmlns:SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/' xmlns:SOAP-ENC='http://schemas.xmlsoap.org/soap/encoding/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema'><SOAP-ENV:Body><m:bb_dd_GetDataByView xmlns:m='http://sxg.bbdd.org' SOAP-ENV:encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'><db_ServerName xsi:type='xsd:string'>"+appserver+"</db_ServerName><db_DbPath xsi:type='xsd:string'>"+appdbpath+"</db_DbPath><db_DocUID xsi:type='xsd:string'>"+appdocunid+"</db_DocUID><db_UpdInfo xsi:type='xsd:string'></db_UpdInfo><db_OptPsnID xsi:type='xsd:string'>"+CurUserITCode+"</db_OptPsnID><db_TempAuthors xsi:type='xsd:string'></db_TempAuthors><db_MsgTitle xsi:type='xsd:string'></db_MsgTitle><db_ToNodeId xsi:type='xsd:string'></db_ToNodeId><db_Mind xsi:type='xsd:string'>"+FlowMindInfo+"</db_Mind><db_OptType xsi:type='xsd:string'>"+value+"</db_OptType></m:bb_dd_GetDataByView></SOAP-ENV:Body></SOAP-ENV:Envelope>";
+
+									$.mobile.showPageLoadingMsg();
+									var url = "/view/digi/request/Produce/ProInd.nsf/THFlowBackTraceAgent?openagent&login";
+									var data = "data-xml="+soap;
+									$.ajax({
+										type: "post", url: url, data:data,
+										success: function(response){
+											$.mobile.hidePageLoadingMsg();
+											alert(response);
+											window.history.go(-2);
+										},
+										error:function(response){
+											$.mobile.hidePageLoadingMsg();
+											alert("错误:"+response.responseText);
+										}
+									});
+								}
+							}
+						
+						</script><ul data-role="listview"><li data-role="list-divider"><div align="right" data-type="horizontal" data-role="controlgroup"><button data-rel="dialog" value="submit" onclick="submit(this.value);" style="padding:0 30 0 30;" type="button">&nbsp;&nbsp;&nbsp;下一步&nbsp;&nbsp;&nbsp;</button>&nbsp;&nbsp;&nbsp;<button data-rel="dialog" value="reject" onclick="submit(this.value);" data-theme="b" type="button">&nbsp;&nbsp;&nbsp;退回&nbsp;&nbsp;&nbsp;</button></div></li></ul><br><ul data-theme="d" data-inset="true" data-role="listview"><li data-role="list-divider">基本信息</li><li><div align="" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">标题:</font></span>我国首次在夏季发射神舟飞船<br></div><hr color="gray"><div align="left" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">起草人:</font></span>开发者3<br></div><hr color="gray"><div align="" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">起草人部门:</font></span>鼎捷软件<br></div><hr color="gray"><div align="left" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">起草日期:</font></span>2012-06-13<br></div><hr color="gray"></li><li data-role="list-divider">审批意见</li><li><table border="0" width="100%" style="border:0;padding:0;margin:0;"><tr style="width:100%"><td align="left" style="width:50%"><span><strong>您的意见:</strong></span></td><td align="left" style="width:50%"><select data-native-menu="true" data-icon="gear" data-theme="a" onChange="$(&quot;#FlowMindInfo&quot;).val($(&quot;#FlowMindInfo&quot;).val()+this.value);"><option selected>常用语</option><option value="同意">同意</option><option value="不同意">不同意</option></select></td></tr><tr style="width:100%"><td align="center" style="width:100%" colspan="2"><textarea name="FlowMindInfo" id="FlowMindInfo"></textarea></td></tr><tr style="width:100%"><td align="left" style="width:100%" colspan="2"><span><strong>消息标题</strong></span></td></tr><tr style="width:100%"><td align="center" style="width:100%" colspan="2"><input name="msgtitle" id="msgtitle"></td></tr></table></li><li data-role="list-divider">正文内容</li><li>中广网北京6月13日消息 据中国之声《新闻晚高峰》报道，随着神舟九号预定发射日期的逐渐临近，中央人民广播电台酒泉卫星发射中心的前方报道组已经在昨天抵达了酒泉卫星发射中心。今天上午，发射中心召开了情况介绍会。　　两架波音737飞机前后不到10分钟的间隔分别起飞，而飞机上满载的都是媒体的工作人员。而这成为了近一段时间北京南苑机场的例行公事。对于神舟九号的关注程度可见一斑。　　与此前8次任务不同，这一次的任务具有四个首次的特点：首次实施手控交会对接，首次航天员进入天空一号驻留，首次有女航天员飞行，首次十多天的载人飞行。　　昨天，神舟九号任务进行了最后一次的合练，准备工作已经进入了倒计时。　　酒泉卫星发射中心主任崔俊吉：综合演练之后，再加测试的项目已经不太多，下面主要是进入各系统发射前的状态设置，火箭加注推进剂的准备，实施飞行推进剂加注。　　大漠、隔壁、烈日、酷热。走下飞机的旋梯，所有人做的第一件事就是从包里翻出了太阳镜和帽子。6月在北方仍然可以算作秋老虎抵达之前的宜人时节，但是在西北的大漠之中，高温和曝晒已经抵达。　　这样的高温对于火箭发射提出了挑战。前八次的发射都选择在秋季进行；选择在夏季发射的神九，酒泉卫星发射中心主任崔吉俊仍旧很有信心。　　崔吉俊：这次发射选择在六月份在载人航天发射中是第一次，以往我们完成的九次发射都是选择在春季、秋季、冬季。唯一的就是没有夏季。不过发射场的条件也是能够保证夏季发射的。　　这次任务的全称是：天宫一号与神舟九号载人交会对接任务。因此，神舟九号的发射只是此次任务的序曲；天宫一号此刻已经完成了降低轨道的准备，在天上静静的等待着神舟九号上三名航天员的到来。
+
+
+
+
+
+
+临时作者字段：
+
+
+ 
+
+</li><li data-role="list-divider">当前环节信息</li><li><div align="" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">环节名称:</font></span>部门领导审批<br></div><hr color="gray"><div align="left" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">环节处理人:</font></span>dev1(会签)<br></div><hr color="gray"></li><li data-role="list-divider">审批意见</li><li><div align="left" style="width;100%">请查阅</div><div align="right" style="width;100%">开发者1<br>2012-06-14 09:19:38<br>信息发布管理员审批<br></div><hr><div align="left" style="width;100%">同意</div><div align="right" style="width;100%">开发者1<br>2012-06-21 08:18:34<br>信息发布管理员审批<br></div><hr></li></ul><input value="0" name="__Click" id="__Click" type="hidden"><input value="" name="appserver" id="appserver" type="hidden"><input value="Application/DigiFlowInfoPublish.nsf" name="appdbpath" id="appdbpath" type="hidden"><input value="Produce/DigiFlowMobileJC.nsf" name="DF_DbPath" id="DF_DbPath" type="hidden"><input value="" name="appformname" id="appformname" type="hidden"><input value="C04BB7AA48E9AA7B48257A1C004B9535" name="appdocunid" id="appdocunid" type="hidden"><input value="msg" name="apptype" id="apptype" type="hidden"><input value="dev1" name="CurUserITCode" id="CurUserITCode" type="hidden"><input value="" name="CurUserDeptID" id="CurUserDeptID" type="hidden"><input value="开发者1" name="CurUserNameCN" id="CurUserNameCN" type="hidden"><input value="" name="CurUserDeptName" id="CurUserDeptName" type="hidden"><input value="" name="CurUserNumber" id="CurUserNumber" type="hidden"><input value="07/03/2012 10:18:41 AM" name="CurUserLoginDate" id="CurUserLoginDate" type="hidden"><input value="" name="RtfApplyContent" id="RtfApplyContent" type="hidden"><input value="" name="RtfMindInfo" id="RtfMindInfo" type="hidden"></div></div></body></html>

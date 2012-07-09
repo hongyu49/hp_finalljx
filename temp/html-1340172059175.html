@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>信息发布主表单</title><meta name="viewport" content="user-scalable=yes,width=device-width" />
+<script language="JavaScript" type="text/javascript">
+<!-- 
+document._domino_target = "_self";
+function _doClick(v, o, t, h) {
+  var form = document._showformserver;
+  if (form.onsubmit) {
+     var retVal = form.onsubmit();
+     if (typeof retVal == "boolean" && retVal == false)
+       return false;
+  }
+  var target = document._domino_target;
+  if (o.href != null) {
+    if (o.target != null)
+       target = o.target;
+  } else {
+    if (t != null)
+      target = t;
+  }
+  form.target = target;
+  form.__Click.value = v;
+  if (h != null)
+    form.action += h;
+  form.submit();
+  return false;
+}
+// -->
+</script>
+</head>
+<body text="#000000" bgcolor="#FFFFFF">
+
+<form method="post" action="/Produce/DigiFlowMobileJC.nsf/showformserver?OpenForm&amp;Seq=1&amp;apptype=msg&amp;appserver=&amp;appdbpath=DFMessage%2Fdfmsg_dev1.nsf&amp;appdocunid=5AFA0C7DDE02391148257A1C004C4B86" name="_showformserver">
+<input type="hidden" name="__Click" value="0"><div style="display:none">
+<!-- 应用数据库相关信息 -->
+应用服务器：; 应用数据库路径：Application/DigiFlowInfoPublish.nsf;Produce/DigiFlowMobileJC.nsf 应用的表单名：;应用文档的UNID:B7CD048AB0493EA348257A1C004C4363  应用类型：msg msg:消息;news:新闻公告;空：表单更新域：
+<input name="stupdfields" value="" style="width:450">
+</div>
+<div id="basicinfo" style="display:none">
+<!-- 当前用户信息 -->
+当前用户：dev1部门编号：当前用户名：开发者1部门名称：
+员工编号：当前用户登陆时间：06/20/2012 02:01:43 PM
+<!-- 流程信息 -->
+当前环节信息：
+<input name="TFCurNodeID" value="FlowNode1" readonly><font size="2" face="宋体">
+<input name="$V2AttachmentOptions" value="0"></font>当前作者信息：
+<input name="TFCurNodeAuthors" value="dev1" readonly>当前环节名称：
+<input name="TFCurNodeName" value="信息发布管理员审批">
+附件显示：
+<input name="AttachFlag" value="yes">
+<input name="AttachDocUnid" value="">
+<input name="AttachInfo" value=""> 加载状态：
+<input name="LoadFlag" value=""> 审批意见：
+<textarea name="ThisFlowMindInfoLog" style="width:200px;height:200px" readonly rows="15" cols="80"></textarea>
+
+不允许审批的环节编号：
+<input name="noapprovenodes" value="">
+是否加载流程：
+<input name="FlowFlag" value="yes"> 
+<input name="applyname" value="信息发布主表单">
+要提交到的节点ID:
+<input name="FlowGotoNodeID" value="">
+信息发布相关内容：
+信息发布的正文RTF域：
+<div name="Fck_HTML" rows="7" cols="50"><p> 人民网北京6月13日电 (记者 贾玥) 是否延长退休年龄正成为时下热议话题，有评论指出，应在打破退休金双轨制的基础上再来讨论。而自2008年底启动的山西、上海、浙江、广东、重庆五省市事业单位养老保险改革试点，至今仍未取得实质突破。专家认为，相关政策未具体明确转制成本的资金来源，令诸多事业人对前景忧心忡忡。</p><p>　　6月12日，在国家行政学院召开的一场报告会上，国家行政学院公共管理教研部副教授叶响裙指出，事业单位分类改革尚未完成导致养老保险制度很难单兵突进。</p><p>　　2008年出台的《事业单位工作人员养老保险制度改革试点方案》(以下简称试点方案)要求，《试点方案》适用于分类改革后从事公益服务的事业单位及其工作人员。从各地情况看，目前事业单位改革尚处在完成清理规范的初始阶段。</p><p>　　一些地方的事业单位反问，分类改革都没有完成，养老保险制度怎么推行得了？叶响裙表示，即便分类改革顺利完成，改革养老保险制度也并非易事，因为《试点方案》本身还有很多关键性政策要点没有明确，特别是对于职业年金、过渡性养老金制度缺乏可操作性规定。</p><p>　　《试点方案》中要求，为建立多得次的养老保险体系，提高事业单位工作人员退休后的生活水平，在参加基本养老保险的基础上，事业单位建立工作人员职业年金制度，具体办法由劳动保障部(原)会同财政部、人事部制定。</p><p>　　2011年，人社部出台《事业单位职业年金试行办法》。相较《试点方案》的只言片语，这一试行办法明确了职业年金协商方式、个人缴费比例、领取条件、基金管理等内容，但叶响裙认为，对于更为重要的资金来源问题，试行办法仍然语焉不详。</p></textarea>
+
+<br>
+
+<input name="TFCurNodeOneDo" value="(会签)">
+<input name="InfoAuthor" value="">
+<input name="InfoTitle" value="">
+临时作者字段：
+<input name="TFTempAuthors" value="">
+<input name="TFTempAuthorsCN" value="">
+<input name="TFTempAuthorsEN" value=""> 
+<input type="button" onclick="//window.open("/produce/DigiFlowMobile.nsf/frmselectpsn?OpenForm&amp;login&amp;FieldName=TFTempAuthors&amp;FieldNameCN=TFTempAuthorsCN&amp;FieldNameEN=TFTempAuthorsEN&amp;callback=parsepsn");DF_SelectPsnForMobile({FieldName:"TFTempAuthors",selectMode:"checkbox"});" value="选择人员"><br>
+</div>
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<TR>
+<TD class="DB_SET_TD" id="tdNext" style="cursor:hand;display:"><a href="javascript:docApprove('submit')"><img src="/DF_Res/DF_Style_Source/DF_Style_Mobile/img/NEXT.gif" border="0" />下一步</a></TD>
+<TD class="DB_SET_TD" id="tdReturn" style="cursor:hand;display:"><a href="javascript:docApprove('reject')"><img src="/DF_Res/DF_Style_Source/DF_Style_Mobile/img/fanhui.gif" border="0" />退回</a></TD>
+<TD class="DB_SET_TD" id="tdQuit" style="cursor:hand"><a href="javascript:quitApprove()"><img src="/DF_Res/DF_Style_Source/DF_Style_Mobile/img/close.gif" border="0" />退出</a></TD>
+<TD class="DB_SET_TD" id="tdSenor" style="cursor:hand;display:"><a href="javascript:showMoreOption('moreoption');"><img src="/DF_Res/DF_Style_Source/DF_Style_Mobile/img/mor.gif" border="0" />高级</a></TD>
+</TR>
+
+</table>
+<!-- 填写审批意见 -->
+<table id="approveinfo"  width="100%" border="1">
+<TR>
+<TD style="background:#CCC;height:30px;" colspan=2>请填写审批意见：</TD>
+</TR>
+<TR>
+<TD colspan=2>
+<textarea name="FlowMindInfo" onblur="if(this.value == ""){	this.value = "请在此填写审批意见";}" onfocus="if(this.value == "请在此填写审批意见"){	this.value = "";}" style="width:99%;height:50px;" rows="7" cols="50">请在此填写审批意见</textarea>
+</TD>
+</TR>
+<TR>
+<TD style="background:#CCC;width:90px">消息标题：</TD>
+<TD>
+<input name="msgtitle" value="" style="width:99%"></TD>
+</TR>
+</table>
+<!-- 文档title -->
+<h3>信息发布主表单</h3>
+
+<!-- 正文内容 -->
+<div id="applycontent"> <span><TABLE id='tblapplycontent' width="100%" border="1"><TBODY><TR><TD>标题</TD><TD>五省市事业单位养老保险改革4年无实质突破</TD></TR><TR><TD>起草人</TD><TD>开发者3</TD></TR><TR><TD>起草人部门</TD><TD>鼎捷软件</TD></TR><TR><TD>起草日期</TD><TD>2012-06-13</TD></TR></TBODY></TABLE></span> </div>
+
+<!-- 附件信息 -->
+<span>附件信息</span>
+
+<table id="tblattachinfo" width="100%" border="1" style="display:">
+<TR >
+<TD style="background:#CCC;height:30px">附件信息:</TD>
+</TR>
+<tr>
+<td class="DB_SP_RIGHT" id="attachinfo" style="font-size:15px"><div id="divattachinfo">无附件</div></td>
+</tr>
+</table>
+
+<!-- 环节信息 -->
+<div id="divnodeinfo">
+<table id="tblnodeinfo" width="100%" border="1" style="display:">
+<TR >
+<TD style="background:#CCC;height:30px;" colspan="2">当前环节信息:</TD>
+</TR>
+<TR>
+<TD>环节名称:</TD>
+<TD>信息发布管理员审批</TD>
+</TR>
+<TR>
+<TD>环节处理人:</TD>
+<TD>dev1(会签)</TD>
+</TR>
+</table>
+</div>
+
+<!-- 审批意见信息-->
+<div id="divmindinfo">
+<table id="tblmindinfo"  width="100%" border="1" style="display:">
+<TR>
+<TD style="background:#CCC;height:30px;">审批意见</TD>
+</TR>
+<TR >
+<TD> <span></span> </TD>
+</TR>
+</table>
+</div>
+
+
+<input name="appserver" type="hidden" value="">
+<input name="appdbpath" type="hidden" value="Application/DigiFlowInfoPublish.nsf">
+<input name="DF_DbPath" type="hidden" value="Produce/DigiFlowMobileJC.nsf">
+<input name="appformname" type="hidden" value="">
+<input name="appdocunid" type="hidden" value="B7CD048AB0493EA348257A1C004C4363">
+<input name="apptype" type="hidden" value="msg">
+<input name="CurUserITCode" type="hidden" value="dev1">
+<input name="CurUserDeptID" type="hidden" value="">
+<input name="CurUserNameCN" type="hidden" value="开发者1">
+<input name="CurUserDeptName" type="hidden" value="">
+<input name="CurUserNumber" type="hidden" value="">
+<input name="CurUserLoginDate" type="hidden" value="06/20/2012 02:01:43 PM">
+<input name="RtfApplyContent" type="hidden" value="<TABLE id='tblapplycontent' width="100%" border="1"><TBODY><TR><TD>标题</TD><TD>五省市事业单位养老保险改革4年无实质突破</TD></TR><TR><TD>起草人</TD><TD>开发者3</TD></TR><TR><TD>起草人部门</TD><TD>鼎捷软件</TD></TR><TR><TD>起草日期</TD><TD>2012-06-13</TD></TR></TBODY></TABLE>">
+<input name="RtfMindInfo" type="hidden" value=""></form>
+</body>
+</html>

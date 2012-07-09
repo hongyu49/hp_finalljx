@@ -1,0 +1,46 @@
+<html lang="zh_cn"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><div data-role="page" id="notice"><div data-role="header"><a data-direction="reverse" data-rel="back" data-role="button" data-icon="home">返回</a><h1>信息发布主表单</h1></div><div align="center" data-role="content"><script>
+							
+							function submit(value){
+								var question = window.confirm("确定提交吗?"); 
+								if(question){
+									var appserver = $("#appserver").val();
+									var appdbpath = $("#appdbpath").val();
+									var appdocunid = $("#appdocunid").val();
+									var CurUserITCode = $("#CurUserITCode").val();
+									var FlowMindInfo = $("#FlowMindInfo").val();
+									FlowMindInfo = encodeURI(escape(FlowMindInfo));
+									
+									var soap = "<SOAP-ENV:Envelope xmlns:SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/' xmlns:SOAP-ENC='http://schemas.xmlsoap.org/soap/encoding/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema'><SOAP-ENV:Body><m:bb_dd_GetDataByView xmlns:m='http://sxg.bbdd.org' SOAP-ENV:encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'><db_ServerName xsi:type='xsd:string'>"+appserver+"</db_ServerName><db_DbPath xsi:type='xsd:string'>"+appdbpath+"</db_DbPath><db_DocUID xsi:type='xsd:string'>"+appdocunid+"</db_DocUID><db_UpdInfo xsi:type='xsd:string'></db_UpdInfo><db_OptPsnID xsi:type='xsd:string'>"+CurUserITCode+"</db_OptPsnID><db_TempAuthors xsi:type='xsd:string'></db_TempAuthors><db_MsgTitle xsi:type='xsd:string'></db_MsgTitle><db_ToNodeId xsi:type='xsd:string'></db_ToNodeId><db_Mind xsi:type='xsd:string'>"+FlowMindInfo+"</db_Mind><db_OptType xsi:type='xsd:string'>"+value+"</db_OptType></m:bb_dd_GetDataByView></SOAP-ENV:Body></SOAP-ENV:Envelope>";
+
+									$.mobile.showPageLoadingMsg();
+									var url = "/view/digi/request/Produce/ProInd.nsf/THFlowBackTraceAgent?openagent&login";
+									var data = "data-xml="+soap;
+									$.ajax({
+										type: "post", url: url, data:data,
+										success: function(response){
+											$.mobile.hidePageLoadingMsg();
+											alert(response);
+											window.history.go(-2);
+										},
+										error:function(response){
+											$.mobile.hidePageLoadingMsg();
+											alert("错误:"+response.responseText);
+										}
+									});
+								}
+							}
+						
+						</script><ul data-role="listview"><li data-role="list-divider"><div align="right" data-type="horizontal" data-role="controlgroup"><button data-rel="dialog" value="submit" onclick="submit(this.value);" style="padding:0 30 0 30;" type="button">&nbsp;&nbsp;&nbsp;下一步&nbsp;&nbsp;&nbsp;</button>&nbsp;&nbsp;&nbsp;<button data-rel="dialog" value="reject" onclick="submit(this.value);" data-theme="b" type="button">&nbsp;&nbsp;&nbsp;退回&nbsp;&nbsp;&nbsp;</button></div></li></ul><br><ul data-theme="d" data-inset="true" data-role="listview"><li data-role="list-divider">基本信息</li><li><div align="" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">标题:</font></span>福田雷沃：创新成就超越 实施海外战略<br></div><hr color="gray"><div align="left" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">起草人:</font></span>开发者1<br></div><hr color="gray"><div align="" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">起草人部门:</font></span>化工行业<br></div><hr color="gray"><div align="left" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">起草日期:</font></span>2012-06-21<br></div><hr color="gray"></li><li data-role="list-divider">审批意见</li><li><table border="0" width="100%" style="border:0;padding:0;margin:0;"><tr style="width:100%"><td align="left" style="width:50%"><span><strong>您的意见:</strong></span></td><td align="left" style="width:50%"><select data-native-menu="true" data-icon="gear" data-theme="a" onChange="$(&quot;#FlowMindInfo&quot;).val($(&quot;#FlowMindInfo&quot;).val()+this.value);"><option selected>常用语</option><option value="同意">同意</option><option value="不同意">不同意</option></select></td></tr><tr style="width:100%"><td align="center" style="width:100%" colspan="2"><textarea name="FlowMindInfo" id="FlowMindInfo"></textarea></td></tr><tr style="width:100%"><td align="left" style="width:100%" colspan="2"><span><strong>消息标题</strong></span></td></tr><tr style="width:100%"><td align="center" style="width:100%" colspan="2"><input name="msgtitle" id="msgtitle"></td></tr></table></li><li data-role="list-divider">正文内容</li><li> 福田雷沃，是福田雷沃国际重工股份有限公司的简称。在强手如林的国际机械装备制造业，如果说14年前福田雷沃尚未引人注目，那么现在恐怕无人敢视之为平常的对手。今年2月1日，蒙古人民共和国8000台大轮拖采购项目进行公开招标，在激烈的国际竞争中，福田雷沃一举胜出，得到这一大额订单！　　这是蒙古为数不多的大批量政府招标项目之一。作为一个以畜牧业为主的国家，近年来，该国对农业的重视程度不断增强，农业机械需求增加，这一订单对经济高速增长而农业机械落后的蒙古来说，无疑具有重要的意义。　　而该产品合同的签订，对山东乃至中国来说，同样意义非凡。这是迄今为止我国行业史上最大的农业装备出口项目，进一步在国际市场上践行着中国农业装备行业领导地位，也有助于提升山东制造在国际市场的地位和影响力。该信息出自中国工程机械商贸网　　
+ - 201138123224460.jpg
+
+
+
+
+
+
+临时作者字段：
+
+
+ 
+
+</li><li data-role="list-divider">当前环节信息</li><li><div align="" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">环节名称:</font></span>部门领导审批<br></div><hr color="gray"><div align="left" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">环节处理人:</font></span>dev1(会签)<br></div><hr color="gray"></li><li data-role="list-divider">审批意见</li><li><div align="left" style="width;100%">同意！</div><div align="right" style="width;100%">开发者1<br>2012-06-21 08:32:03<br>信息发布管理员审批<br></div><hr></li></ul><input value="0" name="__Click" id="__Click" type="hidden"><input value="" name="appserver" id="appserver" type="hidden"><input value="Application/DigiFlowInfoPublish.nsf" name="appdbpath" id="appdbpath" type="hidden"><input value="Produce/DigiFlowMobileJC.nsf" name="DF_DbPath" id="DF_DbPath" type="hidden"><input value="" name="appformname" id="appformname" type="hidden"><input value="2D6E4E316BD0D89948257A240002E8EA" name="appdocunid" id="appdocunid" type="hidden"><input value="msg" name="apptype" id="apptype" type="hidden"><input value="dev1" name="CurUserITCode" id="CurUserITCode" type="hidden"><input value="" name="CurUserDeptID" id="CurUserDeptID" type="hidden"><input value="开发者1" name="CurUserNameCN" id="CurUserNameCN" type="hidden"><input value="" name="CurUserDeptName" id="CurUserDeptName" type="hidden"><input value="" name="CurUserNumber" id="CurUserNumber" type="hidden"><input value="06/21/2012 03:13:48 PM" name="CurUserLoginDate" id="CurUserLoginDate" type="hidden"><input value="" name="RtfApplyContent" id="RtfApplyContent" type="hidden"><input value="" name="RtfMindInfo" id="RtfMindInfo" type="hidden"></div></div></body></html>

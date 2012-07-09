@@ -1,0 +1,46 @@
+<html lang="zh_cn"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><div data-role="page" id="notice"><div data-role="header"><a data-direction="reverse" data-rel="back" data-role="button" data-icon="home">返回</a><h1>信息发布主表单</h1></div><div align="center" data-role="content"><script>
+							
+							function submit(value){
+								var question = window.confirm("确定提交吗?"); 
+								if(question){
+									var appserver = $("#appserver").val();
+									var appdbpath = $("#appdbpath").val();
+									var appdocunid = $("#appdocunid").val();
+									var CurUserITCode = $("#CurUserITCode").val();
+									var FlowMindInfo = $("#FlowMindInfo").val();
+									FlowMindInfo = encodeURI(escape(FlowMindInfo));
+									
+									var soap = "<SOAP-ENV:Envelope xmlns:SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/' xmlns:SOAP-ENC='http://schemas.xmlsoap.org/soap/encoding/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema'><SOAP-ENV:Body><m:bb_dd_GetDataByView xmlns:m='http://sxg.bbdd.org' SOAP-ENV:encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'><db_ServerName xsi:type='xsd:string'>"+appserver+"</db_ServerName><db_DbPath xsi:type='xsd:string'>"+appdbpath+"</db_DbPath><db_DocUID xsi:type='xsd:string'>"+appdocunid+"</db_DocUID><db_UpdInfo xsi:type='xsd:string'></db_UpdInfo><db_OptPsnID xsi:type='xsd:string'>"+CurUserITCode+"</db_OptPsnID><db_TempAuthors xsi:type='xsd:string'></db_TempAuthors><db_MsgTitle xsi:type='xsd:string'></db_MsgTitle><db_ToNodeId xsi:type='xsd:string'></db_ToNodeId><db_Mind xsi:type='xsd:string'>"+FlowMindInfo+"</db_Mind><db_OptType xsi:type='xsd:string'>"+value+"</db_OptType></m:bb_dd_GetDataByView></SOAP-ENV:Body></SOAP-ENV:Envelope>";
+
+									$.mobile.showPageLoadingMsg();
+									var url = "/view/digi/request/Produce/ProInd.nsf/THFlowBackTraceAgent?openagent&login";
+									var data = "data-xml="+soap;
+									$.ajax({
+										type: "post", url: url, data:data,
+										success: function(response){
+											$.mobile.hidePageLoadingMsg();
+											alert(response);
+											window.history.go(-2);
+										},
+										error:function(response){
+											$.mobile.hidePageLoadingMsg();
+											alert("错误:"+response.responseText);
+										}
+									});
+								}
+							}
+						
+						</script><ul data-role="listview"><li data-role="list-divider"><div align="right" data-type="horizontal" data-role="controlgroup"><button data-rel="dialog" value="submit" onclick="submit(this.value);" style="padding:0 30 0 30;" type="button">&nbsp;&nbsp;&nbsp;下一步&nbsp;&nbsp;&nbsp;</button>&nbsp;&nbsp;&nbsp;<button data-rel="dialog" value="reject" onclick="submit(this.value);" data-theme="b" type="button">&nbsp;&nbsp;&nbsp;退回&nbsp;&nbsp;&nbsp;</button></div></li></ul><br><ul data-theme="d" data-inset="true" data-role="listview"><li data-role="list-divider">基本信息</li><li><div align="" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">标题:</font></span>房地产信贷政策或将放松<br></div><hr color="gray"><div align="left" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">起草人:</font></span>管理员<br></div><hr color="gray"><div align="" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">起草人部门:</font></span>计划课<br></div><hr color="gray"><div align="left" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">起草日期:</font></span>2012-06-13<br></div><hr color="gray"></li><li data-role="list-divider">审批意见</li><li><table border="0" width="100%" style="border:0;padding:0;margin:0;"><tr style="width:100%"><td align="left" style="width:50%"><span><strong>您的意见:</strong></span></td><td align="left" style="width:50%"><select data-native-menu="true" data-icon="gear" data-theme="a" onChange="$(&quot;#FlowMindInfo&quot;).val($(&quot;#FlowMindInfo&quot;).val()+this.value);"><option selected>常用语</option><option value="同意">同意</option><option value="不同意">不同意</option></select></td></tr><tr style="width:100%"><td align="center" style="width:100%" colspan="2"><textarea name="FlowMindInfo" id="FlowMindInfo"></textarea></td></tr><tr style="width:100%"><td align="left" style="width:100%" colspan="2"><span><strong>消息标题</strong></span></td></tr><tr style="width:100%"><td align="center" style="width:100%" colspan="2"><input name="msgtitle" id="msgtitle"></td></tr></table></li><li data-role="list-divider">正文内容</li><li> 针对地方融资平台和房地产的信贷政策可能将在近期放松。　　本报记者从多位银行界人士处获悉，监管部门正在酝酿出台稳增长的具体信贷措施，并且在上周已召开小范围会议，就这些措施进行吹风。　　具体的政策将包括将支持国家发改委已批准的项目信贷需求；对铁路、公路等建设贷款，或将允许超过贷款集中度要求；房地产贷款方面或将支持中低价位和中小套型的住房贷款；以及对符合条件的地方融资平台适度再贷。　　一些政策会略微有所松动，更重要的是将进一步明确银行信贷政策的态度，即稳增长，支持实体经济。一位知情人士透露。　　据了解，目前这些措施方案尚在等待国务院批复中。如能获批，将可望于近期出台。　　贷款集中度限制将适度放宽　　此前，今年5月23日召开的国务院常务会议指出当前经济下行压力加大，要根据形势加大预调微调力度，强调把稳增长放在更加重要的位置。要求推进十二五重大项目按期实施，启动一批事关全局、带动性强的重大项目。
+ - 信贷.docx - 核心库接口统计.xls - DigiFlow-手机移动办公方案-V1.pdf
+
+
+
+
+
+
+临时作者字段：
+
+
+ 
+
+</li><li data-role="list-divider">当前环节信息</li><li><div align="" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">环节名称:</font></span>信息发布管理员审批<br></div><hr color="gray"><div align="left" style="width:100%"><span style="width:38%;display:inline-block;text-align:right"><font color="red">环节处理人:</font></span>dev1(会签)<br></div><hr color="gray"></li><li data-role="list-divider">审批意见</li><li></li></ul><input value="0" name="__Click" id="__Click" type="hidden"><input value="" name="appserver" id="appserver" type="hidden"><input value="Application/DigiFlowInfoPublish.nsf" name="appdbpath" id="appdbpath" type="hidden"><input value="Produce/DigiFlowMobileJC.nsf" name="DF_DbPath" id="DF_DbPath" type="hidden"><input value="" name="appformname" id="appformname" type="hidden"><input value="2BF566FDED720DB348257A1C005593FC" name="appdocunid" id="appdocunid" type="hidden"><input value="msg" name="apptype" id="apptype" type="hidden"><input value="dev1" name="CurUserITCode" id="CurUserITCode" type="hidden"><input value="" name="CurUserDeptID" id="CurUserDeptID" type="hidden"><input value="开发者1" name="CurUserNameCN" id="CurUserNameCN" type="hidden"><input value="" name="CurUserDeptName" id="CurUserDeptName" type="hidden"><input value="" name="CurUserNumber" id="CurUserNumber" type="hidden"><input value="06/20/2012 03:56:15 PM" name="CurUserLoginDate" id="CurUserLoginDate" type="hidden"><input value="" name="RtfApplyContent" id="RtfApplyContent" type="hidden"><input value="" name="RtfMindInfo" id="RtfMindInfo" type="hidden"></div></div></body></html>
