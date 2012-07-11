@@ -17,27 +17,57 @@
 });
 
 cherry.bridge.registerEvent("rejectButton", "touchUp", function(oper) {
-	var sceneURL = SERVER_BASE_URL+"/PureWeb.scene.xml";
+	//var sceneURL = SERVER_BASE_URL+"/PureWeb.scene.xml";
 	var targetURL = "http://mobile.sugon.com/view/digilogin.html?tag="+(Math.random())*1000;
-	
-	var pushScene = new cherry.bridge.NativeOperation("application", "pushScene", [sceneURL, targetURL]).dispatch();
-	cherry.bridge.flushOperations();
+	changePageWithBridge(targetURL);
+
 });
 
 function godigihome(){
 	var sceneURL = SERVER_BASE_URL+"/digihome.xml";
 	var targetURL = "http://mobile.sugon.com/view/digihome.html";
-	var pushScene = new cherry.bridge.NativeOperation("application", "pushScene", [sceneURL,targetURL]);
-	pushScene.dispatch();
-	cherry.bridge.flushOperations();
+	changePageWithBridge(targetURL);
 }
 
 function popSence(){
 	var sceneURL = SERVER_BASE_URL+"/digihome.xml";
 	var targetURL = "http://mobile.sugon.com/view/Resources/popEvent.html";
-	var pushScene = new cherry.bridge.NativeOperation("application", "pushScene", [sceneURL,targetURL]);
+	
+	changePageBackWithBridge(targetURL,sceneURL)
+}
+/*
+  ??component ????
+  para:targetUrl ??????url
+  componetXmlUrl:native??url????resources/?web??url
+  ???cherry.js
+*/
+function changePageWithBridge(targetUrl,componetXmlUrl){
+	var serverUrl="http://mobile.sugon.com";
+	if(commentXmlUrl==="undefined"){
+			componetXmlUrl=serverUrl+"/view/Resources/PureWeb.scene.xml";
+			
+	}
+	var pushScene = new cherry.bridge.NativeOperation("application", "pushScene", [componetXmlUrl,targetUrl]);
 	pushScene.dispatch();
 	cherry.bridge.flushOperations();
+		
+}
+/*
+  ??component ??????????????
+  para:targetUrl ??????url
+  componetXmlUrl:native??url????resources/?web??url
+  ???cherry.js
+*/
+function changePageBackWithBridge(targetUrl,componetXmlUrl){
+	var serverUrl="http://mobile.sugon.com";
+	if(commentXmlUrl==="undefined"){
+			componetXmlUrl=serverUrl+"/view/Resources/PureWeb.scene.xml";
+			
+	}
+	var popScene = new cherry.bridge.NativeOperation("application", "popScene", [componetXmlUrl,targetUrl]);
+	popScene.dispatch();
+	cherry.bridge.flushOperations();
+		
 }
         </script>
     </body>
