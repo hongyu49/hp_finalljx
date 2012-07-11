@@ -4,8 +4,8 @@
     </head>
     <body>
         <b>abc</b>
-		<input type="button" value="digihome" onclick="godigihome()"></input>
-		<input type="button" value="webViewPop" onclick="popSence()"></input>
+		<input type="button" value="digihome" onClick="godigihome()"></input>
+		<input type="button" value="webViewPop" onClick="popSence()"></input>
         <script type="text/javascript">
 		var SERVER_BASE_URL="http://mobile.sugon.com/view/Resources";
 	cherry.bridge.registerEvent("approveButton", "touchUp", function(oper) {
@@ -19,7 +19,7 @@
 cherry.bridge.registerEvent("rejectButton", "touchUp", function(oper) {
 	var sceneURL = SERVER_BASE_URL+"/PureWeb.scene.xml";
 	var targetURL = "http://mobile.sugon.com/view/digilogin.html?tag="+(Math.random())*1000;
-	alert("targetURL="+targetURL);
+	
 	var pushScene = new cherry.bridge.NativeOperation("application", "pushScene", [sceneURL, targetURL]).dispatch();
 	cherry.bridge.flushOperations();
 });

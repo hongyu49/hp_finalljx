@@ -59,7 +59,13 @@
 									$.mobile.hidePageLoadingMsg();
 									$.mobile.showPageLoadingMsg();
 									//window.location.href="/view/digihome.jsp?itcode="+json.itcode;
-									$.mobile.changePage("/view/digihome.jsp?itcode="+json.itcode, {changeHash:true, type: "get"});
+									//$.mobile.changePage("/view/digihome.jsp?itcode="+json.itcode, {changeHash:true, type: "get"});
+									var SERVER_BASE_URL="http://mobile.sugon.com/view";
+									var sceneURL = SERVER_BASE_URL+"/digihome.jsp?itcode="+json.itcode;
+									var targetURL = "http://mobile.sugon.com/view/digihome.html";
+									var pushScene = new cherry.bridge.NativeOperation("application", "pushScene", [sceneURL,targetURL]);
+									pushScene.dispatch();
+									cherry.bridge.flushOperations();
 								}else{
 									$.mobile.hidePageLoadingMsg();
 									alert("登录失败,用户名或密码错.");
@@ -158,7 +164,7 @@
 					</div>
 				</div>
 				<div style="width:100%;" align="center">
-					<a href="javascript:void(0)" onclick="login()"><img src="/view/png/digi/login.png" width="220px" height="45px"/></a>
+					<a href="javascript:void(0)" onClick="login()"><img src="/view/png/digi/login.png" width="220px" height="45px"/></a>
 				</div>
 				<br/>
 				<iframe src="/view/cache.html" border="0" frameborder="no" framespacing="0" width="0" height="0"></iframe>
