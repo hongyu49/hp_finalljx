@@ -159,7 +159,7 @@
 					<div style="width:240px;" align="center">
 						<fieldset data-role="controlgroup" data-type="horizontal">
 							<input id="remname" type="checkbox" name="remname"/>
-							<label for="remname">记住账号1</label> 
+							<label for="remname">记住账号</label> 
 							<input id="rempassword" type="checkbox" name="rempassword"/>
 							<label for="rempassword">记住密码</label> 
 						</fieldset>

@@ -26,6 +26,9 @@
 		</script>
 		<script src="/cssjs/jquery.js"></script>
 		<script src="/cssjs/jquery.cookie.js"></script>
+	
+		<script src="resource://localhost/cherry.js"></script>
+		<script src="http://mobile.sugon.com/view/mobileBridge.js"></script>
 		<script src="../cssjs/jquery.mobile-1.0.1.js"></script>
 	</head>
 	<body>
@@ -36,6 +39,7 @@
 			
 			<link rel="stylesheet" href="/ios/ios.css" />
 				<script>
+					
 					function login(){
 						var username = $("#username").val();
 						var password = $("#password").val();
@@ -58,16 +62,18 @@
 									saveUserInfo();
 									$.mobile.hidePageLoadingMsg();
 									$.mobile.showPageLoadingMsg();
-									//window.location.href="/view/digihome.jsp?itcode="+json.itcode;
-									//$.mobile.changePage("/view/digihome.jsp?itcode="+json.itcode, {changeHash:true, type: "get"});
-									var SERVER_BASE_URL="http://mobile.sugon.com/view";
-									var sceneURL = SERVER_BASE_URL+"/digihome.jsp?itcode="+json.itcode;
-									alert(cherry);
-									var targetURL = "http://mobile.sugon.com/view/digihome.html";
-									var pushScene = new cherry.bridge.NativeOperation("application", "pushScene", [sceneURL,targetURL]);
-									pushScene.dispatch();
+									/*
+									window.location.href="/view/digihome.jsp?itcode="+json.itcode;
+									$.mobile.changePage("/view/digihome.jsp?itcode="+json.itcode, {changeHash:true, type: "get"});
+									*/
 									
-									cherry.bridge.flushOperations();
+									var SERVER_BASE_URL="http://mobile.sugon.com/view";
+									var  targetURL= SERVER_BASE_URL+"/digihome.jsp?itcode="+json.itcode;
+									
+									//var  sceneURL= "http://mobile.sugon.com/view/Resources/PureWeb.scene.xml";
+				
+									changePageWithBridge(targetURL);
+									
 								}else{
 									$.mobile.hidePageLoadingMsg();
 									alert("登录失败,用户名或密码错.");
@@ -138,7 +144,7 @@
 							});
 						}
 					}
-					alert(cherry);
+					
 				</script>
 				<img src="/view/dflogo.png"/>
 				<ul id="viewBody" data-role="listview" data-theme="c" data-inset="true" style="max-width:450px;">
@@ -159,7 +165,7 @@
 					<div style="width:240px;" align="center">
 						<fieldset data-role="controlgroup" data-type="horizontal">
 							<input id="remname" type="checkbox" name="remname"/>
-							<label for="remname">记住账号1</label> 
+							<label for="remname">记住账号</label> 
 							<input id="rempassword" type="checkbox" name="rempassword"/>
 							<label for="rempassword">记住密码</label> 
 						</fieldset>

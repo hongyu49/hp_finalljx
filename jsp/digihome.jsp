@@ -31,6 +31,8 @@
 		</script>
 		<script src="/cssjs/jquery.js"></script>
 		<script src="/cssjs/jquery.cookie.js"></script>
+		<script src="resource://localhost/cherry.js"></script>
+		<script src="http://mobile.sugon.com/view/mobileBridge.js"></script>
 		<script>
 			$(document).bind("mobileinit", function(){
 				//$.mobile.defaultPageTransition="slide"; 
@@ -133,14 +135,14 @@
 				<br/><br/>
 				<div class="ui-grid-b">
                     <div class="ui-block-a">
-						<a href="javascript:void(0);" onclick="changepage('/view/digi/todosmobile/Produce/DigiFlowMobileJC.nsf/dataformserver?openform&thserver=&thdir=DFMessage&thdb=dfmsg_<%=request.getParameter("itcode") %>.nsf&thview=vwTaskUnDoneForMobile&bdoptdesname=%E5%BE%85%E5%8A%9E%E4%BB%BB%E5%8A%A1')">
+						<a href="javascript:void(0);" onclick="changePageWithBridge('http://mobile.sugon.com/view/digi/todosmobile/Produce/DigiFlowMobileJC.nsf/dataformserver?openform&thserver=&thdir=DFMessage&thdb=dfmsg_<%=request.getParameter("itcode") %>.nsf&thview=vwTaskUnDoneForMobile&bdoptdesname=%E5%BE%85%E5%8A%9E%E4%BB%BB%E5%8A%A1')">
 							<img width="68" height="68" src="/view/png/digi/todos.png" />
 						</a>
                         <br/>
                         <span style="color:white;"><strong>待办事宜</strong></span>
                     </div>
                     <div class="ui-block-b">
-						<a href="javascript:void(0);" onclick="changepage('/view/digi/messagelist/Produce/DigiFlowMobile.nsf/agGetViewData?openagent&login&0.6922244625974295&server=&dbpath=DFMessage/dfmsg_<%=request.getParameter("itcode") %>.nsf&view=vwMsgUnRdForMobile&thclass=&page=1&count=15')">
+						<a href="javascript:void(0);" onclick="changePageWithBridge('http://mobile.sugon.com/view/digi/messagelist/Produce/DigiFlowMobile.nsf/agGetViewData?openagent&login&0.6922244625974295&server=&dbpath=DFMessage/dfmsg_<%=request.getParameter("itcode") %>.nsf&view=vwMsgUnRdForMobile&thclass=&page=1&count=15')">
 
 							<img width="68" height="68" src="/view/png/digi/unread.png" />
 						</a>

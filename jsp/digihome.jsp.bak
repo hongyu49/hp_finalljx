@@ -31,6 +31,8 @@
 		</script>
 		<script src="/cssjs/jquery.js"></script>
 		<script src="/cssjs/jquery.cookie.js"></script>
+		<script src="resource://localhost/cherry.js"></script>
+		<script src="http://mobile.sugon.com/view/mobileBridge.js"></script>
 		<script>
 			$(document).bind("mobileinit", function(){
 				//$.mobile.defaultPageTransition="slide"; 
@@ -70,11 +72,13 @@
     </head>
 	<body>
 		<div data-role="page" id="home" style="background:url(/view/png/digi/bg_empty.png);background-size:cover;-moz-background-size:cover;" class="mi-bg">
+		<!--
 			<div data-role="header">
 				<a data-icon="home" data-role="button" data-rel="back">返回</a>
 				<h1>首页</h1>
 				<a data-icon="home" data-role="button" href="javascript:void(0)" onclick="pushtest();" >推送</a>
 			</div>
+		-->
 			<div data-role="content" align="center">
 				<script>
 					function openmail(){
@@ -131,7 +135,7 @@
 				<br/><br/>
 				<div class="ui-grid-b">
                     <div class="ui-block-a">
-						<a href="javascript:void(0);" onclick="changepage('/view/digi/todosmobile/Produce/DigiFlowMobileJC.nsf/dataformserver?openform&thserver=&thdir=DFMessage&thdb=dfmsg_<%=request.getParameter("itcode") %>.nsf&thview=vwTaskUnDoneForMobile&bdoptdesname=%E5%BE%85%E5%8A%9E%E4%BB%BB%E5%8A%A1')">
+						<a href="javascript:void(0);" onclick="changePageWithBridge('http://mobile.sugon.com/view/digi/todosmobile/Produce/DigiFlowMobileJC.nsf/dataformserver?openform&thserver=&thdir=DFMessage&thdb=dfmsg_<%=request.getParameter("itcode") %>.nsf&thview=vwTaskUnDoneForMobile&bdoptdesname=%E5%BE%85%E5%8A%9E%E4%BB%BB%E5%8A%A1')">
 							<img width="68" height="68" src="/view/png/digi/todos.png" />
 						</a>
                         <br/>
