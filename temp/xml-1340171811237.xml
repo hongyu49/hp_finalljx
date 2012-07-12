@@ -1,789 +1,0 @@
-<?xml version="1.0" encoding="gb18030"?>
-<html><head><title>信息发布申请单</title><script src="/jquery/js/jquery.js" /><script language="JavaScript" type="text/javascript"><![CDATA[
-<!-- 
-//页签切换function switchTag(tag){ try{  tag.blur(); }catch(e){}  var obj = tag.parentElement; var objlist = document.all("DF_TagGroup").firstChild.childNodes;    for(i=0; i < objlist.length; i++) {  if (objlist[i] == obj)  {   objlist[i].getElementsByTagName("a")[0].className="DF_SelectedTag";   objlist[i].getElementsByTagName("a")[0].getElementsByTagName("span")[0].className="DF_SelectedSpan";   document.all("DF_TagContentgGroup").childNodes[i].className = "DF_SelectedContent";      switch(i)   {                    case 4:thFlowWindow_ShowMindInfo("divComments");break;               }  }else{   objlist[i].getElementsByTagName("a")[0].className="";   objlist[i].getElementsByTagName("a")[0].getElementsByTagName("span")[0].className="";   document.all("DF_TagContentgGroup").childNodes[i].className = "DF_HideContent";  } }}//判断有效期function checkDate(){ if(document.all("StOldDate").value<=document.all("StPubDate").value){  alert(df_AppArr[9]);  document.all("StOldDate").value=""; }}function getClassMnger(nodeID){ //下面的代码用于从目录表单中获取信息发布管理员 surl=DF_getPath()+"/GetClassInfo?openAgent&id="+nodeID; resp=DF_getURLText(surl);  xmlObj=resp.documentElement; document.all("StInfoManagerCN").value=xmlObj.getElementsByTagName("managercn").item(0).text; document.all("StInfoManagerEN").value=xmlObj.getElementsByTagName("manageren").item(0).text; document.all("StInfoManager").value=xmlObj.getElementsByTagName("manager").item(0).text; document.all("StNodeName").value = xmlObj.getElementsByTagName("nodecn").item(0).text; document.all("StNodeName_EN").value = xmlObj.getElementsByTagName("nodeen").item(0).text;}
-// -->
-]]></script><script language="JavaScript" type="text/javascript"><![CDATA[
-<!-- 
-document._domino_target = "_self";
-function _doClick(v, o, t, h) {
-  var form = document._PublishDocForm;
-  if (form.onsubmit) {
-     var retVal = form.onsubmit();
-     if (typeof retVal == "boolean" && retVal == false)
-       return false;
-  }
-  var target = document._domino_target;
-  if (o.href != null) {
-    if (o.target != null)
-       target = o.target;
-  } else {
-    if (t != null)
-      target = t;
-  }
-  form.target = target;
-  form.__Click.value = v;
-  if (h != null)
-    form.action += h;
-  form.submit();
-  return false;
-}
-// -->
-]]></script><script language="JavaScript" type="text/javascript"><![CDATA[
-<!-- 
-//打印function Flow_Print(){   thFlowWindow_printDoc("attDiv;flowMindDiv");}
-
-// -->
-]]></script><script language="JavaScript" type="text/javascript"><![CDATA[
-<!-- 
-function DisplyEnFn(sflag){ var sArr = ["EnTitleID", "EnInfoEN"]; if(sflag == "EN") {  for(var i=0; i<sArr.length; i++){   document.all(sArr[i]).style.display = "";  } } else {  for(var i=0; i<sArr.length; i++){   document.all(sArr[i]).style.display = "none";  } }}
-
-// -->
-]]></script><script language="JavaScript" type="text/javascript"><![CDATA[
-<!-- 
-function SelectNextPsn(){    if(document.all("MYChgPsnButton")!=null)     {    document.all("MYChgPsnButton").click();     }     else     {   var url="/Produce/OrgMng.nsf/pickPsnByOrg_form?OpenForm&selectMode=checkbox&FieldName=TFCurNodeNextOpters";   window.open(url,'选择办理人','scrollbars=yes,left=80,top=80,width=700,height=450');     }}
-
-// -->
-]]></script><script language="JavaScript" type="text/javascript"><![CDATA[
-<!-- 
-/*function Fck_Editor_Submit(){ document.all.FCK_EditorValue.value = document.frames("FCKditor").GetContents();}*/function Fck_Editor_Submit(){ try{  var fckHtml = document.frames("FCKditor").GetContents();  if(fckHtml != null && fckHtml != "null" && fckHtml != "undefined") {   document.all.FCK_EditorValue.value = fckHtml;  }    var fckHtml = document.frames("FCKditor_EN").GetContents();  if(fckHtml != null && fckHtml != "null" && fckHtml != "undefined") {   document.all.FCK_EditorValue_EN.value = fckHtml;  } } catch(e) {  alert("在线编辑器出错，您本次所更改的内容无法保存！") }}
-
-// -->
-]]></script><script language="JavaScript" type="text/javascript"><![CDATA[
-<!-- 
-function DF_UpFile(){   var filename=document.all("DF_File").value;   if(filename=="") { return false; }   Fck_Editor_Submit();  document.all("DF_FileFlag").value="file";  if(document.all("BDF_Button_submit")!=null) document.all("BDF_Button_submit").click(); else document.all("btUpload").click();}function DF_DelFile(){ var sel_doc = window.document.all("%%Detach"); if ( sel_doc != "[object]") return false; var sel_len = sel_doc.length; var sel_flag = false; if (isNaN(sel_len) == false) {  for(var i=0;i<sel_len;i++)  {   if (sel_doc[i].checked)   {    sel_flag = true;   }  } } else {  if (sel_doc.checked)  {   sel_flag = true;  } } if (sel_flag == false) {  alert("请选择要删除的附件！");  return false; } document.all("DF_FileFlag").value="file";          if(document.all("BDF_Button_submit")!=null) document.all("BDF_Button_submit").click();     else document.all("btUpload").click();}function DF_CheckFile() {var filename=document.all("DF_File").value; if(filename=="") { return false; } try {var ado_stream=new ActiveXObject("ADODB.Stream");   ado_stream.Type=2;   ado_stream.Open();   ado_stream.LoadFromFile(filename);//将文件信息存入流   fSize=(ado_stream.Size/1024).toFixed(0);  if(fSize>DF_File_Size) {   alert(DF_File_Prompt);   DF_ClearFile();     return false;}} catch(e){ return true;} return true; } function DF_ClearFile(){ document.all("DF_File").select(); try{  var WshShell = new ActiveXObject("WScript.Shell");  WshShell.SendKeys("{DEL}"); }catch(e){}}
-
-// -->
-]]></script><link rel="stylesheet" href="/DF_Res/DF_Style_Source/DF_Style_New/DF_Css/publishinfo.css" type="text/css" /><style><![CDATA[
-#FCKEditorFrm{
-height:expression(document.body.clientHeight-160);
-}
-
-#FCKEditorFrm_EN{
-height:expression(document.body.clientHeight-160);
-}
-]]></style></head><body text="#000000" bgcolor="#FFFFFF" onload="thFlowWindow_load();DF_maxWindow();//多语言解析DF_LocalAPP_Load(true);//document.all(&quot;RTFInfo&quot;).innerHTML=document.all(&quot;EditorValue&quot;).value;//States();DisplyEnFn(document.all(&quot;StEngPub&quot;).value);//alert(document.all(&quot;Fck_HTML&quot;).value);document.all(&quot;StBody&quot;).innerHTML=document.all(&quot;Fck_HTML&quot;).value;document.all(&quot;StBody_EN&quot;).innerHTML=document.all(&quot;Fck_HTML_EN&quot;).value;//加载领导信息if(document.all(&quot;openMode&quot;).value == &quot;new&quot;) { var sDeptLeader = document.getElementById(&quot;CurUserDeptLeader&quot;).value; document.getElementById(&quot;DeptCharger&quot;).value = sDeptLeader   //部门领导全称 DF_SplitDeptLeader(sDeptLeader,&quot;DeptChargerCN&quot;,&quot;DeptChargerEN&quot;);}if(document.all(&quot;TFCurNodeID&quot;).value != &quot;FlowStartNode&quot;) { document.all(&quot;StTitle&quot;).className = &quot;DF_Txt_ReadOnly_Style&quot;; document.all(&quot;StTitle_EN&quot;).className = &quot;DF_Txt_ReadOnly_Style&quot;;}">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<form method="post" action="/Application/DigiFlowInfoPublish.nsf/0/1401fafc3beb675248257a1a001e34fd?EditDocument&amp;Seq=1&amp;amp%3Blogin" enctype="multipart/form-data" name="_PublishDocForm">
-<input type="hidden" name="__Click" value="0" />
-<input type="hidden" name="%%ModDate" value="48257A1C004F5912" /><div style="display:none">
-<input name="DF_DbPath" value="Application/DigiFlowInfoPublish.nsf" />
-<input name="DF_DbDir" value="Application" />
-<input name="DF_DbName" value="DigiFlowInfoPublish.nsf" />
-<input name="Form" value="PublishDocForm" />0new
-<div style="display:none">
-<br />
-当前用户：dev1部门编号：
-<input name="CurUserDeptID" value="A00001" readonly="readonly" /><br />
-当前用户名：开发者1部门名称：
-<input name="CurUserDeptName" value="化工行业" readonly="readonly" /><br />
-当前用户英文名：
-<input name="CurUserNameEN" value="dev1" />部门领导：
-<input name="CurUserDeptLeader" value="" readonly="readonly" /><br />
-<font color="#FF0000">员工编号：</font>
-<input name="CurUserNumber" value="" />成本中心编号：
-<input name="CurUserDeptCostID" value="1101" readonly="readonly" /><br />
-性 别：
-<input name="CurUserSex" value="男" />所属项目：
-<input name="CurUserProNames" value="" /><br />
-出生日期：
-<input name="CurUserBirth" value="" />所拥有的角色：
-<input name="CurUserRoleNames" value="" /><br />
-公司电话：
-<input name="CurUserDeptPhone" value="85599392" /><font color="#FF0000">是否冻结帐户：</font>
-<input name="CurUserLock" value="否" /><br />
-手 机：
-<input name="CurUserMobile" value="15129368602" /><font color="#FF0000">当前用户上级部门编号：</font>ComOrg<br />
-邮 箱：
-<input name="CurUserMail" value="" />当前用户登陆时间：06/20/2012 01:57:34 PM<br />
-用户信息1：
-<input name="CurUserInfo_1" value="" />用户信息2：
-<input name="CurUserInfo_2" value="" /><br />
-用户信息3：
-<input name="CurUserInfo_3" value="" />用户信息4：
-<input name="CurUserInfo_4" value="" /><br />
-用户信息5：
-<input name="CurUserInfo_5" value="" />用户信息6：
-<input name="CurUserInfo_6" value="" /><br />
-用户信息7：
-<input name="CurUserInfo_7" value="" />用户信息8：
-<input name="CurUserInfo_8" value="" /><br />
-用户信息9：
-<input name="CurUserInfo_9" value="" />用户信息10：
-<input name="CurUserInfo_10" value="" /><br />
-用户信息11：
-<input name="CurUserInfo_11" value="" />用户信息12：
-<input name="CurUserInfo_12" value="" /><br />
-用户信息13：
-<input name="CurUserInfo_13" value="" />用户信息14：
-<input name="CurUserInfo_14" value="" /><br />
-用户信息15：
-<input name="CurUserInfo_15" value="" />用户信息16：
-<input name="CurUserInfo_16" value="" /><br />
-用户信息17：
-<input name="CurUserInfo_17" value="" />用户信息18：
-<input name="CurUserInfo_18" value="" /><br />
-用户信息19：
-<input name="CurUserInfo_19" value="" />用户信息20：
-<input name="CurUserInfo_20" value="" /><br />
-部门OU：
-<input name="CurUserDeptOU" value="化工行业" />实际职务：
-<input name="CurUserPostName" value="" /><br />
-<font color="#FF0000">部门群组：</font>
-<input name="CurUserDeptGroup" value="" /><font color="#FF0000">显示序号：</font>
-<input name="CurUserOrderID" value="" />
-
-
-<br />
-权限配置信息1：
-<input name="CurUserAuthInfo_1" value="" />权限配置信息2：
-<input name="CurUserAuthInfo_2" value="化工行业/A00001" /><br />
-权限配置信息3：
-<input name="CurUserAuthInfo_3" value="化工行业/ComOrg" />权限配置信息4：
-<input name="CurUserAuthInfo_4" value="" /><br />
-权限配置信息5：
-<input name="CurUserAuthInfo_5" value="" />权限配置信息6：
-<input name="CurUserAuthInfo_6" value="" /><br />
-权限配置信息7：
-<input name="CurUserAuthInfo_7" value="" />权限配置信息8：
-<input name="CurUserAuthInfo_8" value="" /><br />
-权限配置信息9：
-<input name="CurUserAuthInfo_9" value="" />权限配置信息10：
-<input name="CurUserAuthInfo_10" value="" /><br />
-权限配置信息11：
-<input name="CurUserAuthInfo_11" value="" />权限配置信息12：
-<input name="CurUserAuthInfo_12" value="" /><br />
-权限配置信息13：
-<input name="CurUserAuthInfo_13" value="" />权限配置信息14：
-<input name="CurUserAuthInfo_14" value="" /><br />
-权限配置信息15：
-<input name="CurUserAuthInfo_15" value="" />权限配置信息16：
-<input name="CurUserAuthInfo_16" value="" /><br />
-权限配置信息17：
-<input name="CurUserAuthInfo_17" value="" />权限配置信息18：
-<input name="CurUserAuthInfo_18" value="" /><br />
-权限配置信息19：
-<input name="CurUserAuthInfo_19" value="" />权限配置信息20：
-<input name="CurUserAuthInfo_20" value="" /><br />
-权限配置信息21：
-<input name="CurUserAuthInfo_21" value="" />权限配置信息22：
-<input name="CurUserAuthInfo_22" value="" /><br />
-权限配置信息23：
-<input name="CurUserAuthInfo_23" value="" />权限配置信息24：
-<input name="CurUserAuthInfo_24" value="" /><br />
-权限配置信息25：
-<input name="CurUserAuthInfo_25" value="" />
-<br />
-流程XML数据：<br />
-表单流程配置文档ID：
-<input name="ThisFlowDocID" value="7047E167DAAAF1A048257727003541B3" /><br />
-服务器
-<input name="ThisFlowAtServer" value="182.50.2.171:8000" />数据库
-<input name="ThisFlowAtDatabase" value="Application\DigiFlowInfoPublish.nsf" /><br />
-表单编号
-<input name="ThisFlowAtFormUID" value="6208C1749F8FE917482576480007E369" />文档类型
-<input name="ThisFlowAtDocType" value="old" /><br />
-文档编号
-<input name="ThisFlowAtDocUID" value="1401FAFC3BEB675248257A1A001E34FD" />
-<input name="ThisFlowAtDocUpNum" value="3" style="display:none" /><br />
-流程编号：
-<input name="ThisFlowID" value="D0D160059ACB7B4A4825772700352752" />流程名称：
-<input name="ThisFlowName" value="信息发布申请流程" /><br />
-流程发起人：
-<input name="ThisFlowCreater" value="admin" />
-<input name="ThisFlowCreaterCN" value="管理员" />
-<input name="ThisFlowCreaterDeptID" value="DF_PLAN" /><br />
-流程发起时间：
-<input name="ThisFlowCreateDate" value="2012-06-11" />流程终止时间：
-<input name="ThisFlowEndDate" value="" /><br />
-流程有效时间标识：
-<input name="ThisFlowValidDateFlag" value="no" />流程有效时间：
-<input name="ThisFlowValidDate" value="" /><br />
-流程状态：
-<input name="ThisFlowStateFlag" value="1" />
-<input name="ThisFlowState" value="流转中" />(&quot;0&quot;开始,&quot;1&quot;执行中,&quot;2&quot;执行超期,&quot;3&quot;非正常终止,&quot;4&quot;正常结束)<br />
-全局读者：
-<input name="ThisFlowReaders" value="fangzg; liuyq; fangzg; liuyq; admin; dev1; dev2; dev3" />全局作者：
-<input name="ThisFlowAuthors" value="admin; dev1; dev2; dev3" /><br />
-全局读者（角色/动态）：
-<input name="ThisFlowRoleReaders" value="" />全局作者（角色/动态）：
-<input name="ThisFlowRoleAuthors" value="" /><br />
-默认读者：
-<input name="ThisFlowDefaultReaders" value="" /><br />
-<font color="#FF0000">默认有权发起人：</font>
-<input name="ThisFlowDefaultAuthors" value="" /><br />
-<font color="#0000FF">默认具有发起权限标识：</font>
-<input name="ThisFlowDefaultAuthorsFlag" value="yes" /><br />
-管理员：
-<input name="ThisFlowAdministratorR" value="[admin]; [allReader]" />管理员：
-<input name="ThisFlowAdministratorA" value="[admin]; [allReader]" /><br />
-激活标识：
-<input name="ThisFlowActiveFlag" value="yes" />周知标识：
-<input name="ThisFlowPublishFlag" value="no" /><br />
-转办标识：
-<input name="ThisFlowReturnFlag" value="yes" />重办标识：
-<input name="ThisFlowReDoFlag" value="yes" /><br />
-是否驳回
-<input name="ThisFlowBackFlag" value="no" />抽单标识：
-<input name="ThisFlowDeleteFlag" value="no" /><br />
-强制跳转标识：
-<input name="ThisFlowGoToFlag" value="yes" />只对管理员有效<br />
-<font color="#FF0000">催办标识：</font>
-<input name="ThisFlowReMsgFlag" value="undefined" />
-<input name="ThisFlowReMsgType" value="0;0;0" />(*;*;*)1为发送,0为不发送<br />
-加签标识：
-<input name="TFCurNodeAgainDoFlag" value="no" /><font color="#FF0000">复合加签标识：</font>
-<input name="TFCurNodeMoreAgainDoFlag" value="no" /><br />
-转办标识：
-<input name="TFCurNodeReturnFlag" value="no" />代办标识：
-<input name="TFCurNodeAgentDoFlag" value="yes" /><br />
-是否允许选择下一环节处理人：
-<input name="TFCurNodeChgOpterFlag" value="no" />永久读者标识：
-<input name="TFCurNodeAllReaderFlag" value="yes" /><br />
-超期后处理操作：
-<input name="TFCurNodeDoAfterDate" value="" />发邮件通知读者标识：
-<input name="TFCurNodeMailReaderFlag" value="no" /><br />
-通知发起人标识：
-<input name="TFCurNodeMsgCreater" value="no" />发消息通知读者标识：
-<input name="TFCurNodeMsgReaderFlag" value="no" /><br />
-<font color="#FF0000">发短信通知读者标识：</font>
-<input name="TFCurNodeSmsReaderFlag" value="no" />通知当前处理人标识：
-<input name="TFCurNodeMsgAuthor" value="no" /><br />
-单一签核标识：
-<input name="TFCurNodeOneDoFlag" value="yes" />撤签标识：
-<input name="TFCurNodeCancelDoFlag" value="no" /><br />
-发消息通知作者标识：
-<input name="TFCurNodeMsgAuthorFlag" value="yes" /><font color="#FF0000">发短信通知作者标识：</font>
-<input name="TFCurNodeSmsAuthorFlag" value="no" /><br />
-驳回选关标识：
-<input name="TFCurNodeRefuseToFlag" value="no" /><br />
-<br />
-已处理人：
-<input name="ThisFlowDonePsns" value="" />已处理人与环节对应：
-<input name="ThisFlowDonePsnAndNodes" value="" /><br />
-已通过节点列表：
-<input name="ThisFlowDoneNodes" value=";开始/FlowStartNode" /><br />
-需要变更任务状态的人员：
-<input name="TFCurNodeNeedChgStatePsns" value="" /><br />
-当前节点编号：
-<input name="TFCurNodeID" value="FlowNode1" />当前节点读者：
-<input name="TFCurNodeReaders" value="fangzg; liuyq; fangzg; liuyq" /><br />
-当前节点名称：
-<input name="TFCurNodeName" value="信息发布管理员审批" />当前节点作者：
-<input name="TFCurNodeAuthors" value="fangzg; liuyq" /><br />
-对应的表单代理人：
-<input name="TFCurNodeFormsAgent" value="" />当前节点开始时间：
-<input name="TFCurNodeStartDate" value="2012-06-11 13:29:57" /><br />
-当前节点读者(临时)：
-<input name="TFCurNodeTmpReaders" value="" />当前节点有效时间：
-<input name="TFCurNodeEndDate" value="" /><br />
-有效时间类型：
-<input name="TFCurNodeVldDateType" value="no" />当前节点作者(临时)：
-<input name="TFCurNodeTmpAuthors" value="" /><br />
-<font color="#0000FF">当前节点顺签人：</font>
-<input name="TFCurNodeSQAuthors" value="" />当前节点时间控制标识：
-<input name="TFCurNodeDateCFlag" value="no" /><br />
-处理人临时备份：
-<input name="TFCurNodeAuthorsBack" value="" /><br />
-当前加签提出人：
-<input name="TFCurNodeAgainDoPsn" value="" /><br />
-当前节点类型：
-<input name="TFCurNodeType" value="nofree" />当前操作名：
-<input name="TFCurNodeDoOption" value="Save" /><br />
-当前节点说明：
-<input name="TFCurNodeDescription" value="" />当前操作类型：
-<input name="TFCurNodeDoOptionType" value="ZC" /><br />
-<font color="#0000FF">操作类型备份</font>：
-<input name="TFCurNodeDoOptionTypeBack" value="" /><br />
-当前节点状态：
-<input name="TFCurNodeDoOptionState" value="0" />&quot;0&quot;正常状态；&quot;1&quot;加签中；&quot;2&quot;<br />
-强制执行节点设定：
-<input name="TFCurNodeMustDoNodes" value="" />
-<input name="TFCurNodeMustNextNode" value="" /><br />
-额外邮件通知：
-<input name="TFCurNodeMailTo" value="" />额外消息通知：
-<input name="TFCurNodeMsgTo" value="" /><br />
-动态：
-<input name="TFCurNodeMailTo1" value="" />动态：
-<input name="TFCurNodeMsgTo1" value="" /><br />
-必填项的域汇总：
-<input name="TFCurNodeInputFields" value="" /><br />
-不可见性的区段汇总：
-<input name="TFCurNodeShowGroup" value="" /><br />
-不可见性的域汇总：
-<input name="TFCurNodeShowFields" value="" /><br />
-不可编辑性的区段的汇总：
-<input name="TFCurNodeDsbGroup" value="" /><br />
-不可编辑性的域的汇总：
-<input name="TFCurNodeDsbFields" value="rtfTextShowEN;rtfTextShow;StTopNews;StTitle1;StTitle;StPicShowEN;StPicShow" /><br />
-消息主题：
-<input name="TFCurNodeSubject" value="Submit" /><br />
-当前作者临时:
-<input name="TFCurNodeTmpAuthorsEN" value="dev1;dev2;dev3" />
-<input name="TFCurNodeTmpAuthorsCN" value="开发者1;开发者2;开发者3" /><br />
-记录所有加签人<font color="#FF0000">：</font>
-<input name="TFCurNodeJQAuthorBack" value="" />
-<div id="getNodeFromNodeListDiv" />
-
-<!--这里是内容1-->
-<p>
-<textarea name="Pro_FlowMap" style="display:nonex" rows="7" cols="50">&lt;?xml:namespace prefix = v /&gt;&lt;v:roundrect style=&quot;Z-INDEX: 1001; POSITION: absolute; WIDTH: 70px; HEIGHT: 28px; TOP: 74px; CURSOR: default; LEFT: 337px&quot; id=FlowStartNode title=&quot;开始【管理员 提交2012-06-11 13:29:57】&quot; strokeweight=&quot;3pt&quot; strokecolor=&quot;#eee&quot; fillcolor=&quot;#b8d1fc&quot; coordsize=&quot;21600,21600&quot; arcsize=&quot;19661f&quot;&gt;&lt;v:Stroke&gt;&lt;/v:Stroke&gt;&lt;v:textbox style=&quot;TEXT-ALIGN: center; MARGIN-TOP: 7.562pt; WIDTH: 32.625pt; HEIGHT: 8.875pt; COLOR: #555555; MARGIN-LEFT: 11.437pt; TOP: auto; FONT-WEIGHT: bold; LEFT: auto; COLOR: #FFFFFF&quot; id=Text_FlowStartNode&gt;开始&lt;/v:textbox&gt;&lt;v:fill id=Fill_FlowStartNode focus=&quot;50%&quot; color2=&quot;#326dd0&quot; type=&quot;gradient&quot;&gt;&lt;/v:fill&gt;&lt;/v:roundrect&gt;&lt;v:roundrect style=&quot;Z-INDEX: 1003; POSITION: absolute; WIDTH: 130px; HEIGHT: 37px; TOP: 182px; CURSOR: default; LEFT: 307px&quot; id=FlowNode1 strokeweight=&quot;3pt&quot; strokecolor=&quot;#eee&quot; fillcolor=&quot;white&quot; coordsize=&quot;21600,21600&quot; arcsize=&quot;13107f&quot;&gt;&lt;v:Stroke&gt;&lt;/v:Stroke&gt;&lt;v:textbox style=&quot;TEXT-ALIGN: center; MARGIN-TOP: 7.281pt; WIDTH: 91.312pt; HEIGHT: 19.187pt; COLOR: #555555; MARGIN-LEFT: 4.593pt; FONT-SIZE: 9pt; TOP: auto; FONT-WEIGHT: bold; LEFT: auto&quot; id=Text_FlowNode1 inset=&quot;0,3pt,0,0&quot;&gt;信息发布管理员审批&lt;/v:textbox&gt;&lt;v:fill id=Fill_FlowNode1 focus=&quot;50%&quot; color2=&quot;#ccc&quot; type=&quot;gradient&quot;&gt;&lt;/v:fill&gt;&lt;/v:roundrect&gt;&lt;v:roundrect style=&quot;Z-INDEX: 1005; POSITION: absolute; WIDTH: 70px; HEIGHT: 28px; TOP: 392px; CURSOR: default; LEFT: 340px&quot; id=FlowEndNode title=结束 strokeweight=&quot;3pt&quot; strokecolor=&quot;#eee&quot; fillcolor=&quot;white&quot; coordsize=&quot;21600,21600&quot; arcsize=&quot;19661f&quot;&gt;&lt;v:Stroke&gt;&lt;/v:Stroke&gt;&lt;v:textbox style=&quot;TEXT-ALIGN: center; MARGIN-TOP: 7.562pt; WIDTH: 32.625pt; HEIGHT: 8.875pt; COLOR: #555555; MARGIN-LEFT: 11.437pt; TOP: auto; FONT-WEIGHT: bold; LEFT: auto&quot; id=Text_FlowEndNode&gt;结束&lt;/v:textbox&gt;&lt;v:fill id=Fill_FlowEndNode focus=&quot;50%&quot; color2=&quot;#ccc&quot; type=&quot;gradient&quot;&gt;&lt;/v:fill&gt;&lt;/v:roundrect&gt;&lt;v:line style=&quot;Z-INDEX: 907; POSITION: absolute; TOP: 102px; LEFT: 372px&quot; id=line_1 strokeweight=&quot;3.5pt&quot; strokecolor=&quot;#326dd0&quot; to=&quot;0,59.25pt&quot; from=&quot;0,0&quot;&gt;&lt;v:Stroke endarrow=&quot;classic&quot;&gt;&lt;/v:Stroke&gt;&lt;v:textbox style=&quot;Z-INDEX: 907; TEXT-ALIGN: center; MARGIN-TOP: 7.593pt; WIDTH: 0.875pt; HEIGHT: 48.562pt; MARGIN-LEFT: 17.187pt; TOP: auto; LEFT: auto&quot;&gt;&lt;/v:textbox&gt;&lt;/v:line&gt;&lt;v:roundrect style=&quot;Z-INDEX: 1008; POSITION: absolute; WIDTH: 130px; HEIGHT: 37px; TOP: 275px; CURSOR: default; LEFT: 308px&quot; id=FlowNode2 strokeweight=&quot;3pt&quot; strokecolor=&quot;#eee&quot; fillcolor=&quot;white&quot; coordsize=&quot;21600,21600&quot; arcsize=&quot;13107f&quot;&gt;&lt;v:Stroke&gt;&lt;/v:Stroke&gt;&lt;v:textbox style=&quot;TEXT-ALIGN: center; MARGIN-TOP: 7.281pt; WIDTH: 91.312pt; HEIGHT: 19.187pt; COLOR: #555555; MARGIN-LEFT: 4.593pt; FONT-SIZE: 9pt; TOP: auto; FONT-WEIGHT: bold; LEFT: auto&quot; id=Text_FlowNode2 inset=&quot;0,3pt,0,0&quot;&gt;部门领导审批&lt;/v:textbox&gt;&lt;v:fill id=Fill_FlowNode2 focus=&quot;50%&quot; color2=&quot;#ccc&quot; type=&quot;gradient&quot;&gt;&lt;/v:fill&gt;&lt;/v:roundrect&gt;&lt;v:line style=&quot;Z-INDEX: 1015; POSITION: absolute; TOP: 218px; LEFT: 372px&quot; id=line_3 strokeweight=&quot;3.5pt&quot; strokecolor=&quot;#ddd&quot; to=&quot;0,42pt&quot; from=&quot;0,0&quot;&gt;&lt;v:Stroke endarrow=&quot;classic&quot;&gt;&lt;/v:Stroke&gt;&lt;v:textbox style=&quot;Z-INDEX: 914; TEXT-ALIGN: center; MARGIN-TOP: 7.593pt; HEIGHT: 31.312pt; MARGIN-LEFT: 17.187pt; TOP: auto; LEFT: auto&quot;&gt;&lt;/v:textbox&gt;&lt;/v:line&gt;&lt;v:line style=&quot;Z-INDEX: 915; POSITION: absolute; TOP: 311px; LEFT: 373px&quot; id=line_4 strokeweight=&quot;3.5pt&quot; strokecolor=&quot;#ddd&quot; to=&quot;.75pt,60.75pt&quot; from=&quot;0,0&quot;&gt;&lt;v:Stroke endarrow=&quot;classic&quot;&gt;&lt;/v:Stroke&gt;&lt;v:textbox style=&quot;Z-INDEX: 915; TEXT-ALIGN: center; MARGIN-TOP: 7.593pt; WIDTH: 0.875pt; HEIGHT: 50.062pt; MARGIN-LEFT: 16.437pt; TOP: auto; LEFT: auto&quot;&gt;&lt;/v:textbox&gt;&lt;/v:line&gt;&lt;SPAN style=&quot;Z-INDEX: 1004; BORDER-BOTTOM: 0px; POSITION: absolute; BORDER-LEFT: 0px; BACKGROUND-COLOR: #ffffff; FONT-FAMILY: 华文中宋; COLOR: #0000ff; FONT-SIZE: 22px; BORDER-TOP: 0px; TOP: 31px; CURSOR: default; BORDER-RIGHT: 0px; LEFT: 290px&quot; class=txtdcspan texten=&quot;&quot;&gt;信息发布申请流程&lt;/SPAN&gt;</textarea>
-</p><div id="ProFlowMap" /><br />
-流程图颜色说明：<font color="#00ff00" id="DF_Flow_Color1">/■</font><font color="#00FF00"> </font>代表当前环节<font color="#00FFFF"> </font><font color="#00ffff" id="DF_Flow_Color2">/■</font>代表已处理环节<font color="#FFFFFF"> </font><font color="#ffffff" id="DF_Flow_Color3">/■</font>代表未处理环节<font color="#FF0000"> </font><font color="#ff0000" id="DF_Flow_Color4">/■</font>代表环节异常结束<div id="thFlow_mydiv2">
-<!--这里是流程信息-->
-<p>(单一签核)
-</p></div>
-<!--流转日志-->
-<div id="thFlow_mydiv3">
-<textarea name="ThisFlowTraceInfoLog" class="DF_Flow_TagLog_Style" readonly="readonly" rows="15" cols="80">&lt;FlowTraceInfo&gt;&lt;TraceInfo flownodename=&quot;开始&quot; flownodeid=&quot;FlowStartNode&quot; flowstarttime=&quot;2012-06-11 13:29:57&quot; flowendtime=&quot;2012-06-11 13:28:02&quot;&gt;&lt;/TraceInfo&gt;&lt;/FlowTraceInfo&gt;</textarea>
-</div>
-<!--操作日志-->
-<div id="thFlow_mydiv4">
-<textarea name="ThisFlowOptInfoLog" class="DF_Flow_TagLog_Style" readonly="readonly" rows="15" cols="80">&lt;FlowOptInfo&gt;&lt;OptInfo approver=&quot;管理员  &quot; approveren=&quot;admin  &quot; approvetime=&quot;2012-06-11 13:29:57&quot; optname=&quot;提交&quot; persons=&quot;&quot; otherinfo=&quot;&quot; tonodename=&quot;信息发布管理员审批&quot; tonodeid=&quot;FlowNode1&quot;&gt;&lt;/OptInfo&gt;&lt;OptInfo approver=&quot;管理员  &quot; approveren=&quot;admin  &quot; approvetime=&quot;2012-06-13 22:00:11&quot; optname=&quot;通知&quot; persons=&quot;开发者1;开发者2;开发者3&quot; otherinfo=&quot;&quot; tonodename=&quot;信息发布管理员审批&quot; tonodeid=&quot;FlowNode1&quot;&gt;&lt;/OptInfo&gt;&lt;OptInfo approver=&quot;管理员  &quot; approveren=&quot;admin  &quot; approvetime=&quot;2012-06-13 22:25:27&quot; optname=&quot;保存&quot; persons=&quot;&quot; otherinfo=&quot;&quot; tonodename=&quot;信息发布管理员审批&quot; tonodeid=&quot;FlowNode1&quot;&gt;&lt;/OptInfo&gt;&lt;/FlowOptInfo&gt;</textarea>
-</div>
-<!--处理人批注记录-->
-<div id="thFlow_mydiv5">
-<textarea name="ThisFlowMindInfoLog" class="DF_Flow_TagLog_Style" readonly="readonly" rows="15" cols="80" />
-</div>
-后台驱动流程图：
-<input name="ThisFlowNeedUpdMapInfo" value="" />
-<br />
-<br />
-
-<textarea name="ThisFlowXML" style="display:none" rows="7" cols="50">&lt;WorkFLowProcess ID=&quot;D0D160059ACB7B4A4825772700352752&quot; Name=&quot;信息发布申请流程&quot; Creater=&quot;admin&quot; Create=&quot;2010-05-18&quot; Updater=&quot;&quot; Update=&quot;&quot; ControlDate=&quot;&quot; OptNum=&quot;0&quot; AccessLevel=&quot;1.0.0&quot; ActiveFlag=&quot;yes&quot; ReturnFlag=&quot;yes&quot; RedoFlag=&quot;yes&quot; PublishFlag=&quot;no&quot; TimeControlFlag=&quot;no&quot; DeleteFlag=&quot;no&quot; GotoFlag=&quot;yes&quot; ReMsgFlag=&quot;no&quot; NameEN=&quot;Info.Release Apply&quot; MonitorFlag=&quot;no&quot;&gt;&lt;Readers&gt;&lt;/Readers&gt;&lt;Authors&gt;&lt;/Authors&gt;&lt;Paras&gt;&lt;/Paras&gt;&lt;RoundRects RectNum=&quot;2&quot;&gt;&lt;RoundRect ID=&quot;FlowStartNode&quot; Name=&quot;开始&quot; MoreAppFlag=&quot;no&quot; AppFlag=&quot;no&quot; ReturnFlag=&quot;no&quot; AgentDoFlag=&quot;no&quot; TimeControlFlag=&quot;no&quot; OnlyDoFlag=&quot;no&quot; RefuseToFlag=&quot;no&quot; CancelDoFlag=&quot;no&quot; ChgOpterFlag=&quot;no&quot; Type=&quot;nofree&quot; AutoPassFlag=&quot;no&quot; AutoReplaceFlag=&quot;no&quot; RefuseTo=&quot;&quot; NameEN=&quot;Start&quot; SubmitButtonName=&quot;提交&quot;&gt;&lt;Readers MailToFlag=&quot;no&quot; MsgToFlag=&quot;no&quot; ForeverReaderFlag=&quot;yes&quot; SmsToFlag=&quot;no&quot;&gt;&lt;/Readers&gt;&lt;Authors MailToFlag=&quot;no&quot; MsgToFlag=&quot;no&quot; SingleOptFlag=&quot;yes&quot; SmsToFlag=&quot;no&quot;&gt;&lt;/Authors&gt;&lt;MailSendTo&gt;&lt;/MailSendTo&gt;&lt;MsgSendTo&gt;&lt;/MsgSendTo&gt;&lt;Activities&gt;&lt;/Activities&gt;&lt;ValidDate TimeToFlag=&quot;no&quot;&gt;&lt;/ValidDate&gt;&lt;DoOverPass MsgCreaterFlag=&quot;no&quot; MsgNowAuthorFlag=&quot;no&quot;&gt;&lt;/DoOverPass&gt;&lt;ParentNodes&gt;&lt;/ParentNodes&gt;&lt;ChildNodes&gt;&lt;ChildNode NodeID=&quot;FlowNode1&quot; ConnectLineID=&quot;line_1&quot; ConditionalCode=&quot;&quot;&gt;信息发布管理员审批&lt;/ChildNode&gt;&lt;/ChildNodes&gt;&lt;Description&gt;&lt;/Description&gt;&lt;NoShowFields&gt;&lt;/NoShowFields&gt;&lt;InputFields&gt;&lt;/InputFields&gt;&lt;NoEditFields&gt;&lt;/NoEditFields&gt;&lt;NoShowGroup&gt;&lt;/NoShowGroup&gt;&lt;NoEditGroup&gt;&lt;/NoEditGroup&gt;&lt;TDUserField ChgFieldFlag=&quot;no&quot;&gt;&lt;/TDUserField&gt;&lt;ChgNodeAuthors ChgAuthorsFlag=&quot;no&quot; ChgAuthorsType=&quot;&quot; ChgAuthorsParam=&quot;&quot;&gt;&lt;/ChgNodeAuthors&gt;&lt;/RoundRect&gt;  &lt;RoundRect ID=&quot;FlowNode1&quot; Name=&quot;信息发布管理员审批&quot; MoreAppFlag=&quot;no&quot; AppFlag=&quot;no&quot; ReturnFlag=&quot;no&quot; AgentDoFlag=&quot;yes&quot; TimeControlFlag=&quot;no&quot; OnlyDoFlag=&quot;no&quot; RefuseToFlag=&quot;no&quot; CancelDoFlag=&quot;no&quot; ChgOpterFlag=&quot;no&quot; Type=&quot;nofree&quot; AutoPassFlag=&quot;no&quot; AutoReplaceFlag=&quot;no&quot; RefuseTo=&quot;&quot; NameEN=&quot;Info Manager Approve&quot; SubmitButtonName=&quot;提交&quot;&gt;&lt;Readers MailToFlag=&quot;no&quot; MsgToFlag=&quot;no&quot; ForeverReaderFlag=&quot;yes&quot; SmsToFlag=&quot;no&quot;&gt;&lt;/Readers&gt;&lt;Authors MailToFlag=&quot;no&quot; MsgToFlag=&quot;yes&quot; SingleOptFlag=&quot;yes&quot; SmsToFlag=&quot;no&quot;&gt;&lt;/Authors&gt;&lt;MailSendTo&gt;&lt;/MailSendTo&gt;&lt;MsgSendTo&gt;&lt;/MsgSendTo&gt;&lt;Activities&gt;&lt;/Activities&gt;&lt;ValidDate TimeToFlag=&quot;no&quot;&gt;&lt;/ValidDate&gt;&lt;DoOverPass MsgCreaterFlag=&quot;no&quot; MsgNowAuthorFlag=&quot;no&quot;&gt;&lt;/DoOverPass&gt;&lt;ParentNodes&gt;&lt;ParentNode NodeID=&quot;FlowStartNode&quot; ConnectLineID=&quot;line_1&quot; ConditionalCode=&quot;&quot;&gt;开始&lt;/ParentNode&gt;&lt;/ParentNodes&gt;&lt;ChildNodes&gt;&lt;ChildNode NodeID=&quot;FlowNode2&quot; ConnectLineID=&quot;line_3&quot; ConditionalCode=&quot;&quot;&gt;部门领导审批&lt;/ChildNode&gt;&lt;/ChildNodes&gt;&lt;Description&gt;&lt;/Description&gt;&lt;NoShowFields&gt;&lt;/NoShowFields&gt;&lt;InputFields&gt;&lt;/InputFields&gt;&lt;NoEditFields&gt;rtfTextShowEN;rtfTextShow;StTopNews;StTitle1;StTitle;StPicShowEN;StPicShow&lt;/NoEditFields&gt;&lt;NoShowGroup&gt;&lt;/NoShowGroup&gt;&lt;NoEditGroup&gt;&lt;/NoEditGroup&gt;&lt;TDUserField ChgFieldFlag=&quot;yes&quot;&gt;StInfoManagerEN&lt;/TDUserField&gt;&lt;ChgNodeAuthors ChgAuthorsFlag=&quot;no&quot; ChgAuthorsType=&quot;&quot; ChgAuthorsParam=&quot;&quot;&gt;&lt;/ChgNodeAuthors&gt;&lt;/RoundRect&gt;  &lt;RoundRect ID=&quot;FlowEndNode&quot; Name=&quot;结束&quot; MoreAppFlag=&quot;no&quot; AppFlag=&quot;no&quot; ReturnFlag=&quot;no&quot; AgentDoFlag=&quot;no&quot; TimeControlFlag=&quot;no&quot; OnlyDoFlag=&quot;no&quot; RefuseToFlag=&quot;no&quot; CancelDoFlag=&quot;no&quot; ChgOpterFlag=&quot;no&quot; Type=&quot;nofree&quot; AutoPassFlag=&quot;no&quot; AutoReplaceFlag=&quot;no&quot; RefuseTo=&quot;&quot; NameEN=&quot;End&quot; SubmitButtonName=&quot;提交&quot;&gt;&lt;Readers MailToFlag=&quot;no&quot; MsgToFlag=&quot;no&quot; ForeverReaderFlag=&quot;yes&quot; SmsToFlag=&quot;no&quot;&gt;&lt;/Readers&gt;&lt;Authors MailToFlag=&quot;no&quot; MsgToFlag=&quot;no&quot; SingleOptFlag=&quot;yes&quot; SmsToFlag=&quot;no&quot;&gt;&lt;/Authors&gt;&lt;MailSendTo&gt;&lt;/MailSendTo&gt;&lt;MsgSendTo&gt;&lt;/MsgSendTo&gt;&lt;Activities&gt;&lt;/Activities&gt;&lt;ValidDate TimeToFlag=&quot;no&quot;&gt;&lt;/ValidDate&gt;&lt;DoOverPass MsgCreaterFlag=&quot;no&quot; MsgNowAuthorFlag=&quot;no&quot;&gt;&lt;/DoOverPass&gt;&lt;ParentNodes&gt;&lt;ParentNode NodeID=&quot;FlowNode2&quot; ConnectLineID=&quot;line_4&quot; ConditionalCode=&quot;&quot;&gt;部门领导审批&lt;/ParentNode&gt;&lt;/ParentNodes&gt;&lt;ChildNodes&gt;&lt;/ChildNodes&gt;&lt;Description&gt;&lt;/Description&gt;&lt;NoShowFields&gt;&lt;/NoShowFields&gt;&lt;InputFields&gt;&lt;/InputFields&gt;&lt;NoEditFields&gt;rtfTextShowEN;rtfTextShow;StTopNews;StTitle1;StTitle;StPicShowEN;StPicShow&lt;/NoEditFields&gt;&lt;NoShowGroup&gt;&lt;/NoShowGroup&gt;&lt;NoEditGroup&gt;&lt;/NoEditGroup&gt;&lt;TDUserField ChgFieldFlag=&quot;no&quot;&gt;&lt;/TDUserField&gt;&lt;ChgNodeAuthors ChgAuthorsFlag=&quot;no&quot; ChgAuthorsType=&quot;&quot; ChgAuthorsParam=&quot;&quot;&gt;&lt;/C
-
-
-
-hgNodeAuthors&gt;&lt;/RoundRect&gt;  &lt;RoundRect ID=&quot;FlowNode2&quot; Name=&quot;部门领导审批&quot; MoreAppFlag=&quot;no&quot; AppFlag=&quot;no&quot; ReturnFlag=&quot;no&quot; AgentDoFlag=&quot;yes&quot; TimeControlFlag=&quot;no&quot; OnlyDoFlag=&quot;no&quot; RefuseToFlag=&quot;no&quot; CancelDoFlag=&quot;no&quot; ChgOpterFlag=&quot;no&quot; Type=&quot;nofree&quot; AutoPassFlag=&quot;no&quot; AutoReplaceFlag=&quot;no&quot; RefuseTo=&quot;&quot; NameEN=&quot;department  management&quot; SubmitButtonName=&quot;提交&quot;&gt;&lt;Readers MailToFlag=&quot;no&quot; MsgToFlag=&quot;no&quot; ForeverReaderFlag=&quot;yes&quot; SmsToFlag=&quot;no&quot;&gt;&lt;/Readers&gt;&lt;Authors MailToFlag=&quot;no&quot; MsgToFlag=&quot;yes&quot; SingleOptFlag=&quot;yes&quot; SmsToFlag=&quot;no&quot;&gt;&lt;/Authors&gt;&lt;MailSendTo&gt;&lt;/MailSendTo&gt;&lt;MsgSendTo&gt;&lt;/MsgSendTo&gt;&lt;Activities&gt;&lt;/Activities&gt;&lt;ValidDate TimeToFlag=&quot;no&quot;&gt;&lt;/ValidDate&gt;&lt;DoOverPass MsgCreaterFlag=&quot;no&quot; MsgNowAuthorFlag=&quot;no&quot;&gt;&lt;/DoOverPass&gt;&lt;ParentNodes&gt;&lt;ParentNode NodeID=&quot;FlowNode1&quot; ConnectLineID=&quot;line_3&quot; ConditionalCode=&quot;&quot;&gt;信息发布管理员审批&lt;/ParentNode&gt;&lt;/ParentNodes&gt;&lt;ChildNodes&gt;&lt;ChildNode NodeID=&quot;FlowEndNode&quot; ConnectLineID=&quot;line_4&quot; ConditionalCode=&quot;&quot;&gt;结束&lt;/ChildNode&gt;&lt;/ChildNodes&gt;&lt;Description&gt;&lt;/Description&gt;&lt;NoShowFields&gt;&lt;/NoShowFields&gt;&lt;InputFields&gt;&lt;/InputFields&gt;&lt;NoEditFields&gt;rtfTextShowEN;rtfTextShow;StTopNews;StTitle1;StTitle;StPicShowEN;StPicShow&lt;/NoEditFields&gt;&lt;NoShowGroup&gt;&lt;/NoShowGroup&gt;&lt;NoEditGroup&gt;&lt;/NoEditGroup&gt;&lt;TDUserField ChgFieldFlag=&quot;yes&quot;&gt;StInfoManagerEN&lt;/TDUserField&gt;&lt;ChgNodeAuthors ChgAuthorsFlag=&quot;no&quot; ChgAuthorsType=&quot;&quot; ChgAuthorsParam=&quot;&quot;&gt;&lt;/ChgNodeAuthors&gt;&lt;/RoundRect&gt; &lt;/RoundRects&gt;&lt;Lines LineNum=&quot;4&quot;&gt;&lt;Line ID=&quot;line_1&quot; Name=&quot;&quot; Type=&quot;&quot;&gt;&lt;FromNode Name=&quot;开始&quot;&gt;FlowStartNode&lt;/FromNode&gt;&lt;ToNode Name=&quot;信息发布管理员审批&quot;&gt;FlowNode1&lt;/ToNode&gt;&lt;ConditionalCode&gt;&lt;![CDATA[无]]&gt;&lt;/ConditionalCode&gt;&lt;Description&gt;&lt;/Description&gt;&lt;/Line&gt;  &lt;Line ID=&quot;line_3&quot; Name=&quot;&quot; Type=&quot;&quot;&gt;&lt;FromNode Name=&quot;信息发布管理员审批&quot;&gt;FlowNode1&lt;/FromNode&gt;&lt;ToNode Name=&quot;部门领导审批&quot;&gt;FlowNode2&lt;/ToNode&gt;&lt;ConditionalCode&gt;&lt;![CDATA[无]]&gt;&lt;/ConditionalCode&gt;&lt;Description&gt;&lt;/Description&gt;&lt;/Line&gt;  &lt;Line ID=&quot;line_4&quot; Name=&quot;&quot; Type=&quot;&quot;&gt;&lt;FromNode Name=&quot;部门领导审批&quot;&gt;FlowNode2&lt;/FromNode&gt;&lt;ToNode Name=&quot;结束&quot;&gt;FlowEndNode&lt;/ToNode&gt;&lt;ConditionalCode&gt;&lt;![CDATA[无]]&gt;&lt;/ConditionalCode&gt;&lt;Description&gt;&lt;/Description&gt;&lt;/Line&gt; &lt;/Lines&gt;&lt;Description&gt;&lt;/Description&gt;&lt;/WorkFLowProcess&gt;</textarea>
-<br />
-<br />
-多语言：ZH<br />
-兼职部门编号：
-<input name="CurUserPluDeptID" value="A00002^A00003" />
-用户所用申请部门编号：
-个人岗位编号信息(多值域）：
-<input name="CurUserAllPostID" value="" />个人岗位名称信息：
-<input name="CurUserAllPostName" value="" />
-当前用户所在部门岗位编号：
-<input name="CurUserDeptPostID" value="JTFZCBOSS002, JTZCBOSS001, P00020, P00053, P00032, P00054, P00009" />部门岗位名称信息：
-<input name="CurUserDeptPostName" value="副总裁, 总裁, 分管领导, 财务会计, 人事主管, 预算专员, 收文管理员" />
-人员的每个岗位对应的成员动态生成input， name和id均为： &quot;St&quot;+岗位编号+&quot;Member&quot;,注意下面的代码不要设为内置HTML
-<p><span />部门的每个岗位对应的成员动态生成input，如果人员中有重名的岗位编号，则不生成， name和id均为： &quot;St&quot;+岗位编号+&quot;Member&quot;,注意下面的代码不要设为内置HTML
-</p><p><span><input type="text" name="StJTFZCBOSS002Member" id="StJTFZCBOSS002Member" value="" /><input type="text" name="StJTZCBOSS001Member" id="StJTZCBOSS001Member" value="开发者1/dev1" /><input type="text" name="StP00020Member" id="StP00020Member" value="开发一/dev1" /><input type="text" name="StP00053Member" id="StP00053Member" value="开发十二/dev12;开发者1/dev1" /><input type="text" name="StP00032Member" id="StP00032Member" value="开发二/dev2" /><input type="text" name="StP00054Member" id="StP00054Member" value="开发八/dev8" /><input type="text" name="StP00009Member" id="StP00009Member" value="开发三/dev3" /></span><br />
-文档创建人的岗位成员信息：
-</p><p><span><input type="text" name="StCreaterPOST34Member" id="StCreaterPOST34Member" value="马涛/matao" /><input type="text" name="StCreaterP00003Member" id="StCreaterP00003Member" value="管理员/admin" /><input type="text" name="StCreaterP0055Member" id="StCreaterP0055Member" value="开发者1/dev1;开发者3/dev3" /><input type="text" name="StCreaterJTFZCBOSS002Member" id="StCreaterJTFZCBOSS002Member" value="" /><input type="text" name="StCreaterJTZCBOSS001Member" id="StCreaterJTZCBOSS001Member" value="开发者1/dev1" /><input type="text" name="StCreaterP00020Member" id="StCreaterP00020Member" value="开发一/dev1" /><input type="text" name="StCreaterP00053Member" id="StCreaterP00053Member" value="开发十二/dev12;开发者1/dev1" /><input type="text" name="StCreaterP00032Member" id="StCreaterP00032Member" value="开发二/dev2" /><input type="text" name="StCreaterP00054Member" id="StCreaterP00054Member" value="开发八/dev8" /><input type="text" name="StCreaterP00009Member" id="StCreaterP00009Member" value="开发者3/dev3" /><input type="text" name="StCreaterH1BMFZJMember" id="StCreaterH1BMFZJMember" value="开发者3/dev3" /></span><br />
-当前表单的UNID
-<input name="StMainDocUnid" value="4FAB3C852A8D9AD748257A1A001E0895" />附件数据库的路径
-<input name="StAttachmentPath" value="" id="StAttachmentPath" /></p></div>
-<!--************流程监控需要添加的内容，请添加到项目应用库中的相应位置**************-->
-
-
-
-
-
-
-
-
-
-
-
-
-<table style="display:none" border="1"><tbody><tr valign="top"><td width="232">此流程是否启用流程监控：</td><td width="232">
-<input name="TFMonitorFlag" value="no" /></td><td width="232">流程流转记录XML：</td><td width="232">
-<textarea name="TFNodeMonitorXML" rows="7" cols="50">&lt;DataBody&gt;&lt;/DataBody&gt;</textarea>
-</td></tr><tr valign="top"><td width="232">上一环节ID：</td><td width="232">
-<input name="TFPrevNodeID" value="FlowStartNode" /></td><td width="232">上一环节结束时间：</td><td width="232">
-<input name="TFPrevNodeEndTime" value="2012-06-11 13:28:02" /></td></tr><tr valign="top"><td width="232">上一处理人结束时间：</td><td width="232">
-<input name="TFPrevWorkEndTime" value="2012-06-11 13:28:02" /></td><td width="232">环节流转Flag</td><td width="232">
-<input name="TFNodeChangeNodeFlag" value="yes" /></td></tr><tr valign="top"><td width="232">上一处理人结束时间变更Flag：</td><td width="232">
-<input name="TFChangeEndTimeFlag" value="yes" /></td><td width="232">流程开始时间：</td><td width="232">
-<input name="TFStartTime" value="2012-06-11 13:28:02" /></td></tr><tr valign="top"><td width="232">开始监控标识位：</td><td width="232">
-<input name="TFStartMonitorFlag" value="no" /></td><td width="232"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt="" /></td><td width="232"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt="" /></td></tr><tr valign="top"><td width="232"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt="" /></td><td width="232"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt="" /></td><td width="232"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt="" /></td><td width="232"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt="" /></td></tr></tbody></table>
-<!--************流程监控需要添加的内容，请添加到项目应用库中的相应位置**************-->
-
-<ul>如果有图片附件记录图片附件的名称：102347621.jpg<br />
-是否是管理员角色：
-<input name="DF_IsAdmin" value="yes" style="display:none" /><br />
-是否置顶标记：
-<input name="StTopNewsFlag" value="" /> 0:不置顶，1:置顶</ul></div>
-
-<xml id="DF_LocalSourceData" src="/Application/DigiFlowInfoPublish.nsf/DF_L_PublishDocForm_ZH">
-
-
-<script src="/Produce/DigiFlowScriptCss.nsf/CheckOutJS?openjavascriptlibrary" />
-<script src="/Produce/DigiFlowScriptCss.nsf/ProjectCommonJS?OpenJavascriptLibrary" />
-<script src="/Produce/DigiFlowScriptCss.nsf/PubJS?OpenJavascriptLibrary" />
-<script src="/Produce/DigiFlowScriptCss.nsf/CommonJS?openjavascriptlibrary" />
-<script src="/Produce/DigiFlowScriptCss.nsf/FlowNextOptionJS?openjavascriptlibrary" />
-<script src="/Produce/ProInd.nsf/NewFlowTraceJS?OpenJavascriptLibrary" />
-<script src="/jquery/js/jquery.js" />
-
-</xml><div id="DF_Header">
-<div id="DF_Header_Logo"><div id="DF_Header_Logo_Img" /></div>
-</div>
-<div id="DF_Header_Menu">
-<div class="DF_Header_MenuBtn" id="MenuBtn">
-<div class="DF_MenuBtn" style="display:none" onclick="Flow_Save()"><span class="BtnSave" /><q id="Flow_Save">保存</q></div>
-<div class="DF_MenuBtn" style="display:none" onclick="Flow_NextStep()"><span class="BtnNextStep" /><q id="Flow_NextStep">下一步</q></div>
-<div class="DF_MenuBtn" style="display:none" onclick="Flow_Reject()"><span class="BtnReject" /><q id="Flow_Reject">退回</q></div>
-<div class="DF_MenuBtnBox" style="display:">
-<span class="BtnSenior" /><q id="Flow_Senior">高级</q><span class="BtnboxRight" />
-<div class="DF_MenuItemList">
-<div class="DF_MenuBtnItem" style="display:none" onclick="Flow_SetApplyDept()"><span class="BtnEndorsement" />更改部门</div>
-<div class="DF_MenuBtnItem" style="display:none" onclick="Flow_Endorsement()"><span class="BtnEndorsement" /><q id="Flow_Endorsement">加签</q></div>
-<div class="DF_MenuBtnItem" style="display:none" onclick="Flow_Hasten()"><span class="BtnHasten" /><q id="Flow_Hasten">催办</q></div>
-<div class="DF_MenuBtnItem" style="display:none" onclick="Flow_Turn()"><span class="BtnTurn" /><q id="Flow_Turn">转办</q></div>
-<div class="DF_MenuBtnItem" style="display:none" onclick="Flow_Inform()"><span class="BtnInform" /><q id="Flow_Inform">通知</q></div>
-<div class="DF_MenuBtnItem" style="display:none" onclick="Flow_MulEndorsement()"><span class="BtnMulEndorsement" /><q id="Flow_MulEndorsement">复合加签</q></div>
-<div class="DF_MenuBtnItem" style="display:none" onclick="Flow_Quash()"><span class="BtnQuash" /><q id="Flow_Quash">撤签</q></div>
-<div class="DF_MenuBtnItem" style="display:none" onclick="Flow_Cancel()"><span class="BtnCancel" /><q id="Flow_Cancel">抽单</q></div>
-<div class="DF_MenuBtnItem" style="display:none" onclick="Flow_Copy()"><span class="BtnCopy" /><q id="Flow_Copy">复制表单</q></div>
-</div>
-</div>
-<div class="DF_MenuBtnBox" style="display:none">
-<span class="BtnSpecial" /><q id="Flow_Special">特殊操作</q><span class="BtnboxRight" />
-<div class="DF_MenuItemList">
-<div class="DF_MenuBtnItem" style="display:none" onclick="Flow_Jump()"><span class="BtnJump" /><q id="Flow_Jump">强制跳转</q></div>
-<div class="DF_MenuBtnItem" style="display:none" onclick="Flow_Replace()"><span class="BtnReplace" /><q id="Flow_Replace">替换处理人</q></div>
-<div class="DF_MenuBtnItem" style="display:none" onclick="Flow_Terminate()"><span class="BtnTerminate" /><q id="Flow_Terminate">终止</q></div>
-<div class="DF_MenuBtnItem" style="display:none" onclick="Flow_Jurisdiction()"><span class="BtnJurisdiction" /><q id="Flow_Jurisdiction">权限管理</q></div>
-</div>
-</div>
-<div class="DF_MenuBtn" style="display:none" onclick="Flow_Print()"><span class="BtnPrint" /><q id="Flow_Print">打印</q></div>
-<div class="DF_MenuBtn" style="display:" onclick="Flow_ShowFlow()"><span class="BtnShowFlow" /><q id="Flow_ShowFlow">查看流程</q></div>
-</div>
-<div style="display:none">
-
-
-
-
-
-
-
-
-
-
-<table border="0" cellspacing="0" cellpadding="0"><tbody><tr valign="top"><td width="189" bgcolor="#C0C0C0"><b><font color="#620012">隐藏域</font></b></td><td style="padding-left:5px" width="340" bgcolor="#C0C0C0"><b><font color="#620012">说明</font></b></td></tr><tr valign="top"><td width="189">
-<input name="StCurFlowGotoOptType" value="Default" /></td><td width="340"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt="" /></td></tr><tr valign="top"><td width="189">
-<input name="StCurFlowGotoNodeID" value="FlowNode1" /></td><td width="340"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt="" /></td></tr><tr valign="top"><td width="189">
-<input name="StCurFlowOldGotoNodeNum" value="0" /></td><td width="340"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt="" /></td></tr><tr valign="top"><td width="189">
-<input name="StChgPsnTmpFieldAll" value="方振刚/fangzg;刘元庆/liuyq" /><br />
-
-<input name="StChgPsnTmpFieldCN" value="方振刚;刘元庆" />
-<input name="StChgPsnTmpFieldEN" value="fangzg;liuyq" /></td><td width="340"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt="" /></td></tr></tbody></table>
-</div>
-<div style="display:none"> 
-<input type="button" onclick="if(document.all(&quot;GuanJunKK_Button&quot;)!=null)document.all(&quot;GuanJunKK_Button&quot;).click() //提交前的检验动作if(GuanJunKK_ButtonFlag!=&quot;yes&quot;){ //如果提交前检验无误 thFlowWindow_DocSubmit(); //进行必填域检测，提交}" value="提交" class="DF_Flow_button1" id="HTFSubmitButton" onmouseover="this.className=&apos;DF_Flow_button2&apos;" onmouseout="this.className=&apos;DF_Flow_button1&apos;" />
-<input type="button" onclick="Flow_BeforeSaveBtn();Fck_Editor_Submit();if(document.all(&quot;BDF_Button_submit&quot;)!=null){ document.all(&quot;BDF_Button_submit&quot;).click();}else{ document.all(&quot;ThFlowSaveButton_1&quot;).click();}" value="保存" style="display:none" id="ThFlowSaveButton" />
-<input type="button" value="保存" style="display:none" id="ThFlowSaveButton_1" onclick="return _doClick(&apos;482577C80009D7FF.3929ce7318477a244825767300264f51/$Body/0.2E30&apos;, this, null)" />
-<input type="button" onclick="thFlowWindow_DocAppDo(); //加签" value="加签" id="ThFlowAppendButton" style="display:none" />
-<input type="button" onclick="thFlowWindow_DocReturnDo(); //转办或代办" value="转办" id="ThFlowReturnButton" style="display:none" />
-<input type="button" onclick="thFlowWindow_DocReplaceDo(); //替换处理人" value="替换" id="ThFlowReplaceButton" style="display:none" />
-<input type="button" onclick="thFlowWindow_DocMoreAppDo();" value="复合加签处理" style="display:none" id="ThFlowMoreAppendButton" />
-<input type="button" onclick="thFlowWindow_DocMsgTo(); //替换处理人" value="通知" id="ThFlowMsgToButton" style="display:none" /> </div>
-<script><![CDATA[loadMenulist();]]></script>
-</div>
-<div id="DF_Content">
-<div id="DF_TagGroup">
-<ul>
-<li><a id="basicInfoA" class="DF_SelectedTag" onclick="switchTag(this);" href="#"><span class="DF_SelectedSpan"><q id="DT_001">申请单</q></span></a> </li>
-<li><a id="wordInfoA" class="" onclick="switchTag(this);" href="#"><span class=""><q id="DT_002">正文</q></span></a></li>
-<li><a id="EnInfoEN" class="" onclick="switchTag(this);" href="#"><span class=""><q id="DT_006">正文(英)</q></span></a></li>
-<li><a id="attInfoA" class="" onclick="switchTag(this);" href="#"><span class=""><q id="DT_003">附件</q></span></a></li>
-<li><a class="" onclick="switchTag(this);" href="#"><span class=""><q id="DT_004">流转意见</q></span></a></li>
-</ul>
-</div>
-<div id="DF_TagContentgGroup">
-<div class="DF_SelectedContent">
-<div class="DF_Content_Section">
-
-<!--start 区域标题-->
-
-
-
-<!--end 区域标题-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<table class="DF_GTable_Style"><tbody><tr><td class="DF_GTable_Title_TD_Style" colspan="4">
-<span class="DF_GTable_Title_TD_Img" />&amp;nbsp;<q id="DF_001">信息发布申请单</q>
-</td></tr><tr><td class="DF_GTable_LTD_Style"><q id="DF_002">标&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;题：</q></td><td class="DF_GTable_RTD_Style" colspan="3">
-<input name="StTitle" value="360特供学生机" readonly="readonly" class="DF_Txt_Style" style="width:85%" /></td></tr><tr id="EnTitleID"><td class="DF_GTable_LTD_Style"><q id="DF_030">英文标题：</q></td><td class="DF_GTable_RTD_Style" colspan="3">
-<input name="StTitle_EN" value="" readonly="readonly" class="DF_Txt_Style" style="width:85%" /></td></tr><tr><td class="DF_GTable_LTD_Style"><q id="DF_003">起 草 人：</q></td><td class="DF_GTable_RTD_Style">管理员<div style="display:none">
-<input name="StDraftManEn" value="admin" class="DF_Txt_Style" style="display:none" />
-<input name="StDraftMan" value="管理员/admin" class="DF_Txt_Style" style="display:none" /> </div></td><td class="DF_GTable_LTD_Style"><q id="DF_004">起草部门：</q></td><td class="DF_GTable_RTD_Style">
-<input name="StDept" value="计划课" class="DF_Txt_ReadOnly_Style" style="width:100%" readonly="readOnly" /><div style="display:none">DF_PLAN</div></td></tr><tr><td class="DF_GTable_LTD_Style"><q id="DF_005">起草日期：</q></td><td class="DF_GTable_RTD_Style">2012-06-11</td><td class="DF_GTable_LTD_Style"><q id="DF_006">重要程度：</q></td><td class="DF_GTable_RTD_Style">
-<input name="%%Surrogate_StImport" type="hidden" value="1" />
-<select name="StImport" disabled="disabled" class="DF_Downlist_Style"><option value="_e2erse4tjkc9tdm0jqal0_">非常重要
-</option><option value="_e2fbdg4uil8_">重要
-</option><option selected="selected" value="_b2f3da4udl0_">普通</option></select>
-</td></tr><tr><td class="DF_GTable_LTD_Style"><q id="DF_007">发布对象：</q></td><td class="DF_GTable_RTD_Style" colspan="3">
-<input name="StReaderCN" value="所有人" readonly="readonly" class="DF_Txt_ReadOnly_Style" style="width:81%" /><span id="spanReader" style="display:none"><a href="#" onclick="document.all(&quot;btReaderSelect&quot;).onclick();"><img src="/DF_Res/DF_Img_Source/Img_YY/select.gif" style="border:0" /><q id="DF_015">选择</q></a>&amp;nbsp;<a href="#" onclick="document.all(&quot;btReaderCancel&quot;).onclick();"><img src="/DF_Res/DF_Img_Source/Img_YY/cancel.gif" style="border:0" /><q id="DF_016">清除</q></a></span>
-<br /><span class="DF_Remind_Style" style="color:#008000;display:none"><q id="DF_017">注：为空则发布给所有人</q></span><span style="display:none"> 
-<input name="StReaderEN" value="" readonly="readonly" style="display:none" />
-<input name="StReader" value="" readonly="readonly" style="display:none" />
-<input name="MtReader" value="" readonly="readonly" style="display:none" />
-<input type="button" onclick="//【参数说明1】//df_InterfaceType______接口类型，值为&quot;OrgMng&quot;代表从组织结构库中选择人员，值为&quot;Names&quot;代表从names.nsf库中选择人员。//df_selectMode_________选择类型，单选或多选。&quot;radio&quot; 或 &quot;checkbox&quot; ，默认为单选。//df_OptFieldName_______人员选择后，同时要触发父页面按钮的名称。//df_FieldName__________人员选择后，返回的中文名/ITCode域。//df_FieldNameCN________人员选择后，返回的中文名域。//df_FieldNameEN________人员选择后，返回的ITCode域。//df_GroupFlag__________是否允许选择组织群组，值为&quot;yes&quot;允许选择，为&quot;no&quot;不允许选择，默认为不允许。//df_userAllInfo________值为yes时单选，返回员工所有信息字符串，此参数只在单选时使用生效。//df_FieldAllInfo_______此域存放选择后得到的人员所有信息字符串，注意：必须在使用df_userAllInfo参数后才能使用此参数。//df_PsnGroupFlag_______是否显示个人群组标志位（yes显示，no不显示，默认显示）。//df_SelectOrgID________指定显示的组织的编号（执行此参数将显示该组织及其下级组织节点）。//df_NoDeptFlag_________指定是否显示“未归属部门的用户”（默认不显示，yes显示，no不显示）。//df_SearchFlag_________指定是否显示“查询”按钮（默认显示，yes显示，no不显示）。//df_HideOrgID__________指定隐藏的组织ID（执行此参数将隐藏该组织及其下级组织节点，且只能隐藏显示组织的下级组织，并不能无限级地隐藏下级组织）。//function DF_SelectPsn(df_InterfaceType,df_selectMode,df_OptFieldName,df_FieldName,df_FieldNameCN,df_FieldNameEN,df_GroupFlag,df_userAllInfo,df_FieldAllInfo,df_PsnGroupFlag,df_SelectOrgID,df_NoDeptFlag,df_SearchFlag,df_HideOrgID){ DF_SelectPsn(&quot;&quot;,&quot;checkbox&quot;,&quot;&quot;,&quot;StReader&quot;,&quot;StReaderCN&quot;,&quot;StReaderEN&quot;,&quot;yes&quot;)" value="选择" style="display:none" id="btReaderSelect" />
-<input type="button" onclick="document.all(&quot;StReaderCN&quot;).value=&quot;&quot;;document.all(&quot;StReaderEN&quot;).value=&quot;&quot;;document.all(&quot;StReader&quot;).value=&quot;&quot;;" value="清除" style="display:none" id="btReaderCancel" /> </span></td></tr><tr><td class="DF_GTable_LTD_Style"><q id="DF_009">发布日期：</q></td><td class="DF_GTable_RTD_Style">
-<input name="StPubDate" value="2012-06-11" class="DF_Txt_ReadOnly_Style" readonly="readOnly" /></td><td class="DF_GTable_LTD_Style"><q id="DF_010">有效日期：</q></td><td class="DF_GTable_RTD_Style">
-<input name="StOldDate" value="2012-06-18" class="DF_Txt_ReadOnly_Style" readonly="readOnly" /><span id="spanOldDate" style="display:none"><a href="#" onclick="DF_fPopCalendar(StOldDate);checkDate();"><img src="/DF_Res/DF_Img_Source/Img_YY/select.gif" style="border:0" /><q id="DF_015">选择</q></a></span> <a href="#" style="background-color: yellow" title="当超过有效日期后，该信息发布失效，只能在过期信息发布中查看，不填写默认为长期有效.">说明</a></td></tr><tr><td class="DF_GTable_LTD_Style"><q id="DF_011">所属栏目：</q></td><td class="DF_GTable_RTD_Style">
-<input name="StNodeName" value="企业新闻" style="display:" class="DF_Txt_ReadOnly_Style" readonly="readOnly" />
-<input name="StNodeName_EN" value="Enterprise News" style="display:none" class="DF_Txt_ReadOnly_Style" readonly="readOnly" /><span id="spanNodeName" style="display:none"> <a href="#" onclick="document.all(&quot;btSelNode&quot;).onclick();"><img src="/DF_Res/DF_Img_Source/Img_YY/select.gif" style="border:0" /><q id="DF_015">选择</q></a> 
-<input type="button" onclick="var thDir=document.all(&quot;DF_DbDir&quot;).value;var thDb=document.all(&quot;DF_DbName&quot;).value;var surl=&quot;/&quot;+thDir+&quot;/&quot;+thDb+&quot;/&quot;;var surl=&quot;/Produce/DigiFlowScriptCss.nsf/TreeMngLnForm?OpenForm&amp;login&amp;dir=&quot;+thDir+&quot;&amp;db=&quot;+thDb+&quot;&amp;xmlagent=GetDirUseXMLAgent&quot;surl=surl+&quot;&amp;dirid=StNodeID&amp;dirname=StNodeName&amp;opt=select&amp;opentype=dialog&amp;title=选择栏目&quot;;window.showModalDialog(surl,window,&quot;dialogWidth:410px;dialogHeight:400px&quot;);if (document.all(&quot;StNodeID&quot;).value!=&quot;&quot;){ //获取信息发布管理员 getClassMnger(document.all(&quot;StNodeID&quot;).value);}" value="选择" style="display:none" id="btSelNode" /> </span><span style="display:none">
-<input name="StNodeID" value="Dir01" readonly="readonly" /></span></td><td class="DF_GTable_LTD_Style"><q id="DF_012">信息发布管理员：</q></td><td class="DF_GTable_RTD_Style">
-<input name="StInfoManagerCN" value="方振刚;刘元庆" class="DF_Txt_ReadOnly_Style" readonly="readOnly" /><span id="spanInfoManager" style="display:none"><a href="#" onclick="document.all(&quot;btInfoMangerSelect&quot;).onclick();"><img src="/DF_Res/DF_Img_Source/Img_YY/select.gif" style="border:0" /><q id="DF_015">选择</q></a>&amp;nbsp;<a href="#" onclick="document.all(&quot;btInfoManagerCancel&quot;).onclick();"><img src="/DF_Res/DF_Img_Source/Img_YY/cancel.gif" style="border:0" /><q id="DF_016">清除</q></a></span><span style="display:none"> 
-<input name="StInfoManagerEN" value="fangzg;liuyq" readonly="readonly" style="display:none" />
-<input name="StInfoManager" value="方振刚/fangzg;刘元庆/liuyq" readonly="readonly" style="display:none" /> 
-<input type="button" onclick="//【参数说明1】//df_InterfaceType______接口类型，值为&quot;OrgMng&quot;代表从组织结构库中选择人员，值为&quot;Names&quot;代表从names.nsf库中选择人员。//df_selectMode_________选择类型，单选或多选。&quot;radio&quot; 或 &quot;checkbox&quot; ，默认为单选。//df_OptFieldName_______人员选择后，同时要触发父页面按钮的名称。//df_FieldName__________人员选择后，返回的中文名/ITCode域。//df_FieldNameCN________人员选择后，返回的中文名域。//df_FieldNameEN________人员选择后，返回的ITCode域。//df_GroupFlag__________是否允许选择组织群组，值为&quot;yes&quot;允许选择，为&quot;no&quot;不允许选择，默认为不允许。//df_userAllInfo________值为yes时单选，返回员工所有信息字符串，此参数只在单选时使用生效。//df_FieldAllInfo_______此域存放选择后得到的人员所有信息字符串，注意：必须在使用df_userAllInfo参数后才能使用此参数。//df_PsnGroupFlag_______是否显示个人群组标志位（yes显示，no不显示，默认显示）。//df_SelectOrgID________指定显示的组织的编号（执行此参数将显示该组织及其下级组织节点）。//df_NoDeptFlag_________指定是否显示“未归属部门的用户”（默认不显示，yes显示，no不显示）。//df_SearchFlag_________指定是否显示“查询”按钮（默认显示，yes显示，no不显示）。//df_HideOrgID__________指定隐藏的组织ID（执行此参数将隐藏该组织及其下级组织节点，且只能隐藏显示组织的下级组织，并不能无限级地隐藏下级组织）。//function DF_SelectPsn(df_InterfaceType,df_selectMode,df_OptFieldName,df_FieldName,df_FieldNameCN,df_FieldNameEN,df_GroupFlag,df_userAllInfo,df_FieldAllInfo,df_PsnGroupFlag,df_SelectOrgID,df_NoDeptFlag,df_SearchFlag,df_HideOrgID){DF_SelectPsn(&quot;&quot;,&quot;checkbox&quot;,&quot;&quot;,&quot;StInfoManager&quot;,&quot;StInfoManagerCN&quot;,&quot;StInfoManagerEN&quot;,&quot;no&quot;)" value="选择" style="display:none" id="btInfoMangerSelect" />
-<input type="button" onclick="document.all(&quot;StInfoManagerCN&quot;).value=&quot;&quot;;document.all(&quot;StInfoManagerEN&quot;).value=&quot;&quot;;document.all(&quot;StInfoManager&quot;).value=&quot;&quot;;" value="清除" style="display:none" id="btInfoManagerCancel" /> </span></td></tr><tr><td class="DF_GTable_LTD_Style"><q id="DF_013">置顶天数：</q></td><td class="DF_GTable_RTD_Style">
-<input name="%%Surrogate_StTopNews" type="hidden" value="1" />
-<select name="StTopNews" disabled="disabled" class="DF_Downlist_Style"><option>0
-</option><option>1
-</option><option>2
-</option><option>3
-</option><option>4
-</option><option selected="selected">5
-</option><option>6
-</option><option>7
-</option><option>8
-</option><option>9
-</option><option>10
-</option><option>15
-</option><option>20
-</option><option>25
-</option><option>30
-</option><option>60</option></select>
-</td><td class="DF_GTable_LTD_Style"><q id="DF_038">部门审批人：</q></td><td class="DF_GTable_RTD_Style">
-<input name="DeptChargerCN" value="开发者3" readonly="readonly" class="DF_Txt_ReadOnly_Style" /><span style="display:none"><a href="#" onclick="document.all(&apos;btSelUser_1&apos;).onclick();return false;"><img src="/DF_Res/DF_Img_Source/Img_YY/renyuan.gif" style="border:0" /><q id="DF_015">选择</q></a>
-<a href="#" onclick="document.all(&apos;btDelUser_1&apos;).onclick();return false;"><img src="/DF_Res/DF_Img_Source/Img_YY/cancel.gif" style="border:0" /><q id="DF_016">清除</q></a></span>
-<input type="button" onclick="//【参数说明1】//df_InterfaceType______接口类型，值为&quot;OrgMng&quot;代表从组织结构库中选择人员，值为&quot;Names&quot;代表从names.nsf库中选择人员。//df_selectMode_________选择类型，单选或多选。&quot;radio&quot; 或 &quot;checkbox&quot; ，默认为单选。//df_OptFieldName_______人员选择后，同时要触发父页面按钮的名称。//df_FieldName__________人员选择后，返回的中文名/ITCode域。//df_FieldNameCN________人员选择后，返回的中文名域。//df_FieldNameEN________人员选择后，返回的ITCode域。//df_GroupFlag__________是否允许选择组织群组，值为&quot;yes&quot;允许选择，为&quot;no&quot;不允许选择，默认为不允许。//df_userAllInfo________值为yes时单选，返回员工所有信息字符串，此参数只在单选时使用生效。//df_FieldAllInfo_______此域存放选择后得到的人员所有信息字符串，注意：必须在使用df_userAllInfo参数后才能使用此参数。//df_PsnGroupFlag_______是否显示个人群组标志位（yes显示，no不显示，默认显示）。//df_SelectOrgID________指定显示的组织的编号（执行此参数将显示该组织及其下级组织节点）。//df_NoDeptFlag_________指定是否显示“未归属部门的用户”（默认不显示，yes显示，no不显示）。//df_SearchFlag_________指定是否显示“查询”按钮（默认显示，yes显示，no不显示）。//df_HideOrgID__________指定隐藏的组织ID（执行此参数将隐藏该组织及其下级组织节点，且只能隐藏显示组织的下级组织，并不能无限级地隐藏下级组织）。DF_SelectPsn(&quot;selectMode=radio&amp;FieldName=DeptCharger&amp;FieldNameCN=DeptChargercn&amp;FieldNameEN=DeptChargerEN&amp;userAllInfo=yes&amp;FieldAllInfo=DeptChargerAll&amp;ReturnStrFormat=json&quot;)" value="选择" style="display:none" id="btSelUser_1" />
-<input type="button" onclick="document.all(&quot;DeptCharger&quot;).value = &quot;&quot;;document.all(&quot;DeptChargerCN&quot;).value = &quot;&quot;;document.all(&quot;DeptChargerEN&quot;).value = &quot;&quot;;document.all(&quot;DeptChargerAll&quot;).value = &quot;&quot;;" value="清除" style="display:none" id="btDelUser_1" />
-<input name="DeptCharger" value="开发者3/dev3" readonly="readonly" style="display:none" />
-<input name="DeptChargerEN" value="dev3" style="display:none" />
-<input name="DeptChargerAll" value="" style="display:none" /></td></tr><tr><td class="DF_GTable_LTD_Style"><q id="DF_019">是否设置为图片新闻：</q></td><td class="DF_GTable_RTD_Style">
-<input name="%%Surrogate_StOkPic" type="hidden" value="1" /><label>
-<input type="radio" name="StOkPic" disabled="disabled" value="0" onchange="if(this.value == &quot;1&quot;) { if(document.all(&quot;MtAttachmentNamesPic&quot;).value == &quot;&quot;) {  alert(df_AppArr[14]);  switchTag(document.all(&quot;attInfoA&quot;)); }}" class="DF_Option_Style" />否</label><label>
-<input type="radio" name="StOkPic" disabled="disabled" value="1" checked="checked" onchange="if(this.value == &quot;1&quot;) { if(document.all(&quot;MtAttachmentNamesPic&quot;).value == &quot;&quot;) {  alert(df_AppArr[14]);  switchTag(document.all(&quot;attInfoA&quot;)); }}" class="DF_Option_Style" />是</label></td><td class="DF_GTable_LTD_Style"><q id="DF_036">增加英文发布：</q></td><td class="DF_GTable_RTD_Style" colspan="3">
-<input name="%%Surrogate_RtEngPub" type="hidden" value="1" /><label>
-<input type="radio" name="RtEngPub" disabled="disabled" value="EN" onclick="document.all(&quot;StEngPub&quot;).value = this.value;DisplyEnFn(document.all(&quot;StEngPub&quot;).value);" />是</label><label>
-<input type="radio" name="RtEngPub" disabled="disabled" value="CN" checked="checked" onclick="document.all(&quot;StEngPub&quot;).value = this.value;DisplyEnFn(document.all(&quot;StEngPub&quot;).value);" />否</label>
-<input name="StEngPub" value="CN" style="display:none" /></td></tr></tbody></table>
-</div>
-<div class="DF_Content_Section" id="divPicSet" style="display:">
-
-<!--start 区域标题-->
-
-
-
-<!--end 区域标题-->
-
-
-
-
-
-
-
-
-
-
-
-
-<table class="DF_GTable_Style"><tbody><tr><td class="DF_GTable_Title_TD_Style" colspan="4">
-<span class="DF_GTable_Title_TD_Img" />&amp;nbsp;首页图片新闻
-</td></tr><tr /><tr><td class="DF_GTable_LTD_Style">在首页显示的图片：</td><td class="DF_GTable_RTD_Style">
-<span style="display:none">
-<input name="%%Surrogate_StPicAttachment" type="hidden" value="1" />
-<select name="StPicAttachment" disabled="disabled" class="DF_Downlist_Style"><option selected="selected">102347621.jpg</option></select>
-</span>
-<span style="display:"><a href="#" onclick="window.open(&apos;/Application/DigiFlowInfoPublish.nsf/0/1401FAFC3BEB675248257A1A001E34FD/$file/102347621.jpg&apos;)"><font color="#0000FF">102347621.jpg</font></a>&amp;nbsp;</span>
-<span class="DF_Remind_Style" style="color:#008000"><br />注：长宽230*153最佳</span>
-</td><td class="DF_GTable_LTD_Style">图片标题：</td><td class="DF_GTable_RTD_Style">
-<input name="StPicShow" value="360学生特供机" readonly="readonly" class="DF_Txt_Style" style="width:80%" /></td></tr><tr><td class="DF_GTable_LTD_Style">文字说明：</td><td class="DF_GTable_RTD_Style" colspan="3">
-<textarea name="rtfTextShow" class="DF_RTF_Style" style="width:93%" disabled="disabled" rows="15" cols="80" />
-</td></tr></tbody></table>
-</div>
-<div class="DF_Content_Section" style="display:none">
-
-<!--start 区域标题-->
-
-
-
-<!--end 区域标题-->
-
-
-
-
-
-
-
-
-<table class="DF_GTable_Style"><tbody><tr><td class="DF_GTable_Title_TD_Style" colspan="2">
-<span class="DF_GTable_Title_TD_Img" />&amp;nbsp;<q id="Flow_Postil">审批意见</q>
-</td></tr><tr style="display:"><td class="DF_GTable_LTD_Style" style="width:20%"><q id="Flow_WritePostil">请填写审批意见：</q></td><td class="DF_GTable_RTD_Style" style="width:80%">
-<textarea name="ThisFlowMindInfo" id="idThisFlowMindInfoLog" rows="7" cols="50" />
- <a href="#" onclick="SelectPostil()"><img src="/DF_Res/DF_Img_Source/Img_YY/select.gif" style="border:0" /><q id="Flow_Select">选择</q></a></td></tr><tr><td class="DF_GTable_LTD_Style" style="width:20%"><q id="Flow_WritePrompt">请填写消息提示信息：</q></td><td class="DF_GTable_RTD_Style" style="width:80%">
-<input name="ThisFlowMsgSubject" value="管理员提交了信息发布申请流程,请您尽快处理." id="idThisFlowMsgSubject" /></td></tr></tbody></table>
-</div>
-</div>
-<div class="DF_HideContent">
-
-<div style="display:none">
-
-
-
-
-
-
-
-
-<table border="0" cellspacing="0" cellpadding="0"><tbody><tr valign="top"><td width="189" bgcolor="#C0C0C0"><b><font color="#620012">隐藏域</font></b></td><td style="padding-left:5px" width="340" bgcolor="#C0C0C0"><b><font color="#620012">说明</font></b></td></tr><tr valign="top"><td width="189">
-<input name="DF_DbPath" value="Application/DigiFlowInfoPublish.nsf" /></td><td width="340">数据库路径</td></tr><tr valign="top"><td width="189" valign="middle">
-<input name="FCK_DBPath" value="Application/FCKeditor.nsf" /></td><td width="340" valign="middle"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt="" /></td></tr><tr valign="top"><td width="189" valign="middle">
-<textarea name="Fck_HTML" id="FCK_EditorValue" rows="7" cols="50">&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;5月17日，奇虎360董事长&lt;a target=&quot;_blank&quot; href=&quot;http://baike.baidu.com/view/192648.htm&quot;&gt;周鸿祎&lt;/a&gt;透露，360除将推出360&lt;a target=&quot;_blank&quot; href=&quot;http://baike.baidu.com/view/1455.htm&quot;&gt;手机&lt;/a&gt;外，还将推出360特供学生机。其基本配置为至少300万像素以上前置摄像头，4.3寸高清大屏，1G以上双核&lt;a target=&quot;_blank&quot; href=&quot;http://baike.baidu.com/view/50152.htm&quot;&gt;处理器&lt;/a&gt;，售价低于小米手机青春版的1499元。&lt;/p&gt;&lt;div class=&quot;spctrl&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;p&gt;　　周鸿祎称，360特供学生机与小米手机青春版同样主打学生市场，360特供学生机首先必须要有前置摄像头，且至少不低于300万像素；二要有高清大屏，至少是4.3寸QHD分辨率；三要配备双核处理器，主频至少1GHz以上。&lt;/p&gt;&lt;div class=&quot;spctrl&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;p&gt;　　周鸿祎在此前的360手机媒体沟通会上透露，360手机将会分为低价和高价版。低价版售价将在1000元左右，而高价版&amp;ldquo;最多只卖到1999元&amp;rdquo;，基本配置至少为4寸高清屏、1GHz以上双核&lt;a target=&quot;_blank&quot; href=&quot;http://baike.baidu.com/view/2089.htm&quot;&gt;CPU&lt;/a&gt;、高清摄像头等。&lt;/p&gt;&lt;div class=&quot;spctrl&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;p&gt;　　2012年6月4日，360发布官方消息称，360此次将推出A、B两款供选择的999元学生手机，第一款配置方案为：Cortex A9架构的1.2GHz的CPU、4.5寸高清大屏、1GB RAM + 8GB ROM 、前300万+后800万像素摄像头。第二款配置方案为：Cortex A9架构1GHz的双核CPU、4.5寸高清大屏、前300万+后800万像素摄像头、2000mAh电池。360学生机将于7月接受预定，8月上市。&lt;/p&gt;
-</textarea>
-</td><td width="340" valign="middle"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt="" /></td></tr></tbody></table>
-</div>
-<br /><script src="/Application/FCKeditor.nsf/global.js" />
-<div id="StBody" class="publishClass" style="display:;width:100%;height:440;overflow:auto;" />
-<iframe id="FCKEditorFrm" name="FCKditor" src="/Application/FCKeditor.nsf/FckEditor?openform" width="100%" frameborder="0" style="display:none;" />
-</div>
-<div class="DF_HideContent" id="fck_en_div">
-
-<div style="display:none">
-
-
-
-
-
-
-
-
-<table border="0" cellspacing="0" cellpadding="0"><tbody><tr valign="top"><td width="189" bgcolor="#C0C0C0"><b><font color="#620012">隐藏域</font></b></td><td style="padding-left:5px" width="340" bgcolor="#C0C0C0"><b><font color="#620012">说明</font></b></td></tr><tr valign="top"><td width="189"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt="" /></td><td width="340"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt="" /></td></tr><tr valign="top"><td width="189" valign="middle"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt="" /></td><td width="340" valign="middle"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt="" /></td></tr><tr valign="top"><td width="189" valign="middle">
-<textarea name="b" rows="7" cols="50" />
-
-<textarea name="Fck_HTML_EN" id="FCK_EditorValue_EN" rows="7" cols="50" />
-</td><td width="340" valign="middle"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt="" /></td></tr></tbody></table>
-</div>
-<br />
-<script src="/Application/FCKeditor.nsf/global.js" />
-<div id="StBody_EN" class="publishClass" style="display:;width:100%;height:440;overflow:auto" />
-<iframe id="FCKEditorFrm_EN" name="FCKditor_EN" src="/Application/FCKeditor.nsf/FckEditor_EN?openform" width="100%" frameborder="0" style="display:none;" />
-</div>
-<div class="DF_HideContent" id="attDiv">
-<div class="DF_Content_Section">
-
-
-
-
-
-<table class="DF_GTable_Style"><tbody><tr class="DF_GTable_TR_Style"><td class="DF_GTable_LTD_Style" style="width:20%"><q id="DT_003">附&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;件：</q></td><td class="DF_GTable_RTD_Style" style="width:80%">
-
-
-
-
-
-
-<table class="DF_GTable_Style" style="height:100%;width:100%;border:0"><tbody><tr style="display:none" class="DF_GTable_TR_Style"><td class="DF_GTable_TD_Style" style="border:0"><q q="q" wqwqwqwqererid="DF_024">1、请按“浏览”选择要上载的文件</q>&amp;nbsp; 
-<input class="DF_File_Style" style="width:350px" id="DF_File" onblur="DF_CheckFile()" type="file" name="%%File.482577c80009d7ff.886e720c2ba0e9d94825764800097a21.$Body.0.376" /> &amp;nbsp;<a href="#" onclick="DF_UpFile()"><img src="/DF_Res/DF_Img_Source/Img_YY/fileup.gif" style="border:0" /><q id="DF_025">上载</q></a>&amp;nbsp;&amp;nbsp;<a href="javascript:DF_ClearFile();"><img src="/DF_Res/DF_Img_Source/Img_YY/cancel.gif" style="border:0" /><q id="DF_032">清除</q></a> <br /><q id="DF_026">2、依次选择“浏览”、“上载”，可以添加多个文件；</q><br /><q id="DF_027">3、要删除文件，请选中要删除的文件后，按</q><a href="#" onclick="DF_DelFile()"><img src="/DF_Res/DF_Img_Source/Img_YY/filedel.gif" style="border:0" /><q id="DF_028">删除</q></a>。<br />&amp;nbsp;<input type="checkbox" name="%%Detach" value="102347621.jpg" /><a href="1401FAFC3BEB675248257A1A001E34FD/$file/102347621.jpg" target="_blank"><img src="/icons/fileatt.gif" border="0" /><font color="#0000FF">102347621.jpg</font></a>
-</td></tr><tr style="display:block" class="DF_GTable_TR_Style"><td class="DF_GTable_TD_Style" style="border:0">&amp;nbsp;<a href="#" onclick="window.open(&apos;/Application/DigiFlowInfoPublish.nsf/0/1401FAFC3BEB675248257A1A001E34FD/$file/102347621.jpg&apos;)"><img src="/icons/fileatt.gif" border="0" /><font color="#0000FF">102347621.jpg</font></a>&amp;nbsp;</td></tr></tbody></table>
-<div style="display:none"><font face="宋体">
-<input name="DF_FileFlag" value="" /></font> 
-<input type="button" value="保存附件" id="btUpload" onclick="return _doClick(&apos;482577C80009D7FF.886e720c2ba0e9d94825764800097a21/$Body/0.11C8&apos;, this, null)" /> </div></td></tr></tbody></table>
-</div>
-</div>
-<div class="DF_HideContent">
-<div class="DF_Content_Section" id="divComments" />
-</div>
-</div>
-</div>
-<div style="display:none"> 
-<input type="button" onclick="   GuanJunKK_ButtonFlag=&quot;yes&quot;;   arrField=new Array();   arrRemind=new Array();   var nid = 0;   arrField[nid]=&quot;StTitle&quot;;   arrRemind[nid]=df_AppArr[2];   nid++  /*     arrField[nid]=&quot;StOldDate&quot;;   arrRemind[nid]=df_AppArr[5];   nid++*/     arrField[nid]=&quot;StNodeName&quot;;   arrRemind[nid]=df_AppArr[3];   nid++      arrField[nid]=&quot;StInfoManagerCN&quot;;   arrRemind[nid]=df_AppArr[6];   nid++      arrField[nid]=&quot;DeptChargerCN&quot;;   arrRemind[nid]=df_AppArr[15];   nid++      arrField[nid]=&quot;StOkPic&quot;;   arrRemind[nid]=df_AppArr[12];   nid++      if(document.all(&quot;StOkPic&quot;).item(1).checked == true) {      if(document.all(&quot;MtAttachmentNamesPic&quot;).value == &quot;&quot;) {  alert(df_AppArr[13]);  switchTag(document.getElementById(&quot;attInfoA&quot;));  return false }   }      if(document.all(&quot;MtAttachmentNamesPic&quot;).value!=&quot;&quot; &amp;&amp; document.all(&quot;StOkPic&quot;).item(1).checked==true){      arrField[nid]=&quot;StPicShow&quot;;      arrRemind[nid]=df_AppArr[7];      nid++   }      if(document.all(&quot;StEngPub&quot;).value == &quot;EN&quot;) {  arrField[nid]=&quot;StTitle_EN&quot;;      arrRemind[nid]=df_AppArr[11];      nid++   }   if(DF_checkInput(arrField,arrRemind)==true) {      if(document.getElementById(&quot;StReaderEN&quot;).value==&quot;&quot;){         document.getElementById(&quot;StReaderCN&quot;).value=&quot;所有人&quot;;      }            GuanJunKK_ButtonFlag=&quot;no&quot;;   }else{  tag = document.getElementById(&quot;basicInfoA&quot;);      switchTag(tag);      }" value="GuanJunKK_Button" style="display:none" id="GuanJunKK_Button" /> </div>
-<div id="DF_Footer">
-<div style="display:none">&amp;copy;2009神州数码管理系统有限公司</div>
-</div>
-
-
-<input name="$V2AttachmentOptions" type="hidden" value="0" />
-<input name="openMode" type="hidden" value="new" />
-<input name="CurUserITCode" type="hidden" value="dev1" />
-<input name="CurUserNameCN" type="hidden" value="开发者1" />
-<input name="CurUserParentOrgID" type="hidden" value="ComOrg" />
-<input name="CurUserLoginDate" type="hidden" value="06/20/2012 01:57:34 PM" />
-<input name="TFCurNodeOnlyPassFlag" type="hidden" value="no" />
-<input name="TFCurNodeMailAuthorFlag" type="hidden" value="no" />
-<input name="TFCurNodeOneDo" type="hidden" value="(单一签核)" />
-<input name="DF_Ln_Type" type="hidden" value="ZH" />
-<input name="CurUserApplyDeptID" type="hidden" value="" />
-<input name="RtfPsnPostMember" type="hidden" value="" />
-<input name="RtfDeptPostMember" type="hidden" value="&lt;input type=&quot;text&quot; name=&quot;StJTFZCBOSS002Member&quot; id=&quot;StJTFZCBOSS002Member&quot; value=&quot;&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;StJTZCBOSS001Member&quot; id=&quot;StJTZCBOSS001Member&quot; value=&quot;开发者1/dev1&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;StP00020Member&quot; id=&quot;StP00020Member&quot; value=&quot;开发一/dev1&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;StP00053Member&quot; id=&quot;StP00053Member&quot; value=&quot;开发十二/dev12;开发者1/dev1&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;StP00032Member&quot; id=&quot;StP00032Member&quot; value=&quot;开发二/dev2&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;StP00054Member&quot; id=&quot;StP00054Member&quot; value=&quot;开发八/dev8&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;StP00009Member&quot; id=&quot;StP00009Member&quot; value=&quot;开发三/dev3&quot;&gt;" />
-<input name="RtfCreaterPsnPostMember" type="hidden" value="&lt;input type=&quot;text&quot; name=&quot;StCreaterPOST34Member&quot; id=&quot;StCreaterPOST34Member&quot; value=&quot;马涛/matao&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;StCreaterP00003Member&quot; id=&quot;StCreaterP00003Member&quot; value=&quot;管理员/admin&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;StCreaterP0055Member&quot; id=&quot;StCreaterP0055Member&quot; value=&quot;开发者1/dev1;开发者3/dev3&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;StCreaterJTFZCBOSS002Member&quot; id=&quot;StCreaterJTFZCBOSS002Member&quot; value=&quot;&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;StCreaterJTZCBOSS001Member&quot; id=&quot;StCreaterJTZCBOSS001Member&quot; value=&quot;开发者1/dev1&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;StCreaterP00020Member&quot; id=&quot;StCreaterP00020Member&quot; value=&quot;开发一/dev1&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;StCreaterP00053Member&quot; id=&quot;StCreaterP00053Member&quot; value=&quot;开发十二/dev12;开发者1/dev1&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;StCreaterP00032Member&quot; id=&quot;StCreaterP00032Member&quot; value=&quot;开发二/dev2&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;StCreaterP00054Member&quot; id=&quot;StCreaterP00054Member&quot; value=&quot;开发八/dev8&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;StCreaterP00009Member&quot; id=&quot;StCreaterP00009Member&quot; value=&quot;开发者3/dev3&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;StCreaterH1BMFZJMember&quot; id=&quot;StCreaterH1BMFZJMember&quot; value=&quot;开发者3/dev3&quot;&gt;" />
-<input name="MtAttachmentNamesPic" type="hidden" value="102347621.jpg" />
-<input name="StDraftManCn" type="hidden" value="管理员" />
-<input name="StDeptID" type="hidden" value="DF_PLAN" />
-<input name="StDraftDate" type="hidden" value="2012-06-11" />
-<input name="TFCurNodeNextOpters" type="hidden" value="" /></form>
-
-
-<data-params><isfile>false</isfile><issucceed>true</issucceed><statuscode>200</statuscode><headers><param name="Server" value="Lotus-Domino" /><param name="Date" value="Wed, 20 Jun 2012 05:57:37 GMT" /><param name="Last-Modified" value="Wed, 20 Jun 2012 05:57:35 GMT" /><param name="Expires" value="Tue, 01 Jan 1980 06:00:00 GMT" /><param name="Content-Type" value="text/html; charset=GB2312" /><param name="Content-Length" value="75722" /><param name="Cache-control" value="no-cache" /></headers><redirects /><usertoken><storeid>f9af5b2fdbf84be9980cafdba1684047</storeid><userid>DEV1</userid><username /><createtimemillis>1340171811221</createtimemillis></usertoken><message><protocal>http</protocal><url>http://182.50.2.171:8000/Application/DigiFlowInfoPublish.nsf/0/1401FAFC3BEB675248257A1A001E34FD?opendocument&amp;login</url><method>get</method><encoding>gb18030</encoding><type>remote</type><source>http://182.50.2.171:8000</source><template>digi/message/content.xsl</template><params><param key="opendocument" value="" /><param key="amp;login" value="" /></params></message></data-params></body></html>

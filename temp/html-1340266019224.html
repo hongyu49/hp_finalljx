@@ -1,1194 +1,0 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-<head>
-<link rel="stylesheet" href="/DF_Res/DF_Style_Source/DF_Style_New/DF_Css/mainform.css" type="text/css"><script src="/Produce/DigiFlowScriptCss.nsf/CommonJS?openjavascriptlibrary"></script><script src="/Produce/DigiFlowScriptCss.nsf/CheckOutJS?openjavascriptlibrary"></script><script src="/Produce/DigiFlowScriptCss.nsf/ProjectCommonJS?openjavascriptlibrary"></script><script src="/jquery/js/jquery.js"></script><SCRIPT src='/BasicData/DigiFlowSerialNumber.nsf/BCJS?openjavascriptlibrary'></SCRIPT><script src="/BasicData/DFBasicData.nsf/BasicJS?openjavascriptlibrary"></script><title>一般费用报销</title>
-<script language="JavaScript" type="text/javascript">
-<!-- 
-//页签切换function switchTag(tag){	tag.blur();	var obj = tag.parentElement;	var objlist = document.getElementById("DF_TagGroup").firstChild.childNodes;	for(i=0; i < objlist.length; i++)	{		if (objlist[i] == obj)		{			objlist[i].getElementsByTagName("a")[0].className="DF_SelectedTag";			objlist[i].getElementsByTagName("a")[0].getElementsByTagName("span")[0].className="DF_SelectedSpan";			document.all("DF_TagContentgGroup").childNodes[i].className = "DF_SelectedContent";			switch(i)			{			    //0对应第一个页签、1对应第二个页签。。。			    case 1:			    /*开始 引入附件上载的代码*/					if(document.getElementById("spanAttaUNID").innerText!=""){					     if (document.all("TFCurNodeID").value=="FlowStartNode")					         para = "&type=ntko&flag=1";					      else					         para = "&type=ntko&flag=0";						url = "/" + document.getElementById("StAttachmentPath").value + "/0/" + document.getElementById("spanAttaUNID").innerText + 						"?editdocument&login"+para;					}					else{					     if (document.all("TFCurNodeID").value=="FlowStartNode")					         para = "&type=ntko&flag=1&unid="+document.getElementById("StMainDocUnid").value+"&key=NTKOAttachMent";						else						    para = "&type=ntko&flag=0&unid="+document.getElementById("StMainDocUnid").value+"&key=NTKOAttachMent";                              url = "/" + document.getElementById("StAttachmentPath").value + "/NTKOAttachMent?openform&login"+para;					}					//divNtkoAtta表示附件上传管理控件所在的标签，可以根据实际情况修改					if (document.getElementById("divNtkoAtta").innerHTML == ""){					    document.getElementById("divNtkoAtta").innerHTML = "<iframe id='NTKOAttachMent' scrolling=no style='width:100%;' src='"+url+"'></iframe>";					}					break;			    case 2:							objlist[i].getElementsByTagName("a")[0].className="DF_SelectedTag";					objlist[i].getElementsByTagName("a")[0].getElementsByTagName("span")[0].className="DF_SelectedSpan";					document.all("DF_TagContentgGroup").childNodes[i].className = "divVoucher";					break;                   case 3:                                            /*开始 引入流转意见的代码*/                         thFlowWindow_ShowMindInfo("divComments");break;                         /*结束 引入流转意见的代码*/                         break                  case 4:							objlist[i].getElementsByTagName("a")[0].className="DF_SelectedTag";					objlist[i].getElementsByTagName("a")[0].getElementsByTagName("span")[0].className="DF_SelectedSpan";					document.all("DF_TagContentgGroup").childNodes[i].className = "divDigichannel";					break;               }		          }else{			objlist[i].getElementsByTagName("a")[0].className="";			objlist[i].getElementsByTagName("a")[0].getElementsByTagName("span")[0].className="";			document.all("DF_TagContentgGroup").childNodes[i].className = "DF_HideContent";		}	}}/* *该函数在点击提交按钮后，在确认对话框中，点击了确定之后被调用；此函数不是必须的； */function thFlowWindow_DoBeforeAgent(){	 //文档控件保存      if(document.frames["NTKOOFFICE"])      {	    document.frames["NTKOOFFICE"].document.all("BDF_Button_submit").click();	 }      //附件管理控件保存      if(document.frames["NTKOAttachMent"])      {	    document.frames["NTKOAttachMent"].NTKO_SaveDocWithAttaches();	 }	 	//产生流水号	if(document.all("StFormID").value=="" || document.all("StFormID").value=="false" || document.all("StFormID").value=="undefined"){		var strTime=getStringDate("YYYY","yes");		var strHead="YBFY"		document.all("StFormID").value = getSerialNumber(strHead,strTime,strHead+strTime,"4","");	}}//选择环节处理人function thFlowWindow_SelectNextFlowPsn(nodeid){      DF_SelectPsn("selectMode=checkbox&FieldName=StChgPsnTmpFieldAll&FieldNameCN=StChgPsnTmpFieldCN&FieldNameEN=StChgPsnTmpFieldEN");}function SaveDynTable() {		//生成凭证环节 保存凭证动态表格	if (document.all.VoucherCreateFlag.value == "1")	{	//alert(document.all("divSAPtbl").innerHTML)		document.getElementById("SAPInputHTML").value = document.all("divSAPtbl").innerHTML;	}	//保存报销明细表格	if(document.all("TFCurNodeID").value == "FlowStartNode") {		document.all("DynInputHTML").value = document.all("divDyntbl").innerHTML;	}}function LoadDynTable() {	if(document.all("SAPInputHTML").value != "") {			document.getElementById("divSAPtbl").innerHTML = document.getElementById("SAPInputHTML").value;	}		if(document.all("DynInputHTML").value != "") {		document.all("divDyntbl").innerHTML = document.all("DynInputHTML").value;	}}function GetMyBank() {	var bStr = GetBankInfo(document.all("StBXPsnEN").value);	if(bStr != "") {		var bArr = bStr.split("^");		DF_setSelectText("BankInfo", bArr[0]) ;		document.all("StMyBankNum").value = bArr[1];	}}
-// -->
-</script>
-
-<script language="JavaScript" type="text/javascript">
-<!-- 
-document._domino_target = "_self";
-function _doClick(v, o, t, h) {
-  var form = document._NorFeeAppForm;
-  if (form.onsubmit) {
-     var retVal = form.onsubmit();
-     if (typeof retVal == "boolean" && retVal == false)
-       return false;
-  }
-  var target = document._domino_target;
-  if (o.href != null) {
-    if (o.target != null)
-       target = o.target;
-  } else {
-    if (t != null)
-      target = t;
-  }
-  form.target = target;
-  form.__Click.value = v;
-  if (h != null)
-    form.action += h;
-  form.submit();
-  return false;
-}
-// -->
-</script>
-
-<script language="JavaScript" type="text/javascript">
-<!-- 
-//打印function Flow_Print(){   thFlowWindow_printDoc("divVoucher;divDigichannel");}
-
-// -->
-</script>
-
-<script language="JavaScript" type="text/javascript">
-<!-- 
-function SelCurrency() {	Select3ColView('RateView', 'StExchangeRate', 'StCurrencyType_1','StCurrencyType', 'btnComRate','BasicData/DFRateBase.nsf')}function ComputeCurrency() {	//控制人民币的时候不显示汇率。		if(document.getElementById("StCurrencyType_1").value=="RMB"){		document.all.YBMoney.style.display = "none";		document.getElementById("divrate1").style.display="none";		document.getElementById("divrate2").style.display="none";	} else {		document.all.YBMoney.style.display = "";				document.getElementById("divrate1").style.display="";		document.getElementById("divrate2").style.display="";	}		if(!isNaN(parseFloat(document.getElementById("StTotalMoney").value))) { //获取申请金额{StTotalMoney				document.getElementById("StAppMoney").value=DF_forDight(parseFloat(document.getElementById("StExchangeRate").value)*parseFloat(document.getElementById("StTotalMoney").value),2);		document.getElementById("StCapMoney").value=DF_convertCurrency(document.getElementById("StAppMoney").value)     			//实际金额-未冲销借款		var tMon = DF_forDight(parseFloat(document.getElementById("StExchangeRate").value)*parseFloat(document.getElementById("StTotalMoney").value),2);		var dMon = document.getElementById("DebitExpenseMoney").value;		if(isNaN(parseFloat(dMon))) dMon = "0"				document.getElementById("StActualAppMoney").value= DF_forDight(parseFloat(parseFloat(tMon) - parseFloat(dMon)), 2)		document.getElementById("StActualCapMoney").value=DF_convertCurrency(document.getElementById("StActualAppMoney").value)     			}     }function GetCusDebit(comCode, cusCode) {		if(DF_Trim(comCode) == "") return false	if(DF_Trim(cusCode) == "") return false		//读取员工借款金额。	DC_WriteToSAP("0","0");}
-
-// -->
-</script>
-
-<script language="JavaScript" type="text/javascript">
-<!-- 
-var tmpObj;//选择日期function SelectDate(){	if(document.all("TFCurNodeID").value != "FlowStartNode") return false	DF_fPopCalendar(event.srcElement);}//选择成本中心function SelectCost_1(obj) {	if(document.all("TFCurNodeID").value != "FlowStartNode") return false	document.all("tmpCol_1").value = "";	document.all("tmpRow_1").value = "";		//JS Header定义全局变量	tmpObj = obj;	//SelectClearView('CostCenterView', 'tmpCol_1', 'tmpRow_1', 'btntmp_1','btnclear_1','');	DF_SelectOrg("selectMode=radio&allInfo=no&FieldName=tmpCol_1&OptButtonName=btntmp_1&ReturnStrFormat=json");}//选择内部订单function SelectOrder_1(obj) {	if(document.all("TFCurNodeID").value != "FlowStartNode") return false	document.all("tmpCol_1").value = "";	document.all("tmpRow_1").value = "";		//JS Header定义全局变量	tmpObj = obj;	SelectClearView('InnerOrderView', 'tmpCol_1', 'tmpRow_1', 'btntmp_1','btnclear_1','');}//选择原因代码function SelectSubjectCode(obj) {	if(document.all("TFCurNodeID").value != "FlowStartNode") return false		document.all("tmpCol_1").value = "";	document.all("tmpRow_1").value = "";		//JS Header定义全局变量	tmpObj = obj;	SelectClearView('FeeSubjcetView', 'tmpCol_1', 'tmpRow_1', 'btntmp_1','btnclear_1', '');}function JudgeCellIsNull(tblName, rowid, colid, minderStr) {		var dltbl = document.all(tblName);	if(DF_Trim(dltbl.rows(rowid).cells(colid).childNodes(0).value) == "") {		if(minderStr == "") {			minderStr = "对不起，该信息不能为空";		}		alert(minderStr);		dltbl.rows(rowid).cells(colid).childNodes(0).focus();		return false	}		return true}function ComputeExpMoney(obj) {	JustNum(obj, '');	obj.value = DF_forDight(obj.value, 2);	ComputeExpTotal();}function AddRows() {	var sArr = new Array();	for(var i=0; i<9; i++) {		if(i == 1) {			sArr[i] = document.all("DefaultCost").value;		} else {			sArr[i] = "";		}	}	AddDynRow('tblDynList', 'DynInputXML', sArr);}//表格必填字段控制function JudgeDynTblValues() {	var tblObj = document.all("tblDynList");	var rowObj = tblObj.rows;	var fsum = 0;			for(var i=1; i<rowObj.length; i++) {		if(DF_Trim(tblObj.rows(i).cells(1).childNodes(0).value) == "") {			alert("对不起，请填写费用产生时间");			//tblObj.rows(i).cells(1).childNodes(0).readOnly = false;			tblObj.rows(i).cells(1).childNodes(0).focus();			return false		}				var scc = DF_Trim(tblObj.rows(i).cells(2).childNodes(0).value);		var sio = DF_Trim(tblObj.rows(i).cells(3).childNodes(0).value);		if(scc == "" && sio == "") {			//tblObj.rows(i).cells(1).childNodes(1).focus();			alert("成本中心和内部订单之中必填一个字段");			return false		}				if(DF_Trim(tblObj.rows(i).cells(5).childNodes(0).value) == "") {						alert("对不起，请选择费用科目");			tblObj.rows(i).cells(5).childNodes(0).focus();			return false		}				if(DF_Trim(tblObj.rows(i).cells(7).childNodes(0).value) == "" || DF_Trim(tblObj.rows(i).cells(7).childNodes(0).value) == 0) {						alert("对不起，请填写报销金额");			tblObj.rows(i).cells(7).childNodes(0).focus();			tblObj.rows(i).cells(7).childNodes(0).readOnly = false;						return false		}	}}function ComputeExpTotal() {		var tblObj = document.all("tblDynList");	var rowObj = tblObj.rows;	var fsum = 0;			for(var i=1; i<rowObj.length; i++) {		var smon = GetCellsValue("tblDynList", i, 7);		if(smon == "") {			smon = "";		} else {			smon = parseFloat(smon);		}		fsum = parseFloat(parseFloat(fsum) + smon).toFixed(2);	}			document.all("StTotalMoney").value = fsum;	document.all("StTotalMoneyBig").value = DF_convertCurrency(fsum);		ComputeCurrency();}function CallBudgetNum() {		var tblObj = document.all("tblDynList");	var rowObj = tblObj.rows;	for(var i=1; i<rowObj.length; i++) {			var sdate = document.all("SubmitDate").value;		var syear = sdate.substr(0, 4);		var smonth = parseFloat(sdate.substr(5, 2));		var smonth = smonth.toString(10);		var scc = GetCellsValue("tblDynList", i, 2);		var sio = GetCellsValue("tblDynList", i, 3);		var stype = "";		if(scc != ""){			stype = "成本中心";			sarea = scc;		} else if(sio != ""){			stype = "内部订单";			sarea = sio;		}				var rStr = "";		if(document.all("ConBudFlag").value == "0" || document.all("ConBudFlag").value == "") {			rStr = "null";			return false		}				var ssubject = GetCellsValue("tblDynList", i, 5);		var scomany = document.all("StPayCompanyCode").value;				rStr = GetBudgetNum(scomany, stype, sarea, ssubject, syear, smonth);			if(rStr == "false") {			alert("费用明细必填字段未填写完整，请检查！");			return false		} else if(rStr == "null") {			//alert("未查询到预算管控，不控制");		} else if(rStr == "error") {			//alert("读取可用预算失败");		} else {			//正常返回数据			try{				var hh = parseFloat(parseFloat(rStr)/parseFloat(document.all("StExchangeRate").value)).toFixed(2);				rStr = hh;			} catch(e) {			}		}		SetCellsValue("tblDynList", i, 6, rStr)		}	}function ExpSetField() {		ComputeExpTotal();		//保存写入预算值，同一预算维度进行合并	var tblObj = document.all("tblDynList");	var rowObj = tblObj.rows;	var yArr = new Array();	//年	var mArr = new Array();	//月	var tArr = new Array();	//类型	var aArr = new Array();	//成本中心\内部订单	var sArr = new Array();	//科目	var bArr = new Array();	//预算	var eArr = new Array();	//报销金额(原币)	var sjArr = new Array(); // 报销金额(人民币)		for(var i=1; i<rowObj.length; i++) {		//为预算关联月从行项目提取留个口		//var sdate = DF_Trim(rowObj[i].cells(1).innerText);		var sdate = document.all("SubmitDate").value		var syear = sdate.substr(0, 4);		var smonth = parseFloat(sdate.substr(5, 2));		var smonth = smonth.toString(10);		var scc = GetCellsValue("tblDynList", i, 2); 	//成本中心		var sio = GetCellsValue("tblDynList", i, 3);		//内部订单		var ssubject = GetCellsValue("tblDynList", i, 5); //科目		var sbudget = GetCellsValue("tblDynList", i, 6);  //可用预算		var sexpense = GetCellsValue("tblDynList", i, 7);  //报销金额		var sjexp = parseFloat(parseFloat(sexpense)*parseFloat(document.all("StExchangeRate").value)).toFixed(2);				var stype = "";		var sarea = ""; 				if(scc != ""){			stype = "成本中心";			sarea = scc;		} else if(sio != ""){			stype = "内部订单";			sarea = sio;		}				if(stype == "") {			alert("归集范围出错，请联系系统管理员！");			return false		}				if(parseFloat(sbudget) < parseFloat(sexpense)) {			alert("对不起，科目[" + ssubject + "]总报销金额已经超过了预算，您将不能提交，请修改");			return false		}				var sflag = false		var slength = yArr.length;		if(slength == 0) {			yArr.push(syear);			mArr.push(smonth);			tArr.push(stype);			aArr.push(sarea);			sArr.push(ssubject);			bArr.push(sbudget);			eArr.push(parseFloat(sexpense));			sjArr.push(parseFloat(sjexp));			sflag = true;		}				for(var k=0; k<slength; k++) {			//alert(syear == yArr[k] && smonth == mArr[k] && stype == tArr[k] && ssubject == sArr)			if(syear == yArr[k] && smonth == mArr[k] && stype == tArr[k] && sarea == aArr[k] && ssubject == sArr[k]) {				eArr[k] = parseFloat(parseFloat(parseFloat(eArr[k]) + parseFloat(sexpense))).toFixed(2);				sjArr[k] = parseFloat(parseFloat(parseFloat(sjArr[k]) + parseFloat(sjexp))).toFixed(2);				if(parseFloat(eArr[k]) > parseFloat(bArr[k])) {					alert("对不起，科目[" + ssubject + "]总报销金额已经超过了预算，您将不能提交，请修改");					return false				}				sflag = true			} else {							}		}				if(sflag == false) {			yArr.push(syear);			mArr.push(smonth);			tArr.push(stype);			aArr.push(sarea);			sArr.push(ssubject);			bArr.push(sbudget);			eArr.push(parseFloat(sexpense));			sjArr.push(parseFloat(sjexp));		}	}		document.all("syear").value = yArr.join(";");	document.all("smonth").value = mArr.join(";");	document.all("stype").value = tArr.join(";");	document.all("sarea").value = aArr.join(";");	document.all("ssubject").value = sArr.join(";");	document.all("sbudget").value = bArr.join(";");	document.all("sexpense").value = sjArr.join(";");}function DeleteRow() {	DelDynRow('tblDynList');	ComputeExpTotal();}
-
-// -->
-</script>
-
-<script language="JavaScript" type="text/javascript">
-<!-- 
-function SelectNextPsn(){    if(document.all("MYChgPsnButton")!=null)     {	   document.all("MYChgPsnButton").click();     }     else     {	  var url="/Produce/OrgMng.nsf/pickPsnByOrg_form?OpenForm&selectMode=checkbox&FieldName=TFCurNodeNextOpters";	  window.open(url,'选择办理人','scrollbars=yes,left=80,top=80,width=700,height=350');     }}
-
-// -->
-</script>
-
-<script language="JavaScript" type="text/javascript">
-<!-- 
-var tmpObj;//选择成本中心function SelectCost(obj) {if(document.all.VoucherCreateFlag.value != "1") return false;	document.all("tmpCol").value = "";	document.all("tmpRow").value = "";		//JS Header定义全局变量	tmpObj = obj;	//SelectClearView('CostCenterView', 'tmpCol_1', 'tmpRow_1', 'btntmp_1','btnclear_1','');	DF_SelectOrg("selectMode=radio&allInfo=no&FieldName=tmpCol&OptButtonName=btntmp&ReturnStrFormat=json");}//选择科目ALLfunction SelectAllSubject(obj) {if(document.all.VoucherCreateFlag.value != "1") return false;	document.all("tmpCol").value = "";	document.all("tmpRow").value = "";		//JS Header定义全局变量	tmpObj = obj;	SelectClearView('AllSubjcetView', 'tmpCol', 'tmpRow', 'btntmp','btnclear', '');}//选择内部订单function SelectOrder(obj) {if(document.all.VoucherCreateFlag.value != "1") return false;	document.all("tmpCol").value = "";	document.all("tmpRow").value = "";		//JS Header定义全局变量	tmpObj = obj;	SelectClearView('InnerOrderView', 'tmpCol', 'tmpRow', 'btntmp','btnclear', '');}//选择原因代码function SelectResCode(obj) {if(document.all.VoucherCreateFlag.value != "1") return false;	document.all("tmpCol").value = "";	document.all("tmpRow").value = "";		//JS Header定义全局变量	tmpObj = obj;	SelectClearView('ReasonCodeView', 'tmpCol', 'tmpRow', 'btntmp','btnclear', '');}function CopyVoucher(tblName) {	document.all("VoucherDate").value = getStringDate("YYYY-MM-DD", "yes");	document.all("ChargeDate").value = getStringDate("YYYY-MM-DD", "yes");	document.all("CompanyCode").value = document.all("StPayCompanyCode").value;	document.all("Currency").value = "CNY";	document.all("ExangeRate").value = "1";		//有则删除行项目	ChgDynAllRow('tblSAPList');	DelDynRow('tblSAPList');	//生成凭证行项目	createDynRowFromBasicForm("tblDynList",0,"40");}function CreateVoucher(tblName) {		if(document.all("StFlag_1").value == "X") {		alert("对不起，凭证已生成，您不能再生成凭证");		return false	}		if(CheckSAPData(tblName) == false) return false		//记录传递SAP凭证生成人，可根据项目要求进行修改	document.all("VouUserName").value = document.all("CurUserNameCN").value;		DC_WriteToSAP("1","0");		//其中第一个参数代表，你要从SAP访问函数，该同digichannel中的key对应。}function CheckSAPData() {		arrField = new Array();	arrRemind = new Array();	var i = 0;		//SAP一般必填	arrField[i]="VoucherDate";	arrRemind[i]="请选择凭证日期！";	i++;		arrField[i]="ChargeDate";	arrRemind[i]="请选择记账日期！";	i++;		arrField[i]="VoucherType";	arrRemind[i]="请选择凭证类型！";	i++;		arrField[i]="CompanyCode";	arrRemind[i]="请选择公司代码！";	i++;		arrField[i]="Currency";	arrRemind[i]="请填写货币代码！";	i++;		if(!DF_checkInput(arrField,arrRemind)) return false		if(document.all("tblSAPList").rows.length < 3) {		alert("对不起，行项目至少两行");		return false	}		var tb = document.getElementById("tblSAPList");	//验证凭证信息前3项动态表格不能为空	for (var j = 1;j < tb.rows.length; j++)	{		if (tb.rows(j).cells(1).childNodes(0).value == "")		{			tb.rows(j).cells(1).childNodes(0).focus();			alert("该信息不能为空!");			return false;		}		if (tb.rows(j).cells(2).childNodes(0).value == "")		{			tb.rows(j).cells(2).childNodes(0).focus();			alert("该信息不能为空!");			return false;		}		if (tb.rows(j).cells(3).childNodes(0).value == "")		{			tb.rows(j).cells(3).childNodes(0).focus();			alert("该信息不能为空!");			return false;		}			}		return true}function JudgeCellIsNull(tblName, rowid, colid, minderStr) {		var dltbl = document.all(tblName);	if(DF_Trim(dltbl.rows(rowid).cells(colid).childNodes(0).value) == "") {		if(minderStr == "") {			minderStr = "对不起，该信息不能为空";		}		alert(minderStr);		dltbl.rows(rowid).cells(colid).childNodes(0).focus();		return false	}		return true}//凭证信息数据校验function onblurCheckNum(obj){	if (document.all("VoucherCreateFlag").value != "1")return false;	if(obj.value=="")	{		obj.value=0	}	else	{		if(obj.value!=parseFloat(obj.value))          {			alert("请输入数字!");			obj.value=0;			return false;		}				obj.value=DF_forDight(obj.value,2);	}}/********************************************函数说明:	根据动态表格明细，创建凭证动态表格参数说明:pDynTable 报销明细动态表格idisCX 是否冲销借款 1为冲销 0为不冲销pstng_code 记账码**********************************************/function createDynRowFromBasicForm(pDynTable,isCX,pstng_code){		var pstng_code = pstng_code;		var dynTable =  document.getElementById(pDynTable);	var SAPInputXML = "SAPInputXML";	user =  document.all.PsnCN.value;			 //代办人		for(i=1; i < dynTable.rows.length; i++)	{		var money ="";  //金额		var cc = "";	 // 成本中心		var io = "";	 //内部订单		var StSubjectCode =  ""; 	//科目代码		if (dynTable.rows(i).cells(2).innerText != "")		{			cc =  dynTable.rows(i).cells(2).innerText;		}		if (dynTable.rows(i).cells(3).innerText != "")		{			io = dynTable.rows(i).cells(3).innerText;		}		if (dynTable.rows(i).cells(5).innerText != "")		{			StSubjectCode = dynTable.rows(i).cells(5).innerText;		}		if (dynTable.rows(i).cells(7).innerText != "")		{			//money = dynTable.rows(i).cells(7).innerText;			money = DF_forDight(parseFloat(document.getElementById("StExchangeRate").value)*parseFloat(dynTable.rows(i).cells(7).innerText),2);		}		text = user + " 报销一般费用"		addVoucherRows(i,"tblSAPList",SAPInputXML,pstng_code,StSubjectCode,money,text,cc,io);			}			//创建凭证其余行	//如果不冲销借款	if (DF_getOptionValue("IsBackMoney") == "否")	{			text = "支付的其他与投资活动有关的现金";		money = document.all.StActualAppMoney.value;		addVoucherLastRowInfo("50","tblSAPList",SAPInputXML,"",money,text,"075");	}	else	{		if (document.all.StActualAppMoney.value == 0)		{				text = user + " 归还借款"			subCode = document.all.CustomCode.value;			money = document.all.StAppMoney.value;			addVoucherLastRowInfo("11","tblSAPList",SAPInputXML,subCode,money,text,"");		}		else		{						subCode = document.all.CustomCode.value;			money = document.all.DebitExpenseMoney.value; //冲销借款金额			money2 = document.all.StActualAppMoney.value; //实际报销金额			text = user + " 归还借款"			text2 = "支付的其他与投资活动有关的现金"			//个人账户付冲销借款			addVoucherLastRowInfo("11","tblSAPList",SAPInputXML,subCode,money,text,"");			//银行账户付实际报销金额			addVoucherLastRowInfo("50","tblSAPList",SAPInputXML,"",money2,text2,"075");					}			}}/**************************************函数说明：创建付款行项目阐述说明：pstng_code	记账码;pTable		凭证动态表格ID;inputXML		AddDynRow函数第2个参数subCode		科目代码money		金额text			行项目reasonCode	原因代码******************************************/function addVoucherLastRowInfo(pstng_code,pTable,inputXML,subCode,money,text,reasonCode){		AddDynRow(pTable, inputXML, '');	var dynTable =  document.getElementById(pTable);	var j = dynTable.rows.length - 1;		dynTable.rows(j).cells(1).childNodes(0).value = pstng_code; //记账码	dynTable.rows(j).cells(2).childNodes(0).value = subCode; 	//科目	dynTable.rows(j).cells(3).childNodes(0).value = money; 	//金额	dynTable.rows(j).cells(4).childNodes(0).value = text;		//行项目文本	dynTable.rows(j).cells(5).childNodes(0).value = "";		//成本中心	dynTable.rows(j).cells(6).childNodes(0).value = "";		//内部订单	dynTable.rows(j).cells(7).childNodes(0).value = reasonCode;		//原因代码	}/*************************************函数说明：创建凭证行项目及内容参数说明i 		 当前行数;pTable 	 凭证动态表格id;inputXML   AddDynRow函数的第2个参数;pstng_code 记账码;allsubCode 总帐科目;money      金额;text		 行项目文本;cc		 成本中心;io 		 内部订单;**************************************/function addVoucherRows(i,pTable,inputXML,pstng_code,allsubCode,money,text,cc,io){		AddDynRow(pTable, inputXML, '');	var dynTable =  document.getElementById(pTable);				dynTable.rows(i).cells(1).childNodes(0).value = pstng_code; //记账码		dynTable.rows(i).cells(2).childNodes(0).value = allsubCode; //总帐科目		dynTable.rows(i).cells(3).childNodes(0).value = money; 	//金额		dynTable.rows(i).cells(4).childNodes(0).value = text;		//行项目文本		dynTable.rows(i).cells(5).childNodes(0).value = cc;		//成本中心		dynTable.rows(i).cells(6).childNodes(0).value = io;		//内部订单}
-
-// -->
-</script>
-
-<script language="JavaScript" type="text/javascript">
-<!-- 
-var reloadFlag = "yes";var parseFlag  = "yes";
-
-// -->
-</script>
-</head>
-<body text="#000000" bgcolor="#FFFFFF" onload="//加载动态表格信息LoadDynTable()thFlowWindow_load(df_color_flow);document.all(&quot;StBeforeNode&quot;).value = document.all(&quot;TFCurNodeID&quot;).value;if(document.all(&quot;openMode&quot;).value == &quot;new&quot;) {	var sDeptLeader = document.getElementById(&quot;CurUserDeptLeader&quot;).value;	document.getElementById(&quot;DeptCharger&quot;).value = sDeptLeader   //部门领导全称	DF_SplitDeptLeader(sDeptLeader,&quot;DeptChargerCN&quot;,&quot;DeptChargerEN&quot;);	GetMyBank();		//新增一行	AddRows();}DF_maxWindow();">
-
-<form method="post" action="/FICO/DigiFlowNorFee.nsf/0/b61ff333fd17379f4825785300244fa5?EditDocument&amp;Seq=1&amp;amp%3Blogin" name="_NorFeeAppForm">
-<input type="hidden" name="__Click" value="0">
-<input type="hidden" name="%%ModDate" value="48257A24000B14D8"><DIV style="display:none">
-
-<input name="Form" value="NorFeeAppForm">
-<input name="DF_CommonDBPath" value="BasicData/DFBasicData.nsf">&lt;link rel=&quot;stylesheet&quot; href=&quot;/DF_Res/DF_Style_Source/DF_Style_New/DF_Css/mainform.css&quot; type=&quot;text/css&quot;&gt;&lt;script src=&quot;/Produce/DigiFlowScriptCss.nsf/CommonJS?openjavascriptlibrary&quot;&gt;&lt;/script&gt;&lt;script src=&quot;/Produce/DigiFlowScriptCss.nsf/CheckOutJS?openjavascriptlibrary&quot;&gt;&lt;/script&gt;&lt;script src=&quot;/Produce/DigiFlowScriptCss.nsf/ProjectCommonJS?openjavascriptlibrary&quot;&gt;&lt;/script&gt;&lt;script src=&quot;/jquery/js/jquery.js&quot;&gt;&lt;/script&gt;&lt;SCRIPT src='/BasicData/DigiFlowSerialNumber.nsf/BCJS?openjavascriptlibrary'&gt;&lt;/SCRIPT&gt;&lt;script src=&quot;/BasicData/DFBasicData.nsf/BasicJS?openjavascriptlibrary&quot;&gt;&lt;/script&gt;
-<input name="DF_DbPath" value="FICO/DigiFlowNorFee.nsf">
-<input name="DF_DbDir" value="FICO">
-<input name="DF_DbName" value="DigiFlowNorFee.nsf">0<br>
-
-<input name="MtPayType" value="现金|现金; 银行卡|银行卡; 银行汇票|银行汇票; 支票|支票; 汇票|汇票; 其他|其他">old
-<input name="StBeforeNode" value="FlowNode1">
-<!-- 凭证信息相关域-start -->
-生成凭证环节： FlowNode4
-显示凭证环节标识(1为当前环节显示): 0
-生成凭证环节标识(1为当前环节生成): 0
-凭证查看人标识(1为当前人可查看凭证): 0凭证生成人标识(1为当前人可生成凭证): 0
-<DIV style="display:none">
-<script src='/Produce/DigiFlowScriptCss.nsf/FlowNextOptionJS?openjavascriptlibrary'></script><script src='/Produce/ProInd.nsf/NewFlowTraceJS?openjavascriptlibrary'></script>
-<br>
-当前用户：dev1部门编号：
-<input name="CurUserDeptID" value="A00001" readonly><br>
-当前用户名：开发者1部门名称：
-<input name="CurUserDeptName" value="化工行业" readonly><br>
-当前用户英文名：
-<input name="CurUserNameEN" value="dev1">部门领导：
-<input name="CurUserDeptLeader" value="" readonly><br>
-<font color="#FF0000">员工编号：</font>
-<input name="CurUserNumber" value="">成本中心编号：
-<input name="CurUserDeptCostID" value="1101" readonly><br>
-性 别：
-<input name="CurUserSex" value="男">所属项目：
-<input name="CurUserProNames" value=""><br>
-出生日期：
-<input name="CurUserBirth" value="">所拥有的角色：
-<input name="CurUserRoleNames" value=""><br>
-公司电话：
-<input name="CurUserDeptPhone" value="85599392"><font color="#FF0000">是否冻结帐户：</font>
-<input name="CurUserLock" value="否"><br>
-手 机：
-<input name="CurUserMobile" value="15129368602"><font color="#FF0000">当前用户上级部门编号：</font>ComOrg<br>
-邮 箱：
-<input name="CurUserMail" value="">当前用户登陆时间：06/21/2012 04:07:33 PM<br>
-用户信息1：
-<input name="CurUserInfo_1" value="">用户信息2：
-<input name="CurUserInfo_2" value=""><br>
-用户信息3：
-<input name="CurUserInfo_3" value="">用户信息4：
-<input name="CurUserInfo_4" value=""><br>
-用户信息5：
-<input name="CurUserInfo_5" value="">用户信息6：
-<input name="CurUserInfo_6" value=""><br>
-用户信息7：
-<input name="CurUserInfo_7" value="">用户信息8：
-<input name="CurUserInfo_8" value=""><br>
-用户信息9：
-<input name="CurUserInfo_9" value="">用户信息10：
-<input name="CurUserInfo_10" value=""><br>
-用户信息11：
-<input name="CurUserInfo_11" value="">用户信息12：
-<input name="CurUserInfo_12" value=""><br>
-用户信息13：
-<input name="CurUserInfo_13" value="">用户信息14：
-<input name="CurUserInfo_14" value=""><br>
-用户信息15：
-<input name="CurUserInfo_15" value="">用户信息16：
-<input name="CurUserInfo_16" value=""><br>
-用户信息17：
-<input name="CurUserInfo_17" value="">用户信息18：
-<input name="CurUserInfo_18" value=""><br>
-用户信息19：
-<input name="CurUserInfo_19" value="">用户信息20：
-<input name="CurUserInfo_20" value=""><br>
-部门OU：
-<input name="CurUserDeptOU" value="化工行业">实际职务：
-<input name="CurUserPostName" value=""><br>
-<font color="#FF0000">部门群组：</font>
-<input name="CurUserDeptGroup" value=""><font color="#FF0000">显示序号：</font>
-<input name="CurUserOrderID" value="">
-
-
-<br>
-权限配置信息1：
-<input name="CurUserAuthInfo_1" value="">权限配置信息2：
-<input name="CurUserAuthInfo_2" value="化工行业/A00001"><br>
-权限配置信息3：
-<input name="CurUserAuthInfo_3" value="化工行业/ComOrg">权限配置信息4：
-<input name="CurUserAuthInfo_4" value=""><br>
-权限配置信息5：
-<input name="CurUserAuthInfo_5" value="">权限配置信息6：
-<input name="CurUserAuthInfo_6" value=""><br>
-权限配置信息7：
-<input name="CurUserAuthInfo_7" value="">权限配置信息8：
-<input name="CurUserAuthInfo_8" value=""><br>
-权限配置信息9：
-<input name="CurUserAuthInfo_9" value="">权限配置信息10：
-<input name="CurUserAuthInfo_10" value=""><br>
-权限配置信息11：
-<input name="CurUserAuthInfo_11" value="">权限配置信息12：
-<input name="CurUserAuthInfo_12" value=""><br>
-权限配置信息13：
-<input name="CurUserAuthInfo_13" value="">权限配置信息14：
-<input name="CurUserAuthInfo_14" value=""><br>
-权限配置信息15：
-<input name="CurUserAuthInfo_15" value="">权限配置信息16：
-<input name="CurUserAuthInfo_16" value=""><br>
-权限配置信息17：
-<input name="CurUserAuthInfo_17" value="">权限配置信息18：
-<input name="CurUserAuthInfo_18" value=""><br>
-权限配置信息19：
-<input name="CurUserAuthInfo_19" value="">权限配置信息20：
-<input name="CurUserAuthInfo_20" value=""><br>
-权限配置信息21：
-<input name="CurUserAuthInfo_21" value="">权限配置信息22：
-<input name="CurUserAuthInfo_22" value=""><br>
-权限配置信息23：
-<input name="CurUserAuthInfo_23" value="">权限配置信息24：
-<input name="CurUserAuthInfo_24" value=""><br>
-权限配置信息25：
-<input name="CurUserAuthInfo_25" value="">
-<br>
-流程XML数据：<br>
-表单流程配置文档ID：
-<input name="ThisFlowDocID" value="63C3D54D9D58F0564825779E0020E018"><br>
-服务器
-<input name="ThisFlowAtServer" value="192.168.44.106">数据库
-<input name="ThisFlowAtDatabase" value="FICO\DigiFlowNorFee.nsf"><br>
-表单编号
-<input name="ThisFlowAtFormUID" value="646C3F56FBAA7CFB4825779E001D151F">文档类型
-<input name="ThisFlowAtDocType" value="old"><br>
-文档编号
-<input name="ThisFlowAtDocUID" value="B61FF333FD17379F4825785300244FA5">
-<input name="ThisFlowAtDocUpNum" value="2" style="display:none"><br>
-流程编号：
-<input name="ThisFlowID" value="3469F8E2369E82174825779E0020C54E">流程名称：
-<input name="ThisFlowName" value="一般费用申请"><br>
-流程发起人：
-<input name="ThisFlowCreater" value="admin">
-<input name="ThisFlowCreaterCN" value="管理员">
-<input name="ThisFlowCreaterDeptID" value=""><br>
-流程发起时间：
-<input name="ThisFlowCreateDate" value="2011-03-14">流程终止时间：
-<input name="ThisFlowEndDate" value=""><br>
-流程有效时间标识：
-<input name="ThisFlowValidDateFlag" value="no">流程有效时间：
-<input name="ThisFlowValidDate" value=""><br>
-流程状态：
-<input name="ThisFlowStateFlag" value="1">
-<input name="ThisFlowState" value="流转中">(&quot;0&quot;开始,&quot;1&quot;执行中,&quot;2&quot;执行超期,&quot;3&quot;非正常终止,&quot;4&quot;正常结束)<br>
-全局读者：
-<input name="ThisFlowReaders" value="admin; dev1; dev1; dev1">全局作者：
-<input name="ThisFlowAuthors" value="admin; dev1"><br>
-全局读者（角色/动态）：
-<input name="ThisFlowRoleReaders" value="">全局作者（角色/动态）：
-<input name="ThisFlowRoleAuthors" value=""><br>
-默认读者：
-<input name="ThisFlowDefaultReaders" value=""><br>
-<font color="#FF0000">默认有权发起人：</font>
-<input name="ThisFlowDefaultAuthors" value=""><br>
-<font color="#0000FF">默认具有发起权限标识：</font>
-<input name="ThisFlowDefaultAuthorsFlag" value="yes"><br>
-管理员：
-<input name="ThisFlowAdministratorR" value="[admin]; [allReader]">管理员：
-<input name="ThisFlowAdministratorA" value="[admin]; [allReader]"><br>
-激活标识：
-<input name="ThisFlowActiveFlag" value="yes">周知标识：
-<input name="ThisFlowPublishFlag" value="no"><br>
-转办标识：
-<input name="ThisFlowReturnFlag" value="yes">重办标识：
-<input name="ThisFlowReDoFlag" value="yes"><br>
-是否驳回
-<input name="ThisFlowBackFlag" value="no">抽单标识：
-<input name="ThisFlowDeleteFlag" value="no"><br>
-强制跳转标识：
-<input name="ThisFlowGoToFlag" value="yes">只对管理员有效<br>
-<font color="#FF0000">催办标识：</font>
-<input name="ThisFlowReMsgFlag" value="undefined">
-<input name="ThisFlowReMsgType" value="0;0;0">(*;*;*)1为发送,0为不发送<br>
-加签标识：
-<input name="TFCurNodeAgainDoFlag" value="no"><font color="#FF0000">复合加签标识：</font>
-<input name="TFCurNodeMoreAgainDoFlag" value="no"><br>
-转办标识：
-<input name="TFCurNodeReturnFlag" value="no">代办标识：
-<input name="TFCurNodeAgentDoFlag" value="yes"><br>
-是否允许选择下一环节处理人：
-<input name="TFCurNodeChgOpterFlag" value="no">永久读者标识：
-<input name="TFCurNodeAllReaderFlag" value="yes"><br>
-超期后处理操作：
-<input name="TFCurNodeDoAfterDate" value="">发邮件通知读者标识：
-<input name="TFCurNodeMailReaderFlag" value="no"><br>
-通知发起人标识：
-<input name="TFCurNodeMsgCreater" value="no">发消息通知读者标识：
-<input name="TFCurNodeMsgReaderFlag" value="no"><br>
-<font color="#FF0000">发短信通知读者标识：</font>
-<input name="TFCurNodeSmsReaderFlag" value="no">通知当前处理人标识：
-<input name="TFCurNodeMsgAuthor" value="no"><br>
-单一签核标识：
-<input name="TFCurNodeOneDoFlag" value="yes">撤签标识：
-<input name="TFCurNodeCancelDoFlag" value="no"><br>
-发消息通知作者标识：
-<input name="TFCurNodeMsgAuthorFlag" value="yes"><font color="#FF0000">发短信通知作者标识：</font>
-<input name="TFCurNodeSmsAuthorFlag" value="no"><br>
-驳回选关标识：
-<input name="TFCurNodeRefuseToFlag" value="no"><br>
-<br>
-已处理人：
-<input name="ThisFlowDonePsns" value="">已处理人与环节对应：
-<input name="ThisFlowDonePsnAndNodes" value=""><br>
-已通过节点列表：
-<input name="ThisFlowDoneNodes" value=";开始/FlowStartNode"><br>
-需要变更任务状态的人员：
-<input name="TFCurNodeNeedChgStatePsns" value=""><br>
-当前节点编号：
-<input name="TFCurNodeID" value="FlowNode1">当前节点读者：
-<input name="TFCurNodeReaders" value="dev1; dev1"><br>
-当前节点名称：
-<input name="TFCurNodeName" value="部门负责人审批">当前节点作者：
-<input name="TFCurNodeAuthors" value="dev1"><br>
-对应的表单代理人：
-<input name="TFCurNodeFormsAgent" value="">当前节点开始时间：
-<input name="TFCurNodeStartDate" value="2011-03-14 14:31:35"><br>
-当前节点读者(临时)：
-<input name="TFCurNodeTmpReaders" value="">当前节点有效时间：
-<input name="TFCurNodeEndDate" value=""><br>
-有效时间类型：
-<input name="TFCurNodeVldDateType" value="no">当前节点作者(临时)：
-<input name="TFCurNodeTmpAuthors" value=""><br>
-<font color="#0000FF">当前节点顺签人：</font>
-<input name="TFCurNodeSQAuthors" value="">当前节点时间控制标识：
-<input name="TFCurNodeDateCFlag" value="no"><br>
-处理人临时备份：
-<input name="TFCurNodeAuthorsBack" value=""><br>
-当前加签提出人：
-<input name="TFCurNodeAgainDoPsn" value=""><br>
-当前节点类型：
-<input name="TFCurNodeType" value="nofree">当前操作名：
-<input name="TFCurNodeDoOption" value="MsgTo"><br>
-当前节点说明：
-<input name="TFCurNodeDescription" value="">当前操作类型：
-<input name="TFCurNodeDoOptionType" value="ZC"><br>
-<font color="#0000FF">操作类型备份</font>：
-<input name="TFCurNodeDoOptionTypeBack" value=""><br>
-当前节点状态：
-<input name="TFCurNodeDoOptionState" value="0">&quot;0&quot;正常状态；&quot;1&quot;加签中；&quot;2&quot;<br>
-强制执行节点设定：
-<input name="TFCurNodeMustDoNodes" value="">
-<input name="TFCurNodeMustNextNode" value=""><br>
-额外邮件通知：
-<input name="TFCurNodeMailTo" value="">额外消息通知：
-<input name="TFCurNodeMsgTo" value=""><br>
-动态：
-<input name="TFCurNodeMailTo1" value="">动态：
-<input name="TFCurNodeMsgTo1" value=""><br>
-必填项的域汇总：
-<input name="TFCurNodeInputFields" value=""><br>
-不可见性的区段汇总：
-<input name="TFCurNodeShowGroup" value=""><br>
-不可见性的域汇总：
-<input name="TFCurNodeShowFields" value=""><br>
-不可编辑性的区段的汇总：
-<input name="TFCurNodeDsbGroup" value="tbl02;tbl01"><br>
-不可编辑性的域的汇总：
-<input name="TFCurNodeDsbFields" value=""><br>
-消息主题：
-<input name="TFCurNodeSubject" value="Submit"><br>
-当前作者临时:
-<input name="TFCurNodeTmpAuthorsEN" value="dev1">
-<input name="TFCurNodeTmpAuthorsCN" value="开发者1"><br>
-记录所有加签人<font color="#FF0000">：</font>
-<input name="TFCurNodeJQAuthorBack" value="">
-<div id="getNodeFromNodeListDiv"></div>
-
-<!--这里是内容1-->
-<p>
-<textarea name="Pro_FlowMap" style="display:nonex" rows="7" cols="50">&lt;?xml:namespace prefix = v /&gt;&lt;v:roundrect style=&quot;Z-INDEX: 1002; POSITION: absolute; WIDTH: 70px; HEIGHT: 28px; TOP: 62px; CURSOR: default; LEFT: 332px&quot; id=FlowStartNode title=&quot;开始【管理员 提交2011-03-14 14:31:35】&quot; strokeweight=&quot;3pt&quot; strokecolor=&quot;#eee&quot; fillcolor=&quot;#b8d1fc&quot; coordsize=&quot;21600,21600&quot; arcsize=&quot;19661f&quot;&gt;&lt;v:Stroke&gt;&lt;/v:Stroke&gt;&lt;v:textbox style=&quot;TEXT-ALIGN: center; MARGIN-TOP: 7.562pt; WIDTH: 32.625pt; HEIGHT: 8.875pt; COLOR: #555555; MARGIN-LEFT: 11.437pt; TOP: auto; FONT-WEIGHT: bold; LEFT: auto; COLOR: #FFFFFF&quot; id=Text_FlowStartNode&gt;开始&lt;/v:textbox&gt;&lt;v:fill id=Fill_FlowStartNode focus=&quot;50%&quot; color2=&quot;#326dd0&quot; type=&quot;gradient&quot;&gt;&lt;/v:fill&gt;&lt;/v:roundrect&gt;&lt;v:roundrect style=&quot;Z-INDEX: 1004; POSITION: absolute; WIDTH: 130px; HEIGHT: 37px; TOP: 123px; CURSOR: default; LEFT: 303px&quot; id=FlowNode1 strokeweight=&quot;3pt&quot; strokecolor=&quot;#eee&quot; fillcolor=&quot;white&quot; coordsize=&quot;21600,21600&quot; arcsize=&quot;13107f&quot;&gt;&lt;v:Stroke&gt;&lt;/v:Stroke&gt;&lt;v:textbox style=&quot;TEXT-ALIGN: center; MARGIN-TOP: 7.281pt; WIDTH: 91.312pt; HEIGHT: 19.187pt; COLOR: #555555; MARGIN-LEFT: 4.593pt; FONT-SIZE: 9pt; TOP: auto; FONT-WEIGHT: bold; LEFT: auto&quot; id=Text_FlowNode1 inset=&quot;0,3pt,0,0&quot;&gt;部门负责人审批&lt;/v:textbox&gt;&lt;v:fill id=Fill_FlowNode1 focus=&quot;50%&quot; color2=&quot;#ccc&quot; type=&quot;gradient&quot;&gt;&lt;/v:fill&gt;&lt;/v:roundrect&gt;&lt;v:roundrect style=&quot;Z-INDEX: 1006; POSITION: absolute; WIDTH: 130px; HEIGHT: 37px; TOP: 189px; CURSOR: default; LEFT: 303px&quot; id=FlowNode2 strokeweight=&quot;3pt&quot; strokecolor=&quot;#eee&quot; fillcolor=&quot;white&quot; coordsize=&quot;21600,21600&quot; arcsize=&quot;13107f&quot;&gt;&lt;v:Stroke&gt;&lt;/v:Stroke&gt;&lt;v:textbox style=&quot;TEXT-ALIGN: center; MARGIN-TOP: 7.281pt; WIDTH: 91.312pt; HEIGHT: 19.187pt; COLOR: #555555; MARGIN-LEFT: 4.593pt; FONT-SIZE: 9pt; TOP: auto; FONT-WEIGHT: bold; LEFT: auto&quot; id=Text_FlowNode2 inset=&quot;0,3pt,0,0&quot;&gt;总经理审批&lt;/v:textbox&gt;&lt;v:fill id=Fill_FlowNode2 focus=&quot;50%&quot; color2=&quot;#ccc&quot; type=&quot;gradient&quot;&gt;&lt;/v:fill&gt;&lt;/v:roundrect&gt;&lt;v:roundrect style=&quot;Z-INDEX: 1012; POSITION: absolute; WIDTH: 130px; HEIGHT: 37px; TOP: 254px; CURSOR: default; LEFT: 302px&quot; id=FlowNode3 strokeweight=&quot;3pt&quot; strokecolor=&quot;#eee&quot; fillcolor=&quot;white&quot; coordsize=&quot;21600,21600&quot; arcsize=&quot;13107f&quot;&gt;&lt;v:Stroke&gt;&lt;/v:Stroke&gt;&lt;v:textbox style=&quot;TEXT-ALIGN: center; MARGIN-TOP: 7.281pt; WIDTH: 91.312pt; HEIGHT: 19.187pt; COLOR: #555555; MARGIN-LEFT: 4.593pt; FONT-SIZE: 9pt; TOP: auto; FONT-WEIGHT: bold; LEFT: auto&quot; id=Text_FlowNode3 inset=&quot;0,3pt,0,0&quot;&gt;财务审核岗&lt;/v:textbox&gt;&lt;v:fill id=Fill_FlowNode3 focus=&quot;50%&quot; color2=&quot;#ccc&quot; type=&quot;gradient&quot;&gt;&lt;/v:fill&gt;&lt;/v:roundrect&gt;&lt;v:roundrect style=&quot;Z-INDEX: 1017; POSITION: absolute; WIDTH: 130px; HEIGHT: 37px; TOP: 325px; CURSOR: default; LEFT: 304px&quot; id=FlowNode4 strokeweight=&quot;3pt&quot; strokecolor=&quot;#eee&quot; fillcolor=&quot;white&quot; coordsize=&quot;21600,21600&quot; arcsize=&quot;13107f&quot;&gt;&lt;v:Stroke&gt;&lt;/v:Stroke&gt;&lt;v:textbox style=&quot;TEXT-ALIGN: center; MARGIN-TOP: 7.281pt; WIDTH: 91.312pt; HEIGHT: 19.187pt; COLOR: #555555; MARGIN-LEFT: 4.593pt; FONT-SIZE: 9pt; TOP: auto; FONT-WEIGHT: bold; LEFT: auto&quot; id=Text_FlowNode4 inset=&quot;0,3pt,0,0&quot;&gt;财务会计审核&lt;/v:textbox&gt;&lt;v:fill id=Fill_FlowNode4 focus=&quot;50%&quot; color2=&quot;#ccc&quot; type=&quot;gradient&quot;&gt;&lt;/v:fill&gt;&lt;/v:roundrect&gt;&lt;v:roundrect style=&quot;Z-INDEX: 1019; POSITION: absolute; WIDTH: 130px; HEIGHT: 37px; TOP: 387px; CURSOR: default; LEFT: 305px&quot; id=FlowNode5 strokeweight=&quot;3pt&quot; strokecolor=&quot;#eee&quot; fillcolor=&quot;white&quot; coordsize=&quot;21600,21600&quot; arcsize=&quot;13107f&quot;&gt;&lt;v:Stroke&gt;&lt;/v:Stroke&gt;&lt;v:textbox style=&quot;TEXT-ALIGN: center; MARGIN-TOP: 7.281pt; WIDTH: 91.312pt; HEIGHT: 19.187pt; COLOR: #555555; MARGIN-LEFT: 4.593pt; FONT-SIZE: 9pt; TOP: auto; FONT-WEIGHT: bold; LEFT: auto&quot; id=Text_FlowNode5 inset=&quot;0,3pt,0,0&quot;&gt;出纳付款&lt;/v:textbox&gt;&lt;v:fill id=Fill_FlowNode5 focus=&quot;50%&quot; color2=&quot;#ccc&quot; type=&quot;gradient&quot;&gt;&lt;/v:fill&gt;&lt;/v:roundrect&gt;&lt;v:roundrect style=&quot;Z-INDEX: 1035; POSITION: absolute; WIDTH: 70px; HEIGHT: 28px; TOP: 473px; CURSOR: default; LEFT: 333px&quot; id=FlowEndNode title=结束 strokeweight=&quot;3pt&quot; strokecolor=&quot;#eee&quot; fillcolor=&quot;white&quot; coordsize=&quot;21600,21600&quot; arcsize=&quot;19661f&quot;&gt;&lt;v:Stroke&gt;&lt;/v:Stroke&gt;&lt;v:textbox style=&quot;TEXT-ALIGN: center; MARGIN-TOP: 7.562pt; WIDTH: 32.625pt; HEIGHT: 8.875pt; COLOR: #555555; MARGIN-LEFT: 11.437pt; TOP: auto; FONT
-
--WEIGHT: bold; LEFT: auto&quot; id=Text_FlowEndNode&gt;结束&lt;/v:textbox&gt;&lt;v:fill id=Fill_FlowEndNode focus=&quot;50%&quot; color2=&quot;#ccc&quot; type=&quot;gradient&quot;&gt;&lt;/v:fill&gt;&lt;/v:roundrect&gt;&lt;v:line style=&quot;Z-INDEX: 937; POSITION: absolute; TOP: 90px; LEFT: 367px&quot; id=line_1 strokeweight=&quot;3.5pt&quot; strokecolor=&quot;#326dd0&quot; to=&quot;0,24pt&quot; from=&quot;0,0&quot;&gt;&lt;v:Stroke endarrow=&quot;classic&quot;&gt;&lt;/v:Stroke&gt;&lt;v:textbox style=&quot;Z-INDEX: 937; TEXT-ALIGN: center; MARGIN-TOP: 7.593pt; HEIGHT: 13.312pt; MARGIN-LEFT: 17.187pt; TOP: auto; LEFT: auto&quot;&gt;&lt;/v:textbox&gt;&lt;/v:line&gt;&lt;v:line style=&quot;Z-INDEX: 938; POSITION: absolute; TOP: 159px; LEFT: 368px&quot; id=line_2 strokeweight=&quot;3.5pt&quot; strokecolor=&quot;#ddd&quot; to=&quot;0,21.75pt&quot; from=&quot;0,0&quot;&gt;&lt;v:Stroke endarrow=&quot;classic&quot;&gt;&lt;/v:Stroke&gt;&lt;v:textbox style=&quot;Z-INDEX: 938; TEXT-ALIGN: center; MARGIN-TOP: 7.593pt; HEIGHT: 11.062pt; MARGIN-LEFT: 17.187pt; TOP: auto; LEFT: auto&quot;&gt;&lt;/v:textbox&gt;&lt;/v:line&gt;&lt;v:line style=&quot;Z-INDEX: 940; POSITION: absolute; TOP: 225px; LEFT: 367px&quot; id=line_3 strokeweight=&quot;3.5pt&quot; strokecolor=&quot;#ddd&quot; to=&quot;0,21pt&quot; from=&quot;0,0&quot;&gt;&lt;v:Stroke endarrow=&quot;classic&quot;&gt;&lt;/v:Stroke&gt;&lt;v:textbox style=&quot;Z-INDEX: 940; TEXT-ALIGN: center; MARGIN-TOP: 7.593pt; HEIGHT: 10.312pt; MARGIN-LEFT: 17.187pt; TOP: auto; LEFT: auto&quot;&gt;&lt;/v:textbox&gt;&lt;/v:line&gt;&lt;v:line style=&quot;Z-INDEX: 941; POSITION: absolute; TOP: 290px; LEFT: 367px&quot; id=line_4 strokeweight=&quot;3.5pt&quot; strokecolor=&quot;#ddd&quot; to=&quot;.75pt,25.5pt&quot; from=&quot;0,0&quot;&gt;&lt;v:Stroke endarrow=&quot;classic&quot;&gt;&lt;/v:Stroke&gt;&lt;v:textbox style=&quot;Z-INDEX: 941; TEXT-ALIGN: center; MARGIN-TOP: 7.593pt; HEIGHT: 14.812pt; MARGIN-LEFT: 16.437pt; TOP: auto; LEFT: auto&quot;&gt;&lt;/v:textbox&gt;&lt;/v:line&gt;&lt;v:line style=&quot;Z-INDEX: 942; POSITION: absolute; TOP: 361px; LEFT: 369px&quot; id=line_5 strokeweight=&quot;3.5pt&quot; strokecolor=&quot;#ddd&quot; to=&quot;0,18.75pt&quot; from=&quot;0,0&quot;&gt;&lt;v:Stroke endarrow=&quot;classic&quot;&gt;&lt;/v:Stroke&gt;&lt;v:textbox style=&quot;Z-INDEX: 942; TEXT-ALIGN: center; MARGIN-TOP: 7.593pt; HEIGHT: 8.062pt; MARGIN-LEFT: 17.187pt; TOP: auto; LEFT: auto&quot;&gt;&lt;/v:textbox&gt;&lt;/v:line&gt;&lt;v:line style=&quot;Z-INDEX: 903; POSITION: absolute; TOP: 423px; LEFT: 369px&quot; id=line_9 strokeweight=&quot;3.5pt&quot; strokecolor=&quot;#ddd&quot; to=&quot;-.75pt,37.5pt&quot; from=&quot;0,0&quot;&gt;&lt;v:Stroke endarrow=&quot;classic&quot;&gt;&lt;/v:Stroke&gt;&lt;v:textbox style=&quot;Z-INDEX: 903; TEXT-ALIGN: center; MARGIN-TOP: 7.593pt; HEIGHT: 26.812pt; MARGIN-LEFT: 17.187pt; TOP: auto; LEFT: auto&quot;&gt;&lt;/v:textbox&gt;&lt;/v:line&gt;</textarea>
-<DIV id="ProFlowMap"></DIV><br>
-流程图颜色说明：<font color="#00ff00" id="DF_Flow_Color1">/■</font><font color="#00FF00"> </font>代表当前环节<font color="#00FFFF"> </font><font color="#00ffff" id="DF_Flow_Color2">/■</font>代表已处理环节<font color="#FFFFFF"> </font><font color="#ffffff" id="DF_Flow_Color3">/■</font>代表未处理环节<font color="#FF0000"> </font><font color="#ff0000" id="DF_Flow_Color4">/■</font>代表环节异常结束<DIV id=thFlow_mydiv2>
-<!--这里是流程信息-->
-<p>(单一签核)
-</DIV>
-<!--流转日志-->
-<DIV id=thFlow_mydiv3>
-<textarea name="ThisFlowTraceInfoLog" class="DF_Flow_TagLog_Style" readonly rows="15" cols="80">&lt;FlowTraceInfo&gt;&lt;TraceInfo flownodename=&quot;开始&quot; flownodeid=&quot;FlowStartNode&quot; flowstarttime=&quot;2011-03-14 14:31:35&quot; flowendtime=&quot;2011-03-14 14:31:35&quot;&gt;&lt;/TraceInfo&gt;&lt;/FlowTraceInfo&gt;</textarea>
-</DIV>
-<!--操作日志-->
-<DIV id=thFlow_mydiv4>
-<textarea name="ThisFlowOptInfoLog" class="DF_Flow_TagLog_Style" readonly rows="15" cols="80">&lt;FlowOptInfo&gt;&lt;OptInfo approver=&quot;管理员		&quot; approveren=&quot;admin		&quot; approvetime=&quot;2011-03-14 14:31:35&quot; optname=&quot;提交&quot; persons=&quot;&quot; otherinfo=&quot;&quot; tonodename=&quot;部门负责人审批&quot; tonodeid=&quot;FlowNode1&quot;&gt;&lt;/OptInfo&gt;&lt;OptInfo approver=&quot;管理员		&quot; approveren=&quot;admin		&quot; approvetime=&quot;2012-06-21 10:00:30&quot; optname=&quot;通知&quot; persons=&quot;开发者1&quot; otherinfo=&quot;&quot; tonodename=&quot;部门负责人审批&quot; tonodeid=&quot;FlowNode1&quot;&gt;&lt;/OptInfo&gt;&lt;/FlowOptInfo&gt;</textarea>
-</DIV>
-<!--处理人批注记录-->
-<DIV id=thFlow_mydiv5>
-<textarea name="ThisFlowMindInfoLog" class="DF_Flow_TagLog_Style" readonly rows="15" cols="80"></textarea>
-</DIV>
-后台驱动流程图：
-<input name="ThisFlowNeedUpdMapInfo" value="">
-<br>
-<br>
-
-<textarea name="ThisFlowXML" style="display:none" rows="7" cols="50">&lt;WorkFLowProcess ID=&quot;3469F8E2369E82174825779E0020C54E&quot; Name=&quot;一般费用申请&quot; Creater=&quot;admin&quot; Create=&quot;2010-09-14&quot; Updater=&quot;&quot; Update=&quot;&quot; ControlDate=&quot;&quot; OptNum=&quot;0&quot; AccessLevel=&quot;1.0.0&quot; ActiveFlag=&quot;yes&quot; ReturnFlag=&quot;yes&quot; RedoFlag=&quot;yes&quot; PublishFlag=&quot;no&quot; TimeControlFlag=&quot;no&quot; DeleteFlag=&quot;no&quot; GotoFlag=&quot;yes&quot; ReMsgFlag=&quot;yes&quot; NameEN=&quot;&quot; MonitorFlag=&quot;no&quot;&gt;&lt;Readers&gt;&lt;/Readers&gt;&lt;Authors&gt;&lt;/Authors&gt;&lt;Paras&gt;&lt;/Paras&gt;&lt;RoundRects RectNum=&quot;6&quot;&gt;&lt;RoundRect ID=&quot;FlowStartNode&quot; Name=&quot;开始&quot; MoreAppFlag=&quot;no&quot; AppFlag=&quot;no&quot; ReturnFlag=&quot;no&quot; AgentDoFlag=&quot;no&quot; TimeControlFlag=&quot;no&quot; OnlyDoFlag=&quot;no&quot; RefuseToFlag=&quot;no&quot; CancelDoFlag=&quot;no&quot; ChgOpterFlag=&quot;no&quot; Type=&quot;nofree&quot; AutoPassFlag=&quot;no&quot; AutoReplaceFlag=&quot;no&quot;&gt;&lt;Readers MailToFlag=&quot;no&quot; MsgToFlag=&quot;no&quot; ForeverReaderFlag=&quot;yes&quot;&gt;&lt;/Readers&gt;&lt;Authors MailToFlag=&quot;no&quot; MsgToFlag=&quot;no&quot; SingleOptFlag=&quot;yes&quot;&gt;&lt;/Authors&gt;&lt;MailSendTo&gt;&lt;/MailSendTo&gt;&lt;MsgSendTo&gt;&lt;/MsgSendTo&gt;&lt;Activities&gt;&lt;/Activities&gt;&lt;ValidDate TimeToFlag=&quot;yes&quot;&gt;&lt;/ValidDate&gt;&lt;DoOverPass MsgCreaterFlag=&quot;no&quot; MsgNowAuthorFlag=&quot;no&quot;&gt;StopFlow&lt;/DoOverPass&gt;&lt;ParentNodes&gt;&lt;/ParentNodes&gt;&lt;ChildNodes&gt;&lt;ChildNode NodeID=&quot;FlowNode1&quot; ConnectLineID=&quot;line_1&quot; ConditionalCode=&quot;&quot;&gt;部门负责人审批&lt;/ChildNode&gt;&lt;/ChildNodes&gt;&lt;Description&gt;&lt;/Description&gt;&lt;NoShowFields&gt;&lt;/NoShowFields&gt;&lt;InputFields&gt;&lt;/InputFields&gt;&lt;NoEditFields&gt;&lt;/NoEditFields&gt;&lt;NoShowGroup&gt;&lt;/NoShowGroup&gt;&lt;NoEditGroup&gt;&lt;/NoEditGroup&gt;&lt;TDUserField ChgFieldFlag=&quot;no&quot;&gt;&lt;/TDUserField&gt;&lt;ChgNodeAuthors ChgAuthorsFlag=&quot;no&quot;&gt;&lt;/ChgNodeAuthors&gt;&lt;/RoundRect&gt;  &lt;RoundRect ID=&quot;FlowNode1&quot; Name=&quot;部门负责人审批&quot; MoreAppFlag=&quot;no&quot; AppFlag=&quot;no&quot; ReturnFlag=&quot;no&quot; AgentDoFlag=&quot;yes&quot; TimeControlFlag=&quot;no&quot; OnlyDoFlag=&quot;no&quot; RefuseToFlag=&quot;no&quot; CancelDoFlag=&quot;no&quot; ChgOpterFlag=&quot;no&quot; Type=&quot;nofree&quot; AutoPassFlag=&quot;no&quot; AutoReplaceFlag=&quot;no&quot; RefuseTo=&quot;&quot; NameEN=&quot;&quot; SubmitButtonName=&quot;提交&quot;&gt;&lt;Readers MailToFlag=&quot;no&quot; MsgToFlag=&quot;no&quot; ForeverReaderFlag=&quot;yes&quot; SmsToFlag=&quot;no&quot;&gt;&lt;/Readers&gt;&lt;Authors MailToFlag=&quot;no&quot; MsgToFlag=&quot;yes&quot; SingleOptFlag=&quot;yes&quot; SmsToFlag=&quot;no&quot;&gt;&lt;/Authors&gt;&lt;MailSendTo&gt;&lt;/MailSendTo&gt;&lt;MsgSendTo&gt;&lt;/MsgSendTo&gt;&lt;Activities&gt;&lt;/Activities&gt;&lt;ValidDate TimeToFlag=&quot;no&quot;&gt;&lt;/ValidDate&gt;&lt;DoOverPass MsgCreaterFlag=&quot;no&quot; MsgNowAuthorFlag=&quot;no&quot;&gt;&lt;/DoOverPass&gt;&lt;ParentNodes&gt;&lt;ParentNode NodeID=&quot;FlowStartNode&quot; ConnectLineID=&quot;line_1&quot; ConditionalCode=&quot;&quot;&gt;开始&lt;/ParentNode&gt;&lt;/ParentNodes&gt;&lt;ChildNodes&gt;&lt;ChildNode NodeID=&quot;FlowNode2&quot; ConnectLineID=&quot;line_2&quot; ConditionalCode=&quot;&quot;&gt;总经理审批&lt;/ChildNode&gt;&lt;/ChildNodes&gt;&lt;Description&gt;&lt;/Description&gt;&lt;NoShowFields&gt;&lt;/NoShowFields&gt;&lt;InputFields&gt;&lt;/InputFields&gt;&lt;NoEditFields&gt;&lt;/NoEditFields&gt;&lt;NoShowGroup&gt;&lt;/NoShowGroup&gt;&lt;NoEditGroup&gt;tbl02;tbl01&lt;/NoEditGroup&gt;&lt;TDUserField ChgFieldFlag=&quot;yes&quot;&gt;DeptChargerEN&lt;/TDUserField&gt;&lt;ChgNodeAuthors ChgAuthorsFlag=&quot;no&quot;&gt;&lt;/ChgNodeAuthors&gt;&lt;/RoundRect&gt;  &lt;RoundRect ID=&quot;FlowNode2&quot; Name=&quot;总经理审批&quot; MoreAppFlag=&quot;no&quot; AppFlag=&quot;no&quot; ReturnFlag=&quot;no&quot; AgentDoFlag=&quot;yes&quot; TimeControlFlag=&quot;no&quot; OnlyDoFlag=&quot;no&quot; RefuseToFlag=&quot;no&quot; CancelDoFlag=&quot;no&quot; ChgOpterFlag=&quot;no&quot; Type=&quot;nofree&quot; AutoPassFlag=&quot;no&quot; AutoReplaceFlag=&quot;no&quot; RefuseTo=&quot;&quot; NameEN=&quot;&quot; SubmitButtonName=&quot;提交&quot;&gt;&lt;Readers MailToFlag=&quot;no&quot; MsgToFlag=&quot;no&quot; ForeverReaderFlag=&quot;yes&quot; SmsToFlag=&quot;no&quot;&gt;&lt;/Readers&gt;&lt;Authors MailToFlag=&quot;no&quot; MsgToFlag=&quot;yes&quot; SingleOptFlag=&quot;yes&quot; SmsToFlag=&quot;no&quot;&gt;&lt;/Authors&gt;&lt;MailSendTo&gt;&lt;/MailSendTo&gt;&lt;MsgSendTo&gt;&lt;/MsgSendTo&gt;&lt;Activities&gt;&lt;/Activities&gt;&lt;ValidDate TimeToFlag=&quot;no&quot;&gt;&lt;/ValidDate&gt;&lt;DoOverPass MsgCreaterFlag=&quot;no&quot; MsgNowAuthorFlag=&quot;no&quot;&gt;&lt;/DoOverPass&gt;&lt;ParentNodes&gt;&lt;ParentNode NodeID=&quot;FlowNode1&quot; ConnectLineID=&quot;line_2&quot; ConditionalCode=&quot;&quot;&gt;部门负责人审批&lt;/ParentNode&gt;&lt;/ParentNodes&gt;&lt;ChildNodes&gt;&lt;ChildNode NodeID=&quot;FlowNode3&quot; ConnectLineID=&quot;line_3&quot; ConditionalCode=&quot;&quot;&gt;财务审核岗&lt;/ChildNode&gt;&lt;/ChildNodes&gt;&lt;Description&gt;&lt;/Description&gt;&lt;NoShowFields&gt;&lt;/NoShowFields&gt;&lt;InputFields&gt;&lt;/InputFields&gt;&lt;NoEditFields&gt;&lt;/NoEditFields&gt;&lt;NoShowGroup&gt;&lt;/NoShowGroup&gt;&lt;NoEditGroup&gt;tbl02;tbl01&lt;/NoEditGroup&gt;&lt;TDUserField ChgFieldFlag=&quot;yes&quot;&gt;StGerManagerEN&lt;/TDUserField&gt;&lt;ChgNodeAuthors ChgAuthorsFlag=&quot;no&quot;&gt;&lt;/ChgNodeAuthors&gt;&lt;/RoundRect&gt;  &lt;RoundRect ID=&quot;FlowNode3&quot; Name=&quot;财务审核岗&quot; MoreAppFlag=&quot;no&quot; AppFlag=&quot;no&quot; ReturnFlag=&quot;no&quot; AgentDoFlag=&quot;yes&quot; TimeControlFlag=&quot;no&quot; OnlyDoFlag=&quot;no&quot; RefuseToFlag=&quot;no&quot; CancelDoFlag=&quot;no&quot; ChgOpterFlag=&quot;no&quot; Type=&quot;nofree&quot; Au
-
-toPassFlag=&quot;no&quot; AutoReplaceFlag=&quot;no&quot; RefuseTo=&quot;&quot; NameEN=&quot;&quot; SubmitButtonName=&quot;提交&quot;&gt;&lt;Readers MailToFlag=&quot;no&quot; MsgToFlag=&quot;no&quot; ForeverReaderFlag=&quot;yes&quot; SmsToFlag=&quot;no&quot;&gt;&lt;/Readers&gt;&lt;Authors MailToFlag=&quot;no&quot; MsgToFlag=&quot;yes&quot; SingleOptFlag=&quot;yes&quot; SmsToFlag=&quot;no&quot;&gt;&lt;/Authors&gt;&lt;MailSendTo&gt;&lt;/MailSendTo&gt;&lt;MsgSendTo&gt;&lt;/MsgSendTo&gt;&lt;Activities&gt;&lt;/Activities&gt;&lt;ValidDate TimeToFlag=&quot;no&quot;&gt;&lt;/ValidDate&gt;&lt;DoOverPass MsgCreaterFlag=&quot;no&quot; MsgNowAuthorFlag=&quot;no&quot;&gt;&lt;/DoOverPass&gt;&lt;ParentNodes&gt;&lt;ParentNode NodeID=&quot;FlowNode2&quot; ConnectLineID=&quot;line_3&quot; ConditionalCode=&quot;&quot;&gt;总经理审批&lt;/ParentNode&gt;&lt;/ParentNodes&gt;&lt;ChildNodes&gt;&lt;ChildNode NodeID=&quot;FlowNode4&quot; ConnectLineID=&quot;line_4&quot; ConditionalCode=&quot;&quot;&gt;财务会计审核&lt;/ChildNode&gt;&lt;/ChildNodes&gt;&lt;Description&gt;&lt;/Description&gt;&lt;NoShowFields&gt;&lt;/NoShowFields&gt;&lt;InputFields&gt;&lt;/InputFields&gt;&lt;NoEditFields&gt;&lt;/NoEditFields&gt;&lt;NoShowGroup&gt;&lt;/NoShowGroup&gt;&lt;NoEditGroup&gt;tbl02;tbl01&lt;/NoEditGroup&gt;&lt;TDUserField ChgFieldFlag=&quot;yes&quot;&gt;StFICheckEN&lt;/TDUserField&gt;&lt;ChgNodeAuthors ChgAuthorsFlag=&quot;no&quot;&gt;&lt;/ChgNodeAuthors&gt;&lt;/RoundRect&gt;  &lt;RoundRect ID=&quot;FlowNode4&quot; Name=&quot;财务会计审核&quot; MoreAppFlag=&quot;no&quot; AppFlag=&quot;no&quot; ReturnFlag=&quot;no&quot; AgentDoFlag=&quot;yes&quot; TimeControlFlag=&quot;no&quot; OnlyDoFlag=&quot;no&quot; RefuseToFlag=&quot;no&quot; CancelDoFlag=&quot;no&quot; ChgOpterFlag=&quot;no&quot; Type=&quot;nofree&quot; AutoPassFlag=&quot;no&quot; AutoReplaceFlag=&quot;no&quot; RefuseTo=&quot;&quot; NameEN=&quot;&quot; SubmitButtonName=&quot;提交&quot;&gt;&lt;Readers MailToFlag=&quot;no&quot; MsgToFlag=&quot;no&quot; ForeverReaderFlag=&quot;yes&quot; SmsToFlag=&quot;no&quot;&gt;&lt;/Readers&gt;&lt;Authors MailToFlag=&quot;no&quot; MsgToFlag=&quot;yes&quot; SingleOptFlag=&quot;yes&quot; SmsToFlag=&quot;no&quot;&gt;&lt;/Authors&gt;&lt;MailSendTo&gt;&lt;/MailSendTo&gt;&lt;MsgSendTo&gt;&lt;/MsgSendTo&gt;&lt;Activities&gt;&lt;/Activities&gt;&lt;ValidDate TimeToFlag=&quot;no&quot;&gt;&lt;/ValidDate&gt;&lt;DoOverPass MsgCreaterFlag=&quot;no&quot; MsgNowAuthorFlag=&quot;no&quot;&gt;&lt;/DoOverPass&gt;&lt;ParentNodes&gt;&lt;ParentNode NodeID=&quot;FlowNode3&quot; ConnectLineID=&quot;line_4&quot; ConditionalCode=&quot;&quot;&gt;财务审核岗&lt;/ParentNode&gt;&lt;/ParentNodes&gt;&lt;ChildNodes&gt;&lt;ChildNode NodeID=&quot;FlowNode5&quot; ConnectLineID=&quot;line_5&quot; ConditionalCode=&quot;&quot;&gt;出纳付款&lt;/ChildNode&gt;&lt;/ChildNodes&gt;&lt;Description&gt;&lt;/Description&gt;&lt;NoShowFields&gt;&lt;/NoShowFields&gt;&lt;InputFields&gt;&lt;/InputFields&gt;&lt;NoEditFields&gt;&lt;/NoEditFields&gt;&lt;NoShowGroup&gt;&lt;/NoShowGroup&gt;&lt;NoEditGroup&gt;tbl02;tbl01&lt;/NoEditGroup&gt;&lt;TDUserField ChgFieldFlag=&quot;yes&quot;&gt;StFIAccountEN&lt;/TDUserField&gt;&lt;ChgNodeAuthors ChgAuthorsFlag=&quot;no&quot;&gt;&lt;/ChgNodeAuthors&gt;&lt;/RoundRect&gt;  &lt;RoundRect ID=&quot;FlowNode5&quot; Name=&quot;出纳付款&quot; MoreAppFlag=&quot;no&quot; AppFlag=&quot;no&quot; ReturnFlag=&quot;no&quot; AgentDoFlag=&quot;yes&quot; TimeControlFlag=&quot;no&quot; OnlyDoFlag=&quot;no&quot; RefuseToFlag=&quot;no&quot; CancelDoFlag=&quot;no&quot; ChgOpterFlag=&quot;no&quot; Type=&quot;nofree&quot; AutoPassFlag=&quot;no&quot; AutoReplaceFlag=&quot;no&quot; RefuseTo=&quot;&quot; NameEN=&quot;&quot; SubmitButtonName=&quot;提交&quot;&gt;&lt;Readers MailToFlag=&quot;no&quot; MsgToFlag=&quot;no&quot; ForeverReaderFlag=&quot;yes&quot; SmsToFlag=&quot;no&quot;&gt;&lt;/Readers&gt;&lt;Authors MailToFlag=&quot;no&quot; MsgToFlag=&quot;yes&quot; SingleOptFlag=&quot;yes&quot; SmsToFlag=&quot;no&quot;&gt;&lt;/Authors&gt;&lt;MailSendTo&gt;&lt;/MailSendTo&gt;&lt;MsgSendTo&gt;&lt;/MsgSendTo&gt;&lt;Activities&gt;&lt;/Activities&gt;&lt;ValidDate TimeToFlag=&quot;no&quot;&gt;&lt;/ValidDate&gt;&lt;DoOverPass MsgCreaterFlag=&quot;no&quot; MsgNowAuthorFlag=&quot;no&quot;&gt;&lt;/DoOverPass&gt;&lt;ParentNodes&gt;&lt;ParentNode NodeID=&quot;FlowNode4&quot; ConnectLineID=&quot;line_5&quot; ConditionalCode=&quot;&quot;&gt;财务会计审核&lt;/ParentNode&gt;&lt;/ParentNodes&gt;&lt;ChildNodes&gt;&lt;ChildNode NodeID=&quot;FlowEndNode&quot; ConnectLineID=&quot;line_9&quot; ConditionalCode=&quot;&quot;&gt;结束&lt;/ChildNode&gt;&lt;/ChildNodes&gt;&lt;Description&gt;&lt;/Description&gt;&lt;NoShowFields&gt;&lt;/NoShowFields&gt;&lt;InputFields&gt;&lt;/InputFields&gt;&lt;NoEditFields&gt;&lt;/NoEditFields&gt;&lt;NoShowGroup&gt;&lt;/NoShowGroup&gt;&lt;NoEditGroup&gt;tbl02;tbl01&lt;/NoEditGroup&gt;&lt;TDUserField ChgFieldFlag=&quot;yes&quot;&gt;StFICashierEN&lt;/TDUserField&gt;&lt;ChgNodeAuthors ChgAuthorsFlag=&quot;no&quot;&gt;&lt;/ChgNodeAuthors&gt;&lt;/RoundRect&gt;  &lt;RoundRect ID=&quot;FlowEndNode&quot; Name=&quot;结束&quot; MoreAppFlag=&quot;no&quot; AppFlag=&quot;no&quot; ReturnFlag=&quot;no&quot; AgentDoFlag=&quot;no&quot; TimeControlFlag=&quot;no&quot; OnlyDoFlag=&quot;no&quot; RefuseToFlag=&quot;no&quot; CancelDoFlag=&quot;no&quot; ChgOpterFlag=&quot;no&quot; Type=&quot;nofree&quot; AutoPassFlag=&quot;no&quot; AutoReplaceFlag=&quot;no&quot;&gt;&lt;Readers MailToFlag=&quot;no&quot; MsgToFlag=&quot;no&quot; ForeverReaderFlag=&quot;yes&quot;&gt;&lt;/Readers&gt;&lt;Authors MailToFlag=&quot;no&quot; MsgToFlag=&quot;no&quot; SingleOptFlag=&quot;yes&quot;&gt;&lt;/Authors&gt;&lt;MailSendTo&gt;&lt;/MailSendTo&gt;&lt;MsgSendTo&gt;&lt;/MsgSendTo&gt;&lt;Activities&gt;&lt;/Activities&gt;&lt;ValidDate TimeToFlag=&quot;yes&quot;&gt;&lt;/ValidDate&gt;&lt;DoOverPass MsgCreaterFlag=&quot;no&quot; MsgNowAuthorFlag=&quot;no&quot;&gt;StopFlow&lt;/DoOverPass&gt;&lt;ParentNodes&gt;&lt;ParentNode NodeID=&quot;FlowNode5&quot; ConnectLineID=&quot;line_9&quot; ConditionalCode=&quot;&quot;&gt;出纳付款&lt;
-
-/ParentNode&gt;&lt;/ParentNodes&gt;&lt;ChildNodes&gt;&lt;/ChildNodes&gt;&lt;Description&gt;&lt;/Description&gt;&lt;NoShowFields&gt;&lt;/NoShowFields&gt;&lt;InputFields&gt;&lt;/InputFields&gt;&lt;NoEditFields&gt;&lt;/NoEditFields&gt;&lt;NoShowGroup&gt;&lt;/NoShowGroup&gt;&lt;NoEditGroup&gt;tbl02;tbl01&lt;/NoEditGroup&gt;&lt;TDUserField ChgFieldFlag=&quot;no&quot;&gt;&lt;/TDUserField&gt;&lt;ChgNodeAuthors ChgAuthorsFlag=&quot;no&quot;&gt;&lt;/ChgNodeAuthors&gt;&lt;/RoundRect&gt; &lt;/RoundRects&gt;&lt;Lines LineNum=&quot;9&quot;&gt;&lt;Line ID=&quot;line_1&quot; Name=&quot;&quot; Type=&quot;&quot;&gt;&lt;FromNode Name=&quot;开始&quot;&gt;FlowStartNode&lt;/FromNode&gt;&lt;ToNode Name=&quot;部门负责人审批&quot;&gt;FlowNode1&lt;/ToNode&gt;&lt;ConditionalCode&gt;&lt;![CDATA[无]]&gt;&lt;/ConditionalCode&gt;&lt;Description&gt;&lt;/Description&gt;&lt;/Line&gt;  &lt;Line ID=&quot;line_2&quot; Name=&quot;&quot; Type=&quot;&quot;&gt;&lt;FromNode Name=&quot;部门负责人审批&quot;&gt;FlowNode1&lt;/FromNode&gt;&lt;ToNode Name=&quot;总经理审批&quot;&gt;FlowNode2&lt;/ToNode&gt;&lt;ConditionalCode&gt;&lt;![CDATA[无]]&gt;&lt;/ConditionalCode&gt;&lt;Description&gt;&lt;/Description&gt;&lt;/Line&gt;  &lt;Line ID=&quot;line_3&quot; Name=&quot;&quot; Type=&quot;&quot;&gt;&lt;FromNode Name=&quot;总经理审批&quot;&gt;FlowNode2&lt;/FromNode&gt;&lt;ToNode Name=&quot;财务审核岗&quot;&gt;FlowNode3&lt;/ToNode&gt;&lt;ConditionalCode&gt;&lt;![CDATA[无]]&gt;&lt;/ConditionalCode&gt;&lt;Description&gt;&lt;/Description&gt;&lt;/Line&gt;  &lt;Line ID=&quot;line_4&quot; Name=&quot;&quot; Type=&quot;&quot;&gt;&lt;FromNode Name=&quot;财务审核岗&quot;&gt;FlowNode3&lt;/FromNode&gt;&lt;ToNode Name=&quot;财务会计审核&quot;&gt;FlowNode4&lt;/ToNode&gt;&lt;ConditionalCode&gt;&lt;![CDATA[无]]&gt;&lt;/ConditionalCode&gt;&lt;Description&gt;&lt;/Description&gt;&lt;/Line&gt;  &lt;Line ID=&quot;line_5&quot; Name=&quot;&quot; Type=&quot;&quot;&gt;&lt;FromNode Name=&quot;财务会计审核&quot;&gt;FlowNode4&lt;/FromNode&gt;&lt;ToNode Name=&quot;出纳付款&quot;&gt;FlowNode5&lt;/ToNode&gt;&lt;ConditionalCode&gt;&lt;![CDATA[无]]&gt;&lt;/ConditionalCode&gt;&lt;Description&gt;&lt;/Description&gt;&lt;/Line&gt;  &lt;Line ID=&quot;line_9&quot; Name=&quot;&quot; Type=&quot;&quot;&gt;&lt;FromNode Name=&quot;出纳付款&quot;&gt;FlowNode5&lt;/FromNode&gt;&lt;ToNode Name=&quot;结束&quot;&gt;FlowEndNode&lt;/ToNode&gt;&lt;ConditionalCode&gt;&lt;![CDATA[无]]&gt;&lt;/ConditionalCode&gt;&lt;Description&gt;&lt;/Description&gt;&lt;/Line&gt; &lt;/Lines&gt;&lt;Description&gt;&lt;/Description&gt;&lt;/WorkFLowProcess&gt;</textarea>
-<br>
-<br>
-多语言：ZH<br>
-兼职部门编号：
-<input name="CurUserPluDeptID" value="A00002^A00003">
-用户所用申请部门编号：
-个人岗位编号信息(多值域）：
-<input name="CurUserAllPostID" value="">个人岗位名称信息：
-<input name="CurUserAllPostName" value="">
-当前用户所在部门岗位编号：
-<input name="CurUserDeptPostID" value="JTFZCBOSS002, JTZCBOSS001, P00020, P00053, P00032, P00054, P00009">部门岗位名称信息：
-<input name="CurUserDeptPostName" value="副总裁, 总裁, 分管领导, 财务会计, 人事主管, 预算专员, 收文管理员">
-人员的每个岗位对应的成员动态生成input， name和id均为： "St"+岗位编号+"Member",注意下面的代码不要设为内置HTML
-<p><span></span>部门的每个岗位对应的成员动态生成input，如果人员中有重名的岗位编号，则不生成， name和id均为： "St"+岗位编号+"Member",注意下面的代码不要设为内置HTML
-<p><span><input type="text" name="StJTFZCBOSS002Member" id="StJTFZCBOSS002Member" value=""><input type="text" name="StJTZCBOSS001Member" id="StJTZCBOSS001Member" value="开发者1/dev1"><input type="text" name="StP00020Member" id="StP00020Member" value="开发一/dev1"><input type="text" name="StP00053Member" id="StP00053Member" value="开发十二/dev12;开发者1/dev1"><input type="text" name="StP00032Member" id="StP00032Member" value="开发二/dev2"><input type="text" name="StP00054Member" id="StP00054Member" value="开发八/dev8"><input type="text" name="StP00009Member" id="StP00009Member" value="开发三/dev3"></span><br>
-文档创建人的岗位成员信息：
-<p><span><input type="text" name="StCreaterPOST34Member" id="StCreaterPOST34Member" value="马涛/matao"><input type="text" name="StCreaterP00003Member" id="StCreaterP00003Member" value="管理员/admin"></span><br>
-当前表单的UNID
-<input name="StMainDocUnid" value="9B69CB677BECBA4B482578530023D9CD">附件数据库的路径
-<input name="StAttachmentPath" value="DFAttachMent/DFAttachMent201012241059.nsf" id="StAttachmentPath"></DIV>
-</DIV>
-<!--************流程监控需要添加的内容，请添加到项目应用库中的相应位置**************-->
-<table style="display:none" border="1">
-<tr valign="top"><td width="232">此流程是否启用流程监控：</td><td width="232">
-<input name="TFMonitorFlag" value="no"></td><td width="232">流程流转记录XML：</td><td width="232">
-<textarea name="TFNodeMonitorXML" rows="7" cols="50">&lt;DataBody&gt;&lt;/DataBody&gt;</textarea>
-</td></tr>
-
-<tr valign="top"><td width="232">上一环节ID：</td><td width="232">
-<input name="TFPrevNodeID" value="FlowStartNode"></td><td width="232">上一环节结束时间：</td><td width="232">
-<input name="TFPrevNodeEndTime" value="2011-03-14 14:31:35"></td></tr>
-
-<tr valign="top"><td width="232">上一处理人结束时间：</td><td width="232">
-<input name="TFPrevWorkEndTime" value="2011-03-14 14:31:35"></td><td width="232">环节流转Flag</td><td width="232">
-<input name="TFNodeChangeNodeFlag" value="yes"></td></tr>
-
-<tr valign="top"><td width="232">上一处理人结束时间变更Flag：</td><td width="232">
-<input name="TFChangeEndTimeFlag" value="yes"></td><td width="232">流程开始时间：</td><td width="232">
-<input name="TFStartTime" value="2011-03-14 14:31:35"></td></tr>
-
-<tr valign="top"><td width="232">开始监控标识位：</td><td width="232">
-<input name="TFStartMonitorFlag" value="no"></td><td width="232"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="232"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td></tr>
-
-<tr valign="top"><td width="232"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="232"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="232"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="232"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td></tr>
-</table>
-<!--************流程监控需要添加的内容，请添加到项目应用库中的相应位置**************-->
-<SPAN id="spanAttaUNID"></SPAN>
-</DIV>
-<DIV id="DF_Header">
-<DIV id="DF_Header_Logo"><DIV id="DF_Header_Logo_Img"></DIV></DIV>
-</DIV>
-<DIV id="DF_Header_Menu">
-<DIV class="DF_Header_MenuBtn" id="MenuBtn">
-<DIV class="DF_MenuBtn" style="display:" onclick="Flow_Save()"><SPAN class="BtnSave"></SPAN>保存</DIV>
-<DIV class="DF_MenuBtn" style="display:" onclick="Flow_NextStep()"><SPAN class="BtnNextStep"></SPAN>下一步</DIV>
-<DIV class="DF_MenuBtn" style="display:" onclick="Flow_Reject()"><SPAN class="BtnReject"></SPAN>退回</DIV>
-<DIV class="DF_MenuBtnBox" style="display:">
-<SPAN class="BtnSenior"></SPAN>高级<SPAN class="BtnboxRight"></SPAN>
-<DIV class="DF_MenuItemList">
-<DIV class="DF_MenuBtnItem" style="display:" onclick="Flow_SetApplyDept()"><SPAN class="BtnEndorsement"></SPAN>更改部门</DIV>
-<DIV class="DF_MenuBtnItem" style="display:none" onclick="Flow_Endorsement()"><SPAN class="BtnEndorsement"></SPAN>加签</DIV>
-<DIV class="DF_MenuBtnItem" style="display:none" onclick="Flow_Hasten()"><SPAN class="BtnHasten"></SPAN>催办</DIV>
-<DIV class="DF_MenuBtnItem" style="display:none" onclick="Flow_Turn()"><SPAN class="BtnTurn"></SPAN>转办</DIV>
-<DIV class="DF_MenuBtnItem" style="display:" onclick="Flow_Inform()"><SPAN class="BtnInform"></SPAN>通知</DIV>
-<DIV class="DF_MenuBtnItem" style="display:none" onclick="Flow_MulEndorsement()"><SPAN class="BtnMulEndorsement"></SPAN>复合加签</DIV>
-<DIV class="DF_MenuBtnItem" style="display:none" onclick="Flow_Quash()"><SPAN class="BtnQuash"></SPAN>撤签</DIV>
-<DIV class="DF_MenuBtnItem" style="display:none" onclick="Flow_Cancel()"><SPAN class="BtnCancel"></SPAN>抽单</DIV>
-<DIV class="DF_MenuBtnItem" style="display:none" onclick="Flow_Copy()"><SPAN class="BtnCopy"></SPAN>复制表单</DIV>
-</DIV>
-</DIV>
-<DIV class="DF_MenuBtnBox" style="display:none">
-<SPAN class="BtnSpecial"></SPAN>特殊操作</SPAN><SPAN class="BtnboxRight"></SPAN>
-<DIV class="DF_MenuItemList">
-<DIV class="DF_MenuBtnItem" style="display:none" onclick="Flow_Jump()"><SPAN class="BtnJump"></SPAN>强制跳转</DIV>
-<DIV class="DF_MenuBtnItem" style="display:none" onclick="Flow_Replace()"><SPAN class="BtnReplace"></SPAN>替换处理人</DIV>
-<DIV class="DF_MenuBtnItem" style="display:none" onclick="Flow_Terminate()"><SPAN class="BtnTerminate"></SPAN>终止</div>
-<DIV class="DF_MenuBtnItem" style="display:none" onclick="Flow_Jurisdiction()"><SPAN class="BtnJurisdiction"></SPAN>权限管理</DIV>
-</DIV>
-</DIV>
-<DIV class="DF_MenuBtn" style="display:" onclick="Flow_Print()"><SPAN class="BtnPrint"></SPAN>打印</DIV>
-<DIV class="DF_MenuBtn" style="display:" onclick="Flow_ShowFlow()"><SPAN class="BtnShowFlow"></SPAN>查看流程</DIV>
-</DIV>
-<DIV style="display:none">
-<table border="0" cellspacing="0" cellpadding="0">
-<tr valign="top"><td width="189" bgcolor="#C0C0C0"><b><font color="#620012">隐藏域</font></b></td><td style="padding-left:5px" width="340" bgcolor="#C0C0C0"><b><font color="#620012">说明</font></b></td></tr>
-
-<tr valign="top"><td width="189">
-<input name="StCurFlowGotoOptType" value="Default"></td><td width="340"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td></tr>
-
-<tr valign="top"><td width="189">
-<input name="StCurFlowGotoNodeID" value="FlowNode1"></td><td width="340"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td></tr>
-
-<tr valign="top"><td width="189">
-<input name="StCurFlowOldGotoNodeNum" value="0"></td><td width="340"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td></tr>
-
-<tr valign="top"><td width="189">
-<input name="StChgPsnTmpFieldAll" value="开发一/dev1"><br>
-
-<input name="StChgPsnTmpFieldCN" value="开发一">
-<input name="StChgPsnTmpFieldEN" value="dev1"></td><td width="340"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td></tr>
-</table>
-</DIV>
-<DIV style="display:none"> 
-<input type="button" onclick="if(document.all(&quot;GuanJunKK_Button&quot;)!=null)document.all(&quot;GuanJunKK_Button&quot;).click() //提交前的检验动作if(GuanJunKK_ButtonFlag!=&quot;yes&quot;){ //如果提交前检验无误	thFlowWindow_DocSubmit();	//进行必填域检测，提交}" value="提交" class="DF_Flow_button1" id="HTFSubmitButton" onmouseover="this.className='DF_Flow_button2'" onmouseout="this.className='DF_Flow_button1'">
-<input type="button" onclick="//将点击下一步时选择的环节审批人信息传给TFCurNodeTmpAuthorsFlow_BeforeSaveBtn();if(document.all(&quot;BDF_Button_submit&quot;)!=null){	document.all(&quot;BDF_Button_submit&quot;).click();}else{	document.all(&quot;ThFlowSaveButton_1&quot;).click();}" value="保存" style="display:none" id="ThFlowSaveButton">
-<input type="button" value="保存" style="display:none" id="ThFlowSaveButton_1" onclick="return _doClick('4825779E001D0EBD.ff2a64285cd71be34825779000366043/$Body/0.2CE2', this, null)">
-<input type="button" onclick="thFlowWindow_DocAppDo();	//加签" value="加签" id="ThFlowAppendButton" style="display:none">
-<input type="button" onclick="thFlowWindow_DocReturnDo();	//转办或代办" value="转办" id="ThFlowReturnButton" style="display:none">
-<input type="button" onclick="thFlowWindow_DocReplaceDo();	//替换处理人" value="替换" id="ThFlowReplaceButton" style="display:none">
-<input type="button" onclick="thFlowWindow_DocMoreAppDo();" value="复合加签处理" style="display:none" id="ThFlowMoreAppendButton">
-<input type="button" onclick="thFlowWindow_DocMsgTo();	//替换处理人" value="通知" id="ThFlowMsgToButton" style="display:none"> </DIV>
-<SCRIPT>loadMenulist();</SCRIPT>
-</DIV>
-<DIV id="DF_Content">
-<DIV id="DF_TagGroup">
-<UL>
-<LI>
-<A class="DF_SelectedTag" onclick="switchTag(this);" href="#">
-<SPAN class="DF_SelectedSpan">申请单</SPAN>
-</A>
-</LI>
-<LI>
-<A class="" onclick="switchTag(this);" href="#">
-<SPAN class="">附件</SPAN>
-</A>
-</LI>
-<LI>
-<A class="" style="display:none" onclick="switchTag(this);" href="#">
-<SPAN class="">凭证信息</SPAN>
-</A>
-</LI>
-<LI>
-<A class="" onclick="switchTag(this);" href="#">
-<SPAN class="">流转意见</SPAN>
-</A>
-</LI>
-<LI>
-<A class="" style="display:none" onclick="switchTag(this);" href="#">
-<SPAN class="">DigiChannel子表单</SPAN>
-</A>
-</LI>
-</UL>
-</DIV><DIV id="DF_TagContentgGroup">
-<DIV class="DF_SelectedContent">
-<div style="display:none">
-申请金额(原币大写)：
-<input name="StTotalMoneyBig" value="伍佰元整" class="DF_Txt_ReadOnly_Style" style="width=200px" readonly>
-申请金额(人民币大写)：
-<input name="StCapMoney" value="伍佰元整" readonly class="DF_Txt_ReadOnly_Style" style="width=100%">
-</div>
-<!--一个区段-->
-<DIV class="DF_Content_Section">
-<TABLE class="DF_GTable_Style" id="tbl01">
-<!--start 区域标题-->
-<TR >
-<TD class="DF_GTable_Title_TD_Style" colspan="4">
-<SPAN class="DF_GTable_Title_TD_Img"></SPAN>&nbsp;一般费用报销单
-</TD>
-</TR>
-<!--end 区域标题-->
-<TR>
-<TD class="DF_GTable_LTD_Style">表单编号：</TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="StFormID" value="YBFY20110001" class="DF_Txt_ReadOnly_Style" readOnly></TD>
-<TD class="DF_GTable_LTD_Style">申请日期：</TD>
-<TD class="DF_GTable_RTD_Style">2011-03-14 14:31:35</TD>
-</TR>
-<TR>
-<TD class="DF_GTable_LTD_Style">代 办 人：</TD>
-<TD class="DF_GTable_RTD_Style">管理员
-<input name="PsnEN" value="admin" readonly style="display:none"></TD>
-<TD class="DF_GTable_LTD_Style">报 销 人：</TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="StBXPsnCN" value="管理员" readonly class="DF_Txt_Readonly_Style">
-<TD>
-</TR>
-<TR>
-<TD class="DF_GTable_LTD_Style">联系电话：</TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="ContactTele" value="12345678" class="DF_Txt_Style"></TD>
-<TD class="DF_GTable_LTD_Style">部门名称：</TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="DeptName" value="化工行业" readonly class="DF_Txt_ReadOnly_Style">
-</TD>
-</TR>
-</TABLE>
-</DIV>
-<!--一个区段-->
-<DIV class="DF_Content_Section">
-<TABLE class="DF_GTable_Style" id="tbl02">
-<!--start 区域标题-->
-<TR >
-<TD class="DF_GTable_Title_TD_Style" colspan="4">
-<SPAN class="DF_GTable_Title_TD_Img"></SPAN>&nbsp;报销信息
-</TD>
-</TR>
-<!--end 区域标题-->
-<TR>
-<TD class="DF_GTable_LTD_Style">公司名称：</TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="%%Surrogate_StPayCompany" type="hidden" value="1">
-<select name="StPayCompany" onchange="var key = DF_getSelectText(&quot;StPayCompany&quot;);var keyArr = GetCompanyInfo(key);/*keyArr[0]		'公司代码keyArr[1]		'公司全称keyArr[2]		'成本中心控制范围keyArr[3]		'预算标识 1/0keyArr[4]		'费用标识  1/0keyArr[5]		'总经理	用户A;用户B/usera;userbkeyArr[6]		'财务审核岗 用户A;用户B/usera;userbkeyArr[7]		'财务会计   用户A;用户B/usera;userbkeyArr[8]		'财务出纳	  用户A;用户B/usera;userb*/document.all(&quot;StPayCompanyCode&quot;).value = keyArr[0];document.all(&quot;StPayCompanyCode_1&quot;).value = keyArr[0];document.all(&quot;ConBudFlag&quot;).value = keyArr[3]var cusStr = GetCusCode(document.all(&quot;StPayCompanyCode&quot;).value, document.all(&quot;StBXPsnEN&quot;).value);document.all(&quot;CustomCode&quot;).value = cusStr;var tmpArr = keyArr[5].split(&quot;/&quot;);document.all(&quot;StGerManagerCN&quot;).value = tmpArr[0];document.all(&quot;StGerManagerEN&quot;).value = tmpArr[1];var tmpArr = keyArr[6].split(&quot;/&quot;);document.all(&quot;StFICheckCN&quot;).value = tmpArr[0];document.all(&quot;StFICheckEN&quot;).value = tmpArr[1];var tmpArr = keyArr[7].split(&quot;/&quot;);document.all(&quot;StFIAccountCN&quot;).value = tmpArr[0];document.all(&quot;StFIAccountEN&quot;).value = tmpArr[1];var tmpArr = keyArr[8].split(&quot;/&quot;);document.all(&quot;StFICashierCN&quot;).value = tmpArr[0];document.all(&quot;StFICashierEN&quot;).value = tmpArr[1];" class="DF_Txt_Style">
-<option>
-<option value="_i2f1si4u5kc9rpbojpn2g_">蒙牛集团
-<option selected value="_j2esqm4ubnp0g_">公司A</select>
-
-<input name="ConBudFlag" value="1" style="display:none"></TD>
-<TD class="DF_GTable_LTD_Style">公司代码：</TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="StPayCompanyCode" value="C999" class="DF_Txt_ReadOnly_Style" readOnly>
-<input name="StPayCompanyCode_1" value="C999" style="display:none" readOnly></TD>
-<TD class="DF_GTable_LTD_Style" style="display:none">归集范围：</TD>
-<TD class="DF_GTable_RTD_Style" style="display:none">
-<input name="%%Surrogate_CostArea" type="hidden" value="1"><label>
-<input type="radio" name="CostArea" value="成本中心" onclick="var sArea = this.value;if(sArea == &quot;成本中心&quot;) {	document.all(&quot;trCost&quot;).style.display = &quot;&quot;;	document.all(&quot;trOrder&quot;).style.display = &quot;none&quot;;		document.all(&quot;StOrderCode&quot;).value = &quot;&quot;;	document.all(&quot;StOrderName&quot;).value = &quot;&quot;;} else if(sArea == &quot;内部订单&quot;) {	document.all(&quot;trCost&quot;).style.display = &quot;none&quot;;	document.all(&quot;trOrder&quot;).style.display = &quot;&quot;;		document.all(&quot;StCostCenCode&quot;).value = &quot;&quot;;	document.all(&quot;StCostCenName&quot;).value = &quot;&quot;;}">成本中心</label><label>
-<input type="radio" name="CostArea" value="内部订单" onclick="var sArea = this.value;if(sArea == &quot;成本中心&quot;) {	document.all(&quot;trCost&quot;).style.display = &quot;&quot;;	document.all(&quot;trOrder&quot;).style.display = &quot;none&quot;;		document.all(&quot;StOrderCode&quot;).value = &quot;&quot;;	document.all(&quot;StOrderName&quot;).value = &quot;&quot;;} else if(sArea == &quot;内部订单&quot;) {	document.all(&quot;trCost&quot;).style.display = &quot;none&quot;;	document.all(&quot;trOrder&quot;).style.display = &quot;&quot;;		document.all(&quot;StCostCenCode&quot;).value = &quot;&quot;;	document.all(&quot;StCostCenName&quot;).value = &quot;&quot;;}">内部订单</label></TD>
-</TR>
-<TR id="trCost" style="display:none">
-<TD class="DF_GTable_LTD_Style">成本中心号：</TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="StCostCenCode" value="" class="DF_Txt_ReadOnly_Style" readOnly>
-<a href=# onclick="SelectView('CostCenterView', 'StCostCenName', 'StCostCenCode', '','')"><img src="/DF_Res/DF_Img_Source/Img_YY/time.gif" style="border:0"></img>选择</a>
-</TD>
-<TD class="DF_GTable_LTD_Style">成本中心名称：</TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="StCostCenName" value="" class="DF_Txt_ReadOnly_Style" readOnly></TD>
-</TR>
-<TR id="trOrder" style="display:none">
-<TD class="DF_GTable_LTD_Style">内部订单号：</TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="StOrderCode" value="" class="DF_Txt_ReadOnly_Style" readOnly>
-<a href=# onclick="SelectView('InnerOrderView', 'StOrderName', 'StOrderCode', '','')"><img src="/DF_Res/DF_Img_Source/Img_YY/time.gif" style="border:0"></img>选择</a>
-</TD>
-<TD class="DF_GTable_LTD_Style">内部订单名称：</TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="StOrderName" value="" class="DF_Txt_ReadOnly_Style" readOnly></TD>
-</TR>
-<TR>
-<TD class="DF_GTable_LTD_Style"><Q id="DF_010">币　　种：</Q></TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="StCurrencyType" value="人民币" readonly class="DF_Txt_ReadOnly_Style">
-<input name="StCurrencyType_1" value="RMB" readonly style="display:none">
-<input type="button" onclick="ComputeCurrency();" value="计算汇率" style="display:none" id="btnComRate"></TD>
-<TD class="DF_GTable_LTD_Style" style="display:none" id="divrate1">汇　　率：</TD>
-<TD class="DF_GTable_RTD_Style" style="display:none" id="divrate2">
-<input name="StExchangeRate" value="1.000" readonly class="DF_Txt_ReadOnly_Style"></TD>
-</TR>
-<TR  id="YBMoney" style="display:none">
-<TD class="DF_GTable_LTD_Style">申请金额(原币)：</TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="StTotalMoney" value="500.00" class="DF_Txt_ReadOnly_Style" readonly></TD>
-<TD class="DF_GTable_LTD_Style"></TD>
-<TD class="DF_GTable_RTD_Style"></TD>
-</TR>
-<TR>
-<TD class="DF_GTable_LTD_Style"><Q id="DF_013">报销金额：</Q></TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="StAppMoney" value="500" readonly class="DF_Txt_ReadOnly_Style">元 <font color="#FF0000">*</font>系统自动计算</TD>
-<TD class="DF_GTable_LTD_Style"></TD>
-<TD class="DF_GTable_RTD_Style"></TD>
-</TR>
-<TR>
-<TD class="DF_GTable_LTD_Style"><Q id="DF_013">实际报销金额：</Q></TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="StActualAppMoney" value="500" readonly class="DF_Txt_ReadOnly_Style">元 <font color="#FF0000">*</font>系统自动计算</TD>
-<TD class="DF_GTable_LTD_Style"><Q id="DF_014">实际报销金额(大写)：</Q></TD>
-<TD class="DF_GTable_RTD_Style"colspan=3>
-<input name="StActualCapMoney" value="伍佰元整" readonly class="DF_Txt_ReadOnly_Style" style="width=100%"></TD>
-</TR>
-<TR>
-<TD class="DF_GTable_LTD_Style">是否冲销借款：</TD>
-<TD class="DF_GTable_RTD_Style" colspan=3>
-<input name="%%Surrogate_IsBackMoney" type="hidden" value="1"><label>
-<input type="radio" name="IsBackMoney" readonly value="是" onclick="var sArea = this.value;if(sArea == &quot;是&quot;) {		document.all(&quot;trdebit&quot;).style.display = &quot;&quot;;	} else if(sArea == &quot;否&quot;) {	document.all(&quot;trdebit&quot;).style.display = &quot;none&quot;;		document.all(&quot;DebitMoney&quot;).value = &quot;&quot;;	document.all(&quot;DebitExpenseMoney&quot;).value = &quot;&quot;;}">是</label><label>
-<input type="radio" name="IsBackMoney" readonly value="否" checked onclick="var sArea = this.value;if(sArea == &quot;是&quot;) {		document.all(&quot;trdebit&quot;).style.display = &quot;&quot;;	} else if(sArea == &quot;否&quot;) {	document.all(&quot;trdebit&quot;).style.display = &quot;none&quot;;		document.all(&quot;DebitMoney&quot;).value = &quot;&quot;;	document.all(&quot;DebitExpenseMoney&quot;).value = &quot;&quot;;}">否</label></TD>
-</TR>
-<TR id="trdebit" style="display:none">
-<TD class="DF_GTable_LTD_Style">借款金额：</TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="DebitMoney" value="" class="DF_Txt_ReadOnly_Style" style="width:90" readOnly> 
-<input type="button" onclick="if(document.all(&quot;StPayCompanyCode&quot;).value == &quot;&quot;) {	alert(&quot;对不起，请先选择公司名称&quot;);	return false}if(document.all(&quot;CustomCode&quot;).value == &quot;&quot;) {	alert(&quot;系统未找到您的客户编号，请联系系统管理员&quot;);	return false}var comCode = document.all(&quot;StPayCompanyCode&quot;).value;var cusCode = document.all(&quot;CustomCode&quot;).value;GetCusDebit(comCode, cusCode);" value="提取SAP借款数据" id="display:none" id='btnGetDebit'> </TD>
-<TD class="DF_GTable_LTD_Style">借款冲销金额：</TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="DebitExpenseMoney" value="" onblur="//校验输入金额是否为数字JustNum(this, '');if(document.getElementById(&quot;DebitExpenseMoney&quot;).value==&quot;&quot;){	document.getElementById(&quot;DebitExpenseMoney&quot;).value=0} else {	document.getElementById(&quot;DebitExpenseMoney&quot;).value=DF_forDight(document.getElementById(&quot;DebitExpenseMoney&quot;).value,2);}if (document.getElementById(&quot;StAppMoney&quot;).value != &quot;&quot; &amp;&amp; this.value != &quot;&quot;){	if (parseFloat(this.value) &gt; parseFloat(document.getElementById(&quot;StAppMoney&quot;).value))	{		//alert(&quot;冲销金额不能大于借款金额!&quot;);				return false;	}	else	{		//实际金额-冲销借款		document.getElementById(&quot;StActualAppMoney&quot;).value=DF_forDight((parseFloat(document.getElementById(&quot;StExchangeRate&quot;).value)*parseFloat(document.getElementById(&quot;StTotalMoney&quot;).value) - parseFloat(document.getElementById(&quot;DebitExpenseMoney&quot;).value)),2);		document.getElementById(&quot;StActualCapMoney&quot;).value=DF_convertCurrency(document.getElementById(&quot;StActualAppMoney&quot;).value)     	}}" class="DF_Txt_Style">元</TD>
-</TR>
-<TR style="display:none">
-<TD class="DF_GTable_LTD_Style">错误代码：</TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="ERROR_MSG" value=""></TD>
-<TD class="DF_GTable_LTD_Style">成功标识：</TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="EX_FLAG" value=""></TD>
-</TR>
-<TR>
-<TD class="DF_GTable_LTD_Style">支付方式：</TD>
-<TD class="DF_GTable_RTD_Style" colspan=3>
-<input name="%%Surrogate_StPayType" type="hidden" value="1"><label>
-<input type="radio" name="StPayType" value="现金" checked onclick="var sPay = this.value;document.all(&quot;trBank&quot;).style.display = &quot;none&quot;;if(sPay == &quot;银行卡&quot;) {	document.all(&quot;trBank&quot;).style.display = &quot;&quot;;}">现金</label><label>
-<input type="radio" name="StPayType" value="银行卡" onclick="var sPay = this.value;document.all(&quot;trBank&quot;).style.display = &quot;none&quot;;if(sPay == &quot;银行卡&quot;) {	document.all(&quot;trBank&quot;).style.display = &quot;&quot;;}">银行卡</label><label>
-<input type="radio" name="StPayType" value="银行汇票" onclick="var sPay = this.value;document.all(&quot;trBank&quot;).style.display = &quot;none&quot;;if(sPay == &quot;银行卡&quot;) {	document.all(&quot;trBank&quot;).style.display = &quot;&quot;;}">银行汇票</label><label>
-<input type="radio" name="StPayType" value="支票" onclick="var sPay = this.value;document.all(&quot;trBank&quot;).style.display = &quot;none&quot;;if(sPay == &quot;银行卡&quot;) {	document.all(&quot;trBank&quot;).style.display = &quot;&quot;;}">支票</label><label>
-<input type="radio" name="StPayType" value="汇票" onclick="var sPay = this.value;document.all(&quot;trBank&quot;).style.display = &quot;none&quot;;if(sPay == &quot;银行卡&quot;) {	document.all(&quot;trBank&quot;).style.display = &quot;&quot;;}">汇票</label><label>
-<input type="radio" name="StPayType" value="其他" onclick="var sPay = this.value;document.all(&quot;trBank&quot;).style.display = &quot;none&quot;;if(sPay == &quot;银行卡&quot;) {	document.all(&quot;trBank&quot;).style.display = &quot;&quot;;}">其他</label></TD>
-</TR>
-<TR id="trBank" style="display:none">
-<TD class="DF_GTable_LTD_Style">银行：</TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="%%Surrogate_BankInfo" type="hidden" value="1">
-<select name="BankInfo" class="DF_Txt_Style">
-<option>
-<option selected value="_a2fbd04tpv89rj90jp7617kno2f8d0_">中国工商银行
-<option value="_j2fbd04tpv89rra0jp7k17kno2f8d0_">中国建设银行
-<option value="_s2fbd04tpv89sba8jqaqh7kno2f8d0_">中国农业银行
-<option value="_h2fbd04tpv89t5u0jq380_">中国银行
-<option value="_92fbd04tpv89tbk0jp7617kno2f8d0_">中国招商银行</select>
-</TD>
-<TD class="DF_GTable_LTD_Style">银行卡：</TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="StMyBankNum" value="609223394929202044" class="DF_Txt_Style" style="width:180px"></TD>
-</TR>
-<TR>
-<TD class="DF_GTable_LTD_Style">报销事由：</TD>
-<TD class="DF_GTable_RTD_Style" colspan="3">
-<textarea name="RtfReason" class="DF_RTF_Style" rows="7" cols="50">报销测试</textarea>
-</TD>
-</TR>
-</TABLE>
-</DIV>
-<!--一个区段-->
-<!--一个区段--><div style="display:none">
-<p>
-<textarea name="DynInputXML" rows="7" cols="50">&lt;root tblClass=&quot;DF_XTable_Style&quot; ttrClass=&quot;DF_XTable_Title_TR_Style&quot; ttdClass=&quot;DF_XTable_Title_TD_Style&quot; trClass=&quot;DF_XTable_TR_Style&quot; tdClass=&quot;DF_XTable_TD_Style&quot;&gt;&lt;row id=&quot;row1&quot;&gt;&lt;name&gt;时间&lt;/name&gt;&lt;width&gt;10&lt;/width&gt;&lt;display&gt;show&lt;/display&gt;&lt;readonly&gt;readonly&lt;/readonly&gt;&lt;onblur&gt;&lt;/onblur&gt;&lt;other&gt;onclick='SelectDate()'&lt;/other&gt;&lt;/row&gt;&lt;row id=&quot;row2&quot;&gt;&lt;name&gt;成本中心&lt;/name&gt;&lt;width&gt;10&lt;/width&gt;&lt;display&gt;show&lt;/display&gt;&lt;readonly&gt;readonly&lt;/readonly&gt;&lt;onblur&gt;&lt;/onblur&gt;&lt;other&gt;onclick='SelectCost_1(event.srcElement)'&lt;/other&gt;&lt;/row&gt;&lt;row id=&quot;row3&quot;&gt;&lt;name&gt;内部订单&lt;/name&gt;&lt;width&gt;10&lt;/width&gt;&lt;display&gt;show&lt;/display&gt;&lt;readonly&gt;readonly&lt;/readonly&gt;&lt;onblur&gt;&lt;/onblur&gt;&lt;other&gt;onclick='SelectOrder_1(event.srcElement)'&lt;/other&gt;&lt;/row&gt;&lt;row id=&quot;row4&quot;&gt;&lt;name&gt;科目名称&lt;/name&gt;&lt;width&gt;10&lt;/width&gt;&lt;display&gt;show&lt;/display&gt;&lt;readonly&gt;readonly&lt;/readonly&gt;&lt;onblur&gt;&lt;/onblur&gt;&lt;other&gt;onclick='SelectSubjectCode(event.srcElement)'&lt;/other&gt;&lt;/row&gt;&lt;row id=&quot;row5&quot;&gt;&lt;name&gt;科目代码&lt;/name&gt;&lt;width&gt;10&lt;/width&gt;&lt;display&gt;show&lt;/display&gt;&lt;readonly&gt;readonly&lt;/readonly&gt;&lt;onblur&gt;&lt;/onblur&gt;&lt;other&gt;onclick='SelectSubjectCode(event.srcElement)'&lt;/other&gt;&lt;/row&gt;&lt;row id=&quot;row6&quot;&gt;&lt;name&gt;可用预算&lt;/name&gt;&lt;width&gt;10&lt;/width&gt;&lt;display&gt;show&lt;/display&gt;&lt;readonly&gt;readonly&lt;/readonly&gt;&lt;onblur&gt;&lt;/onblur&gt;&lt;other&gt;&lt;/other&gt;&lt;/row&gt;&lt;row id=&quot;row7&quot;&gt;&lt;name&gt;报销金额&lt;/name&gt;&lt;width&gt;10&lt;/width&gt;&lt;display&gt;show&lt;/display&gt;&lt;readonly&gt;write&lt;/readonly&gt;&lt;onblur&gt;ComputeExpMoney(event.srcElement)&lt;/onblur&gt;&lt;other&gt;&lt;/other&gt;&lt;/row&gt;&lt;row id=&quot;row8&quot;&gt;&lt;name&gt;报销事由&lt;/name&gt;&lt;width&gt;28&lt;/width&gt;&lt;display&gt;show&lt;/display&gt;&lt;readonly&gt;write&lt;/readonly&gt;&lt;onblur&gt;&lt;/onblur&gt;&lt;other&gt;&lt;/other&gt;&lt;/row&gt;&lt;/root&gt;</textarea>
-
-<textarea name="DynInputHTML" rows="7" cols="50">&lt;TABLE id=tblDynList class=DF_XTable_Style&gt;
-&lt;TBODY&gt;
-&lt;TR class=DF_XTable_Title_TR_Style&gt;
-&lt;TD class=DF_XTable_Title_TD_Style&gt;&lt;/TD&gt;
-&lt;TD class=DF_XTable_Title_TD_Style width=&quot;10%&quot;&gt;时间&lt;/TD&gt;
-&lt;TD class=DF_XTable_Title_TD_Style width=&quot;10%&quot;&gt;成本中心&lt;/TD&gt;
-&lt;TD class=DF_XTable_Title_TD_Style width=&quot;10%&quot;&gt;内部订单&lt;/TD&gt;
-&lt;TD class=DF_XTable_Title_TD_Style width=&quot;10%&quot;&gt;科目名称&lt;/TD&gt;
-&lt;TD class=DF_XTable_Title_TD_Style width=&quot;10%&quot;&gt;科目代码&lt;/TD&gt;
-&lt;TD class=DF_XTable_Title_TD_Style width=&quot;10%&quot;&gt;可用预算&lt;/TD&gt;
-&lt;TD class=DF_XTable_Title_TD_Style width=&quot;10%&quot;&gt;报销金额&lt;/TD&gt;
-&lt;TD class=DF_XTable_Title_TD_Style width=&quot;28%&quot;&gt;报销事由&lt;/TD&gt;&lt;/TR&gt;
-&lt;TR class=DF_XTable_TR_Style&gt;
-&lt;TD class=DF_XTable_TD_Style&gt;&lt;INPUT type=checkbox&gt;&lt;/TD&gt;
-&lt;TD class=DF_XTable_TD_Style&gt;&lt;TEXTAREA onblur=DF_Cancel_EditIT() style=&quot;BORDER-BOTTOM: black 0px solid; BORDER-LEFT: black 0px solid; OVERFLOW-Y: visible; WIDTH: 100%; BACKGROUND: none transparent scroll repeat 0% 0%; HEIGHT: 18px; FONT-SIZE: 12px; BORDER-TOP: black 0px solid; BORDER-RIGHT: black 0px solid&quot; id=row1 onfocus=DF_Edit_focusIT(event.srcElement) onclick=SelectDate() readOnly&gt;2011-03-14&lt;/TEXTAREA&gt;&lt;/TD&gt;
-&lt;TD class=DF_XTable_TD_Style&gt;&lt;TEXTAREA onblur=DF_Cancel_EditIT() style=&quot;BORDER-BOTTOM: black 0px solid; BORDER-LEFT: black 0px solid; OVERFLOW-Y: visible; WIDTH: 100%; BACKGROUND: none transparent scroll repeat 0% 0%; HEIGHT: 18px; FONT-SIZE: 12px; BORDER-TOP: black 0px solid; BORDER-RIGHT: black 0px solid&quot; id=row2 onfocus=DF_Edit_focusIT(event.srcElement) onclick=SelectCost_1(event.srcElement) readOnly&gt;1101&lt;/TEXTAREA&gt;&lt;/TD&gt;
-&lt;TD class=DF_XTable_TD_Style&gt;&lt;TEXTAREA onblur=DF_Cancel_EditIT() style=&quot;BORDER-BOTTOM: black 0px solid; BORDER-LEFT: black 0px solid; OVERFLOW-Y: visible; WIDTH: 100%; BACKGROUND: none transparent scroll repeat 0% 0%; HEIGHT: 18px; FONT-SIZE: 12px; BORDER-TOP: black 0px solid; BORDER-RIGHT: black 0px solid&quot; id=row3 onfocus=DF_Edit_focusIT(event.srcElement) onclick=SelectOrder_1(event.srcElement) readOnly&gt;&lt;/TEXTAREA&gt;&lt;/TD&gt;
-&lt;TD class=DF_XTable_TD_Style&gt;&lt;TEXTAREA onblur=DF_Cancel_EditIT() style=&quot;BORDER-BOTTOM: black 0px solid; BORDER-LEFT: black 0px solid; OVERFLOW-Y: visible; WIDTH: 100%; BACKGROUND: none transparent scroll repeat 0% 0%; HEIGHT: 18px; FONT-SIZE: 12px; BORDER-TOP: black 0px solid; BORDER-RIGHT: black 0px solid&quot; id=row4 onfocus=DF_Edit_focusIT(event.srcElement) onclick=SelectSubjectCode(event.srcElement) readOnly&gt;开发&lt;/TEXTAREA&gt;&lt;/TD&gt;
-&lt;TD class=DF_XTable_TD_Style&gt;&lt;TEXTAREA onblur=DF_Cancel_EditIT() style=&quot;BORDER-BOTTOM: black 0px solid; BORDER-LEFT: black 0px solid; OVERFLOW-Y: visible; WIDTH: 100%; BACKGROUND: none transparent scroll repeat 0% 0%; HEIGHT: 18px; FONT-SIZE: 12px; BORDER-TOP: black 0px solid; BORDER-RIGHT: black 0px solid&quot; id=row5 onfocus=DF_Edit_focusIT(event.srcElement) onclick=SelectSubjectCode(event.srcElement) readOnly&gt;57010801&lt;/TEXTAREA&gt;&lt;/TD&gt;
-&lt;TD class=DF_XTable_TD_Style&gt;&lt;TEXTAREA onblur=DF_Cancel_EditIT() style=&quot;BORDER-BOTTOM: black 0px solid; BORDER-LEFT: black 0px solid; OVERFLOW-Y: visible; WIDTH: 100%; BACKGROUND: none transparent scroll repeat 0% 0%; HEIGHT: 18px; FONT-SIZE: 12px; BORDER-TOP: black 0px solid; BORDER-RIGHT: black 0px solid&quot; id=row6 onfocus=DF_Edit_focusIT(event.srcElement) readOnly&gt;null&lt;/TEXTAREA&gt;&lt;/TD&gt;
-&lt;TD class=DF_XTable_TD_Style&gt;&lt;TEXTAREA onblur=DF_Cancel_EditIT(ComputeExpMoney(event.srcElement)) style=&quot;BORDER-BOTTOM: black 0px solid; BORDER-LEFT: black 0px solid; OVERFLOW-Y: visible; WIDTH: 100%; BACKGROUND: none transparent scroll repeat 0% 0%; HEIGHT: 18px; FONT-SIZE: 12px; BORDER-TOP: black 0px solid; BORDER-RIGHT: black 0px solid&quot; id=row7 onfocus=DF_Edit_focusIT(event.srcElement)&gt;500&lt;/TEXTAREA&gt;&lt;/TD&gt;
-&lt;TD class=DF_XTable_TD_Style&gt;&lt;TEXTAREA onblur=DF_Cancel_EditIT() style=&quot;BORDER-BOTTOM: black 0px solid; BORDER-LEFT: black 0px solid; OVERFLOW-Y: visible; WIDTH: 100%; BACKGROUND: none transparent scroll repeat 0% 0%; HEIGHT: 18px; FONT-SIZE: 12px; BORDER-TOP: black 0px solid; BORDER-RIGHT: black 0px solid&quot; id=row8 onfocus=DF_Edit_focusIT(event.srcElement)&gt;&lt;/TEXTAREA&gt;&lt;/TD&gt;&lt;/TR&gt;&lt;/TBODY&gt;&lt;/TABLE&gt;</textarea>
-
-<input name="tmpRow_1" value="57010801">
-<input name="tmpCol_1" value="开发">   
-<input type="button" onclick="tmpObj.value = document.all(&quot;tmpRow_1&quot;).value;var rowid = getRowIndex(tmpObj);var colid = getColIndex(tmpObj);if(colid == &quot;2&quot;) {		var sDeptInfo = document.getElementById(&quot;tmpCol_1&quot;).value;	var oDept = DF_GetSelectObj(sDeptInfo);	if(oDept){			if(oDept.StOrgCostID == &quot;undefined&quot;) {			tmpObj.value = &quot;&quot;;			return false		}		tmpObj.value = oDept.StOrgCostID;	}		if(tmpObj.value != &quot;&quot;) {		var tbl = document.all(&quot;tblDynList&quot;);		tbl.rows(rowid).cells(3).childNodes(0).value = &quot;&quot;;	} } else if(colid == &quot;3&quot;) {	if(tmpObj.value != &quot;&quot;) {		var tbl = document.all(&quot;tblDynList&quot;);		tbl.rows(rowid).cells(2).childNodes(0).value = &quot;&quot;;	} } else if(colid == &quot;4&quot; || colid == &quot;5&quot;) {	if(tmpObj.value != &quot;&quot;) {		var tbl = document.all(&quot;tblDynList&quot;);		tbl.rows(rowid).cells(5).childNodes(0).value = document.all(&quot;tmpRow_1&quot;).value;		tbl.rows(rowid).cells(4).childNodes(0).value = document.all(&quot;tmpCol_1&quot;).value;	} }" value="click" id="btntmp_1"> 
-<input type="button" onclick="tmpObj.value = &quot;&quot;" value="clear" id="btnclear_1">   提交日期：2011-03-14
-
-<textarea name="ExpTableHTML" rows="7" cols="50"></textarea>
-
-<input name="syear" value="2011">
-<input name="smonth" value="3">
-<input name="stype" value="成本中心">
-<input name="sarea" value="1101">
-<input name="ssubject" value="57010801">
-<input name="sbudget" value="null">
-<input name="sexpense" value="500">
-标识只做记录作用，执行操作在代理中进行。
-冻结标识：
-<input name="FreezeFlag" value="False">
-解冻标识：
-<input name="ThawFlag" value="">
-已报销标识：
-<input name="ExpenseFlag" value="">
-</div>
-<SCRIPT src="/BasicData/DFDynTableConfig.nsf/DynTblJS?OpenJavascriptLibrary"></SCRIPT>
-<!--二个区段-->
-<DIV class="DF_Content_Section">
-<TABLE class="DF_GTable_Style">
-<!--start 区域标题-->
-<TR >
-<TD class="DF_GTable_Title_TD_Style" colspan="4">
-<SPAN class="DF_GTable_Title_TD_Img"></SPAN>&nbsp;费用明细
-</TD>
-</TR>
-<!--end 区域标题-->
-<TR style="display:none">
-<TD class="DF_GTable_RTD_Style">
-<A href=# onclick="AddRows()"><img src="/DF_Res/DF_Img_Source/Img_YY/add_row.gif" style="border:0"><Q ID="DS_001">新增</Q></A>
-<A href=# onclick="ChgDynAllRow('tblDynList')"><img src="/DF_Res/DF_Img_Source/Img_YY/chkall.gif" style="border:0"><Q ID="DS_002">全选</Q></A>
-<A href=# onclick="ChgDynNoAllRow('tblDynList')"><img src="/DF_Res/DF_Img_Source/Img_YY/chknoall.gif" style="border:0"><Q ID="DS_003">全不选</Q></A>
-<A href=# onclick="DeleteRow()"><img src="/DF_Res/DF_Img_Source/Img_YY/delete.gif" style="border:0"><Q ID="DS_004">删除</Q></A>
-</TD>
-</TR>
-<TR>
-<TD class="DF_GTable_RTD_Style" style="padding:1">
-<DIV id="divDyntbl">
-<TABLE id='tblDynList' class="DF_XTable_Style">
-
-</TABLE>
-</DIV>
-</TD>
-</TR>
-</TABLE>
-</DIV>
-<!--二个区段-->
-<br>
-<!--一个区段-->
-<DIV class="DF_Content_Section">
-<TABLE class="DF_GTable_Style">
-<!--start 区域标题-->
-<TR >
-<TD class="DF_GTable_Title_TD_Style" colspan="4">
-<SPAN class="DF_GTable_Title_TD_Img"></SPAN>&nbsp;审批信息
-</TD>
-</TR>
-<TR>
-<TD class="DF_GTable_LTD_Style">部门审批人：</TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="DeptChargerCN" value="开发一" readonly class="DF_Txt_ReadOnly_Style">
-</TD>
-</TR>
-<TR>
-<TD class="DF_GTable_LTD_Style">公司总经理：</TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="StGerManagerCN" value="开发七" class="DF_Txt_ReadOnly_Style" readonly>
-<SPAN style="display:none"> 
-<input name="StGerManagerEN" value="dev7" class="DF_Text_ReadOnly_Style">
-<input name="StGerManager" value="" class="DF_Text_ReadOnly_Style">
-<input type="button" onclick="//DF_SelectPsn(&quot;&quot;,&quot;checkbox&quot;,&quot;&quot;,&quot;StNotice&quot;,&quot;StNoticeCN&quot;,&quot;StNoticeEN&quot;,&quot;yes&quot;,&quot;&quot;,&quot;&quot;,&quot;no&quot;,&quot;ComOrg&quot;);DF_SelectPsn(&quot;selectMode=checkbox&amp;FieldName=StGerManager&amp;FieldNameCN=StGerManagerCN&amp;FieldNameEN=StGerManagerEN&amp;GroupFlag=no&amp;SelectOrgID=ComOrg&quot;);" value="选择" style="display:none;" id="btNoticeSelect_4">
-<input type="button" onclick="document.all(&quot;StGerManagerCN&quot;).value=&quot;&quot;;document.all(&quot;StGerManagerEN&quot;).value=&quot;&quot;;document.all(&quot;StGerManager&quot;).value=&quot;&quot;;" value="清除" style="display:none;" id="btNoticeCancel_4"></SPAN></TD>
-<TD class="DF_GTable_LTD_Style">公司财务审核岗：</TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="StFICheckCN" value="开发三" class="DF_Txt_ReadOnly_Style" readonly>
-<SPAN style="display:none"> 
-<input name="StFICheckEN" value="dev3" class="DF_Text_ReadOnly_Style">
-<input name="StFICheck" value="" class="DF_Text_ReadOnly_Style">
-<input type="button" onclick="//DF_SelectPsn(&quot;&quot;,&quot;checkbox&quot;,&quot;&quot;,&quot;StNotice&quot;,&quot;StNoticeCN&quot;,&quot;StNoticeEN&quot;,&quot;yes&quot;,&quot;&quot;,&quot;&quot;,&quot;no&quot;,&quot;ComOrg&quot;);DF_SelectPsn(&quot;selectMode=checkbox&amp;FieldName=StFICheck&amp;FieldNameCN=StFICheckCN&amp;FieldNameEN=StFICheckEN&amp;GroupFlag=no&amp;SelectOrgID=ComOrg&quot;);" value="选择" style="display:none;" id="btNoticeSelect_1">
-<input type="button" onclick="document.all(&quot;StFICheckCN&quot;).value=&quot;&quot;;document.all(&quot;StFICheckEN&quot;).value=&quot;&quot;;document.all(&quot;StFICheck&quot;).value=&quot;&quot;;" value="清除" style="display:none;" id="btNoticeCancel_1"></SPAN></TD>
-</TR>
-<TR>
-<TD class="DF_GTable_LTD_Style">公司财务会计：</TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="StFIAccountCN" value="开发四" class="DF_Txt_ReadOnly_Style" readonly>
-<SPAN style="display:none"> 
-<input name="StFIAccountEN" value="dev4" class="DF_Text_ReadOnly_Style">
-<input name="StFIAccount" value="" class="DF_Text_ReadOnly_Style">
-<input type="button" onclick="//DF_SelectPsn(&quot;&quot;,&quot;checkbox&quot;,&quot;&quot;,&quot;StNotice&quot;,&quot;StNoticeCN&quot;,&quot;StNoticeEN&quot;,&quot;yes&quot;,&quot;&quot;,&quot;&quot;,&quot;no&quot;,&quot;ComOrg&quot;);DF_SelectPsn(&quot;selectMode=checkbox&amp;FieldName=StFIAccount&amp;FieldNameCN=StFIAccountCN&amp;FieldNameEN=StFIAccountEN&amp;GroupFlag=no&amp;SelectOrgID=ComOrg&quot;);" value="选择" style="display:none;" id="btNoticeSelect_2">
-<input type="button" onclick="document.all(&quot;StFIAccountCN&quot;).value=&quot;&quot;;document.all(&quot;StFIAccountEN&quot;).value=&quot;&quot;;document.all(&quot;StFIAccount&quot;).value=&quot;&quot;;" value="清除" style="display:none;" id="btNoticeCancel_2"></SPAN></TD>
-<TD class="DF_GTable_LTD_Style">公司财务出纳：</TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="StFICashierCN" value="开发五" class="DF_Txt_ReadOnly_Style" readonly>
-<SPAN style="display:none"> 
-<input name="StFICashierEN" value="dev5" class="DF_Text_ReadOnly_Style">
-<input name="StFICashier" value="">
-<input type="button" onclick="//DF_SelectPsn(&quot;&quot;,&quot;checkbox&quot;,&quot;&quot;,&quot;StNotice&quot;,&quot;StNoticeCN&quot;,&quot;StNoticeEN&quot;,&quot;yes&quot;,&quot;&quot;,&quot;&quot;,&quot;no&quot;,&quot;ComOrg&quot;);DF_SelectPsn(&quot;selectMode=checkbox&amp;FieldName=StFICashier&amp;FieldNameCN=StFICashierCN&amp;FieldNameEN=StFICashierEN&amp;GroupFlag=no&amp;SelectOrgID=ComOrg&quot;);" value="选择" style="display:none;" id="btNoticeSelect_3">
-<input type="button" onclick="document.all(&quot;StFICashierCN&quot;).value=&quot;&quot;;document.all(&quot;StFICashierEN&quot;).value=&quot;&quot;;document.all(&quot;StFICashier&quot;).value=&quot;&quot;;" value="清除" style="display:none;" id="btNoticeCancel_3"></SPAN></TD>
-</TR>
-</TABLE>
-</DIV>
-
-<DIV class="DF_Content_Section" style="display:">
-<TABLE class="DF_GTable_Style">
-<!--start 区域标题-->
-<TR >
-<TD class="DF_GTable_Title_TD_Style" colspan="2">
-<SPAN class="DF_GTable_Title_TD_Img"></SPAN>&nbsp;审批意见
-</TD>
-</TR>
-<!--end 区域标题-->
-<TR style="display:">
-<TD class="DF_GTable_LTD_Style" style="width:20%">请填写审批意见：</TD>
-<TD class="DF_GTable_RTD_Style" style="width:80%">
-<textarea name="ThisFlowMindInfo" id="idThisFlowMindInfoLog" rows="7" cols="50"></textarea>
- <A href="#" onclick="SelectPostil()"><img src="/DF_Res/DF_Img_Source/Img_YY/select.gif" style="border:0"></img>选择</A></TD>
-</TR>
-<TR>
-<TD class="DF_GTable_LTD_Style" style="width:20%">请填写消息提示信息：</TD>
-<TD class="DF_GTable_RTD_Style" style="width:80%">
-<input name="ThisFlowMsgSubject" value="一般费用报销，请查看" id="idThisFlowMsgSubject"></TD>
-</TR>
-</TABLE>
-</DIV>
-
-</DIV>
-<DIV class="DF_HideContent" id="divNtkoAtta" style="margin:0"></DIV>
-<DIV class="DF_HideContent" id="divVoucher">
-<div style="display:none"><br>
-
-<textarea name="SAPInputXML" rows="7" cols="50">&lt;root tblClass=&quot;DF_XTable_Style&quot; ttrClass=&quot;DF_XTable_Title_TR_Style&quot; ttdClass=&quot;DF_XTable_Title_TD_Style&quot; trClass=&quot;DF_XTable_TR_Style&quot; tdClass=&quot;DF_XTable_TD_Style&quot;&gt;&lt;row id=&quot;row1&quot;&gt;&lt;name&gt;记账码&lt;/name&gt;&lt;width&gt;10&lt;/width&gt;&lt;display&gt;show&lt;/display&gt;&lt;readonly&gt;write&lt;/readonly&gt;&lt;onblur&gt;&lt;/onblur&gt;&lt;other&gt;&lt;/other&gt;&lt;/row&gt;&lt;row id=&quot;row2&quot;&gt;&lt;name&gt;总帐科目（供应商号或客户号）&lt;/name&gt;&lt;width&gt;25&lt;/width&gt;&lt;display&gt;show&lt;/display&gt;&lt;readonly&gt;write&lt;/readonly&gt;&lt;onblur&gt;&lt;/onblur&gt;&lt;other&gt;onclick='SelectAllSubject(event.srcElement)'&lt;/other&gt;&lt;/row&gt;&lt;row id=&quot;row3&quot;&gt;&lt;name&gt;金额&lt;/name&gt;&lt;width&gt;10&lt;/width&gt;&lt;display&gt;show&lt;/display&gt;&lt;readonly&gt;write&lt;/readonly&gt;&lt;onblur&gt;onblurCheckNum(this)&lt;/onblur&gt;&lt;other&gt;&lt;/other&gt;&lt;/row&gt;&lt;row id=&quot;row4&quot;&gt;&lt;name&gt;行项目文本&lt;/name&gt;&lt;width&gt;25&lt;/width&gt;&lt;display&gt;show&lt;/display&gt;&lt;readonly&gt;write&lt;/readonly&gt;&lt;onblur&gt;&lt;/onblur&gt;&lt;other&gt;&lt;/other&gt;&lt;/row&gt;&lt;row id=&quot;row5&quot;&gt;&lt;name&gt;成本中心&lt;/name&gt;&lt;width&gt;10&lt;/width&gt;&lt;display&gt;show&lt;/display&gt;&lt;readonly&gt;readonly&lt;/readonly&gt;&lt;onblur&gt;&lt;/onblur&gt;&lt;other&gt;onclick='SelectCost(event.srcElement)'&lt;/other&gt;&lt;/row&gt;&lt;row id=&quot;row6&quot;&gt;&lt;name&gt;内部订单号&lt;/name&gt;&lt;width&gt;10&lt;/width&gt;&lt;display&gt;show&lt;/display&gt;&lt;readonly&gt;readonly&lt;/readonly&gt;&lt;onblur&gt;&lt;/onblur&gt;&lt;other&gt;onclick='SelectOrder(event.srcElement)'&lt;/other&gt;&lt;/row&gt;&lt;row id=&quot;row7&quot;&gt;&lt;name&gt;原因代码&lt;/name&gt;&lt;width&gt;10&lt;/width&gt;&lt;display&gt;show&lt;/display&gt;&lt;readonly&gt;readonly&lt;/readonly&gt;&lt;onblur&gt;&lt;/onblur&gt;&lt;other&gt;onclick='SelectResCode(event.srcElement)'&lt;/other&gt;&lt;/row&gt;&lt;/root&gt;</textarea>
-
-<textarea name="SAPInputHTML" rows="7" cols="50"></textarea>
-
-<input name="tmpRow" value="">
-<input name="tmpCol" value="">   
-<input type="button" onclick="tmpObj.value = document.all(&quot;tmpRow&quot;).value;var colid = getColIndex(tmpObj);if(colid == &quot;5&quot;) {	var sDeptInfo = document.getElementById(&quot;tmpCol&quot;).value;	var oDept = DF_GetSelectObj(sDeptInfo);		if(oDept){		if(oDept.StOrgCostID == &quot;undefined&quot;) {			tmpObj.value = &quot;&quot;;			return false		}		tmpObj.value = oDept.StOrgCostID;	}}" value="click" id="btntmp">
-<input type="button" onclick="tmpObj.value = &quot;&quot;" value="clear" id="btnclear">
-9B69CB677BECBA4B482578530023D9CD
-</div>
-<SCRIPT src="/BasicData/DFDynTableConfig.nsf/DynTblJS?OpenJavascriptLibrary"></SCRIPT>
-<!--一个区段--><br>
-<DIV class="DF_Content_Section">
-<TABLE class="DF_GTable_Style">
-<!--start 区域标题-->
-<TR >
-<TD class="DF_GTable_Title_TD_Style" colspan="4">
-<SPAN class="DF_GTable_Title_TD_Img"></SPAN>&nbsp;凭证信息
-</TD>
-</TR >
-<TD class="DF_GTable_Title_TD_Style" colspan="4">
-
-<A style="display:none" href=# onclick="CopyVoucher('tblSAPList')"><img src="/DF_Res/DF_Img_Source/Img_YY/word_showrevision.gif" style="border:0"><Q ID="DS_001">复制凭证信息</Q></A>
-<A style="display:none" href=# onclick="CreateVoucher('tblSAPList')"><img src="/DF_Res/DF_Img_Source/Img_YY/word_showrevision.gif" style="border:0"><Q ID="DS_001">点击生成凭证</Q></A>
-</TD>
-</TR>
-
-<TR>
-<TD class="DF_GTable_LTD_Style">凭证日期：</TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="VoucherDate" value="" readonly class="DF_Txt_ReadOnly_Style">
-</TD>
-<TD class="DF_GTable_LTD_Style">记账日期：</TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="ChargeDate" value="" readonly class="DF_Txt_ReadOnly_Style">
-</TD>
-</TR>
-<TR>
-<TD class="DF_GTable_LTD_Style">凭证类型：</TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="VoucherType" value="SA" class="DF_Txt_Style"></TD>
-<TD class="DF_GTable_LTD_Style">公司代码：</TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="CompanyCode" value="" class="DF_Txt_Style">
-</TD>
-</TR>
-<TR>
-<TD class="DF_GTable_LTD_Style">货币代码：</TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="Currency" value="" class="DF_Txt_Style"></TD>
-<TD class="DF_GTable_LTD_Style">汇率：</TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="ExangeRate" value="" onblur="JustNum(this, &quot;&quot;);" class="DF_Txt_Style"></TD>
-</TR>
-<TR>
-<TD class="DF_GTable_LTD_Style">参考凭证号：</TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="RefVoucherNum" value="" class="DF_Txt_Style"></TD>
-<TD class="DF_GTable_LTD_Style">凭证抬头：</TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="HeaderText" value="" class="DF_Txt_Style"></TD>
-</TR>
-<TR>
-<TD class="DF_GTable_LTD_Style">客户编号：</TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="CustomCode" value="999930" class="DF_Txt_Style" readOnly></TD>
-<TD class="DF_GTable_LTD_Style">用户名：</TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="VouUserName" value="" class="DF_Txt_Style" readOnly></TD>
-</TR>
-<TR style="display:">
-<TD class="DF_GTable_LTD_Style" style="display:none">客户：</TD>
-<TD class="DF_GTable_RTD_Style" style="display:none">管理员</TD>
-<TD class="DF_GTable_LTD_Style" style="display:none"></TD>
-<TD class="DF_GTable_RTD_Style" style="display:none"></TD>
-<TD class="DF_GTable_LTD_Style" style="display:none">记账期间：</TD>
-<TD class="DF_GTable_RTD_Style" style="display:none">
-<input name="PstngPeriod" value="" onblur="JustInt(this, &quot;对不起，记账期间只能录入整数&quot;);" class="DF_Txt_Style"></TD>
-</TR>
-</TABLE>
-</DIV>
-<!--一个区段-->
-
-<!--二个区段-->
-<DIV class="DF_Content_Section">
-<TABLE class="DF_GTable_Style">
-<!--start 区域标题-->
-<TR >
-<TD class="DF_GTable_Title_TD_Style" colspan="4">
-<SPAN class="DF_GTable_Title_TD_Img"></SPAN>&nbsp;行项目信息
-</TD>
-</TR>
-<!--end 区域标题-->
-<TR style="display:none">
-<TD class="DF_GTable_RTD_Style">
-<A href=# onclick="AddDynRow('tblSAPList', 'SAPInputXML', '')"><img src="/DF_Res/DF_Img_Source/Img_YY/add_row.gif" style="border:0"><Q ID="DS_001">新增</Q></A>
-<A href=# onclick="ChgDynAllRow('tblSAPList')"><img src="/DF_Res/DF_Img_Source/Img_YY/chkall.gif" style="border:0"><Q ID="DS_002">全选</Q></A>
-<A href=# onclick="ChgDynNoAllRow('tblSAPList')"><img src="/DF_Res/DF_Img_Source/Img_YY/chknoall.gif" style="border:0"><Q ID="DS_003">全不选</Q></A>
-<A href=# onclick="DelDynRow('tblSAPList')"><img src="/DF_Res/DF_Img_Source/Img_YY/delete.gif" style="border:0"><Q ID="DS_004">删除</Q></A>
-</TD>
-</TR>
-<TR>
-<TD class="DF_GTable_RTD_Style" style="padding:1">
-<DIV id="divSAPtbl">
-<TABLE id='tblSAPList' class="DF_XTable_Style">
-
-</TABLE>
-</DIV>
-</TD>
-</TR>
-</TABLE>
-</DIV>
-<!--二个区段-->
-
-<!--三个区段-->
-<DIV class="DF_Content_Section">
-<TABLE class="DF_GTable_Style">
-<!--start 区域标题-->
-<TR >
-<TD class="DF_GTable_Title_TD_Style" colspan="4">
-<SPAN class="DF_GTable_Title_TD_Img"></SPAN>&nbsp;SAP返回记录
-</TD>
-</TR>
-<!--end 区域标题-->
-<TR>
-<TD class="DF_GTable_LTD_Style">凭证号：</TD>
-<TD class="DF_GTable_RTD_Style" colspan=3>
-<input name="StVoucherNum_1" value="" readOnly class="DF_Txt_ReadOnly_Style"></TD>
-</TR>
-<TR>
-<TD class="DF_GTable_LTD_Style">成功标识：</TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="StFlag_1" value="" readOnly></TD>
-<TD class="DF_GTable_LTD_Style">错误代码：</TD>
-<TD class="DF_GTable_RTD_Style">
-<input name="StErrorMsg_1" value="" readOnly></TD>
-</TR>
-</TABLE>
-</DIV>
-<!--三个区段-->
-
-</DIV>
-<DIV class="DF_HideContent">
-<DIV class="DF_Content_Section" id="divComments"></DIV>
-</DIV>
-<DIV class="DF_HideContent" id="divDigichannel">
-<div style="display:none">
-当前配置的key值：
-<input name="key" value="" class="DF_Text_ReadOnly_Style" style="width:100%" readOnly>当前数据库路径：
-<input name="DcDbPath" value="FICO/DigiFlowNorFee.nsf">日志文档UNID：
-<input name="DcLogUID" value="">
-</div>
-<div id="DC_IMG" style="display:none"> <img src="/FICO/DigiFlowNorFee.nsf/e3f8bfcbdacc8443482577a00048982a/$Body/0.3D6?OpenElement&amp;FieldElemFormat=gif" width="16" height="16"> <font color="#C0C0C0">请稍等…</font></div>
-<script src='/Produce/DigiFlowScriptCss.nsf/CommonJS?openjavascriptlibrary'></script>
-<script src='/Produce/DigiChannelJCoConfig.nsf/DC_PublicJSLib?openjavascriptlibrary'></script>
-<script src='/Produce/DigiChannelJCoConfig.nsf/DC_ApplicationJSLib?openjavascriptlibrary'></script>
-<table class="DF_GTable_Style" style="display:">
-<TR>
-<TD class="DF_GTable_Title_TD_Style" colspan="4">
-<SPAN class="DF_GTable_Title_TD_Img"></SPAN>&nbsp;登陆信息
-</TD>
-</TR>
-<tr class="DF_GTable_TR_Style">
-<td class="DF_GTable_LTD_Style">当前用户名称</td>
-<td class="DF_GTable_RTD_Style">
-<input name="DcUserITCode" value="admin" class="DF_Text_ReadOnly_Style" style="width:100%" readOnly></td>
-<td class="DF_GTable_LTD_Style">当前的用户名</td>
-<td class="DF_GTable_RTD_Style">
-<input name="DcUserNameCN" value="管理员" class="DF_Text_ReadOnly_Style" style="width:100%" readOnly></td>
-</tr>
-<tr class="DF_GTable_TR_Style">
-<td class="DF_GTable_LTD_Style">当前的数据库</td>
-<td class="DF_GTable_RTD_Style">
-<input name="DcDatabase" value="FICO\DigiFlowNorFee.nsf" class="DF_Text_ReadOnly_Style" style="width:100%" readOnly></td>
-<td class="DF_GTable_LTD_Style">当前表单编号</td>
-<td class="DF_GTable_RTD_Style">
-<input name="DcFormID" value="646C3F56FBAA7CFB4825779E001D151F" class="DF_Text_ReadOnly_Style" style="width:100%" readOnly></td>
-</tr>
-<tr class="DF_GTable_TR_Style">
-<td class="DF_GTable_LTD_Style">当前文档编号</td>
-<td class="DF_GTable_RTD_Style">
-<input name="DcDocUID" value="B61FF333FD17379F4825785300244FA5" class="DF_Text_ReadOnly_Style" style="width:100%" readOnly></td>
-<td class="DF_GTable_LTD_Style">当前文档类型</td>
-<td class="DF_GTable_RTD_Style">
-<input name="DcDocType" value="old" class="DF_Text_ReadOnly_Style" style="width:100%" readOnly></td>
-</tr>
-<TR>
-<TD class="DF_GTable_Title_TD_Style" colspan="4">
-<SPAN class="DF_GTable_Title_TD_Img"></SPAN>&nbsp;配置信息
-</TD>
-</TR>
-<tr class="DF_GTable_TR_Style">
-<td class="DF_GTable_LTD_Style">JCO连接名称</td>
-<td class="DF_GTable_RTD_Style">
-<input name="DcConnection" value="" class="DF_Text_ReadOnly_Style" style="width:100%" readOnly></td>
-<td class="DF_GTable_LTD_Style">RFC函数名称</td>
-<td class="DF_GTable_RTD_Style">
-<input name="DcFunctionName" value="" class="DF_Text_ReadOnly_Style" style="width:100%" readOnly></td>
-</tr>
-<tr class="DF_GTable_TR_Style">
-<td class="DF_GTable_LTD_Style">应用分类名称</td>
-<td class="DF_GTable_RTD_Style">
-<input name="DcApplicationType" value="" class="DF_Text_ReadOnly_Style" style="width:100%" readOnly></td>
-<td class="DF_GTable_LTD_Style">记录日志标志</td>
-<td class="DF_GTable_RTD_Style">
-<input name="DcLogFlag" value="" class="DF_Text_ReadOnly_Style" style="width:100%" readOnly></td>
-</tr>
-<tr class="DF_GTable_TR_Style">
-<td class="DF_GTable_LTD_Style">输入参数配置(字段、结构)</td>
-<td class="DF_GTable_RTD_Style" style="height:40px;">
-<textarea name="RtfInputConfigXML" style="width:250;height:35;" readOnly rows="7" cols="50"></textarea>
-</td>
-<td class="DF_GTable_LTD_Style">输入参数配置(表)</td>
-<td class="DF_GTable_RTD_Style" style="height:40px;">
-<textarea name="RtfInputTableConfigXML" style="width:250;height:35;" readOnly rows="7" cols="50"></textarea>
-</td>
-</tr>
-<tr class="DF_GTable_TR_Style">
-<td class="DF_GTable_LTD_Style">输出参数配置(字段、结构)</td>
-<td class="DF_GTable_RTD_Style" style="height:40px;">
-<textarea name="RtfOutputConfigXML" style="width:250;height:35;" readOnly rows="7" cols="50"></textarea>
-</td>
-<td class="DF_GTable_LTD_Style">输出参数配置(表)</td>
-<td class="DF_GTable_RTD_Style" style="height:40px;">
-<textarea name="RtfOutputTableConfigXML" style="width:250;height:35;" readOnly rows="7" cols="50"></textarea>
-</td>
-</tr>
-</table>
-<table class="DF_GTable_Style">
-<TR>
-<TD class="DF_GTable_Title_TD_Style" colspan="4">
-<SPAN class="DF_GTable_Title_TD_Img"></SPAN>&nbsp;交互信息
-</TD>
-</TR>
-<tr class="DF_GTable_TR_Style">
-<td class="DF_GTable_LTD_Style">输入参数(字段、结构)</td>
-<td class="DF_GTable_RTD_Style" style="height:40px;">
-<textarea name="RtfInputXML" style="width:250;height:35;" readOnly rows="7" cols="50"></textarea>
-</td>
-<td class="DF_GTable_LTD_Style">输入参数(表)</td>
-<td class="DF_GTable_RTD_Style" style="height:40px;">
-<textarea name="RtfInputTableXML" style="width:250;height:35;" readOnly rows="7" cols="50"></textarea>
-</td>
-</tr>
-<tr class="DF_GTable_TR_Style">
-<td class="DF_GTable_LTD_Style">输出参数(字段、结构)</td>
-<td class="DF_GTable_RTD_Style" style="height:40px;">
-<textarea name="RtfOutputXML" style="width:250;height:35;" readOnly rows="7" cols="50"></textarea>
-</td>
-<td class="DF_GTable_LTD_Style">输出参数(表)</td>
-<td class="DF_GTable_RTD_Style" style="height:40px;">
-<textarea name="RtfOutputTableXML" style="width:250;height:35;" readOnly rows="7" cols="50"></textarea>
-</td>
-</tr>
-</table>
-<table class="DF_GTable_Style">
-<tr>
-<td class="DF_GTable_RTD_Style" colspan="4"><font color="#FF0000">调试按钮:</font> 
-<input type="button" onclick="/*本按钮的作用是根据key值初始化Jco配置信息*/var key=&quot;1&quot;; //此处的key值就是此表单在配置库中 做相应交互应用时用到的key值配置。DC_InitConfiguration(key);" value="0.初始化" id="btnInit">
-<input type="button" onclick="if(document.all(&quot;ReloadFlagButton&quot;)!=null){	document.all(&quot;ReloadFlagButton&quot;).click() ;}if(reloadFlag==&quot;yes&quot;){ 	DC_LoadInputFieldData();   	DC_LoadInputTablesData();  }	" value="1.装载" id="btnReload">
-<input type="button" onclick="DC_AgentExcute(); //代理方式执行	" value="2.Agent执行" id="btnAgentExcute">
-<input type="button" onclick="DC_ServletExcute(); //Servlet方式执行	" value="2.Servlet执行" id="btnServletExcute">
-<input type="button" onclick="if(document.all(&quot;ParseFlagButton&quot;)!=null){	document.all(&quot;ParseFlagButton&quot;).click() ;}if(parseFlag==&quot;yes&quot;){ 	DC_Parse();}	" value="3.解析" id="btnParse">
-<input type="button" onclick="DC_WriteToSAP(&quot;&quot;,&quot;0&quot;);/*函数DF_WriteToSAP(key,runmode)参数说明：key：配置表单的key值，不输入默认为0runmode：运行方式,为&quot;0&quot;代表代理方式；为&quot;1&quot;代表servlet方式，其他值默认代理方式*/" value="4.全部" id="btnAll">
-<input type="button" onclick="// 此按钮是用来展示最近一次的交互信息var url=&quot;&quot;;if(document.all(&quot;DcLogUID&quot;).value!=&quot;&quot;){	url=&quot;/Produce/DigiChannelJCoLog.nsf/0/&quot;+document.all(&quot;DcLogUID&quot;).value+&quot;?opendocument&quot;	window.open(url,'','');}else{	alert(&quot;未找到相应日志！&quot;);}return false;" value="5.日志信息" id="btnLogInfo"> 
-<input type="button" onclick="reloadFlag = &quot;yes&quot;;// 此按钮在“1.装载”按钮之前执行	" value="ReloadFlagButton" style="display:none" id="ReloadFlagButton">
-<input type="button" onclick="parseFlag = &quot;yes&quot;;//此按钮在“3.解析”按钮执行之前执行" value="ParseFlagButton" style="display:none" id="ParseFlagButton"> </td>
-</tr>
-</table>
-
-</DIV>
-</DIV>
-</DIV>
-<DIV id="DF_Footer">
-<DIV style="display:none">&copy;鼎捷软件有限公司</DIV>
-</DIV>
-<DIV style="display:none"> 
-<input type="button" onclick="GuanJunKK_ButtonFlag=&quot;yes&quot;;if(document.all(&quot;TFCurNodeID&quot;).value == &quot;FlowStartNode&quot;) {		arrField=new Array();	arrRemind=new Array();	var nid = 0;		arrField[nid] = &quot;StBXPsnCN&quot;;	arrRemind[nid] = &quot;请选择报销人&quot;	nid++;		arrField[nid] = &quot;DeptName&quot;;	arrRemind[nid] = &quot;请选择所属部门&quot;	nid++;	arrField[nid] = &quot;StPayCompany&quot;;	arrRemind[nid] = &quot;请选择所属公司&quot;	nid++;		arrField[nid] = &quot;StPayCompanyCode&quot;;	arrRemind[nid] = &quot;请填写公司代码&quot;	nid++;		arrField[nid] = &quot;StCurrencyType&quot;;	arrRemind[nid] = &quot;请选择币种&quot;	nid++;		arrField[nid] = &quot;StExchangeRate&quot;;	arrRemind[nid] = &quot;请填写汇率&quot;	nid++;		arrField[nid] = &quot;IsBackMoney&quot;;	arrRemind[nid] = &quot;请选择是否冲销借款&quot;	nid++;		if(DF_getOptionValue(&quot;IsBackMoney&quot;) == &quot;是&quot;) {		arrField[nid] = &quot;CustomCode&quot;;		arrRemind[nid] = &quot;客户编号系统中未能找到，您不能提交。&quot;		//arrField[nid] = &quot;DebitExpenseMoney&quot;;		//arrRemind[nid] = &quot;请填写冲销金额。&quot;		//DebitExpenseMoney		nid++;	}		arrField[nid] = &quot;StPayType&quot;;	arrRemind[nid] = &quot;请选择付款方式&quot;	nid++;		var sptype = DF_getOptionValue(&quot;StPayType&quot;);	if(sptype == &quot;银行卡&quot;) {			arrField[nid] = &quot;BankInfo&quot;;		arrRemind[nid] = &quot;请选择对应银行&quot;		nid++;				arrField[nid] = &quot;StMyBankNum&quot;;		arrRemind[nid] = &quot;请填写银行卡信息&quot;		nid++;	}		if(!DF_checkInput(arrField,arrRemind)) return false;		if(DF_getOptionValue(&quot;IsBackMoney&quot;) == &quot;是&quot;) {		if(document.all(&quot;EX_FLAG&quot;).value != &quot;X&quot; &amp;&amp; document.all(&quot;EX_FLAG&quot;).value != &quot;N&quot;) {			alert(&quot;请点击查询个人借款金额&quot;);			return false		}				//冲销借款验证	if (document.all.DebitExpenseMoney.value == &quot;&quot; || document.all.DebitExpenseMoney.value == 0)	{		alert(&quot;请填写冲销借款&quot;);		document.all.DebitExpenseMoney.style.background = &quot;yellow&quot;;				return false;	}	}		var tblObj = document.all(&quot;tblDynList&quot;);	if(tblObj.rows.length &lt; 2) {		alert(&quot;对不起，请添加报销明细&quot;);		return false	}							//表格必填控制	if(JudgeDynTblValues() == false) return false	if(document.all(&quot;ConBudFlag&quot;).value == &quot;1&quot;) {		//开始环节获取预算		if(CallBudgetNum() == false) return false			//开始环节保存预算相关数据,验证是否超预算		if(ExpSetField() == false) return false	}			//金额控制	var aMon = parseFloat(document.all(&quot;StAppMoney&quot;).value).toFixed(2);		if(DF_getOptionValue(&quot;IsBackMoney&quot;) == &quot;是&quot;) {		//冲销借款处理		if(document.all(&quot;DebitMoney&quot;).value == &quot;&quot;) document.all(&quot;DebitMoney&quot;).value = &quot;0&quot;		if(document.all(&quot;DebitExpenseMoney&quot;).value == &quot;&quot;) document.all(&quot;DebitExpenseMoney&quot;).value = &quot;0&quot;		var dMon = parseFloat(document.all(&quot;DebitExpenseMoney&quot;).value);		var sMon = parseFloat(document.all(&quot;DebitMoney&quot;).value);				if(parseFloat(document.all(&quot;DebitExpenseMoney&quot;).value) &gt; parseFloat(document.all(&quot;DebitMoney&quot;).value)) {			alert(&quot;对不起，冲销借款金额不能大于借款金额&quot;);			return false		}				if(dMon &gt; aMon) {			alert(&quot;对不起，冲销借款金额不能大于实际报销金额&quot;);			return false		}	}	}// 生成凭证验证if (document.all.VoucherCreateFlag.value == &quot;1&quot;){			//alert(document.getElementById(&quot;StFlag_1&quot;).value)	if (document.getElementById(&quot;StFlag_1&quot;).value == undefined)	{		alert(&quot;系统正在和SAP交互需要几秒中，请稍候...&quot;);						return false;	}	//注释信息	//if(!(document.getElementById(&quot;StFlag_1&quot;).value == &quot;X&quot;))	//{			//alert(&quot;请生成凭证!&quot;);						//return false;	//}}//保存动态表格SaveDynTable();GuanJunKK_ButtonFlag=&quot;no&quot;;" value="GuanJunKK_Button" style="display:none" id="GuanJunKK_Button"> 
-<input type="button" onclick="//保存动态表格SaveDynTable();" value="GuanJunKK_SaveDraftButton" id="GuanJunKK_SaveDraftButton" style="display:none"> </DIV>
-<input name="$V2AttachmentOptions" type="hidden" value="0">
-<input name="openMode" type="hidden" value="old">
-<input name="VoucherCreateNode" type="hidden" value="FlowNode4">
-<input name="VoucherShowFlag" type="hidden" value="0">
-<input name="VoucherCreateFlag" type="hidden" value="0">
-<input name="PsnSeeFlag" type="hidden" value="0">
-<input name="PsnCreateFlag" type="hidden" value="0">
-<input name="DF_FlowJS" type="hidden" value="&lt;script src='/Produce/DigiFlowScriptCss.nsf/FlowNextOptionJS?openjavascriptlibrary'&gt;&lt;/script&gt;&lt;script src='/Produce/ProInd.nsf/NewFlowTraceJS?openjavascriptlibrary'&gt;&lt;/script&gt;">
-<input name="CurUserITCode" type="hidden" value="dev1">
-<input name="CurUserNameCN" type="hidden" value="开发者1">
-<input name="CurUserParentOrgID" type="hidden" value="ComOrg">
-<input name="CurUserLoginDate" type="hidden" value="06/21/2012 04:07:33 PM">
-<input name="TFCurNodeOnlyPassFlag" type="hidden" value="no">
-<input name="TFCurNodeMailAuthorFlag" type="hidden" value="no">
-<input name="TFCurNodeOneDo" type="hidden" value="(单一签核)">
-<input name="DF_Ln_Type" type="hidden" value="ZH">
-<input name="CurUserApplyDeptID" type="hidden" value="">
-<input name="RtfPsnPostMember" type="hidden" value="">
-<input name="RtfDeptPostMember" type="hidden" value="&lt;input type=&quot;text&quot; name=&quot;StJTFZCBOSS002Member&quot; id=&quot;StJTFZCBOSS002Member&quot; value=&quot;&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;StJTZCBOSS001Member&quot; id=&quot;StJTZCBOSS001Member&quot; value=&quot;开发者1/dev1&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;StP00020Member&quot; id=&quot;StP00020Member&quot; value=&quot;开发一/dev1&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;StP00053Member&quot; id=&quot;StP00053Member&quot; value=&quot;开发十二/dev12;开发者1/dev1&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;StP00032Member&quot; id=&quot;StP00032Member&quot; value=&quot;开发二/dev2&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;StP00054Member&quot; id=&quot;StP00054Member&quot; value=&quot;开发八/dev8&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;StP00009Member&quot; id=&quot;StP00009Member&quot; value=&quot;开发三/dev3&quot;&gt;">
-<input name="RtfCreaterPsnPostMember" type="hidden" value="&lt;input type=&quot;text&quot; name=&quot;StCreaterPOST34Member&quot; id=&quot;StCreaterPOST34Member&quot; value=&quot;马涛/matao&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;StCreaterP00003Member&quot; id=&quot;StCreaterP00003Member&quot; value=&quot;管理员/admin&quot;&gt;">
-<input name="Date" type="hidden" value="2011-03-14 14:31:35">
-<input name="PsnCN" type="hidden" value="管理员">
-<input name="StBXPsn" type="hidden" value="">
-<input name="StBXPsnEN" type="hidden" value="admin">
-<input name="StBXPsnAll" type="hidden" value="">
-<input name="DeptID" type="hidden" value="A00001">
-<input name="Dept" type="hidden" value="{&quot;StOrgName&quot;:&quot;化工行业&quot;,&quot;StOrgID&quot;:&quot;A00001&quot;,&quot;StOrgType&quot;:&quot;ComOrg&quot;,&quot;StOrgCostID&quot;:&quot;1101&quot;,&quot;StOrgLeader&quot;:&quot;&quot;,&quot;StOrgGrpName&quot;:&quot;化工行业_部门&quot;,&quot;StOUName&quot;:&quot;化工行业&quot;}">
-<input name="DefaultCost" type="hidden" value="1101">
-<input name="SubmitDate" type="hidden" value="2011-03-14">
-<input name="DeptCharger" type="hidden" value="开发一/dev1">
-<input name="DeptChargerEN" type="hidden" value="dev1">
-<input name="DeptChargerAll" type="hidden" value="{UserNameCN:&quot;开发一&quot;,ITCode:&quot;dev1&quot;,UserNumber:&quot;&quot;,UserNameEN:&quot;dev1&quot;,UserDeptPhone:&quot;010-00001111&quot;,UserMobile:&quot;139-00001111&quot;,UserMail:&quot;&quot;,DeptID:&quot;BA10001&quot;,DeptName:&quot;厂领导&quot;,DeptPostID:&quot;经理&quot;,AddedDeptID:&quot;&quot;,Deptleader:&quot;开发一/dev1&quot;,StOrgCostID:&quot;&quot;,StOrgGrpName:&quot;化工行业_厂领导_部门&quot;,StOUName:&quot;化工行业_厂领导&quot;,UserOtherInfo_1:&quot;&quot;,UserOtherInfo_2:&quot;&quot;,UserOtherInfo_3:&quot;&quot;,UserOtherInfo_4:&quot;&quot;,UserOtherInfo_5:&quot;&quot;,UserOtherInfo_6:&quot;&quot;,UserOtherInfo_7:&quot;&quot;,UserOtherInfo_8:&quot;&quot;,UserOtherInfo_9:&quot;&quot;,UserOtherInfo_10:&quot;&quot;,UserOtherInfo_11:&quot;&quot;,UserOtherInfo_12:&quot;&quot;,UserOtherInfo_13:&quot;&quot;,UserOtherInfo_14:&quot;&quot;,UserOtherInfo_15:&quot;&quot;,UserOtherInfo_16:&quot;&quot;,UserOtherInfo_17:&quot;&quot;,UserOtherInfo_18:&quot;&quot;,UserOtherInfo_19:&quot;&quot;,UserOtherInfo_20:&quot;&quot;,StJTFZCBOSS002Member:&quot;&quot;,StJTZCBOSS001Member:&quot;开发一/dev1&quot;,StP00020Member:&quot;开发一/dev1&quot;,StP00053Member:&quot;开发十二/dev12&quot;,StP00032Member:&quot;开发二/dev2&quot;,StP00054Member:&quot;开发八/dev8&quot;}">
-<input name="TFCurNodeNextOpters" type="hidden" value="">
-<input name="StDocUnid" type="hidden" value="9B69CB677BECBA4B482578530023D9CD">
-<input name="CustomName" type="hidden" value="管理员"></form>
-</body>
-</html>

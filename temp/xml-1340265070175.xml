@@ -1,301 +1,0 @@
-<?xml version="1.0" encoding="gb18030"?>
-<html><head><link rel="stylesheet" href="/DF_Res/DF_Style_Source/DF_Style_New/DF_Css/publishinfo.css" type="text/css" /><script src="/Produce/DigiFlowScriptCss.nsf/CommonJS?openjavascriptlibrary" /><script src="/Produce/DigiFlowScriptCss.nsf/CheckOutJS?openjavascriptlibrary" /><script src="/Produce/DigiFlowScriptCss.nsf/ProjectCommonJS?openjavascriptlibrary" /><script src="/jquery/js/jquery.js" /><title>福田雷沃重工与约翰迪尔论道“廊坊会”报道二</title><script language="JavaScript" type="text/javascript"><![CDATA[
-<!-- 
-//页签切换function switchTag(){ var markid=event.srcElement.id;  var frmobj=document.body;  switch(markid){  case "leftTD_Doc":   frmobj.document.all("docContent").style.display="";   frmobj.document.all("BasicInfo").style.display="none";   document.all("leftTD_Doc").className="SelectedTag";   document.all("leftTD_Info").className="UnselectedTag";   break;  case "leftTD_Info":   frmobj.document.all("docContent").style.display="none";   frmobj.document.all("BasicInfo").style.display="";   document.all("leftTD_Doc").className="UnselectedTag";   document.all("leftTD_Info").className="SelectedTag";   break; }}
-// -->
-]]></script><script language="JavaScript" type="text/javascript"><![CDATA[
-<!-- 
-document._domino_target = "_self";
-function _doClick(v, o, t, h) {
-  var form = document._InfoForm;
-  if (form.onsubmit) {
-     var retVal = form.onsubmit();
-     if (typeof retVal == "boolean" && retVal == false)
-       return false;
-  }
-  var target = document._domino_target;
-  if (o.href != null) {
-    if (o.target != null)
-       target = o.target;
-  } else {
-    if (t != null)
-      target = t;
-  }
-  form.target = target;
-  form.__Click.value = v;
-  if (h != null)
-    form.action += h;
-  form.submit();
-  return false;
-}
-// -->
-]]></script><script language="JavaScript" type="text/javascript"><![CDATA[
-<!-- 
-//加载操作栏信息function loadMenulist(id){     var navRoot;     var divList; if (document.all&&document.getElementById)      {  navRoot = document.getElementById(id);  divList = navRoot.getElementsByTagName("DIV");  for (i=0; i<divList.length; i++)           {   node = divList[i];      if(node.className == "DF_MenuBtn")   {       node.onmouseover = function()       {           this.className="DF_MenuBtnOver";       }       node.onmouseout = function()       {           this.className="DF_MenuBtn";       }   }  }     }}function check_submit(){  Fck_Editor_Submit();  document.forms[0].submit();}
-
-// -->
-]]></script><script language="JavaScript" type="text/javascript"><![CDATA[
-<!-- 
-/*function Fck_Editor_Submit(){ document.all.FCK_EditorValue.value = document.frames("FCKditor").GetContents();}*/function Fck_Editor_Submit(){ try{  var fckHtml = document.frames("FCKditor").GetContents();  if(fckHtml != null && fckHtml != "null" && fckHtml != "undefined") {   document.all.FCK_EditorValue.value = fckHtml;  }    var fckHtml = document.frames("FCKditor_EN").GetContents();  if(fckHtml != null && fckHtml != "null" && fckHtml != "undefined") {   document.all.FCK_EditorValue_EN.value = fckHtml;  } } catch(e) {  alert("在线编辑器出错，您本次所更改的内容无法保存！") }}
-
-// -->
-]]></script><script language="JavaScript" type="text/javascript"><![CDATA[
-<!-- 
-function DF_UpFile(){ Fck_Editor_Submit();  var filename=document.all("DF_File").value;  if(filename=="") { return false; }  document.all("DF_FileFlag").value="file";  if(document.all("BDF_Button_submit")!=null) document.all("BDF_Button_submit").click(); else document.all("btUpload").click();}function DF_DelFile(){ var sel_doc = window.document.all("%%Detach"); if ( sel_doc != "[object]") return false; var sel_len = sel_doc.length; var sel_flag = false; if (isNaN(sel_len) == false) {  for(var i=0;i<sel_len;i++)  {   if (sel_doc[i].checked)   {    sel_flag = true;   }  } } else {  if (sel_doc.checked)  {   sel_flag = true;  } } if (sel_flag == false) {  alert("请选择要删除的附件！");  return false; } document.all("DF_FileFlag").value="file";          if(document.all("BDF_Button_submit")!=null) document.all("BDF_Button_submit").click();     else document.all("btUpload").click();}function DF_CheckFile() { var filename=document.all("DF_File").value;  if(filename=="") { return false; }  try {  var ado_stream=new ActiveXObject("ADODB.Stream");     ado_stream.Type=2;     ado_stream.Open();     ado_stream.LoadFromFile(filename);//将文件信息存入流     fSize=(ado_stream.Size/1024).toFixed(0);    if(fSize>DF_File_Size) {      alert(DF_File_Prompt);      DF_ClearFile();       return false;  } } catch(e){ return true;}   return true; } function DF_ClearFile(){ document.all("DF_File").select(); try{  var WshShell = new ActiveXObject("WScript.Shell");  WshShell.SendKeys("{DEL}"); }catch(e){}}
-
-// -->
-]]></script><link rel="stylesheet" href="/DF_Res/DF_Style_Source/DF_Style_New/DF_Css/publishinfo.css" type="text/css" /><style><![CDATA[
-.SelectedTag{border:#cedbe4 solid 0px;background:url(../tag1.gif) no-repeat;cursor:default}
-.UnselectedTag{border--right:#cedbe4 solid 1px;background:url(../tag2.gif) no-repeat;cursor:hand}
-
-#FCKEditorFrm{
-height:expression(document.body.clientHeight-280);
-}
-
-#FCKEditorFrm_EN{
-height:expression(document.body.clientHeight-280);
-}
-]]></style></head><body text="#000000" bgcolor="#FFFFFF" style="overflow:auto" onload="DF_maxWindow();//document.all(" rtfinfo="RTFInfo" innerhtml="document.all(&quot;Fck_HTML_EN&quot;).value;" states="States" if="if" document.all="document.all" df_ln_type="DF_Ln_Type" value="=" en="EN" amp="amp" stengpub="StEngPub" stbody_en="StBody_EN" 孟帅添加="孟帅添加" 用于控制内容太少的话左侧标签显示问题="用于控制内容太少的话左侧标签显示问题" style.display="=&quot;&quot;&amp;&amp;document.all(&quot;StBody_EN&quot;).clientHeight">
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;50){document.all(&quot;ForHeightDiv&quot;).style.display=&quot;&quot;;}} else {  document.all(&quot;StBody&quot;).innerHTML=document.all(&quot;Fck_HTML&quot;).value; //孟帅添加，用于控制内容太少的话左侧标签显示问题 if(document.all(&quot;StBody&quot;).style.display==&quot;&quot;&amp;&amp;document.all(&quot;StBody&quot;).clientHeight&lt;50){document.all(&quot;ForHeightDiv&quot;).style.display=&quot;&quot;;}}if(document.all(&quot;EditFlag&quot;).value == &quot;YES&quot;) { document.all(&quot;FCKContentDiv_CN&quot;).style.display = &quot;&quot;; if(document.all(&quot;StEngPub&quot;).value == &quot;EN&quot;) {  document.all(&quot;FCKContentDiv_EN&quot;).style.display = &quot;&quot;; }}//多语言DF_LocalAPP_Load(true)&quot;&gt;
-
-<form method="post" action="/Application/DigiFlowInfoPublish.nsf/InfoByDateView_2/13366dcbf8cc087848257a23005a4f2f?EditDocument&amp;Login&amp;Seq=1" enctype="multipart/form-data" name="_InfoForm">
-<input type="hidden" name="__Click" value="0" />
-<input type="hidden" name="%%ModDate" value="48257A240001191B" /><!--表单名及共享域-->
-<div style="display:none">
-<input name="Form" value="InfoForm" />new
-<input name="DF_DbPath" value="Application/DigiFlowInfoPublish.nsf" />
-<input name="DF_DbDir" value="Application" />
-<input name="DF_DbName" value="DigiFlowInfoPublish.nsf" /><script src="/Produce/DigiFlowScriptCss.nsf/CommonJS?openjavascriptlibrary" /><script src="/Produce/DigiFlowScriptCss.nsf/CheckOutJS?openjavascriptlibrary" /><script src="/Produce/DigiFlowScriptCss.nsf/ProjectCommonJS?openjavascriptlibrary" /><script src="/jquery/js/jquery.js" /><br />
-
-<input name="allReader" value="[allReader]" /><font size="2" face="宋体">0</font><br />
-如果有图片附件记录图片附件的名称：<br />
-是否首页图片新闻：
-<input name="StOkPic" value="0" class="DF_Option_Style" display:none="display:none" xmlns:display="display" /><br />
-是否编辑正文：
-<input name="EditFlag" value="NO" class="DF_Option_Style" /><br />
-
-<input name="StEngPub" value="CN" /><br />
-在首页显示的缩微图附件名：
-<input name="StSmallPic" value="" />
-用户语言类型：ZH<br />
-
-<textarea name="Fck_HTML_AttaName" rows="7" cols="50" />
- 加此域是为了解决保存时自动把附件名加到Fck_HTML域中的问题—BY  YiYing 20120511
-</div>
-
-<xml id="DF_LocalSourceData" src="/Application/DigiFlowInfoPublish.nsf/DF_L_InfoForm_ZH">
-
-
-
-</xml><div width="1024px" style="overflow-y:visible;padding-left:5px">
-
-<div style="background:url(../background.gif) right no-repeat;text-align:left;width:1000px;height:100px;">
-<div style="padding-left:30px;padding-top:30px;float:left"><img src="../logo.gif" /></div>
-
-<div style="padding-top:70px">
-
-<div class="DF_Header_MenuBtn" id="tblAction">
-</div>
-<div style="display:none"> 
-<input type="button" value="编辑" id="btActionEdit" onclick="return _doClick(482577C80009D7FF.9db7fa66434ed4364825764700296fc9/$Body/0.3D8, this, null)" />  
-<input type="button" value="保存" style="display:none" id="ThFlowSaveButton_1" onclick="return _doClick(482577C80009D7FF.9db7fa66434ed4364825764700296fc9/$Body/0.4A4, this, null)" /></div>
-<!--加载操作条信息-->
-<script><![CDATA[loadMenulist("tblAction");]]></script>
-<!--加载操作条信息-->
-
-</div>
-</div>
-
-
-
-
-
-<table cellpadding="0" cellspacing="0" border="0"><tbody><tr><td style="width:30px;height:100%" id="DF_TagGroup">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<table cellpadding="0" cellspacing="0" style="width:100%;height:100%"><tbody><tr><td id="" style="width:30px;height:3px;border-right:#cedbe4 solid 1px;"><br /></td></tr><tr><td id="leftTD_Doc" class="SelectedTag" onclick="switchTag();" style="width:30px;height:80px;padding-left:9px;padding-top:5px;">正文内容</td></tr><tr><td id="" style="width:30px;height:3px;border-right:#cedbe4 solid 1px;" /></tr><tr><td id="leftTD_Info" class="UnselectedTag" onclick="switchTag();" style="width:30px;height:80px;padding-left:9px;padding-top:5px;">基本信息</td></tr><tr><td id="" style="width:30px;border-right:#cedbe4 solid 1px;">&amp;nbsp;</td></tr></tbody></table>
-</td><td style="border-top:#cedbe4 solid 1px;border-right:#cedbe4 solid 1px;border-bottom:#cedbe4 solid 1px;">
-<div id="docContent" style="background:#F5F8FD;width:994px;overflow-y:visible;padding-left:37px;padding-right:37px;padding-bottom:10px">
-
-<div style="border-bottom:#cedbe4 solid 2px">
-<div style="font-weight:bold;font-size:15pt;height:60px;color:#000066;padding-top:20px;text-align:center;word-break:break-all">福田雷沃重工与约翰迪尔论道“廊坊会”报道二</div>
-</div>
-
-<div style="text-align:left;overflow-y:visible;width:100%;">
-<div style="font-size:8pt;height:20px;padding-top:5px;text-align:center">2012-06-21&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;开发者1&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;化工行业</div>
-<br />
-<div id="FCKContentDiv_CN" style="display:">
-<div style="display:none">
-
-
-
-
-
-
-
-
-<table border="0" cellspacing="0" cellpadding="0"><tbody><tr valign="top"><td width="189" bgcolor="#C0C0C0"><b><font color="#620012">隐藏域</font></b></td><td style="padding-left:5px" width="340" bgcolor="#C0C0C0"><b><font color="#620012">说明</font></b></td></tr><tr valign="top"><td width="189">
-<input name="DF_DbPath" value="Application/DigiFlowInfoPublish.nsf" /></td><td width="340">数据库路径</td></tr><tr valign="top"><td width="189" valign="middle">
-<input name="FCK_DBPath" value="Application/FCKeditor.nsf" /></td><td width="340" valign="middle"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt="" /></td></tr><tr valign="top"><td width="189" valign="middle">
-<textarea name="Fck_HTML" id="FCK_EditorValue" rows="7" cols="50"><p><table border="0" cellspacing="10" cellpadding="0" width="95%" align="center"><tbody><tr><td class="font-bottom " valign="top" align="center"><strong>福田雷沃重工与约翰迪尔论道廊坊会</strong></td></tr><tr><td valign="top" align="center">2010-04-19</td></tr><tr><td valign="top" align="center"><img alt="" src="http://img.72ec.com/upload/erp/03220172155/news/a0ac1f5d-2b01-41c5-ba25-30e575fe695c.gif" /></td></tr><tr><td valign="top">4月8日，2010中国国际农业机械化新产品新技术展示交流会在河北廊坊开幕。会期，农业部农机化司举行了2010中国国际农业机械化新产品、新技术、新信息高级论坛。福田雷沃重工与约翰迪尔等一道就中国农机企业的国际化战略主题展开交流。<br /> 场内论道，场外竞技，在论坛之前开幕的展会现场，福田雷沃重工携多款出口样机亮相。从简约大气的国际化特装到带有个性化的出口机型以及整合国际先进技术再创新打造出的多款高端机型，均彰显出福田雷沃重工全球化之路的坚实步伐。<br />12年发展历程，福田雷沃重工以产品出口为突破口，同时注重产业产品结构的优化升级，走出了一条重内涵增长拓海外市场的国际化稳健之路。2006年，雷沃品牌国际化启动，福田雷沃重工借力欧美技术整合中心、四国四方国际技术战略合作等大手笔，构建起同步世界的技术创新体系、洲际供应链体系，抢占机械装备制造业技术制高点，链动国际供应链资源。随之开发的系列产品，以性能卓越、更贴近欧美等国际市场需求为特点，热销海外，并助福田雷沃重工成为国内同行业国际化的先行者。<br /> 此次出击展会的6公斤以上雷沃谷神大喂入量收割机、雷沃欧豹TN3004拖拉机以及雷沃谷神DG200水稻机均是通过整合国际技术、遴选国际零部件资源，倾心打造的精品机型。现场展示的多款出口主打机型，以精致的外观、高端的配置在吸引国内用户关注的同时也引来了洋用户的瞩目，不少海外新客户纷纷到福田雷沃重工展区观摩。<br />在进行产业、产品结构优化调整的同时，福田雷沃重工稳步推进海外渠道布局及服务网络的构建。他们将国际市场细化为传统、新兴、发展中等多元化市场格局，并通过一地一策的指导方针，为市场配置不同的产品和资源，实现了对市场的有效覆盖。针对海外服务网络体系规划，目前在利比亚、越南和苏丹等国实施的驻点服务、亲情回访服务牢牢占领了当地市场，树立起中国机械出口品牌。截至目前，福田雷沃重工已形成300多家营销服务海外渠道，产品出口包括欧美等高端市场在内的116个国家和地区，基本形成了覆盖全球目标市场的融销售、服务、配件供应、用户培训与信息反馈五位一体的全球营销网络。<br /> 2009年，雷沃欧豹大中马力拖拉机的出口业绩连续4年保持出口量全国第一，雷沃谷神出口量进入行业三甲。2010年首季度，福田雷沃重工预计实现出口量同比增长20.6%，在后危机时代的经济背景下其业绩展现出蓬勃的增长势头。<br /> 福田雷沃重工党委书记梁启荣表示，公司一直把约翰迪尔作为标杆进行学习。此次直面交流，更是一次良好的学习机会。未来的福田雷沃重工一定会成长为中国的约翰迪尔。</td></tr></tbody></table></p>
-</textarea>
-</td><td width="340" valign="middle"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt="" /></td></tr></tbody></table>
-</div>
-<script src="/Application/FCKeditor.nsf/global.js" />
-<div id="StBody" class="publishClass" style="display:;width:100%;height:;overflow:auto;" />
-<iframe id="FCKEditorFrm" name="FCKditor" src="/Application/FCKeditor.nsf/FckEditor?openform" width="100%" frameborder="0" style="display:none;" /></div>
-<br />
-<div id="FCKContentDiv_EN" style="display:none">
-<div style="display:none">
-
-
-
-
-
-
-
-
-<table border="0" cellspacing="0" cellpadding="0"><tbody><tr valign="top"><td width="189" bgcolor="#C0C0C0"><b><font color="#620012">隐藏域</font></b></td><td style="padding-left:5px" width="340" bgcolor="#C0C0C0"><b><font color="#620012">说明</font></b></td></tr><tr valign="top"><td width="189"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt="" /></td><td width="340"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt="" /></td></tr><tr valign="top"><td width="189" valign="middle"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt="" /></td><td width="340" valign="middle"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt="" /></td></tr><tr valign="top"><td width="189" valign="middle">
-<textarea name="b" rows="7" cols="50" />
-
-<textarea name="Fck_HTML_EN" id="FCK_EditorValue_EN" rows="7" cols="50" />
-</td><td width="340" valign="middle"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt="" /></td></tr></tbody></table>
-</div>
-
-<script src="/Application/FCKeditor.nsf/global.js" />
-<div id="StBody_EN" class="publishClass" style="display:;width:100%;height:;overflow:auto" />
-<iframe id="FCKEditorFrm_EN" name="FCKditor_EN" src="/Application/FCKeditor.nsf/FckEditor_EN?openform" width="100%" frameborder="0" style="display:none;" /></div>
-<div id="ForHeightDiv" style="height:40px;display:none" />
-</div>
-<br />
-<div style="border-top:#cedbe4 solid 2px;padding-top:10px">
-
-
-
-
-
-<table><tbody><tr><td style="width:15%"><q id="DT_008">附&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;件：</q></td><td style="width:85%">
-
-
-
-
-
-
-<table style="height:100%;width:100%;border:0"><tbody><tr style="display:none"><td style="border:0"><q id="DF_024">1、请按“浏览”选择要上载的文件</q>&amp;nbsp; 
-<input class="DF_File_Style" style="width:350px" id="DF_File" onblur="DF_CheckFile()" type="file" name="%%File.482577c80009d7ff.aa282abadfb2ab8b482576d300354d67.$Body.0.2C4" /> &amp;nbsp;<a href="#" onclick="DF_UpFile()"><img src="/DF_Res/DF_Img_Source/Img_YY/fileup.gif" style="border:0" /><q id="DF_025">上载</q></a>&amp;nbsp;&amp;nbsp;<a href="javascript:DF_ClearFile();"><img src="/DF_Res/DF_Img_Source/Img_YY/cancel.gif" style="border:0" /><q id="DF_029">清除</q></a> <br /><q id="DF_026">2、依次选择“浏览”、“上载”，可以添加多个文件；</q><br /><q id="DF_027">3、要删除文件，请选中要删除的文件后，按</q><a href="#" onclick="DF_DelFile()"><img src="/DF_Res/DF_Img_Source/Img_YY/filedel.gif" style="border:0" /><q id="DF_028">删除</q></a>。<br />&amp;nbsp;<input type="checkbox" name="%%Detach" value="福田雷沃国际重工股份有限公司手机移动办公方案.docx" /><a href="13366DCBF8CC087848257A23005A4F2F/$file/%E7%A6%8F%E7%94%B0%E9%9B%B7%E6%B2%83%E5%9B%BD%E9%99%85%E9%87%8D%E5%B7%A5%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8%E6%89%8B%E6%9C%BA%E7%A7%BB%E5%8A%A8%E5%8A%9E%E5%85%AC%E6%96%B9%E6%A1%88.docx" target="_blank"><img src="/icons/fileatt.gif" border="0" /><font color="#0000FF">福田雷沃国际重工股份有限公司手机移动办公方案.docx</font></a>
-</td></tr><tr style="display:block"><td style="border:0">&amp;nbsp;<a href="#" onclick="window.open(/Application/DigiFlowInfoPublish.nsf/0/13366DCBF8CC087848257A23005A4F2F/$file/%E7%A6%8F%E7%94%B0%E9%9B%B7%E6%B2%83%E5%9B%BD%E9%99%85%E9%87%8D%E5%B7%A5%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8%E6%89%8B%E6%9C%BA%E7%A7%BB%E5%8A%A8%E5%8A%9E%E5%85%AC%E6%96%B9%E6%A1%88.docx)"><img src="/icons/fileatt.gif" border="0" /><font color="#0000FF">福田雷沃国际重工股份有限公司手机移动办公方案.docx</font></a>&amp;nbsp;</td></tr></tbody></table>
-<div style="display:none"><font face="宋体">
-<input name="DF_FileFlag" value="" /></font> 
-<input type="button" value="保存附件" id="btUpload" onclick="return _doClick(482577C80009D7FF.aa282abadfb2ab8b482576d300354d67/$Body/0.119C, this, null)" /> </div></td></tr></tbody></table>
-</div>
-</div>
-<div id="BasicInfo" style="width:970px;height:100%;overflow-y:visible;padding-left:20px;padding-right:20px;padding-bottom:20px;display:none">
-<div style="display:none">
-<input name="StPicAttachment" value="" readonly="readOnly" class="DF_Downlist_Style" /></div>
-<div class="DF_Content_Section">
-
- 
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-<table class="DF_GTable_Style"><tbody><tr><td class="DF_GTable_LTD_Style" width="20%"><q id="DF_002">起 草 人：</q></td><td class="DF_GTable_RTD_Style" width="30%">开发者1<div style="display:none">
-<input name="StDraftManEn" value="dev1" class="DF_Txt_Style" style="display:none" />
-<input name="StDraftMan" value="开发者1/dev1" class="DF_Txt_Style" style="display:none" /> </div></td><td class="DF_GTable_LTD_Style" width="20%"><q id="DF_003">起草部门：</q></td><td class="DF_GTable_RTD_Style" width="30%">化工行业</td></tr><tr><td class="DF_GTable_LTD_Style"><q id="DF_004">起草日期：</q></td><td class="DF_GTable_RTD_Style"> 2012-06-21 </td><td class="DF_GTable_LTD_Style"><q id="DF_005">重要程度：</q></td><td class="DF_GTable_RTD_Style">普通</td></tr><tr><td class="DF_GTable_LTD_Style"><q id="DF_006">发布对象：</q></td><td class="DF_GTable_RTD_Style" colspan="3">所有人<span style="display:none">
-<input name="StReaderEN" value="" readonly="readonly" style="display:none" />
-<input name="StReader" value="" readonly="readonly" style="display:none" />
-<input name="MtReader" value="[thNormal]" readonly="readonly" style="display:none" /></span></td></tr><tr><td class="DF_GTable_LTD_Style"><q id="DF_007">发布日期：</q></td><td class="DF_GTable_RTD_Style"> 2012-06-21 </td><td class="DF_GTable_LTD_Style"><q id="DF_008">有效日期：</q></td><td class="DF_GTable_RTD_Style">2012-06-30</td></tr><tr><td class="DF_GTable_LTD_Style"><q id="DF_009">所属栏目：</q></td><td class="DF_GTable_RTD_Style">
-<input name="StNodeName" value="企业新闻" style="display:" class="DF_Txt_ReadOnly_Style" readonly="readOnly" />
-<input name="StNodeName_EN" value="Enterprise News" style="display:none" class="DF_Txt_ReadOnly_Style" readonly="readOnly" /><span style="display:none">
-<input name="StNodeID" value="Dir01" readonly="readonly" /></span></td><td class="DF_GTable_LTD_Style"><q id="DF_010">信息发布管理员：</q></td><td class="DF_GTable_RTD_Style">开发一<span style="display:none">
-<input name="StInfoManagerEN" value="dev1" readonly="readonly" style="display:none" />
-<input name="StInfoManager" value="开发一/dev1" readonly="readonly" style="display:none" /></span></td></tr><tr><td class="DF_GTable_LTD_Style"><q id="DF_011">置顶天数：</q></td><td class="DF_GTable_RTD_Style" colspan="3">3</td></tr><tr style="display:none"><td class="DF_GTable_LTD_Style"><q id="DF_012">在首页显示的图片：</q></td><td class="DF_GTable_RTD_Style">无图片</td><td class="DF_GTable_LTD_Style"><q id="DF_013">图片标题：</q></td><td class="DF_GTable_RTD_Style">
-<input name="StPicShow" value="" readonly="readOnly" class="DF_Txt_ReadOnly_Style" style="border:0" /></td></tr><tr style="display:none"><td class="DF_GTable_LTD_Style"><q id="DF_014">文字说明：</q></td><td class="DF_GTable_RTD_Style" colspan="3">
-<textarea name="rtfTextShow" class="DF_Txt_ReadOnly_Style" style="width:100%;height:60px;overflow-y:visible" readonly="readOnly" rows="15" cols="80" />
-</td></tr></tbody></table>
-</div>
-</div>
-</td></tr></tbody></table><div style="text-align:center;">
-<div style="font-size:10pt;height:40px;line-height:40px;text-align:center;">&amp;copy;2009&amp;nbsp;WWW</div>
-</div>
-</div>
-
-<input name="openMode" type="hidden" value="new" />
-<input name="$V2AttachmentOptions" type="hidden" value="0" />
-<input name="MtAttachmentNamesPic" type="hidden" value="" />
-<input name="DF_Ln_Type" type="hidden" value="ZH" />
-<input name="StDraftManCn" type="hidden" value="开发者1" />
-<input name="StDept" type="hidden" value="化工行业" />
-<input name="StDraftDate" type="hidden" value="2012-06-21" />
-<input name="StImport" type="hidden" value="普通" />
-<input name="StReaderCN" type="hidden" value="所有人" />
-<input name="StPubDate" type="hidden" value="2012-06-21" />
-<input name="StOldDate" type="hidden" value="2012-06-30" />
-<input name="StInfoManagerCN" type="hidden" value="开发一" />
-<input name="StTopNews" type="hidden" value="3" /></form>
-
-
-<data-params><isfile>false</isfile><issucceed>true</issucceed><statuscode>200</statuscode><headers><param name="Server" value="Lotus-Domino" /><param name="Date" value="Thu, 21 Jun 2012 07:51:47 GMT" /><param name="Last-Modified" value="Thu, 21 Jun 2012 07:51:45 GMT" /><param name="Expires" value="Tue, 01 Jan 1980 06:00:00 GMT" /><param name="Content-Type" value="text/html; charset=GB2312" /><param name="Content-Length" value="23146" /><param name="Cache-control" value="no-cache" /></headers><redirects /><usertoken><storeid>cc741f851210490887486d6141659976</storeid><userid>dev1</userid><username /><createtimemillis>1340265008331</createtimemillis></usertoken><message><protocal>http</protocal><url>http://182.50.2.171:8000/Application/DigiFlowInfoPublish.nsf/InfoByDateView_2/13366DCBF8CC087848257A23005A4F2F?OpenDocument&amp;login</url><method>post</method><encoding>gb18030</encoding><type>remote</type><source>http://182.50.2.171:8000</source><template>digi/news/content.xsl</template><params><param key="OpenDocument" value="" /><param key="login" value="" /></params></message></data-params></body></html>

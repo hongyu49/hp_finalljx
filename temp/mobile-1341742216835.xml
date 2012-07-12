@@ -1,5 +1,0 @@
-<html><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><div class="type-home" data-role="page" id="list"><div data-role="header"><a data-rel="back" data-role="button" data-icon="home">返回</a><h1>待办事宜</h1></div><div align="center" data-role="content"><script>
-							function changepage(url){
-								$.mobile.changePage(url, {changeHash:true, type: "post"});
-							}
-						</script><ul data-inset="true" data-role="listview"><li><a>无内容</a></li></ul></div></div></body></html>

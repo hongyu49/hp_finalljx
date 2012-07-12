@@ -1,82 +1,0 @@
-<?xml version="1.0" encoding="gb18030"?>
-<html><head><title>搜索电话</title><script language="JavaScript" type="text/javascript"><![CDATA[
-<!-- 
-function openPsn(itcode1){ return; var url = "/Produce/DigiFlowOrgSysMng.nsf/SearUserInfoForm?openform&ITCode="+itcode1; location.replace(url)}function $E(sName){ var obj = document.getElementById(sName); if(!obj) obj = document.all(sName); if(!obj) obj = document.getElementsByName(sName)[0]; return obj;}
-// -->
-]]></script><script language="JavaScript" type="text/javascript"><![CDATA[
-<!-- 
-document._domino_target = "_self";
-function _doClick(v, o, t, h) {
-  var form = document._telSearchForm;
-  if (form.onsubmit) {
-     var retVal = form.onsubmit();
-     if (typeof retVal == "boolean" && retVal == false)
-       return false;
-  }
-  var target = document._domino_target;
-  if (o.href != null) {
-    if (o.target != null)
-       target = o.target;
-  } else {
-    if (t != null)
-      target = t;
-  }
-  form.target = target;
-  form.__Click.value = v;
-  if (h != null)
-    form.action += h;
-  form.submit();
-  return false;
-}
-// -->
-]]></script><style><![CDATA[
-*{
-font-size:14px;
-font-family:"微软雅黑";
-}
-]]></style></head><body text="#000000" bgcolor="#FFFFFF" onload="if($E(" resultlist="ResultList" value="value" e="E" resultdiv="resultDiv" innerhtml="$E(&quot;ResultList&quot;).value;">
-
-
-
-
-
-
-
-
-<form method="post" action="/Produce/WeboaConfig.nsf/telSearchForm?OpenForm&amp;Seq=1&amp;svrName=CN%3Dv7demo%2FO%3Ddcms&amp;queryStr=%25u738B&amp;dbFile=Produce%2FDigiFlowOrgPsnMng.nsf&amp;showField=UserDeptPhone" name="_telSearchForm">
-<input type="hidden" name="__Click" value="0" /><div style="display:none">
-<input name="DF_Ln_Type" value="ZH" style="display:none" />&amp;nbsp;&amp;nbsp;<b>系统捕获参数</b>
-<p><font size="2">URL参数说明:</font><br />
-<font size="2">queryStr-搜索字符串</font><br />
-<font size="2">svrName-目标数据库所在服务器</font><br />
-<font size="2">dbFile-目标数据库路径及文件名</font><br />
-<font size="2">ResultList-搜索结果，不是URL参数</font><br />
-<font size="2">showField-显示搜到的文档的字段名</font><br />
-<font size="2">userLevel－用户在组织结构库中的安全级别</font><br />
-<font size="2">exceptForm-滤除的表单(还未实现)</font><br />
-<font size="2">srchTime-搜索耗时，不是URL参数</font><br />
-<font size="2">userOrgID-传入的当前用户的归属部门ID</font><br />
-
-<input name="queryStr" value="王" style="display:none" />
-<input name="svrName" value="CN=v7demo/O=dcms" style="display:none" />
-<input name="dbFile" value="Produce/DigiFlowOrgPsnMng.nsf" style="display:none" />
-<input name="userOrgID" value="" style="display:none" />
-<input name="userLevel" value="" style="display:none" /><br />
-
-<input name="showField" value="UserDeptPhone" style="display:none" />
-<input name="exceptForm" value="" style="display:none" />
-<input name="srchTime" value="" style="display:none" />
-<textarea name="ResultList" style="display:none" rows="7" cols="50"><table width="100%" border="1" style="border-collapse:collapse" class="table1"><tbody><tr bgcolor="#d6dff7"><td align="center" width="15%"><b>ITCode</b></td><td align="center" width="15%"><b>用户名</b></td><td align="center" width="15%"><b>员工编号</b></td><td align="center" width="25%"><b>移动电话</b></td><td align="center" width="15%"><b>办公电话</b></td></tr><tr><td align="left"><a href="javascript:openPsn(&apos;wangyq&apos;);"><font color="blue">wangyq</font></a></td><td align="left">王雅秋</td><td align="left" /><td align="left" /><td align="left" /></tr><tr><td align="left"><a href="javascript:openPsn(&apos;wanghjb&apos;);"><font color="blue">wanghjb</font></a></td><td align="left">王海军</td><td align="left" /><td align="left">18801325453</td><td align="left" /></tr><tr><td align="left"><a href="javascript:openPsn(&apos;wangchao&apos;);"><font color="blue">wangchao</font></a></td><td align="left">王超</td><td align="left" /><td align="left">18611739353</td><td align="left" /></tr><tr><td align="left"><a href="javascript:openPsn(&apos;wangzya&apos;);"><font color="blue">wangzya</font></a></td><td align="left">王志玉</td><td align="left" /><td align="left">13501398405</td><td align="left" /></tr><tr><td align="left"><a href="javascript:openPsn(&apos;wangxhd&apos;);"><font color="blue">wangxhd</font></a></td><td align="left">王晓华</td><td align="left" /><td align="left">18610310111</td><td align="left" /></tr><tr><td align="left"><a href="javascript:openPsn(&apos;wangjue&apos;);"><font color="blue">wangjue</font></a></td><td align="left">王珏</td><td align="left" /><td align="left">18601050081</td><td align="left" /></tr><tr><td align="left"><a href="javascript:openPsn(&apos;wangjc&apos;);"><font color="blue">wangjc</font></a></td><td align="left">王久策</td><td align="left" /><td align="left">13936307546</td><td align="left" /></tr><tr><td align="left"><a href="javascript:openPsn(&apos;wangnana&apos;);"><font color="blue">wangnana</font></a></td><td align="left">王楠</td><td align="left" /><td align="left">15210846822</td><td align="left" /></tr><tr><td align="left"><a href="javascript:openPsn(&apos;wangbl&apos;);"><font color="blue">wangbl</font></a></td><td align="left">王宝龙</td><td align="left" /><td align="left">18210050663</td><td align="left" /></tr><tr><td align="left"><a href="javascript:openPsn(&apos;wangman1&apos;);"><font color="blue">wangman1</font></a></td><td align="left">王嫚</td><td align="left" /><td align="left" /><td align="left" /></tr><tr><td align="left"><a href="javascript:openPsn(&apos;wangrj1&apos;);"><font color="blue">wangrj1</font></a></td><td align="left">王瑞洁</td><td align="left" /><td align="left" /><td align="left" /></tr><tr><td align="left"><a href="javascript:openPsn(&apos;wangqi1&apos;);"><font color="blue">wangqi1</font></a></td><td align="left">王奇</td><td align="left" /><td align="left" /><td align="left" /></tr><tr><td align="left"><a href="javascript:openPsn(&apos;wangwf&apos;);"><font color="blue">wangwf</font></a></td><td align="left">王维峰</td><td align="left" /><td align="left" /><td align="left" /></tr><tr><td align="left"><a href="javascript:openPsn(&apos;wangjh&apos;);"><font color="blue">wangjh</font></a></td><td align="left">王继皓</td><td align="left" /><td align="left">13774272623</td><td align="left" /></tr><tr><td align="left"><a href="javascript:openPsn(&apos;wangwj&apos;);"><font color="blue">wangwj</font></a></td><td align="left">王文娟</td><td align="left" /><td align="left">13474137429</td><td align="left" /></tr><tr><td align="left"><a href="javascript:openPsn(&apos;wangjing&apos;);"><font color="blue">wangjing</font></a></td><td align="left">王菁</td><td align="left" /><td align="left">18992842336</td><td align="left" /></tr><tr><td align="left"><a href="javascript:openPsn(&apos;wangguan&apos;);"><font color="blue">wangguan</font></a></td><td align="left">王冠</td><td align="left" /><td align="left">13321128028</td><td align="left" /></tr></tbody></table></textarea>
-</p></div>
-
-
-
-
-
-<table width="100%" style="border:1px solid gray" bgcolor="#f0f0f0" align="left"><tbody><tr><td colspan="2" align="center"><font color="blue"><b>搜索结果</b></font></td></tr><tr><td colspan="2"><div id="resultDiv" /></td></tr><tr><td colspan="2" align="center">
-<p>
-<input type="button" onclick="window.close();" value="关 闭" id="DF_00009" /></p></td></tr></tbody></table>
-</form>
-
-
-<data-params><isfile>false</isfile><issucceed>true</issucceed><statuscode>200</statuscode><headers><param name="Server" value="Lotus-Domino" /><param name="Date" value="Thu, 21 Jun 2012 03:31:22 GMT" /><param name="Last-Modified" value="Thu, 21 Jun 2012 03:31:20 GMT" /><param name="Expires" value="Tue, 01 Jan 1980 06:00:00 GMT" /><param name="Content-Type" value="text/html; charset=GB2312" /><param name="Content-Length" value="8805" /><param name="Cache-control" value="no-cache" /></headers><redirects /><usertoken><storeid>cc9f79777057430290def51a85998111</storeid><userid>dev1</userid><username /><createtimemillis>1340249408130</createtimemillis></usertoken><message><protocal>http</protocal><url>http://182.50.2.171:8000/Produce/WeboaConfig.nsf/telSearchForm?openform&amp;svrName=CN=v7demo/O=dcms&amp;queryStr=%25u738B&amp;dbFile=Produce/DigiFlowOrgPsnMng.nsf&amp;showField=UserDeptPhone</url><method>post</method><encoding>gb18030</encoding><type>remote</type><source>http://182.50.2.171:8000</source><template>digi/phonenumber/request.xsl</template><params><param key="openform" value="" /><param key="svrName" value="CN=v7demo/O=dcms" /><param key="showField" value="UserDeptPhone" /><param key="queryStr" value="%u738B" /><param key="dbFile" value="Produce/DigiFlowOrgPsnMng.nsf" /></params></message></data-params></body></html>

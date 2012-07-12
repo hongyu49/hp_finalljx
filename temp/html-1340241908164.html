@@ -1,81 +1,0 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-<head>
-<title>搜索电话</title>
-<script language="JavaScript" type="text/javascript">
-<!-- 
-function openPsn(itcode1){	return;	var url = "/Produce/DigiFlowOrgSysMng.nsf/SearUserInfoForm?openform&ITCode="+itcode1;	location.replace(url)}function $E(sName){	var obj = document.getElementById(sName);	if(!obj) obj = document.all(sName);	if(!obj) obj = document.getElementsByName(sName)[0];	return obj;}
-// -->
-</script>
-
-<script language="JavaScript" type="text/javascript">
-<!-- 
-document._domino_target = "_self";
-function _doClick(v, o, t, h) {
-  var form = document._telSearchForm;
-  if (form.onsubmit) {
-     var retVal = form.onsubmit();
-     if (typeof retVal == "boolean" && retVal == false)
-       return false;
-  }
-  var target = document._domino_target;
-  if (o.href != null) {
-    if (o.target != null)
-       target = o.target;
-  } else {
-    if (t != null)
-      target = t;
-  }
-  form.target = target;
-  form.__Click.value = v;
-  if (h != null)
-    form.action += h;
-  form.submit();
-  return false;
-}
-// -->
-</script>
-</head>
-<body text="#000000" bgcolor="#FFFFFF" onload="if($E("ResultList").value!=""){	$E("resultDiv").innerHTML=$E("ResultList").value;}">
-
-<form method="post" action="/Produce/WeboaConfig.nsf/telSearchForm?OpenForm&amp;Seq=1&amp;svrName=CN%3Dv7demo%2FO%3Ddcms&amp;queryStr=%25u674E&amp;dbFile=Produce%2FDigiFlowOrgPsnMng.nsf&amp;showField=UserDeptPhone" name="_telSearchForm">
-<input type="hidden" name="__Click" value="0"><div style="display:none">
-<input name="DF_Ln_Type" value="ZH" style="display:none">&nbsp;&nbsp;<b>系统捕获参数</b>
-<p><font size="2">URL参数说明:</font><br>
-<font size="2">queryStr-搜索字符串</font><br>
-<font size="2">svrName-目标数据库所在服务器</font><br>
-<font size="2">dbFile-目标数据库路径及文件名</font><br>
-<font size="2">ResultList-搜索结果，不是URL参数</font><br>
-<font size="2">showField-显示搜到的文档的字段名</font><br>
-<font size="2">userLevel－用户在组织结构库中的安全级别</font><br>
-<font size="2">exceptForm-滤除的表单(还未实现)</font><br>
-<font size="2">srchTime-搜索耗时，不是URL参数</font><br>
-<font size="2">userOrgID-传入的当前用户的归属部门ID</font><br>
-
-<input name="queryStr" value="李" style="display:none">
-<input name="svrName" value="CN=v7demo/O=dcms" style="display:none">
-<input name="dbFile" value="Produce/DigiFlowOrgPsnMng.nsf" style="display:none">
-<input name="userOrgID" value="" style="display:none">
-<input name="userLevel" value="" style="display:none"><br>
-
-<input name="showField" value="UserDeptPhone" style="display:none">
-<input name="exceptForm" value="" style="display:none">
-<input name="srchTime" value="" style="display:none">
-<textarea name="ResultList" style="display:none" rows="7" cols="50"><table width='100%' border=1 style='border-collapse:collapse' class='table1'><tr bgcolor='#d6dff7'><td align='center' width='15%'><b>ITCode</b></td><td align='center' width='15%'><b>用户名</b></td><td align='center' width='15%'><b>员工编号</b></td><td align='center' width='25%'><b>移动电话</b></td><td align='center' width='15%'><b>办公电话</b></td></tr><tr><td align=left><a href=javascript:openPsn('liming');><font color='blue'>liming</font></a></td><td align=left >李明</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('libing');><font color='blue'>libing</font></a></td><td align=left >李兵</td><td align=left></td><td align=left>15901243471</td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('lijb1');><font color='blue'>lijb1</font></a></td><td align=left >李继彬</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('lihm');><font color='blue'>lihm</font></a></td><td align=left >李红梅</td><td align=left></td><td align=left>15891742069</td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('lich');><font color='blue'>lich</font></a></td><td align=left >李春辉</td><td align=left></td><td align=left>18638005235</td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('lijief');><font color='blue'>lijief</font></a></td><td align=left >李杰1</td><td align=left></td><td align=left>18001022806</td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('lijiei');><font color='blue'>lijiei</font></a></td><td align=left >李杰</td><td align=left></td><td align=left>13811988826</td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('lijing');><font color='blue'>lijing</font></a></td><td align=left >李晶</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('liman');><font color='blue'>liman</font></a></td><td align=left >李曼</td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('lizhen');><font color='blue'>lizhen</font></a></td><td align=left >李震</td><td align=left></td><td align=left>13810655400</td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('lixj');><font color='blue'>lixj</font></a></td><td align=left >李小娟</td><td align=left></td><td align=left>18611399309</td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('liyao');><font color='blue'>liyao</font></a></td><td align=left >李耀</td><td align=left></td><td align=left>13810031132</td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('lixing');><font color='blue'>lixing</font></a></td><td align=left >李杏</td><td align=left></td><td align=left>15810728547</td><td align=left></td></tr><tr><td align=left><a href=javascript:openPsn('liweif');><font color='blue'>liweif</font></a></td><td align=left >李伟</td><td align=left></td><td align=left>13992857606</td><td align=left></td></tr></table></textarea>
-</div>
-<style>
-*{
-font-size:14px;
-font-family:"微软雅黑";
-}
-</style>
-<table width="100%" style="border:1px solid gray" bgcolor="#f0f0f0" align="left">
-<tr><td colspan="2" align=center><font color=blue><b>搜索结果</b></font></td></tr>
-<tr><td colspan="2"><div id="resultDiv"></div></td></tr>
-<tr><td colspan="2" align=center>
-<p>
-<input type="button" onclick="window.close();" value="关 闭" id="DF_00009"></td></tr>
-</table>
-</form>
-</body>
-</html>
