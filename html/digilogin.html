@@ -62,9 +62,11 @@
 									//$.mobile.changePage("/view/digihome.jsp?itcode="+json.itcode, {changeHash:true, type: "get"});
 									var SERVER_BASE_URL="http://mobile.sugon.com/view";
 									var sceneURL = SERVER_BASE_URL+"/digihome.jsp?itcode="+json.itcode;
+									alert(cherry);
 									var targetURL = "http://mobile.sugon.com/view/digihome.html";
 									var pushScene = new cherry.bridge.NativeOperation("application", "pushScene", [sceneURL,targetURL]);
 									pushScene.dispatch();
+									
 									cherry.bridge.flushOperations();
 								}else{
 									$.mobile.hidePageLoadingMsg();
@@ -157,7 +159,7 @@
 					<div style="width:240px;" align="center">
 						<fieldset data-role="controlgroup" data-type="horizontal">
 							<input id="remname" type="checkbox" name="remname"/>
-							<label for="remname">记住账号</label> 
+							<label for="remname">记住账号1</label> 
 							<input id="rempassword" type="checkbox" name="rempassword"/>
 							<label for="rempassword">记住密码</label> 
 						</fieldset>
