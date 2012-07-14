@@ -1,6 +1,7 @@
 <html>
     <head>
 		<script src="resource://localhost/cherry.js"></script>
+		<script src="/view/js/mobileBridge.js"></script>
     </head>
     <body>
         <b>abc</b>
@@ -35,40 +36,7 @@ function popSence(){
 	
 	changePageBackWithBridge(targetURL,sceneURL)
 }
-/*
-  ??component ????
-  para:targetUrl ??????url
-  componetXmlUrl:native??url????resources/?web??url
-  ???cherry.js
-*/
-function changePageWithBridge(targetUrl,componetXmlUrl){
-	var serverUrl="http://mobile.sugon.com";
-	if(commentXmlUrl==="undefined"){
-			componetXmlUrl=serverUrl+"/view/Resources/PureWeb.scene.xml";
-			
-	}
-	var pushScene = new cherry.bridge.NativeOperation("application", "pushScene", [componetXmlUrl,targetUrl]);
-	pushScene.dispatch();
-	cherry.bridge.flushOperations();
-		
-}
-/*
-  ??component ??????????????
-  para:targetUrl ??????url
-  componetXmlUrl:native??url????resources/?web??url
-  ???cherry.js
-*/
-function changePageBackWithBridge(targetUrl,componetXmlUrl){
-	var serverUrl="http://mobile.sugon.com";
-	if(commentXmlUrl==="undefined"){
-			componetXmlUrl=serverUrl+"/view/Resources/PureWeb.scene.xml";
-			
-	}
-	var popScene = new cherry.bridge.NativeOperation("application", "popScene", [componetXmlUrl,targetUrl]);
-	popScene.dispatch();
-	cherry.bridge.flushOperations();
-		
-}
+
         </script>
     </body>
 </html>
