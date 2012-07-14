@@ -1,0 +1,25 @@
+<html>
+    <head>
+		<script src="resource://localhost/cherry.js"></script>
+    </head>
+    <body>
+        <b>hello</b>
+        <script type="text/javascript">
+
+cherry.bridge.registerEvent("loginButton", "touchUp", function(oper) {
+	var getUserName = new cherry.bridge.NativeOperation("userName", "getProperty", ["text"]).dispatch();
+	var getPassword = new cherry.bridge.NativeOperation("password", "getProperty", ["text"]).dispatch();
+	var doLogin = new cherry.bridge.ScriptOperation(function() {
+		alert(getUserName.returnValue);
+		alert(getPassword.returnValue);
+	}).addDependency(getUserName).addDependency(getPassword).dispatch();
+});
+
+cherry.bridge.registerEvent("cancelButton", "touchUp", function(oper) {
+	var clearUserName = new cherry.bridge.NativeOperation("userName", "setProperty", ["text", ""]).dispatch();
+	var clearPassword = new cherry.bridge.NativeOperation("password", "setProperty", ["text", ""]).dispatch();
+	cherry.bridge.flushOperations();
+});
+        </script>
+    </body>
+</html>
