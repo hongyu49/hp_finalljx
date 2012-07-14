@@ -67,7 +67,7 @@ cherry.bridge.registerEvent("cancelButton", "touchUp", function(oper) {
 
 //test cookie
 cherry.bridge.registerEvent("saveCookie", "touchUp", function(oper) {
-	
+	alert("11");
 	var getUserName = new cherry.bridge.NativeOperation("userName", "getProperty", ["text"]).dispatch();
 	var getPassword = new cherry.bridge.NativeOperation("password", "getProperty", ["text"]).dispatch();
 	var SR_saveCookie = new cherry.bridge.ScriptOperation(saveCookie(getUserName.returnValue,getPassword.returnValue));
@@ -81,8 +81,6 @@ cherry.bridge.registerEvent("loadCookie", "touchUp", function(oper) {
 	NR_UserName.dispatch();
 	var NR_Password = new cherry.bridge.NativeOperation("password", "setProperty", ["text", $.cookie("passWord")]);
 	NR_Password.dispatch();
-	var clearCookir=new cherry.bridge.scriptOperation(clearCookie);
-	clearCookir.dispatch();
 })
 
 
@@ -99,13 +97,13 @@ function saveCookie(usrName,password) {
 	}); 
 
 }
-function clearCookie(){
-	$.cookie("userName", "", {
-		expires : -1
+function clearUserCookie(){
+	$.cookie("userName", userName, {
+		expires : 365
 	}); 
 
-	$.cookie("passWord", "", {
-		expires : -1
+	$.cookie("passWord", passWord, {
+		expires : 365
 	}); 
 }
 
