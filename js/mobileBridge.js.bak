@@ -11,7 +11,7 @@ function changePageWithBridge(targetUrl,componetXmlUrl){
 			componetXmlUrl=serverUrl+"/view/Resources/PureWeb.scene.xml";
 			
 	}
-	
+	//alert(targetUrl);
 	var pushScene = new cherry.bridge.NativeOperation("application", "pushScene", [componetXmlUrl,targetUrl]);
 	pushScene.dispatch();
 	cherry.bridge.flushOperations();

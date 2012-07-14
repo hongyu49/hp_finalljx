@@ -11,10 +11,11 @@ function changePageWithBridge(targetUrl,componetXmlUrl){
 			componetXmlUrl=serverUrl+"/view/Resources/PureWeb.scene.xml";
 			
 	}
-	alert(targetUrl);
+	//alert(targetUrl);
 	var pushScene = new cherry.bridge.NativeOperation("application", "pushScene", [componetXmlUrl,targetUrl]);
 	pushScene.dispatch();
 	cherry.bridge.flushOperations();
+	return pushScene;
 		
 }
 /*
@@ -32,5 +33,5 @@ function changePageBackWithBridge(targetUrl,componetXmlUrl){
 	var popScene = new cherry.bridge.NativeOperation("application", "popScene", [componetXmlUrl,targetUrl]);
 	popScene.dispatch();
 	cherry.bridge.flushOperations();
-		
+	return popScene;
 }
