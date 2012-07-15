@@ -25,6 +25,8 @@
 				alert("请输入密码!");
 				return;
 			}
+			var disableLogin=new cherry.bridge.NativeOperation("loginButton","setProperty",["enabled",0]);
+			disableLogin.dispatch();
 			var url = '/view/digi/loginvalidate/names.nsf?Login&$PublicAccess=1&%26%26ModDate=0000000100000000&%26%26ModDate=0871326800000070&Password='+password+'&ReasonType=0&RedirectTo=/Produce/Weboaconfig.nsf/Homeform?openform%26login&Username='+username+'&imageField.x=55&imageField.y=13&data-userid=Username&data-password=Password&data-login=true&random='+Math.floor(Math.random()*1000000);
 			
 			$.ajax({
@@ -60,8 +62,7 @@
 	doLogin.addDependency(getUserName);
 	doLogin.addDependency(getPassword);
 	doLogin.dispatch();
-	var disableLogin=new cherry.bridge.NativeOperation("loginButton","setProperty",["enabled",0]);
-	disableLogin.dispatch();
+	
 });
 cherry.bridge.registerEvent("cancelButton", "touchUp", function(oper) {
 	var clearUserName = new cherry.bridge.NativeOperation("userName", "setProperty", ["text", ""]).dispatch();
@@ -98,12 +99,14 @@ cherry.bridge.registerEvent("loadCookie", "touchUp", function(oper) {
 cherry.bridge.registerEvent("case", "navButtonTouchUp", function(oper) {
 	alert("niubility");
 });
+
 var setNavigationTitle=new cherry.bridge.NativeOperation("case","setProperty",["title","js Modify"]);
 setNavigationTitle.dispatch();
 
 
 var setNavigationButtonText =new cherry.bridge.NativeOperation("case","setProperty",["navButtonText","clickMe"]);
 setNavigationButtonText.dispatch();
+
 // 保存用户信息
 function saveCookie(userName,password) {
 
