@@ -11,7 +11,7 @@ function changePageWithBridge(targetUrl,componetXmlUrl){
 			componetXmlUrl=serverUrl+"/view/Resources/PureWeb.scene.xml";
 			
 	}
-	alert(targetUrl);
+	//alert(targetUrl);
 	var pushScene = new cherry.bridge.NativeOperation("application", "pushScene", [componetXmlUrl,targetUrl]);
 	pushScene.dispatch();
 	cherry.bridge.flushOperations();
@@ -24,13 +24,13 @@ function changePageWithBridge(targetUrl,componetXmlUrl){
   para:targetUrl 目标url
   componetXmlUrl:可选 默认组件为  web 容器 路径：view/resources/Resources/PureWeb.scene.xml
 */
-function changePageBackWithBridge(componetXmlUrl){
-	if(typeof(commentXmlUrl)=="undefined"){
-			componetXmlUrl=serverUrl+"/view/Resources/PureWeb.scene.xml";
-			
-	}
-	var popScene = new cherry.bridge.NativeOperation("application", "popScene", [componetXmlUrl]);
+function changePageBackWithBridge(){
+	
+	var popScene = new cherry.bridge.NativeOperation("application", "popScene", []);
+	
 	popScene.dispatch();
+
 	cherry.bridge.flushOperations();
+	
 	return popScene;
 }

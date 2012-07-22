@@ -28,7 +28,7 @@
 		<script src="/cssjs/jquery.cookie.js"></script>
 	
 		<script src="resource://localhost/cherry.js"></script>
-		<script src="http://mobile.sugon.com/view/mobileBridge.js"></script>
+		<script src="http://mobile.sugon.com/view/mobileBridge.js?tag=12"></script>
 		<script src="../cssjs/jquery.mobile-1.0.1.js"></script>
 	</head>
 	<body>
@@ -146,7 +146,12 @@
 							});
 						}
 					}
-					
+					function jsBack(){
+						
+						changePageBackWithBridge();
+					}
+
+
 				</script>
 				<img src="/view/dflogo.png"/>
 				<ul id="viewBody" data-role="listview" data-theme="c" data-inset="true" style="max-width:450px;">
@@ -172,6 +177,9 @@
 							<label for="rempassword">记住密码</label> 
 						</fieldset>
 					</div>
+				</div>
+				<div style="width:100%;" align="center">
+					<a href="javascript:void(0)" onClick="jsBack()">back</a>
 				</div>
 				<div style="width:100%;" align="center">
 					<a href="javascript:void(0)" onClick="login()"><img src="resource://localhost/login.png" width="220px" height="45px"/></a>

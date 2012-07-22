@@ -14,10 +14,6 @@
 			</head>
 			<body>
 				<div id="notice" data-role="page">
-					<div data-role="header">
-						<a data-icon="home" data-role="button" data-rel="back" data-direction="reverse">返回</a>
-						<h1><xsl:value-of select="//title/text()"/></h1>
-					</div><!-- /header -->
 					<div data-role="content" align="center">
 						<script>
 							<![CDATA[
@@ -41,7 +37,7 @@
 										success: function(response){
 											$.mobile.hidePageLoadingMsg();
 											alert(response);
-											changePageBackWithBridge();
+											changePageBackWithBridge
 										},
 										error:function(response){
 											$.mobile.hidePageLoadingMsg();
