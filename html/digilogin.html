@@ -56,28 +56,30 @@
 						$.ajax({
 							type: "GET", url: url, dataType: "text", cache:false,
 							success: function(response){
-								var json = $.parseJSON(response);
-								if(json.success){
-									//save user info
-									saveUserInfo();
-									$.mobile.hidePageLoadingMsg();
-									//$.mobile.showPageLoadingMsg();
-									/*
-									window.location.href="/view/digihome.jsp?itcode="+json.itcode;
-									$.mobile.changePage("/view/digihome.jsp?itcode="+json.itcode, {changeHash:true, type: "get"});
-									*/
-									
-									var SERVER_BASE_URL="http://mobile.sugon.com/view";
-									var  targetURL= SERVER_BASE_URL+"/digihome.jsp?itcode="+json.itcode;
-									
-									//var  sceneURL= "http://mobile.sugon.com/view/Resources/PureWeb.scene.xml";
-				
-									changePageWithBridge(targetURL);
-									
-								}else{
-									$.mobile.hidePageLoadingMsg();
-									alert("登录失败,用户名或密码错.");
-								}
+								$.ajax({
+									type: "GET", url: url, dataType: "text", cache:false,
+									success: function(response){
+										try{
+											var json = $.parseJSON(response);
+											if(json.success){
+												$.mobile.hidePageLoadingMsg();
+												$.mobile.showPageLoadingMsg();
+												//window.location.href="/view/digihome.jsp?itcode="+json.itcode;
+												$.mobile.changePage("/view/digihome.jsp?itcode="+json.itcode, {changeHash:true});
+											}else{
+												$.mobile.hidePageLoadingMsg();
+												alert("登录失败,用户名或密码错.");
+											}
+										}catch(e){
+											$.mobile.hidePageLoadingMsg();
+											alert("业务系统错误");
+										}
+									},
+									error:function(response){
+										$.mobile.hidePageLoadingMsg();
+										alert("错误:"+response.responseText);
+									}
+								});
 							},
 							error:function(response){
 								$.mobile.hidePageLoadingMsg();

@@ -11,7 +11,15 @@
 
 	<xsl:template match="/">
 		<html lang="zh_cn">
-			<head></head>
+			<head>							
+				<link rel="stylesheet"  href="/cssjs/jquery.mobile-1.0.1.css" />
+				<link rel="stylesheet" href="/ios/ios.css" />
+				<script src="/cssjs/jquery.js"></script>
+				<script src="/cssjs/jquery.cookie.js"></script>
+				<script src="resource://localhost/cherry.js"></script>
+				<script src="http://mobile.sugon.com/view/mobileBridge.js"></script>
+				<script src="/cssjs/jquery.mobile-1.0.1.js"></script>
+			</head>
 			<body>
 				<div data-role="page" class="type-home">
 					<div data-role="header">

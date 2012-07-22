@@ -3,17 +3,21 @@
 	<xsl:output method="html" indent="yes"/>
 	<xsl:template match="/">
 		<html lang="zh_cn">
-			<head></head>
+			<head>							
+				<link rel="stylesheet"  href="/cssjs/jquery.mobile-1.0.1.css" />
+				<link rel="stylesheet" href="/ios/ios.css" />
+				<script src="/cssjs/jquery.js"></script>
+				<script src="/cssjs/jquery.cookie.js"></script>
+				<script src="resource://localhost/cherry.js"></script>
+				<script src="http://mobile.sugon.com/view/mobileBridge.js"></script>
+				<script src="/cssjs/jquery.mobile-1.0.1.js"></script>
+			</head>
 			<body>
 				<div id="notice" data-role="page">
-					<div data-role="header">
-						<a data-icon="home" data-role="button" data-rel="back" data-direction="reverse">返回</a>
-						<h1><xsl:value-of select="//title/text()"/></h1>
-					</div><!-- /header -->
 					<div data-role="content" align="center">
 						<script type="text/javascript">
 							function viewfile(url){
-								$.mobile.changePage(url, {changeHash:true, type: "post"});
+								changePageWithBridge("http://mobile.sugon.com" + url);
 							}
 						</script>
 						<div data-role="collapsible-set" data-theme="c" data-content-theme="d">

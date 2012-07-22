@@ -11,16 +11,17 @@
 
 	<xsl:template match="/">
 		<html lang="zh_cn">
-			<head></head>
+			<head>							
+				<link rel="stylesheet"  href="/cssjs/jquery.mobile-1.0.1.css" />
+				<link rel="stylesheet" href="/ios/ios.css" />
+				<script src="/cssjs/jquery.js"></script>
+				<script src="/cssjs/jquery.cookie.js"></script>
+				<script src="resource://localhost/cherry.js"></script>
+				<script src="http://mobile.sugon.com/view/mobileBridge.js"></script>
+				<script src="/cssjs/jquery.mobile-1.0.1.js"></script>
+			</head>
 			<body>
 				<div data-role="page" data-iscroll="enable" class="type-home">
-					<div data-role="header" style="data-position:fixed;">
-						<a data-icon="home" data-role="button" data-rel="back">返回</a>
-						<h1>电话查询</h1>
-						
-						<a data-icon="home" data-role="button" onclick="submit();">搜索</a>
-					</div><!-- /header -->
-				
 					<div data-role="content" align="center">
 						<script>
 							<![CDATA[
@@ -47,7 +48,10 @@
 							}
 							]]>
 						</script>
-						<div style="width:100%;" align="center"><input type="text" id="phonenumber" name="phonenumber" value="" /></div>
+						<div style="width:100%;" align="center">
+							<input type="text" id="phonenumber" name="phonenumber" value="" />
+							<a data-icon="home" data-role="button" onclick="submit();">搜索</a>
+						</div>
 						<div id="viewValue">
 							<ul data-role="listview" data-inset="true">
 								<li data-role="list-divider"></li>

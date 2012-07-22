@@ -85,10 +85,17 @@ cherry.bridge.registerEvent("saveCookie", "touchUp", function(oper) {
 
 cherry.bridge.registerEvent("loadCookie", "touchUp", function(oper) {
 	
-	
-	var NR_UserName = new cherry.bridge.NativeOperation("userName", "setProperty", ["text", $.cookie("userName")]);
+	var userName="";
+	var passWord="";
+	if($.cookie("userName")){
+		userName=$.cookie("userName");
+	}
+	if($.cookie("passWord")){
+		passWord=$.cookie("passWord");
+	}
+	var NR_UserName = new cherry.bridge.NativeOperation("userName", "setProperty", ["text", userName]);
 	NR_UserName.dispatch();
-	var NR_Password = new cherry.bridge.NativeOperation("password", "setProperty", ["text", $.cookie("passWord")]);
+	var NR_Password = new cherry.bridge.NativeOperation("password", "setProperty", ["text", passWord]);
 	NR_Password.dispatch();
 	
 	
@@ -99,14 +106,14 @@ cherry.bridge.registerEvent("loadCookie", "touchUp", function(oper) {
 cherry.bridge.registerEvent("case", "navButtonTouchUp", function(oper) {
 	alert("niubility");
 });
-
+/*
 var setNavigationTitle=new cherry.bridge.NativeOperation("case","setProperty",["title","js Modify"]);
 setNavigationTitle.dispatch();
 
 
 var setNavigationButtonText =new cherry.bridge.NativeOperation("case","setProperty",["navButtonText","clickMe"]);
 setNavigationButtonText.dispatch();
-
+*/
 // 保存用户信息
 function saveCookie(userName,password) {
 

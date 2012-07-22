@@ -21,7 +21,7 @@
 					</div><!-- /header -->
 				
 					<div data-role="content" align="center">
-						<ul data-role="listview" data-inset="true">
+						<ul data-role="listview" data-inset="true" data-theme="d">
 							<li data-role="list-divider"></li>
 							<xsl:apply-templates select="//viewentry" />
 							<xsl:if test="count(//viewentry)=0">

@@ -51,7 +51,7 @@
 					}
 				},
 				error:function(response){
-					$.mobile.hidePageLoadingMsg();
+					//$.mobile.hidePageLoadingMsg();
 					alert("错误:"+response.responseText);
 				}
 			});
@@ -85,10 +85,17 @@ cherry.bridge.registerEvent("saveCookie", "touchUp", function(oper) {
 
 cherry.bridge.registerEvent("loadCookie", "touchUp", function(oper) {
 	
-	
-	var NR_UserName = new cherry.bridge.NativeOperation("userName", "setProperty", ["text", $.cookie("userName")]);
+	var userName="";
+	var passWord="";
+	if($.cookie("userName")){
+		userName=$.cookie("userName");
+	}
+	if($.cookie("passWord")){
+		passWord=$.cookie("passWord");
+	}
+	var NR_UserName = new cherry.bridge.NativeOperation("userName", "setProperty", ["text", userName]);
 	NR_UserName.dispatch();
-	var NR_Password = new cherry.bridge.NativeOperation("password", "setProperty", ["text", $.cookie("passWord")]);
+	var NR_Password = new cherry.bridge.NativeOperation("password", "setProperty", ["text", passWord]);
 	NR_Password.dispatch();
 	
 	

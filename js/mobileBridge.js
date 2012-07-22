@@ -24,13 +24,12 @@ function changePageWithBridge(targetUrl,componetXmlUrl){
   para:targetUrl 目标url
   componetXmlUrl:可选 默认组件为  web 容器 路径：view/resources/Resources/PureWeb.scene.xml
 */
-function changePageBackWithBridge(targetUrl,componetXmlUrl){
-	var serverUrl="http://mobile.sugon.com";
+function changePageBackWithBridge(componetXmlUrl){
 	if(typeof(commentXmlUrl)=="undefined"){
 			componetXmlUrl=serverUrl+"/view/Resources/PureWeb.scene.xml";
 			
 	}
-	var popScene = new cherry.bridge.NativeOperation("application", "popScene", [componetXmlUrl,targetUrl]);
+	var popScene = new cherry.bridge.NativeOperation("application", "popScene", [componetXmlUrl]);
 	popScene.dispatch();
 	cherry.bridge.flushOperations();
 	return popScene;
