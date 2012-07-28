@@ -147,7 +147,7 @@
 						}
 					}
 					function jsBack(){
-						alert("12");
+						
 						changePageBackWithBridge();
 					}
 

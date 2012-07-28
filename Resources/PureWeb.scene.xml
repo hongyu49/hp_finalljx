@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scene xmlns="http://www.horizonpower.com.cn/hpclient/scene-xml/" xmlns:builtin="http://www.horizonpower.com.cn/hpclient/scene-xml/built-in/">
+<size width="320" height="480" />
     <component name="root">
         <componentType>
 			<component name="application" type="builtin:appController"/>
