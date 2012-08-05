@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scene xmlns="http://www.horizonpower.com.cn/hpclient/scene-xml/" xmlns:builtin="http://www.horizonpower.com.cn/hpclient/scene-xml/built-in/">
+<size width="320" height="480"/>
     <component name="root">
-        <componentType>
+		<properties>
+			<property name="background">
+				<string>http://mobile.sugon.com/view/png/digi/bg_empty.png</string>
+			</property>
+		</properties>
+		<componentType>
 			<component name="application" type="builtin:appController"/>
-            <component name="main" type="builtin:webView"/>
+			<component name="case" type="builtin:caseController">
+				<properties>
+					<property name="title">
+						<string>登录</string>
+					</property>
+					<property name="navButtonText">
+						<string>囧</string>
+					</property>
+				</properties>
+			</component>
+			<component name="main" type="builtin:webView"/>
+			
 			<component type="builtin:label">
-                <frame x="30" y="80" width="60" height="31"/>
+				<frame x="30" y="80" width="60" height="31"/>
 				<properties>
 					<property name="text">
 						<string>用户名</string>
@@ -13,10 +30,10 @@
 				</properties>
 			</component>
 			<component name="userName" type="builtin:textField">
-                <frame x="100" y="80" width="190" height="31"/>
+				<frame x="100" y="80" width="190" height="31"/>
 			</component>
 			<component type="builtin:label">
-                <frame x="30" y="120" width="60" height="31"/>
+				<frame x="30" y="120" width="60" height="31"/>
 				<properties>
 					<property name="text">
 						<string>密码</string>
@@ -24,7 +41,7 @@
 				</properties>
 			</component>
 			<component name="password" type="builtin:textField">
-                <frame x="100" y="120" width="190" height="31"/>
+				<frame x="100" y="120" width="190" height="31"/>
 				<properties>
 					<property name="secure">
 						<string>1</string>
@@ -32,40 +49,39 @@
 				</properties>
 			</component>
 
-
-			  <component name="saveCookie" type="builtin:button">
-                <frame x="30" y="210" width="100" height="50"/>
-                <properties>
-                    <property name="text">
-                        <string>saveCookie</string>
-                    </property>
-                </properties>
-            </component>
+			<component name="saveCookie" type="builtin:button">
+				<frame x="30" y="210" width="100" height="50"/>
+				<properties>
+					<property name="text">
+						<string>saveCookie</string>
+					</property>
+				</properties>
+			</component>
 			<component name="loadCookie" type="builtin:button">
-                <frame x="190" y="210" width="100" height="50"/>
-                <properties>
-                    <property name="text">
-                        <string>loadCookie</string>
-                    </property>
-                </properties>
-            </component>
+				<frame x="190" y="210" width="100" height="50"/>
+				<properties>
+					<property name="text">
+						<string>loadCookie</string>
+					</property>
+				</properties>
+			</component>
 
-            <component name="loginButton" type="builtin:button">
-                <frame x="30" y="310" width="100" height="50"/>
-                <properties>
-                    <property name="text">
-                        <string>登陆</string>
-                    </property>
-                </properties>
-            </component>
-            <component name="cancelButton" type="builtin:button">
-                <frame x="190" y="310" width = "100" height="50"/>
-                <properties>
-                    <property name="text">
-                        <string>清除</string>
-                    </property>
-                </properties>
-            </component>
+			<component name="loginButton" type="builtin:button">
+				<frame x="30" y="310" width="100" height="50"/>
+				<properties>
+					<property name="text">
+						<string>登陆</string>
+					</property>
+				</properties>
+			</component>
+			<component name="cancelButton" type="builtin:button">
+				<frame x="190" y="310" width = "100" height="50"/>
+				<properties>
+					<property name="text">
+						<string>清除</string>
+					</property>
+				</properties>
+			</component>	
         </componentType>
     </component>
 </scene>

@@ -7,11 +7,12 @@
 function changePageWithBridge(targetUrl,componetXmlUrl){
 	
 	var serverUrl="http://mobile.sugon.com";
-	if(typeof(commentXmlUrl)=="undefined"){
+	
+	if(typeof(componetXmlUrl)=="undefined"){
 			componetXmlUrl=serverUrl+"/view/Resources/PureWeb.scene.xml";
 			
 	}
-	//alert(targetUrl);
+
 	var pushScene = new cherry.bridge.NativeOperation("application", "pushScene", [componetXmlUrl,targetUrl]);
 	pushScene.dispatch();
 	cherry.bridge.flushOperations();

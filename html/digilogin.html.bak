@@ -52,7 +52,9 @@
 							return;
 						}
 						$.mobile.showPageLoadingMsg();
-						var url = '/view/digi/loginvalidate/names.nsf?Login&$PublicAccess=1&%26%26ModDate=0000000100000000&%26%26ModDate=0871326800000070&Password='+password+'&ReasonType=0&RedirectTo=/Produce/Weboaconfig.nsf/Homeform?openform%26login&Username='+username+'&imageField.x=55&imageField.y=13&data-userid=Username&data-password=Password&data-login=true&random='+Math.floor(Math.random()*1000000);
+						//var url = '/view/digi/loginvalidate/names.nsf?Login&$PublicAccess=1&%26%26ModDate=0000000100000000&%26%26ModDate=0871326800000070&Password='+password+'&ReasonType=0&RedirectTo=/Produce/Weboaconfig.nsf/Homeform?openform%26login&Username='+username+'&imageField.x=55&imageField.y=13&data-userid=Username&data-password=Password&data-login=true&random='+Math.floor(Math.random()*1000000);
+						var url = '/view/digi/loginvalidate/names.nsf?Login&password='+password+'&username='+username+;http://mobile2.sugon.com
+
 						$.ajax({
 							type: "GET", url: url, dataType: "text", cache:false,
 							success: function(response){

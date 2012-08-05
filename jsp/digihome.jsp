@@ -4,7 +4,7 @@
 	<head>  
         <title>DigiFlow</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=3.0, user-scalable=yes"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 		<meta name="format-detection" content="telephone=no" />
 		<meta name="apple-mobile-web-app-capable" content="yes" /> 
 		<meta name="apple-mobile-web-app-status-bar-style" content="black" /> 
@@ -167,11 +167,11 @@
                         <span style="color:white;"><strong>邮件</strong></span>
                     </div>
                     <div class="ui-block-b">
-						<a href="javascript:void(0)" onclick="changePageWithBridge('http://mobile.sugon.com/view/digi/phonenumber/Produce/WeboaConfig.nsf/telSearchForm?openform')">
+						<a href="javascript:void(0)" onclick="changePageWithBridge('http://mobile.sugon.com/view/digi/phonenumber/Produce/WeboaConfig.nsf/telSearchForm?openform','http://mobile.sugon.com/view/Resources/searchContact.xml')">
                         <img width="68" height="68" src="/view/png/digi/addressbook.png" />
 						</a>
                         <br/>
-                        <span style="color:white;"><strong>通讯录</strong></span>
+                        <span style="color:white;"><strong>通讯录12</strong></span>
                     </div>
                     <div class="ui-block-c">
 						<a href="javascript:void(0)" onclick="registdevice();">
