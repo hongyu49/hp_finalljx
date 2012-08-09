@@ -1,7 +1,7 @@
 /*
-  Ò³Ãæ Ìø×ª ÒÀÀµ cherry.js
-  para:targetUrl Ä¿±êurl
-  componetXmlUrl:¿ÉÑ¡ Ä¬ÈÏ×é¼şÎª  web ÈİÆ÷ Â·¾¶£ºview/resources/Resources/PureWeb.scene.xml
+  é¡µé¢ è·³è½¬ ä¾èµ– cherry.js
+  para:targetUrl ç›®æ ‡url
+  componetXmlUrl:å¯é€‰ é»˜è®¤ç»„ä»¶ä¸º  web å®¹å™¨ è·¯å¾„ï¼šview/resources/Resources/PureWeb.scene.xml
  
 */
 function changePageWithBridge(targetUrl,componetXmlUrl){
@@ -20,10 +20,10 @@ function changePageWithBridge(targetUrl,componetXmlUrl){
 		
 }
 /*
- Ò³Ãæ Ìø×ª  ¶àÓÃÓÚ·µ»ØÉÏÒ»Ò³
- ÒÀÀµ cherry.js
-  para:targetUrl Ä¿±êurl
-  componetXmlUrl:¿ÉÑ¡ Ä¬ÈÏ×é¼şÎª  web ÈİÆ÷ Â·¾¶£ºview/resources/Resources/PureWeb.scene.xml
+ é¡µé¢ è·³è½¬  å¤šç”¨äºè¿”å›ä¸Šä¸€é¡µ
+ ä¾èµ– cherry.js
+  para:targetUrl ç›®æ ‡url
+  componetXmlUrl:å¯é€‰ é»˜è®¤ç»„ä»¶ä¸º  web å®¹å™¨ è·¯å¾„ï¼šview/resources/Resources/PureWeb.scene.xml
 */
 function changePageBackWithBridge(){
 	
@@ -35,3 +35,7 @@ function changePageBackWithBridge(){
 	
 	return popScene;
 }
+
+
+new cherry.bridge.NativeOperation("case","setProperty",["title","å†…å®¹"]).dispatch();
+cherry.bridge.flushOperations();

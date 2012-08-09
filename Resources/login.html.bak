@@ -29,9 +29,9 @@
 							
 							var disableLogin=new cherry.bridge.NativeOperation("loginButton","setProperty",["enabled",0]);
 							disableLogin.dispatch();
-							
-							//var url = '/view/digi/loginvalidate/names.nsf?Login&$PublicAccess=1&%26%26ModDate=0000000100000000&%26%26ModDate=0871326800000070&Password='+password+'&ReasonType=0&RedirectTo=/Produce/Weboaconfig.nsf/Homeform?openform%26login&Username='+username+'&imageField.x=55&imageField.y=13&data-userid=Username&data-password=Password&data-login=true&random='+Math.floor(Math.random()*1000000);
-							var url = '/view/digi/loginvalidate/names.nsf?Login&password='+password+'&username='+username+'&data-userid=username&data-password=password&data-login=true';
+							saveCookie();
+							var url = '/view/digi/loginvalidate/names.nsf?Login&$PublicAccess=1&%26%26ModDate=0000000100000000&%26%26ModDate=0871326800000070&Password='+password+'&ReasonType=0&RedirectTo=/Produce/Weboaconfig.nsf/Homeform?openform%26login&Username='+username+'&imageField.x=55&imageField.y=13&data-userid=Username&data-password=Password&data-login=true&random='+Math.floor(Math.random()*1000000);
+							//var url = '/view/digi/loginvalidate/names.nsf?Login&password='+password+'&username='+username+'&data-userid=username&data-password=password&data-login=true';
 							$.ajax({
 								type: "GET", url: url, dataType: "text", cache:false,
 								success: function(response){
@@ -39,8 +39,8 @@
 									
 									var json = $.parseJSON(response);
 									if(json.success){
-										alert('sucess')
-										saveCookie();
+										
+										
 										
 										var SERVER_BASE_URL="http://mobile.sugon.com/view";
 										var  targetURL= SERVER_BASE_URL+"/digihome.jsp?itcode="+json.itcode;
@@ -48,14 +48,15 @@
 										
 										var pushSence=changePageWithBridge(targetURL);
 										
-										var enableLogin=new cherry.bridge.NativeOperation("loginButton","setProperty",["enabled",1]);
-										enableLogin.addDependency(pushSence);
-										enableLogin.dispatch();
+										
 									}else{
 										//$.mobile.hidePageLoadingMsg();
 										alert("登录失败,用户名或密码错.");
 										
 									}
+									var enableLogin=new cherry.bridge.NativeOperation("loginButton","setProperty",["enabled",1]);
+									enableLogin.dispatch();
+									cherry.bridge.flushOperations();
 								},
 								error:function(response){
 									//$.mobile.hidePageLoadingMsg();
@@ -130,9 +131,10 @@
 				}
 				
 				function loadCookie(){
-					if($.trim($.cookie("userName"))!="") {
+					//alert($.cookie("userName"));
+					if($.cookie("userName") && $.trim($.cookie("userName"))!="") {
 						var loadCookieScript = new cherry.bridge.ScriptOperation(function(){
-					
+							
 							var userName="";
 							var passWord="";
 						

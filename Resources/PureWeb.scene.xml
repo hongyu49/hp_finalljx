@@ -4,8 +4,18 @@
     <component name="root">
         <componentType>
 			<component name="application" type="builtin:appController"/>
+			<component name="case" type="builtin:caseController">
+				<properties>
+					<property name="title">
+						<string></string>
+					</property>
+					<property name="navBarHidden">
+						<string>0</string>
+					</property>
+				</properties>
+			</component>
             <component name="main" type="builtin:webView">
-                <frame x="0" y="0" width="320" height="480"/>
+                <frame x="0" y="0" width="320" height="455"/>
                 <properties>
                     <!--
                     <property name="target">
@@ -17,13 +27,5 @@
             </component>
         </componentType>
     </component>
-    <!--
-    <component name="root" type="builtin:webView">
-        <properties>
-            <property name="target">
-                <string>http://www.google.com.hk/</string>
-            </property>
-        </properties>
-    </component>
-     -->
+   
 </scene>

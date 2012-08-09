@@ -14,10 +14,6 @@
 			</head>
 			<body>
 				<div id="notice" data-role="page">
-					<div data-role="header">
-						<a data-icon="home" data-role="button" data-rel="back" data-direction="reverse">返回</a>
-						<h1>跳转中</h1>
-					</div><!-- /header -->
 					<div data-role="content" align="center">
 						<script>
 							var StMsgDB = "<xsl:value-of select='translate(//input[@name="StMsgDB"]/@value, "\", "/")' />";

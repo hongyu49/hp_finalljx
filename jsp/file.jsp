@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=3;"/>
 		<meta name="format-detection" content="telephone=no" />
 		<script src="/cssjs/jquery.js"></script>
+		<script src="/view/js/cherry.js"></script>
 	</head>
 	<body style="margin:0;padding:0;background-color:#000000">
 				<!--
@@ -35,21 +36,34 @@
 				}else if(type.indexOf("application/pdf")!=-1 || type.indexOf("application/msword")!=-1 || type.indexOf("application/octet-stream")!=-1 || type.indexOf("application/vnd.ms-powerpoint")!=-1){
 					ispage = true;
 					%>
-					<div data-scroll="true" align="center">
+					<div align="center">
+						<div id="imgtitle" align="center" style="width:100%;background-color:#FFFFFF;display:none;"></div>
 						<img width="100%" id="imgcontent" src="<%=q.getRequest().getRequestURI() %>?data-page=1" />
 					</div>
 					<%
 				}
 				%>
 				<script>
+					cherry.bridge.registerEvent("previousButton", "touchUp", function(oper) {
+						prewpage();
+					});
+					cherry.bridge.registerEvent("nextButton", "touchUp", function(oper) {
+						nextpage();
+					});
 					var isshowed = false;
 					var currentPage = 1;
 					var total = <%=q.getPageSize() %>;
 					var path = "<%=q.getRequest().getRequestURI() %>";
 					$("#imgtitle").html("第"+currentPage+"页/共" + total + "页");
+					
+					new cherry.bridge.NativeOperation("case","setProperty",["title","第"+currentPage+"页/共" + total + "页"]).dispatch();
+					cherry.bridge.flushOperations();
 					function changeimg(){
 						$("#imgcontent").attr("src", "");
 						$("#imgtitle").html("第"+currentPage+"页/共" + total + "页");
+						
+						new cherry.bridge.NativeOperation("case","setProperty",["title","第"+currentPage+"页/共" + total + "页"]).dispatch();
+						cherry.bridge.flushOperations();
 						if(path.indexOf('?')==-1){
 							$("#imgcontent").attr("src", path + "?data-page=" + currentPage+"&data-cache=true").one('load',function(){$.mobile.hidePageLoadingMsg();});
 						}else{
@@ -71,8 +85,10 @@
 				</script>
 			</div><!-- /content -->
 			<%if(ispage){%>
+				<div style="display:none;">
 				<a data-iconpos="top" data-icon="arrow-l" href="javascript:void(0);" onclick="prewpage();">PREW</a>
 				<a data-iconpos="top" data-icon="arrow-r" href="javascript:void(0);" onclick="nextpage();">NEXT</a>
+				</div>
 				<!-- /footer -->
 			<%}%>
 		</div>

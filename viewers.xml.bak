@@ -8,7 +8,7 @@
 	<viewer id="hpi" type="remote" source="http://dloa.hpi.com.cn" encoding="gb18030">
 		<view id="login" />
 	</viewer>
-	<viewer id="digi" type="remote" source="http://mobile2.sugon.com" encoding="gb18030" sso="http://mobile2.sugon.com/Produce/Weboaconfig.nsf/Homeform?openform&amp;login">
+	<viewer id="digi" type="remote" source="http://182.50.2.171:8000" encoding="utf-8" sso="http://182.50.2.171:8000/Produce/Weboaconfig.nsf/Homeform?openform&amp;login">
 		<!-- 登陆验证 -->
 		<view id="loginvalidate" template="digi/loginvalidate.xsl"/>
         

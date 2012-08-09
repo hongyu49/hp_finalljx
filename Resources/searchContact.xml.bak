@@ -7,20 +7,25 @@
 			<component name="case" type="builtin:caseController">
 				<properties>
 					<property name="title">
-						<string>登录</string>
+						<string></string>
 					</property>
-					<property name="navButtonText">
-						<string>囧</string>
+					<property name="navBarHidden">
+						<string>0</string>
 					</property>
 				</properties>
 			</component>
             <component name="main" type="builtin:webView">
-                <frame x="0" y="0" width="320" height="480"/>
+                <frame x="0" y="0" width="320" height="455"/>
                 <properties>
-                    
+                    <!--
+                    <property name="target">
+                        <string>resource://localhost/index.html</string>
+                         <string>http://mobile.sugon.com/view/digilogin.html</string>
+                     </property>
+                     -->
                 </properties>
             </component>
         </componentType>
     </component>
-    
+   
 </scene>

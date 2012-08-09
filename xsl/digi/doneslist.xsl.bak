@@ -21,11 +21,6 @@
 			</head>
 			<body>
 				<div id="list" data-role="page" class="type-home">
-					<div data-role="header">
-						<a data-icon="home" data-role="button" data-rel="back">返回</a>
-						<h1>已办事宜</h1>
-					</div><!-- /header -->
-				
 					<div data-role="content" align="center">
 						<ul data-role="listview" data-inset="true">
 							<li data-role="list-divider"></li>

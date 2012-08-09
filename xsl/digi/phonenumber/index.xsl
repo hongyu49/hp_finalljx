@@ -14,50 +14,49 @@
 			<head>							
 				<link rel="stylesheet"  href="/cssjs/jquery.mobile-1.0.1.css" />
 				<link rel="stylesheet" href="/ios/ios.css" />
-				<script src="resource://localhost/cherry.js"></script>
-				<script src="/view/js/mobileBridge.js"></script>
 				<script src="/cssjs/jquery.js"></script>
 				<script src="/cssjs/jquery.cookie.js"></script>
-				<script src="resource://localhost/cherry.js"></script>
+				<script src="/view/js/cherry.js"></script>
 				<script src="http://mobile.sugon.com/view/mobileBridge.js"></script>
 				<script src="/cssjs/jquery.mobile-1.0.1.js"></script>
+				<script>
+					<![CDATA[
+					
+					cherry.bridge.registerEvent("case", "navButtonTouchUp", function(oper) {
+						submit();
+					});
+					function submit(){
+						var username = $("#phonenumber").val();
+						username = encodeURI(escape(username));
+						
+						$.mobile.showPageLoadingMsg();
+						
+						var url = "/view/digi/phonenumberrequest/Produce/WeboaConfig.nsf/telSearchForm?openform&svrName=CN=v7demo/O=dcms&queryStr="+username+"&dbFile=Produce/DigiFlowOrgPsnMng.nsf&showField=UserDeptPhone";
+						$.ajax({
+							type: "post", url: url,
+							success: function(response){
+								$.mobile.hidePageLoadingMsg();
+								$("#viewValue").html(response);
+								$("#viewValue ul").listview();
+								$("#viewValue ul").listview();    
+							},
+							error:function(response){
+								$.mobile.hidePageLoadingMsg();
+								alert("错误:"+response.responseText);
+							}
+						});
+					}
+					]]>
+				</script>
 			</head>
 			<body>
-				<div data-role="page" data-iscroll="enable" class="type-home">
+				<div id="list" data-role="page" class="type-home">
 					<div data-role="content" align="center">
-						<script>
-							<![CDATA[
-							
-							cherry.bridge.registerEvent("case", "navButtonTouchUp", function(oper) {
-								submit();
-							});
-							function submit(){
-								var username = $("#phonenumber").val();
-								username = encodeURI(escape(username));
-								
-								$.mobile.showPageLoadingMsg();
-								
-								var url = "/view/digi/phonenumberrequest/Produce/WeboaConfig.nsf/telSearchForm?openform&svrName=CN=v7demo/O=dcms&queryStr="+username+"&dbFile=Produce/DigiFlowOrgPsnMng.nsf&showField=UserDeptPhone";
-								$.ajax({
-									type: "post", url: url,
-									success: function(response){
-										$.mobile.hidePageLoadingMsg();
-										$("#viewValue").html(response);
-										$("#viewValue ul").listview();
-										$("#viewValue ul").listview();    
-									},
-									error:function(response){
-										$.mobile.hidePageLoadingMsg();
-										alert("错误:"+response.responseText);
-									}
-								});
-							}
-							]]>
-						</script>
-						<div style="width:100%;" align="center">
+
+						<div align="center" >
 							<input type="text" id="phonenumber" name="phonenumber" value="" />
 						</div>
-						<div id="viewValue">
+						<div id="viewValue" >
 							<ul data-role="listview" data-inset="true">
 								<li data-role="list-divider"></li>
 								<li>无数据</li>

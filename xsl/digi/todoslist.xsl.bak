@@ -23,10 +23,6 @@
 			</head>
 			<body>
 				<div id="list" data-role="page" class="type-home">
-					<div data-role="header">
-						<a data-icon="home" data-role="button" data-rel="back">返回</a>
-						<h1>待办事宜</h1>
-					</div><!-- /header -->
 				
 					<div data-role="content" align="center">
 						<script>

@@ -31,7 +31,7 @@
 		</script>
 		<script src="/cssjs/jquery.js"></script>
 		<script src="/cssjs/jquery.cookie.js"></script>
-		<script src="resource://localhost/cherry.js"></script>
+		<script src="/view/js/cherry.js"></script>
 		<script src="http://mobile.sugon.com/view/mobileBridge.js"></script>
 		<script>
 			$(document).bind("mobileinit", function(){
@@ -62,6 +62,9 @@
 				return this.path;
 			}
 			var action = new MoveIn();
+			var setNavigationTitle=new cherry.bridge.NativeOperation("case","setProperty",["title","首页"]);
+			setNavigationTitle.dispatch();
+			cherry.bridge.flushOperations();
 		</script>
 	<script src="../cssjs/jquery.mobile-1.0.1.js"></script>
     <style>
@@ -171,7 +174,7 @@
                         <img width="68" height="68" src="/view/png/digi/addressbook.png" />
 						</a>
                         <br/>
-                        <span style="color:white;"><strong>通讯录12</strong></span>
+                        <span style="color:white;"><strong>通讯录</strong></span>
                     </div>
                     <div class="ui-block-c">
 						<a href="javascript:void(0)" onclick="registdevice();">

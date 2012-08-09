@@ -15,12 +15,17 @@
 				</properties>
 			</component>
             <component name="main" type="builtin:webView">
-                <frame x="0" y="0" width="320" height="480"/>
+                <frame x="0" y="0" width="320" height="455"/>
                 <properties>
-                    
+                    <!--
+                    <property name="target">
+                        <string>resource://localhost/index.html</string>
+                         <string>http://mobile.sugon.com/view/digilogin.html</string>
+                     </property>
+                     -->
                 </properties>
             </component>
         </componentType>
     </component>
-    
+   
 </scene>

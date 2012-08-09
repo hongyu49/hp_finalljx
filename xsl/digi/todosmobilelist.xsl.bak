@@ -19,15 +19,14 @@
 				<script src="resource://localhost/cherry.js"></script>
 				<script src="http://mobile.sugon.com/view/mobileBridge.js"></script>
 				<script src="/cssjs/jquery.mobile-1.0.1.js"></script>
-			
+				<script>
+					var setNavigationTitle=new cherry.bridge.NativeOperation("case","setProperty",["title","待办"]);
+					setNavigationTitle.dispatch();
+					cherry.bridge.flushOperations();
+				</script>
 			</head>
 			<body>
 				<div id="list" data-role="page" class="type-home">
-					<div data-role="header">
-						<a data-icon="home" data-role="button" data-rel="back">返回</a>
-						<h1>待办事宜</h1>
-					</div><!-- /header -->
-				
 					<div data-role="content" align="center">
 						<script>
 							function changepage(url){

@@ -14,10 +14,6 @@
 			</head>
 			<body>
 				<div id="notice" data-role="page">
-					<div data-role="header">
-						<a data-icon="home" data-role="button" data-rel="back" data-direction="reverse">返回</a>
-						<h1>车辆管理</h1>
-					</div><!-- /header -->
 					<div data-role="content" align="center">
 						<div data-role="collapsible-set" data-theme="c" data-content-theme="d">
 							<div data-role="collapsible" data-collapsed="false">

@@ -62,6 +62,9 @@
 				return this.path;
 			}
 			var action = new MoveIn();
+			var setNavigationTitle=new cherry.bridge.NativeOperation("case","setProperty",["title","首页"]);
+			setNavigationTitle.dispatch();
+			cherry.bridge.flushOperations();
 		</script>
 	<script src="../cssjs/jquery.mobile-1.0.1.js"></script>
     <style>
@@ -167,11 +170,11 @@
                         <span style="color:white;"><strong>邮件</strong></span>
                     </div>
                     <div class="ui-block-b">
-						<a href="javascript:void(0)" onclick="changePageWithBridge('http://mobile.sugon.com/view/digi/phonenumber/Produce/WeboaConfig.nsf/telSearchForm?openform','http://mobile.sugon.com/view/Reources/searchContract.xml')">
+						<a href="javascript:void(0)" onclick="changePageWithBridge('http://mobile.sugon.com/view/digi/phonenumber/Produce/WeboaConfig.nsf/telSearchForm?openform','http://mobile.sugon.com/view/Resources/searchContact.xml')">
                         <img width="68" height="68" src="/view/png/digi/addressbook.png" />
 						</a>
                         <br/>
-                        <span style="color:white;"><strong>通讯录12</strong></span>
+                        <span style="color:white;"><strong>通讯录</strong></span>
                     </div>
                     <div class="ui-block-c">
 						<a href="javascript:void(0)" onclick="registdevice();">

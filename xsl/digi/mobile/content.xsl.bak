@@ -37,7 +37,7 @@
 										success: function(response){
 											$.mobile.hidePageLoadingMsg();
 											alert(response);
-											changePageBackWithBridge
+											changePageBackWithBridge();
 										},
 										error:function(response){
 											$.mobile.hidePageLoadingMsg();
