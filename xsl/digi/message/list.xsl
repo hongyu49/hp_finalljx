@@ -26,8 +26,8 @@
 							function goin(user,unid){
 								var url = "/view/digi/messagerouting/DFMessage/dfmsg_"+user+".nsf/msgByDateDownView/"+unid+"?opendocument?login";
 								$.get(url, function(result){
-									alert(result);
-									changePageWithBridge("http://mobile.sugon.com" + url);
+									url = "http://mobile.sugon.com" + result;
+									changePageWithBridge(url);
 								});
 							}
 						</script>

@@ -63,7 +63,14 @@
 			}
 			var action = new MoveIn();
 			var setNavigationTitle=new cherry.bridge.NativeOperation("case","setProperty",["title","首页"]);
+			cherry.bridge.registerEvent("case", "navButtonTouchUp", function(oper) {
+					//alert("niubility");
+					changePageBackWithBridge(1);
+				});
 			setNavigationTitle.dispatch();
+			
+			var setNavigationBack=new cherry.bridge.NativeOperation("case","setProperty",["backButtonHidden","1"]);
+			setNavigationBack.dispatch();
 			cherry.bridge.flushOperations();
 		</script>
 	<script src="../cssjs/jquery.mobile-1.0.1.js"></script>
@@ -146,37 +153,47 @@
                     </div>
                     <div class="ui-block-b">
 						<a href="javascript:void(0);" onclick="changePageWithBridge('http://mobile.sugon.com/view/digi/messagelist/Produce/DigiFlowMobile.nsf/agGetViewData?openagent&login&0.6922244625974295&server=&dbpath=DFMessage/dfmsg_<%=request.getParameter("itcode") %>.nsf&view=vwMsgUnRdForMobile&thclass=&page=1&count=15')">
-
 							<img width="68" height="68" src="/view/png/digi/unread.png" />
 						</a>
                         <br/>
                         <span style="color:white;"><strong>未读消息</strong></span>
                     </div>
-                    <div class="ui-block-c">
+					 <div class="ui-block-b">
+						<a href="javascript:void(0);" onclick="changePageWithBridge('http://mobile.sugon.com/view/digi/messagereadlist/DFMessage/dfmsg_<%=request.getParameter("itcode") %>.nsf/msgByDateDownRdView?readviewentries?login&start=1&count=3')">
+							<img width="68" height="68" src="/view/png/digi/unread.png" /> 
+						</a>
+                        <br/>
+                        <span style="color:white;"><strong>已读消息</strong></span>
+                    </div>
+                </div>
+                <br/>
+                <div class="ui-grid-b">
+                    <div class="ui-block-a">
 						<a href="javascript:void(0);" onclick="changePageWithBridge('http://mobile.sugon.com/view/digi/newslist/Produce/DigiFlowMobile.nsf/agGetViewData?openagent&login&0.30080900634742125&server=&dbpath=Application/DigiFlowInfoPublish.nsf&view=InfoByDateView_2&thclass=Dir01$&page=1&count=15')">
 							<img width="68" height="68" src="/view/png/digi/news.png" />
 						</a>
                         <br/>
                         <span style="color:white;"><strong>企业新闻</strong></span>
                     </div>
-                </div>
-                <br/>
-                <div class="ui-grid-b">
-                    <div class="ui-block-a">
+                    <div class="ui-block-b">
 						<a href="javascript:void(0)" onclick="openmail();">
                         <img width="68" height="68" src="/view/png/digi/mail.png" />
 						</a>
                         <br/>
                         <span style="color:white;"><strong>邮件</strong></span>
                     </div>
-                    <div class="ui-block-b">
+                    <div class="ui-block-c">
 						<a href="javascript:void(0)" onclick="changePageWithBridge('http://mobile.sugon.com/view/digi/phonenumber/Produce/WeboaConfig.nsf/telSearchForm?openform','http://mobile.sugon.com/view/Resources/searchContact.xml')">
                         <img width="68" height="68" src="/view/png/digi/addressbook.png" />
 						</a>
                         <br/>
                         <span style="color:white;"><strong>通讯录</strong></span>
                     </div>
-                    <div class="ui-block-c">
+                </div>
+				
+                <br/>
+                <div class="ui-grid-b">
+                    <div class="ui-block-a">
 						<a href="javascript:void(0)" onclick="registdevice();">
                         <img width="68" height="68" src="/view/png/digi/notice.png" />
 						</a>

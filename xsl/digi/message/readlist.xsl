@@ -26,11 +26,14 @@
 							function goin(user,unid){
 								var url = "/view/digi/messagerouting/DFMessage/dfmsg_"+user+".nsf/msgByDateDownView/"+unid+"?opendocument?login";
 								$.get(url, function(result){
-									
 									url = "http://mobile.sugon.com" + result;
 									changePageWithBridge(url);
 								});
 							}
+							
+							new cherry.bridge.NativeOperation("case","setProperty",["title","已读消息"]).dispatch();
+							cherry.bridge.flushOperations();
+
 						</script>
 						<ul data-role="listview" data-inset="true">
 							<xsl:apply-templates select="//viewentry" />

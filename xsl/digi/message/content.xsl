@@ -15,16 +15,16 @@
 			<body>
 				<div id="notice" data-role="page">
 					<div data-role="content" align="center">
-									<ul data-role="listview" data-inset="true" data-theme="d"> 
-										<xsl:choose>
-											<xsl:when test="//div[@id='divtA']/table">
-												<li><xsl:apply-templates select="//div[@id='divtA']/table" mode="c1"/></li>
-											</xsl:when>
-											<xsl:when test="//div[@class='DF_Content_Section']/table">
-												<li><xsl:apply-templates select="//div[@class='DF_Content_Section']/table" mode="c1"/></li>
-											</xsl:when>
-										</xsl:choose>
-									</ul>
+						<ul data-role="listview" data-inset="true" data-theme="d"> 
+							<xsl:choose>
+								<xsl:when test="//div[@id='divtA']/table">
+									<li><xsl:apply-templates select="//div[@id='divtA']/table" mode="c1"/></li>
+								</xsl:when>
+								<xsl:when test="//div[@class='DF_Content_Section']/table">
+									<li><xsl:apply-templates select="//div[@class='DF_Content_Section']/table" mode="c1"/></li>
+								</xsl:when>
+							</xsl:choose>
+						</ul>
 					</div><!-- /content -->
 				</div>
 			</body>

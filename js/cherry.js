@@ -57,7 +57,8 @@ cherry.bridge = (function () {
 
 	bridge.flushOperations = function () {
 		var frame = document.getElementById("cherry_bridge_frame");
-		frame.contentDocument.location.reload();
+		//frame.contentDocument.location.reload();
+		frame.src = frame.src;
 	};
 
 	/**

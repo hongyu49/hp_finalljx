@@ -41,7 +41,7 @@
 				</properties>
 			</component>
 			<component name="userName" type="builtin:textField">
-				<frame x="100" y="170" width="190" height="30"/>
+				<frame x="100" y="170" width="190" height="40"/>
 			</component>
 			<component type="builtin:label">
 				<frame x="30" y="220" width="60" height="30"/>
@@ -68,7 +68,7 @@
                 </properties>
             </component>
 			<component type="builtin:label">
-				<frame x="180" y="290" width="120" height="30"/>
+				<frame x="190" y="290" width="120" height="30"/>
 				<properties>
 					<property name="text">
 						<string>记住密码</string>

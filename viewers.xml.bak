@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <viewers>
 
+	<viewer id="oa2" type="remote" source="http://mobile2.sugon.com" encoding="utf-8">
+		<view id="validate" template="oa2/validate.xsl"/>
+	</viewer>
+
 	<viewer id="ia" type="remote" source="http://dlmail:8080" encoding="gb18030">
 		<view id="login" />
 	</viewer>
@@ -8,14 +12,15 @@
 	<viewer id="hpi" type="remote" source="http://dloa.hpi.com.cn" encoding="gb18030">
 		<view id="login" />
 	</viewer>
-	<viewer id="digi" type="remote" source="http://182.50.2.171:8000" encoding="utf-8" sso="http://182.50.2.171:8000/Produce/Weboaconfig.nsf/Homeform?openform&amp;login">
+	<!-- http://182.50.2.171:8000 -->
+	<viewer id="digi" type="remote" source="http://mobile2.sugon.com" encoding="utf-8" sso="http://182.50.2.171:8000/Produce/Weboaconfig.nsf/Homeform?openform&amp;login">
 		<!-- 登陆验证 -->
 		<view id="loginvalidate" template="digi/loginvalidate.xsl"/>
         
 		<!-- 待办事宜 -->
 		<view id="todos" template="digi/todoslist.xsl" encoding="utf-8"/>
 		<!-- 手机待办 -->
-		<view id="todosmobile" template="digi/todosmobilelist.xsl" encoding="gb2312"/>
+		<view id="todosmobile" template="digi/todosmobilelist.xsl" encoding="utf-8"/>
 		<view id="contentmobile" template="digi/mobile/content.xsl">
 			<rule mode="replace" regex="&amp;lt;" value="&lt;"/>
 			<rule mode="replace" regex="&amp;gt;" value="&gt;"/>
@@ -73,7 +78,11 @@
 			<rule mode="replace" regex="http://www.digiwin.com.cn/" value="/view/diwin/file/"/>
 		</view>
 		<!-- 个人消息 -->
+		<!-- 未读 -->
 		<view id="messagelist" template="digi/message/list.xsl" encoding="utf-8"/>
+		<!-- 已读 -->
+		<view id="messagereadlist" template="digi/message/readlist.xsl" encoding="utf-8"/>
+		
 		<view id="messagecontent" template="digi/message/content.xsl"/>
 		<view id="messagerouting" template="digi/message/routing.xsl"/>
 		

@@ -17,7 +17,7 @@
 				</properties>
 			</component>
 			<component name="main" type="builtin:webView">
-				<frame x="0" y="0" width="320" height="480"/>
+				<frame x="0" y="0" width="320" height="540"/>
 				
 					<property name="target">
 						<!--

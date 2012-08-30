@@ -11,12 +11,8 @@
 			<component name="application" type="builtin:appController"/>
 			<component name="case" type="builtin:caseController">
 				<properties>
-					<property name="title">
-						<string>注销</string>
-					</property>
-					<property name="navButtonText">
-						<string>click</string>
-					</property>
+					
+					
 					<property name="navBarHidden">
 						<string>1</string>
 					</property>
@@ -41,7 +37,7 @@
 				</properties>
 			</component>
 			<component name="userName" type="builtin:textField">
-				<frame x="100" y="170" width="190" height="30"/>
+				<frame x="100" y="170" width="190" height="40"/>
 			</component>
 			<component type="builtin:label">
 				<frame x="30" y="220" width="60" height="30"/>
