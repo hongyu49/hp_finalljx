@@ -7,8 +7,19 @@
 		<meta name="format-detection" content="telephone=no" />
 		<script src="/cssjs/jquery.js"></script>
 		<script src="/view/js/cherry.js"></script>
+		<style>
+			pre {
+				white-space: pre-wrap;
+				white-space: -moz-pre-wrap;
+				white-space: -pre-wrap;
+				white-space: -o-pre-wrap;
+				word-wrap: break-word;
+			}
+		</style>
 	</head>
-	<body style="margin:0;padding:0;background-color:#000000">
+	<body style="margin:0px;padding:0px;">
+		<div data-role="page" style="margin:0px;padding:0px;">
+			<div data-role="content" style="margin:0px;padding:0px;">
 				<!--
 				<link rel="stylesheet"  href="/cssjs/scrollview/jquery.mobile.scrollview.css" />
 				<script src="/cssjs/scrollview/jquery.easing.1.3.js"></script>
@@ -29,8 +40,14 @@
 					<%
 				}else if(type.indexOf(".png")!=-1){
 					%>
-					<div align="center" style="margin:0;padding:0;">
+					<div align="center" style="margin:0;padding:0;"> 
 						<img width="100%" src="/view<%=path%>" />
+					</div>
+					<%
+				}else if(type.indexOf("text/plain")!=-1){
+					%>
+					<div align="left" style="margin:0;padding:0;">
+						<pre><%=path%></pre>
 					</div>
 					<%
 				}else if(type.indexOf("application/pdf")!=-1 || type.indexOf("application/msword")!=-1 || type.indexOf("application/octet-stream")!=-1 || type.indexOf("application/vnd.ms-powerpoint")!=-1){
@@ -84,13 +101,12 @@
 					}
 				</script>
 			</div><!-- /content -->
-			<%if(ispage){%>
 				<div style="display:none;">
 				<a data-iconpos="top" data-icon="arrow-l" href="javascript:void(0);" onclick="prewpage();">PREW</a>
 				<a data-iconpos="top" data-icon="arrow-r" href="javascript:void(0);" onclick="nextpage();">NEXT</a>
 				</div>
 				<!-- /footer -->
-			<%}%>
+			</div>
 		</div>
 	</body>
 </html>

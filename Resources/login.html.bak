@@ -43,7 +43,7 @@
 										
 										
 										var SERVER_BASE_URL="http://mobile.sugon.com/view";
-										var  targetURL= SERVER_BASE_URL+"/digihome.jsp?itcode="+json.itcode;
+										var  targetURL= SERVER_BASE_URL+"/digihome.jsp?itcode="+username;
 										var componentURL = SERVER_BASE_URL+"/Resources/digihome.xml";
 										
 										var pushSence=changePageWithBridge(targetURL,componentURL);
@@ -131,21 +131,18 @@
 				}
 				
 				function loadCookie(){
-					alert($.cookie("userName"));
+					//alert($.cookie("userName"));
 					var userName="";
 					var passWord="";
 					
 					if($.cookie("userName") && $.trim($.cookie("userName"))!="") {
 						
-							
-							
-						
-							if($.cookie("userName")){
-								userName=$.cookie("userName");
-							}
-							if($.cookie("passWord")){
-								passWord=$.cookie("passWord");
-							}
+						if($.cookie("userName")){
+							userName=$.cookie("userName");
+						}
+						if($.cookie("passWord")){
+							passWord=$.cookie("passWord");
+						}
 						
 					}	
 					var NR_UserName = new cherry.bridge.NativeOperation("userName", "setProperty", ["text", userName]);

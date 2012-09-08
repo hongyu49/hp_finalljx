@@ -65,7 +65,7 @@
 			var setNavigationTitle=new cherry.bridge.NativeOperation("case","setProperty",["title","首页"]);
 			cherry.bridge.registerEvent("case", "navButtonTouchUp", function(oper) {
 					//alert("niubility");
-					changePageBackWithBridge(1);
+					changePageBackWithBridge( 1);
 				});
 			setNavigationTitle.dispatch();
 			
@@ -149,7 +149,7 @@
 							<img width="68" height="68" src="/view/png/digi/todos.png" />
 						</a>
                         <br/>
-                        <span style="color:white;"><strong>待办事宜</strong></span>
+                        <span style="color:white;"><strong>待办事宜1</strong></span>
                     </div>
                     <div class="ui-block-b">
 						<a href="javascript:void(0);" onclick="changePageWithBridge('http://mobile.sugon.com/view/digi/messagelist/Produce/DigiFlowMobile.nsf/agGetViewData?openagent&login&0.6922244625974295&server=&dbpath=DFMessage/dfmsg_<%=request.getParameter("itcode") %>.nsf&view=vwMsgUnRdForMobile&thclass=&page=1&count=15')">
@@ -204,7 +204,7 @@
 				
 			</div>
 		</div>
-		<!-- 首页面 <iframe src="/view/digi?data-action=createuser" border="0" frameborder="no" framespacing="0" width="0" height="0"></iframe>-->
+		<iframe src="/view/digi?data-action=createuser" border="0" frameborder="no" framespacing="0" width="0" height="0"></iframe>
 		
 	</body>
 </html>

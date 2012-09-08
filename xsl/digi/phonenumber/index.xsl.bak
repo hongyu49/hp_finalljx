@@ -31,7 +31,7 @@
 						
 						$.mobile.showPageLoadingMsg();
 						
-						var url = "/view/digi/phonenumberrequest/Produce/WeboaConfig.nsf/telSearchForm?openform&svrName=CN=v7demo/O=dcms&queryStr="+username+"&dbFile=Produce/DigiFlowOrgPsnMng.nsf&showField=UserDeptPhone";
+						var url = "/view/digi/phonenumberrequest/Produce/WeboaConfig.nsf/telSearchForm?openform&svrName=CN=v7dev/O=DigiWin&queryStr="+username+"&dbFile=Produce/DigiFlowOrgPsnMng.nsf&showField=UserDeptPhone";
 						$.ajax({
 							type: "post", url: url,
 							success: function(response){

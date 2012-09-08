@@ -19,14 +19,6 @@
 			<component name="main" type="builtin:webView">
 				<frame x="0" y="0" width="320" height="480"/>
 				
-					<property name="target">
-						<!--
-						<string>resource://localhost/index.html</string>
-						<string>http://mobile.sugon.com/view/digihome.html</string>
-						-->
-					</property>
-					
-				
 			</component>
         </componentType>
     </component>

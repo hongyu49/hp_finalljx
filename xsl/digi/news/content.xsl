@@ -6,6 +6,15 @@
 			<head>							
 				<link rel="stylesheet"  href="/cssjs/jquery.mobile-1.0.1.css" />
 				<link rel="stylesheet" href="/ios/ios.css" />
+				<style>
+					pre {
+						white-space: pre-wrap;
+						white-space: -moz-pre-wrap;
+						white-space: -pre-wrap;
+						white-space: -o-pre-wrap;
+						word-wrap: break-word;
+					}
+				</style>
 				<script src="/cssjs/jquery.js"></script>
 				<script src="/cssjs/jquery.cookie.js"></script>
 				<script src="/view/js/cherry.js"></script>
@@ -30,15 +39,15 @@
 							<ul data-role="listview" data-inset="true">
 								<li>
 									<div style="width:100%;word-break:break-all;text-align:left;" align="left">
-										<xsl:if test="//textarea[@id='FCK_EditorValue']/p[1]/@style">
-											<xsl:copy-of select="//textarea[@id='FCK_EditorValue']//p" />
-										</xsl:if>
-										
-										<xsl:if test="not(//textarea[@id='FCK_EditorValue']/p[1]/@style)">
-											<xsl:value-of select="//textarea[@id='FCK_EditorValue']//p" />
-										</xsl:if>
-
-										
+										<pre>
+											<xsl:if test="//textarea[@id='FCK_EditorValue']/p[1]/@style">
+												<xsl:copy-of select="//textarea[@id='FCK_EditorValue']//p" />
+											</xsl:if>
+											
+											<xsl:if test="not(//textarea[@id='FCK_EditorValue']/p[1]/@style)">
+												<xsl:value-of select="//textarea[@id='FCK_EditorValue']//p" />
+											</xsl:if>
+										</pre>
 									</div>
 									<div>
 									<xsl:apply-templates select="//img[@src='/icons/fileatt.gif']/.." mode="file"/>

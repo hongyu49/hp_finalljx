@@ -43,7 +43,7 @@
 										
 										
 										var SERVER_BASE_URL="http://mobile.sugon.com/view";
-										var  targetURL= SERVER_BASE_URL+"/digihome.jsp?itcode="+json.itcode;
+										var  targetURL= SERVER_BASE_URL+"/digihome.jsp?itcode="+username;
 										var componentURL = SERVER_BASE_URL+"/Resources/digihome.xml";
 										
 										var pushSence=changePageWithBridge(targetURL,componentURL);
@@ -73,21 +73,7 @@
 					
 				});
 				
-				//navagation bar
-			/*
-				cherry.bridge.registerEvent("case", "navButtonTouchUp", function(oper) {
-					alert("niubility");
-					var targetURL="http://mobile.sugon.com/view/digilogin.html?tag="+Math.random();
-					changePageWithBridge(targetURL);
-				});
-				
-				var setNavigationTitle=new cherry.bridge.NativeOperation("case","setProperty",["title","js Modify"]);
-				setNavigationTitle.dispatch();
-
-
-				var setNavigationButtonText =new cherry.bridge.NativeOperation("case","setProperty",["navButtonText","clickMe"]);
-				setNavigationButtonText.dispatch();
-				*/
+			
 				// 保存用户信息
 				function saveCookie () {
 					var getCookieSwitch = new cherry.bridge.NativeOperation("cookieSwitch", "getProperty", ["on"]).dispatch();
