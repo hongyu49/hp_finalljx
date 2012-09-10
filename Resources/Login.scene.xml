@@ -81,6 +81,15 @@
 				</properties>
 			</component>
 			
+			<component name="mylogin" type="builtin:button">
+				<frame x="98" y="420" width="150" height="40"/>
+				<properties>
+					<property name="text">
+						<string>百度</string>
+					</property>
+				</properties>
+			</component>
+			
         </componentType>
     </component>
 </scene>

@@ -200,11 +200,33 @@
                         <br/>
                         <span style="color:white;"><strong>终端注册</strong></span>
                     </div>
+					<div class="ui-block-b">
+						<a href="javascript:void(0)" onclick="changePageWithBridge('http://mobile.sugon.com/view/baidu/news/','http://mobile.sugon.com/view/Resources/news.scene.xml')">
+                        <img width="68" height="68" src="/view/png/digi/notice.png" />
+						</a>
+                        <br/>
+                        <span style="color:white;"><strong>百度NEWS</strong></span>
+                    </div>
+					<div class="ui-block-c">
+						<a href="javascript:void(0)" onclick="changePageWithBridge('http://mobile.sugon.com/view/test/first/','http://mobile.sugon.com/view/Resources/first.scene.xml')">
+                        <img width="68" height="68" src="/view/png/digi/notice.png" />
+						</a>
+                        <br/>
+                        <span style="color:white;"><strong>登陆首页</strong></span>
+                    </div>
+					
+					<div class="ui-block-c">
+						<a href="javascript:void(0)" onclick="changePageWithBridge('http://mobile.sugon.com/view/test2/second/','http://mobile.sugon.com/view/Resources/second.scene.xml')">
+                        <img width="68" height="68" src="/view/png/digi/notice.png" />
+						</a>
+                        <br/>
+                        <span style="color:white;"><strong>赋值页面</strong></span>
+                    </div>
                 </div>
 				
 			</div>
 		</div>
-		<iframe src="/view/digi?data-action=createuser" border="0" frameborder="no" framespacing="0" width="0" height="0"></iframe>-->
+		<iframe src="/view/digi?data-action=createuser" border="0" frameborder="no" framespacing="0" width="0" height="0"></iframe>
 		
 	</body>
 </html>

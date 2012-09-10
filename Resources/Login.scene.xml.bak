@@ -11,12 +11,8 @@
 			<component name="application" type="builtin:appController"/>
 			<component name="case" type="builtin:caseController">
 				<properties>
-					<property name="title">
-						<string>注销</string>
-					</property>
-					<property name="navButtonText">
-						<string>click</string>
-					</property>
+					
+					
 					<property name="navBarHidden">
 						<string>1</string>
 					</property>
@@ -84,6 +80,8 @@
 					</property>
 				</properties>
 			</component>
+			
+			
 			
         </componentType>
     </component>

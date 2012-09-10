@@ -73,7 +73,19 @@
 					
 				});
 				
-			
+			    cherry.bridge.registerEvent("mylogin", "touchUp", function() {
+	
+	                  var mydoLogin = new cherry.bridge.ScriptOperation(function(){
+				                  var SERVER_BASE_URL="http://mobile.sugon.com/view";
+								  //alert("跳转成功");
+										var  targetURL= SERVER_BASE_URL+"/html/digilogin.html";
+										var componentURL = SERVER_BASE_URL+"/Resources/digihometest.xml";
+										
+										var pushSence=changePageWithBridge(targetURL,componentURL);
+										});
+										mydoLogin.dispatch();
+					}
+				)
 				// 保存用户信息
 				function saveCookie () {
 					var getCookieSwitch = new cherry.bridge.NativeOperation("cookieSwitch", "getProperty", ["on"]).dispatch();

@@ -8,6 +8,21 @@
 	<viewer id="ia" type="remote" source="http://dlmail:8080" encoding="gb18030">
 		<view id="login" />
 	</viewer>
+	
+	<viewer id="baidu" type="remote" source="http://news.baidu.com" encoding="gb2312">
+		<!-- 百度NEWS -->
+		<view id="news" template="baidu/news/news.xsl"/>
+		<view id="title" template="baidu/title.xsl"/>
+	</viewer>
+	<viewer id="baiduT" type="remote" source="http://www.baidu.com/" encoding="gb2312">
+		<!-- 百度 -->
+		<view id="title" template="baidu/title.xsl"/>
+	</viewer>
+	
+	<viewer id="test" type="remote" source="http://mobile.sugon.com" encoding="utf-8">
+		<!-- 首页 -->
+		<view id="first" template="test/first.xsl"/>
+	</viewer>
 
 	<viewer id="hpi" type="remote" source="http://dloa.hpi.com.cn" encoding="gb18030">
 		<view id="login" />
@@ -20,7 +35,7 @@
 		<!-- 待办事宜 -->
 		<view id="todos" template="digi/todoslist.xsl" encoding="utf-8"/>
 		<!-- 手机待办 -->
-		<view id="todosmobile" template="digi/todosmobilelist.xsl" encoding="utf-8"/>
+		<view id="todosmobile" template="digi/todosmobilelist.xsl" />
 		<view id="contentmobile" template="digi/mobile/content.xsl">
 			<rule mode="replace" regex="&amp;lt;" value="&lt;"/>
 			<rule mode="replace" regex="&amp;gt;" value="&gt;"/>
@@ -77,6 +92,9 @@
 			<rule mode="remove" regex="height=&amp;quot;179&amp;quot;"/>
 			<rule mode="replace" regex="http://www.digiwin.com.cn/" value="/view/diwin/file/"/>
 		</view>
+		
+
+		
 		<!-- 个人消息 -->
 		<!-- 未读 -->
 		<view id="messagelist" template="digi/message/list.xsl" encoding="utf-8"/>
@@ -151,5 +169,11 @@
 		<view id="cxstl" template="local/content.xsl"></view>
 		<view id="cjsp" template="content.jsp"></view>
 	</viewer>
-
+	
+	<viewer id="test2" type="remote" source="http://localhost:8080"  encoding="utf-8">
+	      
+		<view id="second" template="test2/second.xsl"></view>
+		
+	</viewer>
+		
 </viewers>
