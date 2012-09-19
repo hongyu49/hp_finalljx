@@ -18,21 +18,24 @@
 				<script src="/view/js/cherry.js"></script>
 				<script src="http://mobile.sugon.com/view/mobileBridge.js"></script>
 				<script src="/cssjs/jquery.mobile-1.0.1.js"></script>
+				<script>
+				new cherry.bridge.NativeOperation("case","setProperty",["title","已读消息"]).dispatch();
+							cherry.bridge.flushOperations();
+				</script>
 			</head>
 			<body>
 				<div id="list" data-role="page" class="type-home">
 					<div data-role="content" align="center">
 						<script>
 							function goin(user,unid){
-								var url = "/view/digi/messagerouting/DFMessage/dfmsg_"+user+".nsf/msgByDateDownView/"+unid+"?opendocument?login";
+								var url = "/view/digi/messagerouting2/DFMessage/dfmsg_"+user+".nsf/msgByDateDownView/"+unid+"?opendocument?login";
 								$.get(url, function(result){
 									url = "http://mobile.sugon.com" + result;
 									changePageWithBridge(url);
 								});
 							}
 							
-							new cherry.bridge.NativeOperation("case","setProperty",["title","已读消息"]).dispatch();
-							cherry.bridge.flushOperations();
+							
 
 						</script>
 						<ul data-role="listview" data-inset="true">

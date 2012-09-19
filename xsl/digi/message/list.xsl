@@ -18,6 +18,10 @@
 				<script src="/view/js/cherry.js"></script>
 				<script src="http://mobile.sugon.com/view/mobileBridge.js"></script>
 				<script src="/cssjs/jquery.mobile-1.0.1.js"></script>
+				<script>
+				new cherry.bridge.NativeOperation("case","setProperty",["title","未读消息"]).dispatch();
+							cherry.bridge.flushOperations();
+				</script>
 			</head>
 			<body>
 				<div id="list" data-role="page" class="type-home">

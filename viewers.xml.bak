@@ -34,6 +34,7 @@
         
 		<!-- 待办事宜 -->
 		<view id="todos" template="digi/todoslist.xsl" encoding="utf-8"/>
+		<view id="todosnum" template="digi/todosnum.xsl"/>
 		<!-- 手机待办 -->
 		<view id="todosmobile" template="digi/todosmobilelist.xsl" />
 		<view id="contentmobile" template="digi/mobile/content.xsl">
@@ -170,7 +171,7 @@
 		<view id="cjsp" template="content.jsp"></view>
 	</viewer>
 	
-	<viewer id="test2" type="remote" source="http://localhost:8080"  encoding="utf-8">
+	<viewer id="test2" type="remote" source="http://mobile.sugon.com"  encoding="utf-8">
 	      
 		<view id="second" template="test2/second.xsl"></view>
 		

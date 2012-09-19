@@ -27,9 +27,15 @@
 								return;
 							}
 							
-							var disableLogin=new cherry.bridge.NativeOperation("loginButton","setProperty",["enabled",0]);
-							disableLogin.dispatch();
+							
+							// add show loading
+							new cherry.bridge.NativeOperation("application","showLoadingSheet",[]).dispatch();
+							// hidden loading
+							//new cherry.bridge.NativeOperation("application","hideLoadingSheet",[]).dispatch();
+								
 							saveCookie();
+							
+
 							//var url = '/view/digi/loginvalidate/names.nsf?Login&$PublicAccess=1&%26%26ModDate=0000000100000000&%26%26ModDate=0871326800000070&Password='+password+'&ReasonType=0&RedirectTo=/Produce/Weboaconfig.nsf/Homeform?openform%26login&Username='+username+'&imageField.x=55&imageField.y=13&data-userid=Username&data-password=Password&data-login=true&random='+Math.floor(Math.random()*1000000);
 							var url = '/view/digi/loginvalidate/names.nsf?Login&password='+password+'&username='+username+'&data-userid=username&data-password=password&data-login=true';
 							$.ajax({
@@ -52,15 +58,19 @@
 									}else{
 										//$.mobile.hidePageLoadingMsg();
 										alert("登录失败,用户名或密码错.");
-										
-									}
-									var enableLogin=new cherry.bridge.NativeOperation("loginButton","setProperty",["enabled",1]);
-									enableLogin.dispatch();
+										// hidden loading
+									new cherry.bridge.NativeOperation("application","hideLoadingSheet",[]).dispatch();
 									cherry.bridge.flushOperations();
+
+									}
+									
 								},
 								error:function(response){
 									//$.mobile.hidePageLoadingMsg();
 									alert("错误:"+response.responseText);
+									// hidden loading
+									new cherry.bridge.NativeOperation("application","hideLoadingSheet",[]).dispatch();
+									cherry.bridge.flushOperations();
 								}
 							});
 
@@ -73,19 +83,7 @@
 					
 				});
 				
-			    cherry.bridge.registerEvent("mylogin", "touchUp", function() {
-	
-	                  var mydoLogin = new cherry.bridge.ScriptOperation(function(){
-				                  var SERVER_BASE_URL="http://mobile.sugon.com/view";
-								  //alert("跳转成功");
-										var  targetURL= SERVER_BASE_URL+"html/digilogin.html";
-										var componentURL = SERVER_BASE_URL+"/Resources/digihometest.xml";
-										
-										var pushSence=changePageWithBridge(targetURL,componentURL);
-										});
-										mydoLogin.dispatch();
-					}
-				)
+			    
 				// 保存用户信息
 				function saveCookie () {
 					var getCookieSwitch = new cherry.bridge.NativeOperation("cookieSwitch", "getProperty", ["on"]).dispatch();
@@ -129,7 +127,8 @@
 				}
 				
 				function loadCookie(){
-					//alert($.cookie("userName"));
+					alert($.cookie("userName"));
+					alert("hello");
 					var userName="";
 					var passWord="";
 					
@@ -142,18 +141,19 @@
 							passWord=$.cookie("passWord");
 						}
 						
-					}	
-					var NR_UserName = new cherry.bridge.NativeOperation("userName", "setProperty", ["text", userName]);
-					NR_UserName.dispatch();
-					var NR_Password = new cherry.bridge.NativeOperation("password", "setProperty", ["text", passWord]);
-					NR_Password.dispatch();
-					var getCookieSwitch = new cherry.bridge.NativeOperation("cookieSwitch", "setProperty", ["on","1"]);
-					getCookieSwitch.dispatch()
+					
+						var NR_UserName = new cherry.bridge.NativeOperation("userName", "setProperty", ["text", userName]);
+						NR_UserName.dispatch();
+						var NR_Password = new cherry.bridge.NativeOperation("password", "setProperty", ["text", passWord]);
+						NR_Password.dispatch();
+						var getCookieSwitch = new cherry.bridge.NativeOperation("cookieSwitch", "setProperty", ["on","1"]);
+						getCookieSwitch.dispatch()
 						
 						
 								
-					cherry.bridge.flushOperations();
-							
+						cherry.bridge.flushOperations();
+						cherry.bridge.flushOperations();
+					}			
 					
 					
 				}

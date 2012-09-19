@@ -34,6 +34,7 @@
         
 		<!-- 待办事宜 -->
 		<view id="todos" template="digi/todoslist.xsl" encoding="utf-8"/>
+		<view id="todosnum" template="digi/todosnum.xsl"/>
 		<!-- 手机待办 -->
 		<view id="todosmobile" template="digi/todosmobilelist.xsl" />
 		<view id="contentmobile" template="digi/mobile/content.xsl">
@@ -103,6 +104,7 @@
 		
 		<view id="messagecontent" template="digi/message/content.xsl"/>
 		<view id="messagerouting" template="digi/message/routing.xsl"/>
+		<view id="messagerouting2" template="digi/message/routing2.xsl"/>
 		
 		<view id="file" template="file.jsp"/>
 	</viewer>

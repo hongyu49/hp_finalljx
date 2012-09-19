@@ -48,7 +48,7 @@
 				</properties>
 			</component>
 			<component name="password" type="builtin:textField">
-				<frame x="100" y="220" width="190" height="30"/>
+				<frame x="100" y="220" width="190" height="40"/>
 				<properties>
 					<property name="secure">
 						<string>1</string>
@@ -81,14 +81,7 @@
 				</properties>
 			</component>
 			
-			<component name="mylogin" type="builtin:button">
-				<frame x="98" y="420" width="150" height="40"/>
-				<properties>
-					<property name="text">
-						<string>百度</string>
-					</property>
-				</properties>
-			</component>
+			
 			
         </componentType>
     </component>
