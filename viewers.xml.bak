@@ -46,8 +46,6 @@
 			<rule mode="replace" regex="&amp;amp;ldquo;" value=""/>
 			<rule mode="replace" regex="&amp;amp;rdquo;" value=""/>
 			<rule mode="replace" regex="&lt;textarea name=&quot;Fck_HTML&quot;" value="&lt;div name=&quot;Fck_HTML&quot;"/>
-
-			
 		</view>
 		<view id="request" template="digi/mobile/request.xsl" encoding="utf-8">
 			<rule mode="replace" regex="soap:" value=""/>
@@ -98,12 +96,32 @@
 		
 		<!-- 个人消息 -->
 		<!-- 未读 -->
-		<view id="messagelist" template="digi/message/list.xsl" encoding="utf-8"/>
+		<view id="messagelist" template="digi/message/list.xsl" encoding="utf-8">
+			<rule mode="replace" regex="textarea" value="div"/>
+			<rule mode="replace" regex="&amp;lt;" value="&lt;"/>
+			<rule mode="replace" regex="&amp;gt;" value="&gt;"/>
+		</view>
+
+
 		<!-- 已读 -->
 		<view id="messagereadlist" template="digi/message/readlist.xsl" encoding="utf-8"/>
 		
-		<view id="messagecontent" template="digi/message/content.xsl"/>
+		<view id="messagecontent" template="digi/message/content.xsl">
+			<rule mode="replace" regex="textarea" value="div"/>
+			<rule mode="replace" regex="&amp;lt;" value="&lt;"/>
+			<rule mode="replace" regex="&amp;gt;" value="&gt;"/>
+		</view>
+		<view id="messagecontent2" template="digi/message/content2.xsl">
+			<rule mode="remove" regex="选择"/>
+			<rule mode="remove" regex="清除"/>
+			<rule mode="remove" regex="拆分"/>
+			<rule mode="remove" regex="yes"/>
+			<rule mode="remove" regex="no"/>
+			<rule mode="remove" regex="&amp;nbsp;"/>
+			<rule mode="remove" regex="&amp;amp;nbsp;"/>
+		</view>
 		<view id="messagerouting" template="digi/message/routing.xsl"/>
+		<view id="messagerouting2" template="digi/message/routing2.xsl"/>
 		
 		<view id="file" template="file.jsp"/>
 	</viewer>

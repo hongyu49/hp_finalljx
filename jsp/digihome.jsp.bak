@@ -79,7 +79,7 @@
 //场景显示消息
 			cherry.bridge.registerEvent("case", "casePresented", function(oper) {
 					//alert("niubility");
-					inittodos
+					inittodos();
 				});
 
 			//设置titleBar颜色
@@ -122,17 +122,24 @@
 			<div data-role="content" align="center">
 				<script>
 					function openmail(){
-						PhoneGap.exec(null, function(){alert("客户端未安装Traveler Mail客户端!");}, 'TravelerMailCaller', 'startActivity', []);
+						alert('11');
+						new cherry.bridge.NativeOperation("application", "runTralver", []).dispatch();
+						cherry.bridge.flushOperations();
+						//var saveCookieScript = new cherry.bridge.ScriptOperation(function(){
+						//	var result = getdeviceid.returnValue;
 					}
 					function registdevice(){
 						var getdeviceid = new cherry.bridge.NativeOperation("application", "getDeviceId", []).dispatch();
 						var saveCookieScript = new cherry.bridge.ScriptOperation(function(){
 							var result = getdeviceid.returnValue;
-							alert("deviceId:"+result);
+							if(result == ""){
+								alert("无法获取设备ID");
+								return;
+							}
 							$.ajax({
 								type: "POST", url: "/view/digi?data-action=regisdevice&data-device-type=android&data-device-token="+result,
 								success: function(response){
-									alert("绑定成功!");
+									alert("绑定成功，DeviceId为"+result);
 								},
 								error:function(response){
 									alert("绑定失败!");
@@ -185,7 +192,7 @@
 								spanTodo.style.top=divOneOffset.top-25;
 								spanTodo.style.left=imgOffset.left+65;
 							}else if(window.navigator.userAgent.match(/android/i)) {
-								alert('android')
+								
 								spanTodo.style.top=divOneOffset.top;
 								spanTodo.style.left=imgOffset.left+68+10;
 							}else{

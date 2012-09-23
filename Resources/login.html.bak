@@ -1,20 +1,34 @@
 <html>
     <head>
-		<script src="/view/js/cherry.js"></script>
-		<script src="/view/js/mobileBridge.js"></script>
 		<script src="/cssjs/jquery.js"></script>
 		<script src="/cssjs/jquery.mobile-1.0.1.js"></script>
+
+		<script src="/view/js/cherry.js"></script>
+		
+		<script src="/view/js/mobileBridge.js"></script>
+	
 		<script src="/cssjs/jquery.cookie.js"></script>
 		<script type="text/javascript">
 		
 		$(document).ready(function(){
 			
 			try{
+				//获取 手机设备uuid
+				
+				var no_getuuid = new cherry.bridge.NativeOperation("application", "getDeviceId", []).dispatch();
+				var getUuid = new cherry.bridge.ScriptOperation(
+									function(){
+										alert("uuid="+no_getuuid.returnValue);
+									}).addDependency(no_getuuid);
+				getUuid.dispatch();
+				
+				
 				loadCookie();	
 				cherry.bridge.registerEvent("loginButton", "touchUp", function(oper) {
 						var getUserName = new cherry.bridge.NativeOperation("userName", "getProperty", ["text"]).dispatch();
 						var getPassword = new cherry.bridge.NativeOperation("password", "getProperty", ["text"]).dispatch();
 						var doLogin = new cherry.bridge.ScriptOperation(function() {
+							alert("Hello");
 							var username=getUserName.returnValue;
 							
 							var password=getPassword.returnValue;
@@ -32,7 +46,7 @@
 							new cherry.bridge.NativeOperation("application","showLoadingSheet",[]).dispatch();
 							// hidden loading
 							//new cherry.bridge.NativeOperation("application","hideLoadingSheet",[]).dispatch();
-								
+							alert("Hello2");	
 							saveCookie();
 							
 
@@ -127,10 +141,10 @@
 				}
 				
 				function loadCookie(){
-					alert($.cookie("userName"));
-					alert("hello");
+					 
 					var userName="";
 					var passWord="";
+					var cookieOn="0";
 					
 					if($.cookie("userName") && $.trim($.cookie("userName"))!="") {
 						
@@ -140,21 +154,20 @@
 						if($.cookie("passWord")){
 							passWord=$.cookie("passWord");
 						}
-						
+						cookieOn="1";
+					}
 					
-						var NR_UserName = new cherry.bridge.NativeOperation("userName", "setProperty", ["text", userName]);
-						NR_UserName.dispatch();
-						var NR_Password = new cherry.bridge.NativeOperation("password", "setProperty", ["text", passWord]);
-						NR_Password.dispatch();
-						var getCookieSwitch = new cherry.bridge.NativeOperation("cookieSwitch", "setProperty", ["on","1"]);
-						getCookieSwitch.dispatch()
-						
-						
-								
-						cherry.bridge.flushOperations();
-						cherry.bridge.flushOperations();
-					}			
+					var NR_UserName = new cherry.bridge.NativeOperation("userName", "setProperty", ["text", userName]);
+					NR_UserName.dispatch();
+					var NR_Password = new cherry.bridge.NativeOperation("password", "setProperty", ["text", passWord]);
+					NR_Password.dispatch();
+					var getCookieSwitch = new cherry.bridge.NativeOperation("cookieSwitch", "setProperty", ["on", cookieOn]);
+					getCookieSwitch.dispatch()
 					
+					
+							
+					cherry.bridge.flushOperations();		
+				
 					
 				}
 				

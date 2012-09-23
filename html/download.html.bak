@@ -29,7 +29,7 @@
 				<p>All Android Client Version.</p>
 			
 				<ul>
-					<li><a href="http://mobile.sugon.com/view/install/ios/a.txt" target="_blank" data-role="button">HM_Android_2012-09-10 </a></li>
+					<li><a href="http://mobile.sugon.com/install/android/HoriMobile.apk"  target="_blank" data-role="button">HM_Android_2012-09-10 </a></li>
 				
 				</ul>
 			</li>
@@ -39,7 +39,7 @@
 				<p>All IOS Client Version.</p>
 	
 				<ul>
-					<li><a href="http://mobile.sugon.com/install/ios/HoriMobile.ipa" target="_self"  data-role="button">HM_IOS_2012-09-10 </a></li>
+					<li><a href="'itms-services://?action=download-manifest&url=http://mobile.sugon.com/install/ios/manifest.plist'" target="_self"  data-role="button">HM_IOS_2012-09-10 </a></li>
 				</ul>
 			</li>
 			<li>

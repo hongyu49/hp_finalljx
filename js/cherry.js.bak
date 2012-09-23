@@ -4,7 +4,7 @@ if (window.navigator.userAgent.match(/iPad/i) || window.navigator.userAgent.matc
 } else if (window.navigator.userAgent.match(/android/i)) {
 	scriptUrl="/view/js/cherry_android.js";
 }
-
+alert(scriptUrl);
 $.ajax({
 		type: "get", 
 		url: scriptUrl, 

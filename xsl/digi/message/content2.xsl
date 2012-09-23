@@ -19,16 +19,20 @@
 			<body>
 				<div id="notice" data-role="page">
 					<div data-role="content" align="center">
-						<ul data-role="listview" data-inset="true" data-theme="d">
+						<ul data-role="listview" data-inset="true" data-theme="d"> 
 							<li data-role="list-divider">基本信息:</li>
-							<li><xsl:apply-templates select="//fieldentry" mode="f1"/></li>
-							<li data-role="list-divider">附件信息:</li>
-							<xsl:apply-templates select="//td[@id='attachinfo']//a" mode="file"/>
-							<li data-role="list-divider">当前环节信息:</li>
-							<li>
-							<xsl:text>无</xsl:text>
-							</li>
-
+							<xsl:if test="//div[@id='divtA']/table">
+								<li><xsl:apply-templates select="//div[@id='divtA']/table" mode="c1"/></li>
+							</xsl:if>
+							<xsl:if test="//div[@id='divtB']/table">
+								<li><xsl:apply-templates select="//div[@id='divtB']/table" mode="c1"/></li>
+							</xsl:if>
+							<xsl:if test="//div[@id='divtC']/table">
+								<li><xsl:apply-templates select="//div[@id='divtC']/table" mode="c1"/></li>
+							</xsl:if>
+							<xsl:if test="//div[@id='divtD']/table">
+								<li><xsl:apply-templates select="//div[@id='divtD']/table" mode="c1"/></li>
+							</xsl:if>
 						</ul>
 					</div><!-- /content -->
 				</div>
@@ -36,19 +40,7 @@
 		</html>
 	</xsl:template>
 	
-	<xsl:template match="fieldentry" mode="f1">
-		<span style="width:38%;display:inline-block;text-align:right"><font color="red"><xsl:value-of select="@title"/>:</font></span>
-		<xsl:value-of select="substring-before(substring-after(text/., 'CDATA['), ']]>')"/>
-		<hr/>
-	</xsl:template>
-
 	
-	<xsl:template match="a" mode="file">
-		<li>
-		<a href="javascript:void(0)" onclick="changePageWithBridge('http://mobile.sugon.com/view/digi/file{@href}')"><xsl:value-of select="."/></a>
-		</li>
-	</xsl:template>
-
 	<!-- 表单批量格式化模版 -->
 	<!-- variable of $mini and $aliasname at mdp.xsl -->
 	<xsl:template match="table" mode="c1">
@@ -73,7 +65,6 @@
 				<xsl:apply-templates mode="c3"/>
 			</div>
 		</xsl:if>
-		<hr/>
 	</xsl:template>
 
 	<xsl:template match="td" mode="c3">
@@ -81,7 +72,8 @@
 			<!-- 发文红色字体特殊处理 -->
 			<xsl:choose>
 				<xsl:when test="@class='DF_GTable_LTD_Style'">
-					<span style="width:38%;display:inline-block;text-align:right"><font color="red"><xsl:value-of select="."/></font></span>
+					<hr/>
+					<span style="width:38%;display:inline-block;text-align:right;"><font color="red"><xsl:value-of select="."/></font></span>
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:apply-templates mode="c4"/>

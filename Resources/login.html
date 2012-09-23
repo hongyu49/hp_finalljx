@@ -1,15 +1,28 @@
 <html>
     <head>
-		<script src="/view/js/cherry.js"></script>
-		<script src="/view/js/mobileBridge.js"></script>
 		<script src="/cssjs/jquery.js"></script>
 		<script src="/cssjs/jquery.mobile-1.0.1.js"></script>
+
+		<script src="/view/js/cherry.js"></script>
+		
+		<script src="/view/js/mobileBridge.js"></script>
+	
 		<script src="/cssjs/jquery.cookie.js"></script>
 		<script type="text/javascript">
 		
 		$(document).ready(function(){
 			
 			try{
+				//获取 手机设备uuid
+				
+				var no_getuuid = new cherry.bridge.NativeOperation("application", "getDeviceId", []).dispatch();
+				var getUuid = new cherry.bridge.ScriptOperation(
+									function(){
+										alert("uuid="+no_getuuid.returnValue);
+									}).addDependency(no_getuuid);
+				getUuid.dispatch();
+				
+				
 				loadCookie();	
 				cherry.bridge.registerEvent("loginButton", "touchUp", function(oper) {
 						var getUserName = new cherry.bridge.NativeOperation("userName", "getProperty", ["text"]).dispatch();
@@ -31,8 +44,7 @@
 							// add show loading
 							new cherry.bridge.NativeOperation("application","showLoadingSheet",[]).dispatch();
 							// hidden loading
-							//new cherry.bridge.NativeOperation("application","hideLoadingSheet",[]).dispatch();
-								
+							//new cherry.bridge.NativeOperation("application","hideLoadingSheet",[]).dispatch();	
 							saveCookie();
 							
 
@@ -127,7 +139,7 @@
 				}
 				
 				function loadCookie(){
-					// alert($.cookie("userName"));
+					 
 					var userName="";
 					var passWord="";
 					var cookieOn="0";
