@@ -31,9 +31,9 @@ function changePageBackWithBridge(forceRefresh){
 	
 	if(typeof(forceRefresh)=="undefined" || parseInt(forceRefresh,10)==0){
 		
-		var refreshFlag=0;
+		var refreshFlag="0";
 	} else{
-		var refreshFlag=1;
+		var refreshFlag="1";
 	}
 	var popScene = new cherry.bridge.NativeOperation("application", "popScene", [refreshFlag]);
 	
@@ -44,7 +44,18 @@ function changePageBackWithBridge(forceRefresh){
 	return popScene;
 }
 
-/*
-new cherry.bridge.NativeOperation("case","setProperty",["title","内容"]).dispatch();
-cherry.bridge.flushOperations();
-*/
+//调用native的 loading页面
+
+function showLoading(){
+	var loading=new cherry.bridge.NativeOperation("application","showLoadingSheet",[]);
+	loading.dispatch();
+	cherry.bridge.flushOperations();
+}
+
+//隐藏native的 loading页面
+
+function hiddenLoading(){
+	var hiddenLoading=new cherry.bridge.NativeOperation("application","hideLoadingSheet",[]);
+	hiddenLoading.dispatch();
+	cherry.bridge.flushOperations();
+}

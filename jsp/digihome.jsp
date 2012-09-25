@@ -123,10 +123,15 @@
 				<script>
 					function openmail(){
 						
-						new cherry.bridge.NativeOperation("application", "runTralver", []).dispatch();
+						var runMail=new cherry.bridge.NativeOperation("application", "runTravelver", []).dispatch();
+						var travelerScript = new cherry.bridge.ScriptOperation(function(){
+								var result = runMail.returnValue;
+								alert(result);
+						});
+						travelerScript.addDependency(runMail);
+						travelerScript.dispatch();
 						cherry.bridge.flushOperations();
-						//var saveCookieScript = new cherry.bridge.ScriptOperation(function(){
-						//	var result = getdeviceid.returnValue;
+						
 					}
 					function registdevice(){
 						var getdeviceid = new cherry.bridge.NativeOperation("application", "getDeviceId", []).dispatch();
@@ -207,7 +212,7 @@
 				<div class="ui-grid-b" id="divOne" style="padding-top:1em">
                     <div class="ui-block-a" >
 						
-						<a href="javascript:void(0);" onclick="changePageWithBridge('http://mobile.sugon.com/view/digi/todosmobile/Produce/DigiFlowMobileJC.nsf/dataformserver?openform&thserver=&thdir=DFMessage&thdb=dfmsg_<%=request.getParameter("itcode") %>.nsf&thview=vwTaskUnDoneForMobile&bdoptdesname=%E5%BE%85%E5%8A%9E%E4%BB%BB%E5%8A%A1')">
+						<a href="javascript:void(0);" onclick="showLoading();changePageWithBridge('http://mobile.sugon.com/view/digi/todosmobile/Produce/DigiFlowMobileJC.nsf/dataformserver?openform&thserver=&thdir=DFMessage&thdb=dfmsg_<%=request.getParameter("itcode") %>.nsf&thview=vwTaskUnDoneForMobile&bdoptdesname=%E5%BE%85%E5%8A%9E%E4%BB%BB%E5%8A%A1')">
 							<img width="68" height="68" id= "imgToDo" src="/view/png/digi/todos.png" />
 						</a>
 						<span id="spanTodo" class="bubble-count ui-btn-up-c ui-btn-corner-all">...</span>
@@ -218,14 +223,14 @@
 						
                     </div>
                     <div class="ui-block-b">
-						<a href="javascript:void(0);" onclick="changePageWithBridge('http://mobile.sugon.com/view/digi/messagelist/Produce/DigiFlowMobile.nsf/agGetViewData?openagent&login&0.6922244625974295&server=&dbpath=DFMessage/dfmsg_<%=request.getParameter("itcode") %>.nsf&view=vwMsgUnRdForMobile&thclass=&page=1&count=15')">
+						<a href="javascript:void(0);" onclick="showLoading();changePageWithBridge('http://mobile.sugon.com/view/digi/messagelist/Produce/DigiFlowMobile.nsf/agGetViewData?openagent&login&0.6922244625974295&server=&dbpath=DFMessage/dfmsg_<%=request.getParameter("itcode") %>.nsf&view=vwMsgUnRdForMobile&thclass=&page=1&count=15')">
 							<img width="68" height="68" src="/view/png/digi/unread.png" />
 						</a>
                         <br/>
                         <span style="color:white;"><strong>未读消息</strong></span>
                     </div>
 					 <div class="ui-block-b">
-						<a href="javascript:void(0);" onclick="changePageWithBridge('http://mobile.sugon.com/view/digi/messagereadlist/DFMessage/dfmsg_<%=request.getParameter("itcode") %>.nsf/msgByDateDownRdView?readviewentries?login&start=1&count=3')">
+						<a href="javascript:void(0);" onclick="showLoading();changePageWithBridge('http://mobile.sugon.com/view/digi/messagereadlist/DFMessage/dfmsg_<%=request.getParameter("itcode") %>.nsf/msgByDateDownRdView?readviewentries?login&start=1&count=3')">
 							<img width="68" height="68" src="/view/png/digi/unread.png" /> 
 						</a>
                         <br/>
@@ -235,7 +240,7 @@
                 <br/>
                 <div class="ui-grid-b">
                     <div class="ui-block-a">
-						<a href="javascript:void(0);" onclick="changePageWithBridge('http://mobile.sugon.com/view/digi/newslist/Produce/DigiFlowMobile.nsf/agGetViewData?openagent&login&0.30080900634742125&server=&dbpath=Application/DigiFlowInfoPublish.nsf&view=InfoByDateView_2&thclass=Dir01$&page=1&count=15')">
+						<a href="javascript:void(0);" onclick="showLoading();changePageWithBridge('http://mobile.sugon.com/view/digi/newslist/Produce/DigiFlowMobile.nsf/agGetViewData?openagent&login&0.30080900634742125&server=&dbpath=Application/DigiFlowInfoPublish.nsf&view=InfoByDateView_2&thclass=Dir01$&page=1&count=15')">
 							<img width="68" height="68" src="/view/png/digi/news.png" />
 						</a>
                         <br/>
@@ -249,7 +254,7 @@
                         <span style="color:white;"><strong>邮件</strong></span>
                     </div>
                     <div class="ui-block-c">
-						<a href="javascript:void(0)" onclick="changePageWithBridge('http://mobile.sugon.com/view/digi/phonenumber/Produce/WeboaConfig.nsf/telSearchForm?openform','http://mobile.sugon.com/view/Resources/searchContact.xml')">
+						<a href="javascript:void(0)" onclick="showLoading();changePageWithBridge('http://mobile.sugon.com/view/digi/phonenumber/Produce/WeboaConfig.nsf/telSearchForm?openform','http://mobile.sugon.com/view/Resources/searchContact.xml')">
                         <img width="68" height="68" src="/view/png/digi/addressbook.png" />
 						</a>
                         <br/>

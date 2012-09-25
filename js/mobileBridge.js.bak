@@ -29,11 +29,11 @@ function changePageWithBridge(targetUrl,componetXmlUrl){
 function changePageBackWithBridge(forceRefresh){
 	
 	
-	if(typeof(forceRefresh)=="undefined" || parseInt(forceRefresh)==0){
+	if(typeof(forceRefresh)=="undefined" || parseInt(forceRefresh,10)==0){
 		
-		var refreshFlag=0;
+		var refreshFlag="0";
 	} else{
-		var refreshFlag=1;
+		var refreshFlag="1";
 	}
 	var popScene = new cherry.bridge.NativeOperation("application", "popScene", [refreshFlag]);
 	
